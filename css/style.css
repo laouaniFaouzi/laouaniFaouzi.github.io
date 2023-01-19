@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+#time-of-day {
+	font-size: 35px;
+	font-weight: 200;
+	max-width: 800px;
+	margin: auto;
+	padding: 20px;
+	text-align: center;
+}
