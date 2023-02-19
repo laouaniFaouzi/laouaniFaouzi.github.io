@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+#body {
+    margin: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.page-title {
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.miniapps__box--links {
+    text-decoration: none;
+    color: #000;
+}
+
+.miniapps__list {
+    display: flex;
+    padding: 20px;
+}
+
+.miniapps__box {
+    width: 25%;
+    padding: 20px;
+}
+
+.miniapps__box--logo {
+    width: 70px;
+    border-radius: 50%;
+    background: #DFDFE3;
+    font-size: 40px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease;
+    color: #939393;
+}
+
+.miniapps__box--icon {
+    margin-bottom: 50px;
+}
+
+.miniapps__box--title {
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #000;
+    transition: 0.3s all ease;
+}
+
+.miniapps__container {
+    padding: 20px;
+    background-color: #F0F0F4;
+    border-radius: 15px;
+}
+
+.miniapps__box--text {
+    font-size: 13px;
+    line-height: 160%;
+    color: #9f9f9f;
+    transition: 0.3s all ease;
+}
+
+.miniapps {
+    padding: 20px;
+}
+
+.miniapps__box:hover {
+    background-color: #fff;
+    border-radius: 15px;
+}
+
+.miniapps__box:hover .miniapps__box--logo {
+    background: #1a73e8;
+    color: #fff;
+    font-size: 45px;
+}
+
+.miniapps__box:hover .miniapps__box--title {
+    color: #1a73e8;
+}
+
+.miniapps__box:hover .miniapps__box--text {
+    color: #000;
+}
