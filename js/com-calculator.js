@@ -47,6 +47,8 @@ form.addEventListener("submit", (event) => {
   row.appendChild(commissionCell);
 
   const deleteButton = document.createElement("button");
+  deleteButton.classList.add("btn");
+  deleteButton.classList.add("btn-danger");
   deleteButton.innerHTML = '<i class="fa-solid fa-trash"></i>';
   deleteButton.addEventListener("click", () => {
     row.remove();

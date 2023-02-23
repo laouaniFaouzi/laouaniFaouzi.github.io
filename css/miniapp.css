@@ -8,24 +8,67 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+.header__title--img {
+	width: 60px;
+	height: 60px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	overflow: hidden;
+	margin: 0 15px;
+	background: #fbf5ec;
+}
+
+.header__title--img img {
+    width: 100%;
+}
+
+.header__content {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 20px 0;
+    align-items: center;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    min-width: 100px;
+    justify-content: space-around;
+    margin: 0;
+}
+
+.header__title {
+	font-size: 20px;
+	font-weight: 600;
+	display: flex;
+	align-items: center;
+	text-transform: uppercase;
+}
+
 .page-title {
     font-size: 40px;
     font-weight: 700;
+    margin-top: 0;
 }
 
 .miniapps__box--links {
-    text-decoration: none;
-    color: #000;
+	text-decoration: none;
+	color: #000;
+	display: block;
 }
 
 .miniapps__list {
     display: flex;
-    padding: 20px;
+    padding: 20px 0;
 }
 
 .miniapps__box {
     width: 25%;
     padding: 20px;
+    position: relative;
 }
 
 .miniapps__box--logo {
@@ -54,7 +97,7 @@ body {
 }
 
 .miniapps__container {
-    padding: 20px;
+    padding: 30px;
     background-color: #F0F0F4;
     border-radius: 15px;
 }
@@ -88,3 +131,18 @@ body {
 .miniapps__box:hover .miniapps__box--text {
     color: #000;
 }
+
+.miniapps__box--label {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 0 10px;
+    background: #939393;
+    border-radius: 5px;
+    color: #fff;
+    transition: all 0.5s ease;
+    font-weight: 300;
+  }
+  .miniapps__box:hover .miniapps__box--label {
+    background: #1a73e8;
+  }
