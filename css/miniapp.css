@@ -142,7 +142,8 @@ ul {
     color: #fff;
     transition: all 0.5s ease;
     font-weight: 300;
-  }
-  .miniapps__box:hover .miniapps__box--label {
+}
+
+.miniapps__box:hover .miniapps__box--label {
     background: #1a73e8;
-  }
+}
