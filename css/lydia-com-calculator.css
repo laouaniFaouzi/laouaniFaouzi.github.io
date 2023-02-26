@@ -8,13 +8,18 @@ body {
 	font-family: 'Poppins', sans-serif;
 }
 
-a, a:hover {
+a,
+a:hover {
 	text-decoration: none !important;
 	color: initial;
 }
 
 .h-100vh {
 	height: 100vh;
+}
+
+.commission-form-field label {
+	font-size: 12px;
 }
 
 .header__title--img {
@@ -78,7 +83,7 @@ ul {
 
 .app__content--box {
 	height: 100%;
-	background-color: #F0F0F4;
+	background-color: #F6F8FA;
 	padding: 20px;
 	border-radius: 15px;
 	overflow: auto;
@@ -133,7 +138,7 @@ ul {
 	padding-top: 20px;
 	margin-top: 20px;
 	display: flex;
-	justify-content: start;
+	align-items: center;
 }
 
 .sidebar__bottom--name .name {
@@ -143,7 +148,7 @@ ul {
 
 .sidebar__bottom--name .position {
 	font-size: 10px;
-	color: gray;
+	color: #A1A1A1;
 	font-weight: 600;
 }
 
@@ -154,7 +159,7 @@ ul {
 .sidebar__menu a {
 	padding: 10px 20px;
 	font-size: 10px;
-	color: gray;
+	color: #A1A1A1;
 	font-weight: 600;
 	margin-bottom: 5px;
 }
@@ -167,9 +172,9 @@ ul {
 }
 
 .sidebar__menu a:hover {
-	background-color: #e4e4e8;
+	background-color: #eaeaea;
 	border-radius: 5px;
-	color: gray;
+	color: #A1A1A1;
 }
 
 .sidebar__menu a:last-child {
@@ -179,4 +184,67 @@ ul {
 .sidebar__menu a i {
 	margin-right: 10px;
 	font-size: 12px;
+}
+
+.result__title,
+.commission-form-title {
+	font-size: 18px;
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+
+#employee-table thead th {
+	font-weight: 600;
+}
+
+.commission-form-field.field-position::before {
+	content: "Position:";
+	font-size: 12px;
+}
+
+.result {
+	margin-bottom: 40px;
+}
+
+.result__wrap {
+	display: flex;
+	justify-content: space-between;
+	gap: 3%;
+	padding: 20px;
+	background: #fff;
+	border-radius: 20px;
+}
+
+.result__wrap--title {
+	font-size: 12px;
+	font-weight: 600;
+	color: #A1A1A1;
+  }
+
+.result__wrap--box {
+	width: 25%;
+	min-height: 120px;
+	border: 1px solid #eee;
+	border-radius: 10px;
+	padding: 15px;
+	display: grid;
+}
+
+#total-sales,
+#total-commission {
+	font-size: 30px;
+	font-weight: 700;
+	color: #333;
+}
+
+.result__wrap--logo {
+	width: 25px;
+	height: 25px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #E7F3FF;
+	border-radius: 5px;
+	color: #0A83F0;
+	margin-bottom: 20px;
 }

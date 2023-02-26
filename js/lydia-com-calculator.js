@@ -2,8 +2,10 @@ const form = document.getElementById("commission-form");
 const table = document.getElementById("employee-table");
 const list = document.getElementById("employee-list");
 const totalCommissionDiv = document.getElementById("total-commission");
+const totalSalesDiv = document.getElementById("total-sales");
 
 let totalCommission = 0;
+let totalSales = 0;
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -25,6 +27,8 @@ form.addEventListener("submit", (event) => {
   if ( sales >= 15000 ) {
     commission += parseFloat((sales * 0.05).toFixed(2));
   }
+
+  totalSales += parseFloat(sales);
 
   totalCommission += commission;
 
@@ -53,14 +57,17 @@ form.addEventListener("submit", (event) => {
   deleteButton.addEventListener("click", () => {
     row.remove();
     totalCommission -= commission;
-    totalCommissionDiv.textContent = "Total Commission: " + totalCommission + "€";
+    totalCommissionDiv.textContent = totalCommission.toFixed(2) + "€";
   });
+  
   const deleteCell = document.createElement("td");
   deleteCell.appendChild(deleteButton);
   row.appendChild(deleteCell);
-
   list.appendChild(row);
-  totalCommissionDiv.textContent = "Total Commission: " + totalCommission + "€";
+
+  totalCommissionDiv.textContent = totalCommission.toFixed(2) + "€";
+  totalSalesDiv.textContent = totalSales.toFixed(2) + "€";
+
 });
 
 document.querySelector("#download-pdf").addEventListener("click", function() {
