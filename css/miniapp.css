@@ -165,4 +165,17 @@ ul {
         background: #1a73e8;
         color: #fff;
     }
+
+    .header__back {
+        display: none;
+    }
+
+    .header__content {
+        flex-direction: column;
+    }
+
+    .header__title {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
 }
