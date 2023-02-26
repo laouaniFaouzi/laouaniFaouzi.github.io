@@ -9,15 +9,15 @@ body {
 }
 
 .header__title--img {
-	width: 60px;
-	height: 60px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: 50%;
-	overflow: hidden;
-	margin: 0 15px;
-	background: #fbf5ec;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 15px;
+    background: #fbf5ec;
 }
 
 .header__title--img img {
@@ -41,11 +41,11 @@ ul {
 }
 
 .header__title {
-	font-size: 20px;
-	font-weight: 600;
-	display: flex;
-	align-items: center;
-	text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
 }
 
 .page-title {
@@ -55,9 +55,9 @@ ul {
 }
 
 .miniapps__box--links {
-	text-decoration: none;
-	color: #000;
-	display: block;
+    text-decoration: none;
+    color: #000;
+    display: block;
 }
 
 .miniapps__list {
@@ -146,4 +146,23 @@ ul {
 
 .miniapps__box:hover .miniapps__box--label {
     background: #1a73e8;
+}
+
+@media screen and (max-width: 767px) {
+    .miniapps__list {
+        display: block;
+        width: 100%;
+    }
+
+    .miniapps__box {
+        width: auto;
+        margin-bottom: 40px;
+        background-color: #fff;
+        border-radius: 15px;
+    }
+
+    .miniapps__box .miniapps__box--logo {
+        background: #1a73e8;
+        color: #fff;
+    }
 }
