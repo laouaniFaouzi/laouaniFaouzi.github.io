@@ -202,6 +202,16 @@ ul {
 	font-size: 12px;
 }
 
+.commission-form-field.field-kpis::before {
+	content: "KPI's:";
+	font-size: 12px;
+}
+
+.commission-form-field.field-seniority::before {
+	content: "Seniority:";
+	font-size: 12px;
+}
+
 .result {
 	margin-bottom: 40px;
 }
@@ -230,8 +240,7 @@ ul {
 	display: grid;
 }
 
-#total-sales,
-#total-commission {
+.result__wrap--amount {
 	font-size: 30px;
 	font-weight: 700;
 	color: #333;
@@ -247,4 +256,11 @@ ul {
 	border-radius: 5px;
 	color: #0A83F0;
 	margin-bottom: 20px;
+}
+
+.commission-table {
+	padding: 20px 0;
+	border-radius: 20px;
+	background-color: #fff;
+	margin: 30px 0;
 }

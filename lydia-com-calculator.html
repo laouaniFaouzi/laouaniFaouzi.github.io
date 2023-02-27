@@ -39,9 +39,10 @@
                     <a href="" class=""><i class="fa-solid fa-house"></i>Home</a>
                     <a href="" class="active"><i class="fa-solid fa-calculator"></i>Dealbuddy</a>
                     <a href="" class=""><i class="fa-solid fa-dumbbell"></i>Gymbuddy</a>
-                    <a href="" class=""><i class="fa-brands fa-app-store"></i>Button 3</a>
-                    <a href="" class=""><i class="fa-brands fa-app-store"></i>Button 4</a>
+                    <a href="" class=""><i class="fa-brands fa-app-store"></i>New app</a>
+                    <a href="" class=""><i class="fa-brands fa-app-store"></i>New app</a>
                 </div>
+
                 <div class="sidebar__bottom">
                     <div class="sidebar__bottom--swichtheme">
                         <label for="theme-toggle">Light Mode</label>
@@ -65,29 +66,31 @@
                         <div class="result__wrap gx-5">
                             <div class="result__wrap--box">
                                 <div class="result__wrap--logo">
-                                    <i class="fa-solid fa-hand-holding-dollar"></i>
-                                </div>
-                                <div class="result__wrap--title">Total commission</div>
-                                <div id="total-commission">0€</div>
-                            </div>
-                            <div class="result__wrap--box">
-                                <div class="result__wrap--logo">
                                     <i class="fa-solid fa-sack-dollar"></i>
                                 </div>
                                 <div class="result__wrap--title">Chiffre d'affaire</div>
-                                <div id="total-sales">0€</div>
+                                <div id="total-sales" class="result__wrap--amount">0€</div>
                             </div>
                             <div class="result__wrap--box">
                                 <div class="result__wrap--logo">
-                                    <i class="fa-solid fa-sack-dollar"></i>
+                                    <i class="fa-solid fa-clipboard-check"></i>
                                 </div>
-                                <div class="result__wrap--title">Total commission</div>
+                                <div class="result__wrap--title">KPI's achieved</div>
+                                <div class="result__wrap--amount"><span id="total-kpis">0</span> <span class="result__wrap--separator">/</span> <span id="total-consultant">0</span></div>
                             </div>
                             <div class="result__wrap--box">
                                 <div class="result__wrap--logo">
-                                    <i class="fa-solid fa-sack-dollar"></i>
+                                    <i class="fa-solid fa-money-check-dollar"></i>
                                 </div>
                                 <div class="result__wrap--title">Total commission</div>
+                                <div id="total-commission" class="result__wrap--amount">0€</div>
+                            </div>
+                            <div class="result__wrap--box">
+                                <div class="result__wrap--logo">
+                                    <i class="fa-solid fa-hand-holding-dollar"></i>
+                                </div>
+                                <div class="result__wrap--title">Total Salary brut</div>
+                                <div id="total-salary" class="result__wrap--amount">6000€</div>
                             </div>
                         </div>
                     </div>
@@ -104,8 +107,30 @@
                                 <div class="commission-form-field field-position">
                                     <select class="form-select" id="position" placeholder="Position">
                                         <label for="position">Position:</label>
-                                        <option value="junior">Junior</option>
-                                        <option value="senior">Senior</option>
+                                        <option value="Junior">Junior</option>
+                                        <option value="Jenior">Senior</option>
+                                        <option value="Team leader">Team leader</option>
+                                        <option value="Manager">Manager</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="commission-form-field field-seniority">
+                                    <select class="form-select" id="seniority" placeholder="Seniority">
+                                        <label for="seniority">Seniority:</label>
+                                        <option value="6-12 mounth">6 - 12 mounth</option>
+                                        <option value="12-18 mounth">12 - 18 mounth</option>
+                                        <option value="18-24 mounth">18 - 24 mounth</option>
+                                        <option value="+24 mounth">+ 24 mounth</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="commission-form-field field-kpis">
+                                    <select class="form-select" id="kpis" placeholder="Kpi's">
+                                        <label for="kpis">Kpi's:</label>
+                                        <option value="No">No</option>
+                                        <option value="Yes">Yes</option>
                                     </select>
                                 </div>
                             </div>
@@ -121,19 +146,23 @@
                             </div>
                         </div>
                     </form>
-                    <table id="employee-table" class="table table-hover align-middle">
-                        <thead>
-                            <tr>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Sales</th>
-                            <th>Commission</th>
-                            <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody id="employee-list">
-                        </tbody>
-                    </table>
+                    <div class="commission-table table-responsive">
+                        <table id="employee-table" class="table table-hover align-middle">
+                            <thead>
+                                <tr>
+                                <th>Name</th>
+                                <th>Position</th>
+                                <th>Seniority</th>
+                                <th>KPI's</th>
+                                <th>Sales</th>
+                                <th>Commission</th>
+                                <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="employee-list">
+                            </tbody>
+                        </table>
+                    </div>
                     <button class="btn btn-success" id="download-pdf">Télécharger en PDF</button>
                 </div>
             </div>
