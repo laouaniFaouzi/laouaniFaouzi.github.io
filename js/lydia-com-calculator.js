@@ -4,11 +4,13 @@ const list = document.getElementById("employee-list");
 const totalCommissionDiv = document.getElementById("total-commission");
 const totalSalesDiv = document.getElementById("total-sales");
 const totalSalaryDiv = document.getElementById("total-salary");
-const totalKpisDiv = document.getElementById("total-kpis");
-const totalConsultantDiv = document.getElementById("total-consultant");
+const employeeCountDiv = document.getElementById("employee-count");
+const kpiCountDiv = document.getElementById("kpi-count");
 
 let totalCommission = 0;
 let totalSales = 0;
+let employeeCount = 0;
+let kpiCount = 0;
 
 let initialSalary = 6000;
 let totalSalary = initialSalary;
@@ -49,11 +51,16 @@ form.addEventListener("submit", (event) => {
     seniorityValue = 250;
   }
 
+  employeeCount++;
+  employeeCountDiv.textContent = employeeCount;
+
   let kpisValue = 0;
   let kpisAmount = 0;
   if (kpis === "Yes") {
     kpisValue = 200;
     kpisAmount = 200;
+    kpiCount++;
+    kpiCountDiv.textContent = kpiCount;
   }
 
   if (sales >= 20000) {
@@ -107,6 +114,12 @@ form.addEventListener("submit", (event) => {
     totalSalesDiv.textContent = totalSales.toFixed(2) + "€";
     totalSalary = initialSalary + totalCommission;
     totalSalaryDiv.textContent = totalSalary.toFixed(2) + "€";
+    employeeCount--;
+    employeeCountDiv.textContent = employeeCount;
+    if (kpis === "Yes") {
+      kpiCount--;
+      kpiCountDiv.textContent = kpiCount;
+    }
   });
 
   const deleteCell = document.createElement("td");
