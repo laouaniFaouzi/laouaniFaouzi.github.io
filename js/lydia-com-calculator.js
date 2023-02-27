@@ -10,6 +10,9 @@ const totalConsultantDiv = document.getElementById("total-consultant");
 let totalCommission = 0;
 let totalSales = 0;
 
+let initialSalary = 6000;
+let totalSalary = initialSalary;
+
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
@@ -63,8 +66,8 @@ form.addEventListener("submit", (event) => {
 
   totalCommission += commission;
 
-  let totalSalary = 6000;
-  totalSalary += totalCommission;
+  let salary = initialSalary;
+  let totalSalary = salary += totalCommission;
 
   const row = document.createElement("tr");
 
@@ -102,9 +105,8 @@ form.addEventListener("submit", (event) => {
     totalSales -= sales;
     totalCommissionDiv.textContent = totalCommission.toFixed(2) + "€";
     totalSalesDiv.textContent = totalSales.toFixed(2) + "€";
+    totalSalary = initialSalary + totalCommission;
     totalSalaryDiv.textContent = totalSalary.toFixed(2) + "€";
-    totalKpisDiv.textContent = totalKpis;
-    totalConsultantDiv.textContent = totalConsultant;
   });
 
   const deleteCell = document.createElement("td");
@@ -115,25 +117,4 @@ form.addEventListener("submit", (event) => {
   totalCommissionDiv.textContent = totalCommission.toFixed(2) + "€";
   totalSalesDiv.textContent = totalSales.toFixed(2) + "€";
   totalSalaryDiv.textContent = totalSalary.toFixed(2) + "€";
-  totalKpisDiv.textContent = totalKpis;
-  totalConsultantDiv.textContent = totalConsultant;
-
-});
-
-document.querySelector("#download-pdf").addEventListener("click", function () {
-  // Code pour générer et enregistrer le PDF
-  var doc = new jsPDF('p', 'pt', 'letter');
-  var employeeTable = document.querySelector("#employee-table");
-  var res = doc.autoTableHtmlToJson(employeeTable);
-  doc.autoTable(res.columns, res.data, {
-    startY: 60,
-    theme: 'grid',
-    styles: {
-      overflow: 'linebreak',
-      fontSize: 10,
-      cellPadding: 5,
-      halign: 'center'
-    }
-  });
-  doc.save('employee-table.pdf');
 });
