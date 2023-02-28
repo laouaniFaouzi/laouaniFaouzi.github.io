@@ -17,7 +17,7 @@
                     <div class="sidebar__app--name">Dealbuddy</div>
                 </div>
                 <div class="sidebar__menu d-flex flex-column">
-                    <a href="" class=""><i class="fa-solid fa-house"></i>Home</a>
+                    <a href="mini-apps.html" class=""><i class="fa-solid fa-house"></i>Mini apps</a>
                     <a href="" class="active"><i class="fa-solid fa-calculator"></i>Dealbuddy</a>
                     <a href="" class=""><i class="fa-solid fa-dumbbell"></i>Gymbuddy</a>
                     <a href="" class=""><i class="fa-brands fa-app-store"></i>New app</a>
@@ -90,7 +90,7 @@
                                         <label for="position">Position:</label>
                                         <option value="0">Position</option>
                                         <option value="Junior">Junior</option>
-                                        <option value="Jenior">Senior</option>
+                                        <option value="Senior">Senior</option>
                                         <option value="Team leader">Team leader</option>
                                         <option value="Manager">Manager</option>
                                     </select>
@@ -101,6 +101,7 @@
                                     <select class="form-select" id="seniority" placeholder="Seniority">
                                         <label for="seniority">Seniority:</label>
                                         <option value="0">Seniority</option>
+                                        <option value="-6 mounth">- 6 mounth</option>
                                         <option value="6-12 mounth">6 - 12 mounth</option>
                                         <option value="12-18 mounth">12 - 18 mounth</option>
                                         <option value="18-24 mounth">18 - 24 mounth</option>
@@ -126,7 +127,7 @@
                             </div>
                             <div class="col-12 btn-group">
                                 <button class="btn btn-primary" type="submit">Add</i></button>
-                                <button class="btn btn-danger" type="reset">Reset</button>
+                                <button class="btn btn-danger" type="reset">Clear</button>
                             </div>
                         </div>
                     </form>
@@ -150,6 +151,54 @@
                         </div>
                     </div>
                     <button class="btn btn-success" id="download-pdf">Download PDF</button>
+                    <div class="mobile-box result-box">
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-ca" tabindex="0">
+                                <div class="result__wrap--title">Chiffre d'affaire</div>
+                                <div id="mobile-total-sales" class="result__wrap--amount">0€</div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-kpis" tabindex="0">
+                                <div class="result__wrap--title">KPI's achieved</div>
+                                <div class="result__wrap--amount"><span id="mobile-kpi-count">0</span> <span class="result__wrap--separator">/</span> <span id="mobile-employee-count">0</span></div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-commission" tabindex="0">
+                                <div class="result__wrap--title">Total commission</div>
+                                <div id="mobile-total-commission" class="result__wrap--amount">0€</div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-disabled" role="tabpanel" aria-labelledby="nav-salary" tabindex="0">
+                                <div class="result__wrap--title">Total Salary brut</div>
+                                <div id="mobile-total-salary" class="result__wrap--amount">6000€</div>
+                            </div>
+                        </div>
+                        <nav>
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <button class="nav-link active" id="nav-ca" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
+                                    <div class="result__wrap--logo">
+                                        <i class="fa-solid fa-sack-dollar"></i>
+                                    </div>
+                                    CA
+                                </button>
+                                <button class="nav-link" id="nav-kpis" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">
+                                    <div class="result__wrap--logo">
+                                        <i class="fa-solid fa-clipboard-check"></i>
+                                    </div>
+                                    KPI's
+                                </button>
+                                <button class="nav-link" id="nav-commission" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">
+                                    <div class="result__wrap--logo">
+                                        <i class="fa-solid fa-money-check-dollar"></i>
+                                    </div>
+                                    Com.
+                                </button>
+                                <button class="nav-link" id="nav-salary" data-bs-toggle="tab" data-bs-target="#nav-disabled" type="button" role="tab" aria-controls="nav-disabled" aria-selected="false">
+                                    <div class="result__wrap--logo">
+                                        <i class="fa-solid fa-hand-holding-dollar"></i>
+                                    </div>
+                                    Salary
+                                </button>
+                            </div>
+                        </nav>
+                    </div>
                 </div>
             </div>
         </div>

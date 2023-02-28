@@ -7,6 +7,12 @@ const totalSalaryDiv = document.getElementById("total-salary");
 const employeeCountDiv = document.getElementById("employee-count");
 const kpiCountDiv = document.getElementById("kpi-count");
 
+const totalCommissionDivMobile = document.getElementById("mobile-total-commission");
+const totalSalesDivMobile = document.getElementById("mobile-total-sales");
+const totalSalaryDivMobile = document.getElementById("mobile-total-salary");
+const employeeCountDivMobile = document.getElementById("mobile-employee-count");
+const kpiCountDivMobile = document.getElementById("mobile-kpi-count");
+
 let totalCommission = 0;
 let totalSales = 0;
 let employeeCount = 0;
@@ -53,6 +59,7 @@ form.addEventListener("submit", (event) => {
 
   employeeCount++;
   employeeCountDiv.textContent = employeeCount;
+  employeeCountDivMobile.textContent = employeeCount;
 
   let kpisValue = 0;
   let kpisAmount = 0;
@@ -61,6 +68,7 @@ form.addEventListener("submit", (event) => {
     kpisAmount = 200;
     kpiCount++;
     kpiCountDiv.textContent = kpiCount;
+    kpiCountDivMobile.textContent = kpiCount;
   }
 
   if (sales >= 20000) {
@@ -116,10 +124,33 @@ form.addEventListener("submit", (event) => {
     totalSalaryDiv.textContent = totalSalary.toFixed(2) + "€";
     employeeCount--;
     employeeCountDiv.textContent = employeeCount;
+    
+    totalCommissionDivMobile.textContent = totalCommission.toFixed(2) + "€";
+    totalSalesDivMobile.textContent = totalSales.toFixed(2) + "€";
+    totalSalaryDivMobile.textContent = totalSalary.toFixed(2) + "€";
+    employeeCountDivMobile.textContent = employeeCount;
+
     if (kpis === "Yes") {
       kpiCount--;
       kpiCountDiv.textContent = kpiCount;
+      kpiCountDivMobile.textContent = kpiCount;
     }
+
+    Toastify({
+      text: name + " deleted successfully",
+      duration: 3000,
+      newWindow: true,
+      close: true,
+      gravity: "bottom",
+      position: "right",
+      style: {
+        background: "#dc3545",
+        color: "#fff",
+        fontWeight: "500",
+        fontSize: "14px",
+        borderRadius: "5px",
+      }
+    }).showToast();
   });
 
   const deleteCell = document.createElement("td");
@@ -131,8 +162,12 @@ form.addEventListener("submit", (event) => {
   totalSalesDiv.textContent = totalSales.toFixed(2) + "€";
   totalSalaryDiv.textContent = totalSalary.toFixed(2) + "€";
 
+  totalCommissionDivMobile.textContent = totalCommission.toFixed(2) + "€";
+  totalSalesDivMobile.textContent = totalSales.toFixed(2) + "€";
+  totalSalaryDivMobile.textContent = totalSalary.toFixed(2) + "€";
+
   Toastify({
-    text: "Teammate added successfully",
+    text: name + " added successfully",
     duration: 3000,
     newWindow: true,
     close: true,
