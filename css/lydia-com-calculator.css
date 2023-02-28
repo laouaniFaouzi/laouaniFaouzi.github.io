@@ -234,7 +234,7 @@ ul {
 	font-size: 12px;
 	font-weight: 600;
 	color: #A1A1A1;
-  }
+}
 
 .result__wrap--box {
 	width: 25%;
@@ -268,4 +268,81 @@ ul {
 	border-radius: 20px;
 	background-color: #fff;
 	margin: 30px 0;
+}
+
+@media screen and (max-width: 767px) {
+	.app {
+		flex-direction: column;
+	}
+
+	.app__sidebar {
+		width: 100%;
+		height: auto;
+		overflow: initial;
+	}
+
+	.sidebar__menu a {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		font-size: 8px;
+		margin: 0;
+		padding: 10px;
+	}
+
+	.sidebar__menu .fa-solid,
+	.sidebar__menu .fa-brands {
+		margin: 0 0 5px 0;
+		font-size: 17px;
+	}
+
+	.sidebar__app {
+		justify-content: center;
+	}
+
+	.sidebar__menu.d-flex {
+		flex-direction: row !important;
+		justify-content: space-evenly;
+		padding: 0;
+	}
+
+	.sidebar__bottom {
+		display: none;
+	}
+
+	.app__content {
+		height: auto;
+		overflow: initial;
+		padding: 0 0 0px;
+	}
+
+	.result {
+		background-color: #f6f8fa;
+		width: 100%;
+	}
+
+	.result__wrap {
+		padding: 0;
+		flex-direction: column;
+		background: transparent;
+	}
+
+	.result__wrap--title {
+		font-size: 10px;
+	}
+
+	.result__wrap--box {
+		width: 100%;
+		margin-bottom: 10px;
+		background: #fff;
+	}
+
+	#employee-table tbody td {
+		font-size: 12px;
+	}
+
+	#download-pdf {
+		display: none;
+	}
 }
