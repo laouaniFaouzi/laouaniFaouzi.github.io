@@ -342,6 +342,10 @@ ul {
 		font-size: 12px;
 	}
 
+	#employee-list .btn.btn-danger {
+		font-size: 12px;
+	}
+	
 	#download-pdf {
 		display: none;
 	}

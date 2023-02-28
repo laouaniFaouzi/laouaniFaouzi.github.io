@@ -130,4 +130,20 @@ form.addEventListener("submit", (event) => {
   totalCommissionDiv.textContent = totalCommission.toFixed(2) + "€";
   totalSalesDiv.textContent = totalSales.toFixed(2) + "€";
   totalSalaryDiv.textContent = totalSalary.toFixed(2) + "€";
+
+  Toastify({
+    text: "Teammate added successfully",
+    duration: 3000,
+    newWindow: true,
+    close: true,
+    gravity: "bottom",
+    position: "right",
+    style: {
+      background: "#198754",
+      color: "#fff",
+      fontWeight: "500",
+      fontSize: "14px",
+      borderRadius: "5px",
+    }
+  }).showToast();
 });
