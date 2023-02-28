@@ -353,8 +353,13 @@ ul {
 		background: #fff;
 	}
 
+	#employee-table thead th {
+		font-size: 12px;
+	}
+
 	#employee-table tbody td {
 		font-size: 12px;
+		white-space: nowrap;
 	}
 
 	#employee-list .btn.btn-danger {
