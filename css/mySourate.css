@@ -2,6 +2,12 @@
 
 body {
     font-family: 'Poppins', sans-serif;
+    background-color: #fff;
+    margin: 20px;
+}
+
+a {
+    text-decoration: none;
 }
 
 header {
@@ -18,25 +24,83 @@ header img {
     position: absolute;
 }
 
+.main-home {
+	background-color: #4158D0;
+	background-image: linear-gradient(0deg, #546DEC 0%, #CE6BC8 41%, #FF9F70 100%);
+	border-radius: 20px;
+	overflow: hidden;
+}
+
 .main-home-card {
+	display: flex;
+	flex-direction: column;
+	padding-top: 20px;
+	height: 350px;
+	background-repeat: no-repeat;
+	background-size: 90%;
+	background-position: center;
+	background-image: url(/images/femme-coran.png);
+}
+
+.main-home-card-text p {
+    margin: 0;
+    color: #fff;
+}
+
+.main-home-card-text .small-text {
+    font-size: 10px;
+    color: #ffffffab;
+}
+
+.main-home-card a {
     display: flex;
-    background-color: #4158D0;
-    background-image: linear-gradient(0deg, #4158D0 0%, #C850C0 41%, #FFCC70 100%);
-    border-radius: 20px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    margin-top: auto;
+    -webkit-backdrop-filter: blur(20px); /* assure la compatibilité avec safari */
+    backdrop-filter: blur(20px);
+}
+
+.main-home-card-icon .fi {
+    font-size: 26px;
+    color: #fff;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.main-home-card-icon {
+	height: 35px;
+	width: 35px;
+	border-radius: 50%;
+	background-color: #ffffff5e;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#currentSourate {
+    font-size: 22px;
+    font-weight: 600;
 }
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
     header {
-        margin-bottom: 20px;
+        margin-bottom: 25px;
     }
+
     header h1 {
         font-size: 20px;
         margin: 50px 0 0;
     }
+
     header p {
         font-size: 12px;
+
     }
+
     header img {
         right: 10px;
         top: 50px;
@@ -45,21 +109,13 @@ header img {
 }
 
 /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) and (max-width: 767.98px) {
-    
-}
+@media (min-width: 576px) and (max-width: 767.98px) {}
 
 /* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) and (max-width: 991.98px) {
-    
-}
+@media (min-width: 768px) and (max-width: 991.98px) {}
 
 /* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) and (max-width: 1199.98px) {
-    
-}
+@media (min-width: 992px) and (max-width: 1199.98px) {}
 
 /* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-    
-}
+@media (min-width: 1200px) {}
