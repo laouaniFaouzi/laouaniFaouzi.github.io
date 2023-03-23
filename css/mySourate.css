@@ -28,6 +28,7 @@ header img {
 	background-color: #4158D0;
 	background-image: linear-gradient(0deg, #546DEC 0%, #CE6BC8 41%, #FF9F70 100%);
 	border-radius: 20px;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
 	overflow: hidden;
 }
 
