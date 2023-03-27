@@ -9,6 +9,7 @@ let currentAudio = null;
 // Boucle pour ajouter l'événement de clic à chaque bouton de lecture
 audioElements.forEach(audioElement => {
     const playBtn = audioElement.parentElement.querySelector('button');
+    const playBtnContent = playBtn.innerHTML;
 
     playBtn.addEventListener('click', function () {
         // Pause de l'audio en cours
@@ -16,38 +17,21 @@ audioElements.forEach(audioElement => {
             currentAudio.currentTime = 0;
             currentAudio.pause();
             const currentPlayBtn = currentAudio.parentElement.querySelector('button');
-            currentPlayBtn.innerHTML = '<i class="fi fi-sr-play"></i>';
+            currentPlayBtn.innerHTML = '<lord-icon src="https://cdn.lordicon.com/xddtsyvc.json" trigger="morph" colors="primary:#6c16c7" state="morph-play-pause" style="width:20px;height:20px"></lord-icon>';
         }
         // Lecture / Pause du mp3
         if (audioElement.paused) {
             audioElement.play();
-            playBtn.innerHTML = '<i class="fi fi-sr-pause"></i>';
+            playBtn.innerHTML = '<lord-icon src="https://cdn.lordicon.com/ensnyqet.json" trigger="morph"colors="primary:#6c16c7" style="width:20px;height:20px"></lord-icon>';
             currentAudio = audioElement;
         } else {
             audioElement.pause();
-            playBtn.innerHTML = '<i class="fi fi-sr-play"></i>';
+            playBtn.innerHTML = '<lord-icon src="https://cdn.lordicon.com/xddtsyvc.json" trigger="morph" colors="primary:#6c16c7" state="morph-play-pause" style="width:20px;height:20px"></lord-icon>';
             currentAudio = null;
         }
     });
+
+    audioElement.addEventListener('ended', function () {
+        playBtn.innerHTML = playBtnContent;
+    });
 });
-
-
-// Mettre la durée totale du mp3 dans l'élément de durée
-audio.addEventListener("loadedmetadata", () => {
-    const duration = formatTime(audio.duration);
-    durationEl.textContent = duration;
-});
-
-// Mettre à jour la position du tracker en fonction de la progression de la lecture
-audio.addEventListener("timeupdate", () => {
-    const progress = (audio.currentTime / audio.duration) * 100;
-    trackerEl.style.width = `${progress}%`;
-});
-
-// Formatage du temps en minutes et secondes
-function formatTime(time) {
-    const minutes = Math.floor(time / 60);
-    const seconds = Math.floor(time % 60);
-    const formattedSeconds = seconds.toString().padStart(2, "0");
-    return `${minutes}:${formattedSeconds}`;
-}

@@ -105,25 +105,52 @@ header h1 span {
 }
 
 .verset {
-    padding: 10px;
+    padding: 40px 0;
+    border-bottom: 1px solid #e6e6e6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .verset-ar,
 .verset-fr {
-    font-size: 10px;
-    color: grey;
-    font-weight: 300;
-}
-
-.verset-ar {
-    text-align: right;
+	font-size: 10px;
+	color: #939393;
+	font-weight: 400;
+	text-align: right;
 }
 
 .verset-phonetic {
-    text-align: center;
-    margin: 18px 0;
+    text-align: right;
+    margin: 10px 0;
 }
 
+.sourate-title {
+    text-align: center;
+}
+
+.progress-bar {
+    width: 0;
+    height: 100%;
+    background-color: #333;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: width linear;
+    transition-duration: 2s; /* Durée de l'animation */
+    transition-delay: 0s;
+    z-index: -1;
+}
+
+.verset.active .progress-bar {
+    width: 100%;
+}
+
+#play-btn {
+	border: 0;
+	background: 0;
+    padding: 0;
+}
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
     header {
@@ -144,6 +171,10 @@ header h1 span {
         right: 10px;
         top: 50px;
         max-width: 50px;
+    }
+    
+    .sourate-title {
+        font-size: 12px;
     }
 }
 
