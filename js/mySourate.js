@@ -35,3 +35,43 @@ audioElements.forEach(audioElement => {
         playBtn.innerHTML = playBtnContent;
     });
 });
+
+// Récupération de la liste des sourates
+const sourateList = document.getElementById('sourate-list');
+// Récupération de la card de la sourate en cours
+const currentSourateCard = document.getElementById('sourate');
+// Récupération de l'élément pour afficher l'état courant
+const currentState = document.getElementById('currentState');
+// Récupération de l'élément pour afficher le titre de la sourate en cours
+const currentSourate = document.getElementById('currentSourate');
+
+// Vérifie s'il y a déjà une sourate en cours enregistrée en localStorage
+if (localStorage.getItem('currentSourate')) {
+  currentSourate.textContent = localStorage.getItem('currentSourate');
+  currentSourateCard.href = localStorage.getItem('currentSourateHref');
+  currentState.textContent = 'Sourate en cours';
+}
+
+// Parcours la liste des sourates pour ajouter un listener sur chaque lien
+sourateList.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', event => {
+    event.preventDefault(); // Annule la redirection par défaut
+
+    // Récupère le titre et le lien de la sourate cliquée
+    const sourateTitle = link.textContent;
+    const sourateHref = link.href;
+
+    // Met à jour les éléments de la card de la sourate en cours
+    currentSourate.textContent = sourateTitle;
+    currentSourateCard.href = sourateHref;
+    currentState.textContent = 'Sourate en cours';
+
+    // Enregistre les informations de la sourate en cours en localStorage
+    localStorage.setItem('currentSourate', sourateTitle);
+    localStorage.setItem('currentSourateHref', sourateHref);
+  });
+});
+
+
+
+
