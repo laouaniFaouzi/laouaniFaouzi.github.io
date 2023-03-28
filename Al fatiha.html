@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sourate Al Fatiha</title>
+    <title>Sourate Al-Fātiĥah</title>
 
     <link href="css/mySourate.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 
 <body>
@@ -15,11 +16,16 @@
         <a href="mySourate.html">back</a>
     </header>
     <div class="sourate container">
-        <div class="sourate-title">
-            <h1>Sourate Al Fatiha</h1>
+        <div class="sourate-title animate__animated animate__fadeInDown">
+            <h1>Sourate Al-Fātiĥah</h1>
         </div>
         <div class="versets">
             <div class="verset">
+                <div class="verset-text">
+                    <div class="verset-fr">Au nom de Dieu, le Tout Miséricordieux, le Très Miséricordieux.</div>
+                    <div class="verset-phonetic">Bismi Allāhi Ar-Raĥmāni Ar-Raĥīmi</div>
+                    <div class="verset-ar">بِسْمِ ‌اللَّ‍‍هِ ‌ال‍‍رَّحْمَنِ ‌ال‍‍رَّحِيمِ</div>
+                </div>
                 <div id="verset-audio">
                     <button id="play-btn" onclick="playAudio(document.getElementById('audio-sourate-1'))">
                         <lord-icon
@@ -31,16 +37,15 @@
                         </lord-icon>
                     </button>
                     <audio id="audio-sourate-1" src="Sourates/Al-fatiha/Al fatiha 1.mp3"></audio>
-                    <div class="progress-bar"></div>
-                </div>
-                <div class="verset-text">
-                    <div class="verset-fr">Au nom de Dieu, le Tout Miséricordieux, le Très Miséricordieux.</div>
-                    <div class="verset-phonetic">Bismi Allāhi Ar-Raĥmāni Ar-Raĥīmi</div>
-                    <div class="verset-ar">بِسْمِ ‌اللَّ‍‍هِ ‌ال‍‍رَّحْمَنِ ‌ال‍‍رَّحِيمِ</div>
                 </div>
             </div>
             <!-- Ajouter d'autres versets ici -->
             <div class="verset">
+                <div class="verset-text">
+                    <div class="verset-fr">Louange à Allah, Seigneur de l'univers.</div>
+                    <div class="verset-phonetic">Al-Ĥamdu Lillāh Rabbi Al-`Ālamīna</div>
+                    <div class="verset-ar">‍الْحَمْدُ‌ لِلَّهِ ‌‍رَبِّ ‌الْعَالَمِينَ</div>
+                </div>
                 <div id="verset-audio">
                     <audio id="audio-sourate-2" src="Sourates/Al-fatiha/Al fatiha 2.mp3"></audio>
                     <button id="play-btn" onclick="playAudio(document.getElementById('audio-sourate-2'))">
@@ -53,14 +58,14 @@
                         </lord-icon>
                     </button>
                 </div>
-                <div class="verset-text">
-                    <div class="verset-fr">Louange à Allah, Seigneur de l'univers.</div>
-                    <div class="verset-phonetic">Al-Ĥamdu Lillāh Rabbi Al-`Ālamīna</div>
-                    <div class="verset-ar">‍الْحَمْدُ‌ لِلَّهِ ‌‍رَبِّ ‌الْعَالَمِينَ</div>
-                </div>
             </div>
 
             <div class="verset">
+                <div class="verset-text">
+                    <div class="verset-fr">Le Tout Miséricordieux, le Très Miséricordieux,</div>
+                    <div class="verset-phonetic">Ar-Raĥmāni Ar-Raĥīmi</div>
+                    <div class="verset-ar">‍ال‍‍رَّحْمَنِ ‌ال‍‍رَّحِيمِ</div>
+                </div>
                 <div id="verset-audio">
                     <audio id="audio-sourate-3" src="Sourates/Al-fatiha/Al fatiha 3.mp3"></audio>
                     <button id="play-btn" onclick="playAudio(document.getElementById('audio-sourate-3'))">
@@ -73,14 +78,14 @@
                         </lord-icon>
                     </button>
                 </div>
-                <div class="verset-text">
-                    <div class="verset-fr">Le Tout Miséricordieux, le Très Miséricordieux,</div>
-                    <div class="verset-phonetic">Ar-Raĥmāni Ar-Raĥīmi</div>
-                    <div class="verset-ar">‍ال‍‍رَّحْمَنِ ‌ال‍‍رَّحِيمِ</div>
-                </div>
             </div>
 
             <div class="verset">
+                <div class="verset-text">
+                    <div class="verset-fr">Maître du Jour de la rétribution.</div>
+                    <div class="verset-phonetic">Māliki Yawmi Ad-Dīni</div>
+                    <div class="verset-ar">مَالِكِ يَ‍‍وْمِ ‌ال‍‍دِّينِ</div>
+                </div>
                 <div id="verset-audio">
                     <audio id="audio-sourate-4" src="Sourates/Al-fatiha/Al fatiha 4.mp3"></audio>
                     <button id="play-btn" onclick="playAudio(document.getElementById('audio-sourate-4'))">
@@ -93,14 +98,14 @@
                         </lord-icon>
                     </button>
                 </div>
-                <div class="verset-text">
-                    <div class="verset-fr">Maître du Jour de la rétribution.</div>
-                    <div class="verset-phonetic">Māliki Yawmi Ad-Dīni</div>
-                    <div class="verset-ar">مَالِكِ يَ‍‍وْمِ ‌ال‍‍دِّينِ</div>
-                </div>
             </div>
 
             <div class="verset">
+                <div class="verset-text">
+                    <div class="verset-fr">C'est Toi [Seul] que nous adorons, et c'est Toi [Seul] dont nous implorons secours.</div>
+                    <div class="verset-phonetic">'Īyāka Na`budu Wa 'Īyāka Nasta`īnu</div>
+                    <div class="verset-ar">إِيّ‍‍َ‍اكَ نَعْبُدُ‌ ‌وَ‌إِيّ‍‍َ‍اكَ نَسْتَعِينُ</div>
+                </div>
                 <div id="verset-audio">
                     <audio id="audio-sourate-5" src="Sourates/Al-fatiha/Al fatiha 5.mp3"></audio>
                     <button id="play-btn" onclick="playAudio(document.getElementById('audio-sourate-5'))">
@@ -113,14 +118,14 @@
                         </lord-icon>
                     </button>
                 </div>
-                <div class="verset-text">
-                    <div class="verset-fr">C'est Toi [Seul] que nous adorons, et c'est Toi [Seul] dont nous implorons secours.</div>
-                    <div class="verset-phonetic">'Īyāka Na`budu Wa 'Īyāka Nasta`īnu</div>
-                    <div class="verset-ar">إِيّ‍‍َ‍اكَ نَعْبُدُ‌ ‌وَ‌إِيّ‍‍َ‍اكَ نَسْتَعِينُ</div>
-                </div>
             </div>
 
             <div class="verset">
+                <div class="verset-text">
+                    <div class="verset-fr">Guide-nous dans le droit chemin,</div>
+                    <div class="verset-phonetic">Ahdinā Aş-Şirāţa Al-Mustaqīma</div>
+                    <div class="verset-ar">اهْدِنَا‌ ‌ال‍‍‍صِّ‍‍رَ‍‌اطَ ‌الْمُسْتَ</div>
+                </div>
                 <div id="verset-audio">
                     <audio id="audio-sourate-6" src="Sourates/Al-fatiha/Al fatiha 6.mp3"></audio>
                     <button id="play-btn" onclick="playAudio(document.getElementById('audio-sourate-6'))">
@@ -133,14 +138,15 @@
                         </lord-icon>
                     </button>
                 </div>
-                <div class="verset-text">
-                    <div class="verset-fr">Guide-nous dans le droit chemin,</div>
-                    <div class="verset-phonetic">Ahdinā Aş-Şirāţa Al-Mustaqīma</div>
-                    <div class="verset-ar">اهْدِنَا‌ ‌ال‍‍‍صِّ‍‍رَ‍‌اطَ ‌الْمُسْتَ</div>
-                </div>
             </div>
 
             <div class="verset">
+                <div class="verset-text">
+                    <div class="verset-fr">le chemin de ceux que Tu as comblés de faveurs, non pas de ceux qui ont encouru Ta colère, ni des égarés.</div>
+                    <div class="verset-phonetic">Şirāţa Al-Ladhīna 'An`amta `Alayhim Ghayri Al-Maghđūbi `Alayhim Wa Lā Ađ-Đāllīna</div>
+                    <div class="verset-ar">صِ‍‍رَ‍‌اطَ ‌الَّذ‍ِ‍ي‍‍نَ ‌أَ‌نْ‍‍عَمْتَ عَلَيْهِمْ غَ‍‍‍يْ‍‍‍ر‍ِ‍‌
+                        ‌الْمَ‍‍غْ‍‍‍ضُ‍‍‍وبِ عَلَيْهِمْ ‌وَلاَ‌ ‌ال‍‍‍ضَّ‍‍‍الِّينَ</div>
+                </div>
                 <div id="verset-audio">
                     <audio id="audio-sourate-7" src="Sourates/Al-fatiha/Al fatiha 7.mp3"></audio>
                     <button id="play-btn" onclick="playAudio(document.getElementById('audio-sourate-7'))">
@@ -153,18 +159,24 @@
                         </lord-icon>
                     </button>
                 </div>
-                <div class="verset-text">
-                    <div class="verset-fr">le chemin de ceux que Tu as comblés de faveurs, non pas de ceux qui ont encouru Ta colère, ni des égarés.</div>
-                    <div class="verset-phonetic">Şirāţa Al-Ladhīna 'An`amta `Alayhim Ghayri Al-Maghđūbi `Alayhim Wa Lā Ađ-Đāllīna</div>
-                    <div class="verset-ar">صِ‍‍رَ‍‌اطَ ‌الَّذ‍ِ‍ي‍‍نَ ‌أَ‌نْ‍‍عَمْتَ عَلَيْهِمْ غَ‍‍‍يْ‍‍‍ر‍ِ‍‌
-                        ‌الْمَ‍‍غْ‍‍‍ضُ‍‍‍وبِ عَلَيْهِمْ ‌وَلاَ‌ ‌ال‍‍‍ضَّ‍‍‍الِّينَ</div>
-                </div>
             </div>
 
         </div>
         <div class="footer">
-            <button id="valider">Valider la sourate</button>
+            <button class="buttonValidate" id="buttonValidate">Je connais la sourate</button>
         </div>
+        <!-- La modal qui s'affiche après validation -->
+        <div id="validationModal" class="modal">
+            <div class="modal-content">
+            <p>Al-Ĥamdu Lillāh</p>
+            </div>
+        </div>
+        <div id="cancelModal" class="modal">
+            <div class="modal-content">
+            <p>Ouiiiin ouiiiiin</p>
+            </div>
+        </div>
+  
     </div>
     <script src="js/mySourate.js"></script>
     <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
