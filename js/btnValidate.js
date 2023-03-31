@@ -7,6 +7,9 @@ let validateButton = $("#buttonValidate");
 // récupération de la popup
 let popup = $(".popup");
 
+// récuperation du body
+let body = $("body");
+
 // récupération des boutons de la popup
 let closeButton = popup.find("#closeButton");
 let cancelButton = popup.find("#cancelButton");
@@ -26,6 +29,10 @@ validateButton.on("click", function() {
   localStorage.setItem("counter", counter);
   // affichage de la popup
   popup.removeAttr("hidden");
+  // ajouter display flex à la box
+  popup.addClass("d-flex");
+  // bloque le scroll de la page
+  body.addClass("no-scroll");
 });
 
 localStorage.setItem('counter', counter.toString());
@@ -42,6 +49,8 @@ cancelButton.on("click", function() {
   popup.find(".popup-content").text("Annulation !");
   // affichage de la popup
   popup.removeAttr("hidden");
+  // ajouter display flex à la box
+  popup.addClass("d-flex");
 
   localStorage.setItem('counter', counter.toString());
 });
@@ -50,4 +59,8 @@ cancelButton.on("click", function() {
 closeButton.on("click", function() {
   // masquage de la popup
   popup.attr("hidden", "");
+  // débloque le scroll de la page
+  body.removeClass("no-scroll");
+    // supprimer display flex à la box
+    popup.removeClass("d-flex");
 });
