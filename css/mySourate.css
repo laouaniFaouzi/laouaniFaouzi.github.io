@@ -106,7 +106,8 @@ header h1 span {
 }
 
 .verset {
-    padding: 40px 20px;
+    padding: 40px 0;
+    margin: 0 20px;
     border-bottom: 1px solid #e6e6e6;
     display: flex;
     justify-content: space-between;
@@ -218,7 +219,8 @@ header h1 span {
 }
 
 .popup-text {
-    margin-bottom: 0;
+    text-align: center;
+    font-weight: 200;
 }
 
 .popup #closeButton {
