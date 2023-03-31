@@ -34,99 +34,42 @@ audioElements.forEach(audioElement => {
     });
 });
 
-// Récupération de la liste des sourates
-const sourateList = document.getElementById('sourate-list');
-// Récupération de la card de la sourate en cours
-const currentSourateCard = document.getElementById('sourate');
-// Récupération de l'élément pour afficher l'état courant
-const currentState = document.getElementById('currentState');
-// Récupération de l'élément pour afficher le titre de la sourate en cours
-const currentSourate = document.getElementById('currentSourate');
+// Vérification de la présence de localStorage
+if (typeof (Storage) !== "undefined") {
+    // Récupération de la liste des sourates
+    const sourateList = document.getElementById('sourate-list');
+    // Récupération de la card de la sourate en cours
+    const currentSourateCard = document.getElementById('sourate');
+    // Récupération de l'élément pour afficher l'état courant
+    const currentState = document.getElementById('currentState');
+    // Récupération de l'élément pour afficher le titre de la sourate en cours
+    const currentSourate = document.getElementById('currentSourate');
 
-// Vérifie s'il y a déjà une sourate en cours enregistrée en localStorage
-if (localStorage.getItem('currentSourate')) {
-    currentSourate.textContent = localStorage.getItem('currentSourate');
-    currentSourateCard.href = localStorage.getItem('currentSourateHref');
-    currentState.textContent = 'Sourate en cours';
-}
-
-// Parcours la liste des sourates pour ajouter un listener sur chaque lien
-sourateList.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', event => {
-
-        // Récupère le titre et le lien de la sourate cliquée
-        const sourateTitle = link.textContent;
-        const sourateHref = link.href;
-
-        // Met à jour les éléments de la card de la sourate en cours
-        currentSourate.textContent = sourateTitle;
-        currentSourateCard.href = sourateHref;
+    // Vérifie s'il y a déjà une sourate en cours enregistrée en localStorage
+    if (localStorage.getItem('currentSourate')) {
+        currentSourate.textContent = localStorage.getItem('currentSourate');
+        currentSourateCard.href = localStorage.getItem('currentSourateHref');
         currentState.textContent = 'Sourate en cours';
+    }
 
-        // Enregistre les informations de la sourate en cours en localStorage
-        localStorage.setItem('currentSourate', sourateTitle);
-        localStorage.setItem('currentSourateHref', sourateHref);
+    // Parcours la liste des sourates pour ajouter un listener sur chaque lien
+    sourateList.querySelectorAll('.sourate-link').forEach(link => {
+        link.addEventListener('click', () => {
+
+            // Récupère le titre et le lien de la sourate cliquée
+            const sourateTitle = link.textContent;
+            const sourateHref = link.href;
+
+            // Met à jour les éléments de la card de la sourate en cours
+            currentSourate.textContent = sourateTitle;
+            currentSourateCard.href = sourateHref;
+            currentState.textContent = 'Sourate en cours';
+
+            // Enregistre les informations de la sourate en cours en localStorage
+            localStorage.setItem('currentSourate', sourateTitle);
+            localStorage.setItem('currentSourateHref', sourateHref);
+        });
     });
-});
-
-// Récupération du bouton de validation
-const validateButton = document.getElementById('buttonValidate');
-
-// Gestionnaire d'événement pour le clic sur le bouton de validation
-validateButton.addEventListener('click', function() {
-  // Récupération de la modal de validation
-  const validationModal = document.getElementById('validationModal');
-
-  // Récupération de la modal d'annulation
-  const cancelModal = document.getElementById('cancelModal');
-  
-  // Récupération du compteur
-  let counter = parseInt(localStorage.getItem('counter')) || 0;
-  
-  // Récupération de l'élément de compteur
-  const counterElement = document.getElementById('counter');
-  
-  // Affichage de la modal de validation
-  validationModal.style.display = 'block';
-  
-  // Disparition de la modal après 5 secondes
-  setTimeout(function() {
-    validationModal.style.display = 'none';
-  }, 5000);
-  
-  // Incrémentation du compteur
-  counter++;
-  counterElement.textContent = counter;
-  
-  // Stockage du compteur en local
-  localStorage.setItem('counter', counter);
-  
-  // Remplacement du bouton de validation par le bouton d'annulation
-  const cancelButton = document.createElement('button');
-  cancelButton.textContent = 'Annuler l\'apprentissage';
-  cancelButton.classList.add('button');
-  validateButton.replaceWith(cancelButton);
-  
-  // Gestionnaire d'événement pour le clic sur le bouton d'annulation
-  cancelButton.addEventListener('click', function() {
-    // Affichage de la modal d'annulation
-    cancelModal.style.display = 'block';
-    
-    // Disparition de la modal après 5 secondes
-    setTimeout(function() {
-      cancelModal.style.display = 'none';
-    }, 5000);
-    
-    // Décrémentation du compteur
-    counter--;
-    counterElement.textContent = counter;
-    
-    // Stockage du compteur en local
-    localStorage.setItem('counter', counter);
-    
-    // Remplacement du bouton d'annulation par le bouton de validation
-    cancelButton.replaceWith(validateButton);
-  });
-});
-
-
+} else {
+    console.log("localStorage n'est pas supporté dans ce navigateur.");
+}

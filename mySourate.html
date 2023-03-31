@@ -17,9 +17,18 @@
     </header>
     <main>
         <div class="main">
+            <div class="main-menu">
+                <div class="main-menu-card card-1">
+                    <p class="main-menu-card-text">
+                        <span>Sourates apprises</span>
+                        <span id="counter">0</span>
+                        <span>/11</span>
+                    </p>
+                </div>
+            </div>
             <div class="main-home">
                 <div class="main-home-card" style="background-image: url(images/femme-coran.png);">
-                    <a id="sourate" href="">
+                    <a id="sourate" href="Al fatiha.html">
                         <div class="main-home-card-text">
                             <p id="currentState" class="small-text">On commence ?</p>
                             <p id="currentSourate">Bismi Allāhi</p>
@@ -28,12 +37,6 @@
                             <i class="fi fi-rs-angle-small-right"></i>
                         </div>
                     </a>
-                </div>
-            </div>
-            <div class="main-menu">
-                <div>
-                    <span id="counter">0</span>
-                    <span>sur 11</span>
                 </div>
             </div>
         </div>
@@ -48,13 +51,15 @@
         <li class="sourate-link"><a href="Al-kauthar.html">Al-kauthar</a></li>
         <li class="sourate-link"><a href="Al-kafirun.html">Al-kafirun</a></li>
         <li class="sourate-link"><a href="Al-nasr.html">Al-nasr</a></li>
-        <li class="sourate-link"><a href="Al-masad.html">Al-massad</a></li>
+        <li class="sourate-link"><a href="Al-massad.html">Al-masad</a></li>
         <li class="sourate-link"><a href="Al-ikhlas.html">Al-ikhlas</a></li>
         <li class="sourate-link"><a href="Al-falaq.html">Al-falaq</a></li>
         <li class="sourate-link"><a href="Al-naas.html">Al-naas</a></li>
     </ul>
 
     <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/mySourate.js"></script> <!-- Custom scripts -->
+    <script src="js/btnValidate.js"></script>
 </body>
 </html>

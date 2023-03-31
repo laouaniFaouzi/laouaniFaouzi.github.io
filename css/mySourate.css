@@ -176,6 +176,10 @@ header h1 span {
     text-align: center;
 }
 
+.verset-text {
+	padding-left: 20px;
+}
+
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
     header {
