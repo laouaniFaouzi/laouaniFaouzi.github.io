@@ -34,6 +34,12 @@ audioElements.forEach(audioElement => {
     });
 });
 
+var sourceSourateElement = document.getElementById("sourateTitleText");
+var sourceSourateText = sourceSourateElement.textContent;
+var targetSourateText = document.getElementById("titleSourate");
+console.log(sourceSourateText)
+targetSourateText.textContent = sourceSourateText;
+
 // Vérification de la présence de localStorage
 if (typeof (Storage) !== "undefined") {
     // Récupération de la liste des sourates
