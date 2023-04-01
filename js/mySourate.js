@@ -72,11 +72,11 @@ if (typeof (Storage) !== "undefined") {
 
     // Parcours la liste des sourates pour ajouter un listener sur chaque lien
     sourateList.querySelectorAll('.sourate-link').forEach(link => {
-        link.addEventListener('click', () => {
+        link.addEventListener('click', (event) => {
 
             // Récupère le titre et le lien de la sourate cliquée
-            const sourateTitle = link.textContent;
-            const sourateHref = link.href;
+            const sourateTitle = link.textContent.replace(link.querySelector('span').textContent, '').trim();
+            const sourateHref = event.target.href;
 
             // Met à jour les éléments de la card de la sourate en cours
             currentSourate.textContent = sourateTitle;

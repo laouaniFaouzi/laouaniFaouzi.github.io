@@ -12,9 +12,20 @@
 </head>
 
 <body>
+    <body class="body-sourate">
+        <header>
+            <a id="backButton" href="mySourate.html">
+                <lord-icon
+                    src="https://cdn.lordicon.com/osuxyevn.json"
+                    trigger="click"
+                    colors="primary:#fff"
+                    style="width:25px;height:25px">
+                </lord-icon>
+            </a>
+        </header>
     <div class="sourate container">
         <div class="sourate-title animate__animated animate__fadeInDown">
-            <h1>Sourate Al-fil</h1>
+            <h1><span class="pre-sourate-title">S1</span> <span id="sourateTitleText">Sourate Al-fil</h1>
         </div>
         <div class="versets">
             <div class="verset">
@@ -119,10 +130,41 @@
 
         </div>
         <div class="footer">
-            <button id="valider">Valider la sourate</button>
+            <button class="btn-grad" id="buttonValidate">Je connais la sourate</button>
+            <button class="btn-grad hidden" id="buttonCancel">J'ai un trou de mémoire!</button>
         </div>
+        <!-- La modal qui s'affiche après validation -->
+        <div class="popup popup-validate" hidden>
+            <div class="popup-content">
+                <div class="popup-image">
+                    <img src="images/youyou.jpg" alt="Image">
+                </div>
+                <h2 class="popup-title">Al-Ĥamdu Lillāh</h2>
+                <p class="popup-text">Tu connais maintenant <span id="titleSourate"></span>. Tu es géniale, continue comme ça t'sais le catch.</p>
+                <a class="popup-button" href="mySourate.html">Une autre sourate ?</a>
+                <button id="closeButton">X</button>
+            </div>
+        </div>
+
+        <!-- La modal qui s'affiche après annulation -->
+        <div class="popup popup-cancelate" hidden>
+            <div class="popup-content">
+                <div class="popup-image">
+                    <img src="images/catastrophe.png" alt="Image">
+                </div>
+                <h2 class="popup-title">Wesh...</h2>
+                <p class="popup-text">Bon, c'est pas grave on s'y remet. Encore quelques efforts et ça va rentrer in sha allah.</p>
+                <a class="popup-button"  id="closeButton" href="mySourate.html">Oui chef, j'y retourne</a>
+                <button id="closeButton">X</button>
+            </div>
+        </div>
+                  
+        <div class="" id="progression"></div>
+
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/mySourate.js"></script>
+    <script src="js/btnValidate.js"></script>
     <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
 </body>
 

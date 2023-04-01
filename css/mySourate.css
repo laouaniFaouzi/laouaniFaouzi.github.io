@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.cdnfonts.com/css/magnificent-signature');
 
-
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #fff;
@@ -339,6 +338,7 @@ header h1 span {
 ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 #closeButton.popup-button {
@@ -381,7 +381,7 @@ ul {
     right: -100%;
     top: 0;
     bottom: 0;
-    background: aliceblue;
+    background: #fff;
     transition: all 0.5s ease-in-out;
 }
 
@@ -390,13 +390,66 @@ ul {
 }
 
 #menuCloseButton {
-	position: absolute;
-	height: 50px;
-	width: 50px;
-	right: 0;
-	border: 0;
-	background: 0;
+    position: absolute;
+    height: 100px;
+    width: 70px;
+    right: 0;
+    border: 0;
+    background: 0;
 }
+
+#menuButton::before {
+    content: "Sourates";
+    font-size: 8px;
+    position: absolute;
+    bottom: -11px;
+    font-weight: 300;
+}
+
+.sourate-menu-header {
+    justify-content: center;
+    height: 100px;
+    align-items: center;
+}
+
+.sourate-menu-header img {
+    height: 50px;
+}
+
+#sourate-list {
+	display: grid;
+	text-align: center;
+	overflow: auto;
+	height: calc(100vh - 120px);
+}
+
+.sourate-link {
+    padding: 0 20px;
+}
+
+.sourate-link a {
+	width: 100%;
+	display: block;
+	border-bottom: 1px solid #e1e1e1;
+	padding: 20px 0;
+	font-size: 18px;
+	font-weight: 700;
+	color: #000;
+    position: relative;
+}
+
+.sourate-link.last-link a {
+	border: 0;
+}
+
+.pre-sourate-link {
+	position: absolute;
+	left: 0;
+	color: #8930e8;
+	font-weight: 200;
+    font-family: 'Magnificent Signature', sans-serif;
+}
+
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
     header {
