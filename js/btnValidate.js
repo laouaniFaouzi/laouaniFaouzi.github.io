@@ -1,58 +1,59 @@
-// récupération de l'élément contenant le compteur
-let counterElement = $("#counter");
+var sourceSourateElement = document.getElementById("sourateTitleText");
+var sourceSourateText = sourceSourateElement.textContent;
+var targetSourateText = document.getElementById("titleSourate");
+console.log(sourceSourateText)
+targetSourateText.textContent = sourceSourateText;
 
-// récupération du bouton de validation
-let validateButton = $("#buttonValidate");
+// récupération de l'élément contenant le compteur
+let counterElement = $("#progression");
+
+var buttonValidate = $('#buttonValidate');
+var cancelButton = $('#buttonCancel');
 
 // récupération de la popup
 let popup = $(".popup");
+let popupValidate = $(".popup-validate");
+let popupCancelate = $(".popup-cancelate");
 
 // récuperation du body
 let body = $("body");
 
 // récupération des boutons de la popup
 let closeButton = popup.find("#closeButton");
-let cancelButton = popup.find("#cancelButton");
 
-// initialisation du compteur
-let counter = localStorage.getItem("counter") || 0;
-counterElement.text(counter);
+var progression = 0;
 
 // écouteur d'événements pour le bouton de validation
-validateButton.on("click", function() {
-  console.log("toto")
-  // incrémentation du compteur
-  counter++;
-  // mise à jour de l'affichage du compteur
-  counterElement.text(counter);
+buttonValidate.on("click", function() {
+  // Incrémentation de la valeur de progression
+  progression = parseInt(progression) + 1;
   // stockage du compteur en local storage
-  localStorage.setItem("counter", counter);
+  localStorage.setItem('progression', progression);
   // affichage de la popup
-  popup.removeAttr("hidden");
+  popupValidate.removeAttr("hidden");
   // ajouter display flex à la box
-  popup.addClass("d-flex");
+  popupValidate.addClass("d-flex");
   // bloque le scroll de la page
   body.addClass("no-scroll");
-});
 
-localStorage.setItem('counter', counter.toString());
+  buttonValidate.toggleClass('hidden');
+  cancelButton.toggleClass('hidden');
+});
 
 // écouteur d'événements pour le bouton d'annulation
 cancelButton.on("click", function() {
-  // décrémentation du compteur
-  counter--;
-  // mise à jour de l'affichage du compteur
-  counterElement.text(counter);
+  var progression = localStorage.getItem('progression');
+  // Décrémentation de la valeur de progression
+  progression = parseInt(progression) - 1;
   // stockage du compteur en local storage
-  localStorage.setItem("counter", counter);
-  // affichage de la popup d'annulation
-  popup.find(".popup-content").text("Annulation !");
+  localStorage.setItem('progression', progression);
   // affichage de la popup
-  popup.removeAttr("hidden");
+  popupCancelate.removeAttr("hidden");
   // ajouter display flex à la box
-  popup.addClass("d-flex");
+  popupCancelate.addClass("d-flex");
 
-  localStorage.setItem('counter', counter.toString());
+  cancelButton.toggleClass('hidden');
+  buttonValidate.toggleClass('hidden');
 });
 
 // écouteur d'événements pour le bouton de fermeture de la popup

@@ -1,11 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.cdnfonts.com/css/bettista');
+@import url('https://fonts.cdnfonts.com/css/magnificent-signature');
+
 
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #fff;
-    margin: 0;
+    margin: 20px;
     position: relative;
+}
+
+body.body-sourate {
+    margin: 0;
 }
 
 a {
@@ -90,7 +95,7 @@ header img {
 }
 
 header h1 span {
-    margin-right: 5px;
+    margin-right: 10px;
 }
 
 #tracker-container {
@@ -137,14 +142,21 @@ header h1 span {
 }
 
 .pre-sourate-title {
-    font-family: 'Bettista', sans-serif;
-    font-size: 30px;
+    font-family: 'Magnificent Signature', sans-serif;
+    font-size: 21px;
     margin-right: 15px;
+    position: absolute;
+    left: 20px;
+    bottom: 0;
+    color: blueviolet;
 }
 
 .sourate-title {
     text-align: center;
+    position: relative;
 }
+
+#sourateTitleText {}
 
 .progress-bar {
     width: 0;
@@ -193,7 +205,7 @@ header h1 span {
 }
 
 .verset-text {
-	padding-left: 20px;
+    padding-left: 20px;
 }
 
 .popup {
@@ -260,20 +272,22 @@ header h1 span {
     font-weight: 600;
     width: auto;
     text-align: center;
-    background-image: linear-gradient(to right, #FEAC5E 0%, #C779D0  51%, #FEAC5E  100%);
+    background-image: linear-gradient(to right, #FEAC5E 0%, #C779D0 51%, #FEAC5E 100%);
     margin: 10px;
     padding: 15px 45px;
     text-align: center;
     text-transform: uppercase;
     transition: 0.5s;
     background-size: 200% auto;
-    color: white;            
+    color: white;
     box-shadow: 0 0 20px #eee;
     border-radius: 10px;
     display: block;
 }
+
 .popup-button:hover {
-    background-position: right center; /* change the direction of the change here */
+    background-position: right center;
+    /* change the direction of the change here */
     color: #fff;
     text-decoration: none;
 }
@@ -286,6 +300,103 @@ header h1 span {
     display: flex;
 }
 
+.footer {
+    padding: 30px 20px;
+    text-align: center;
+}
+
+#buttonValidate {
+    background-image: linear-gradient(to right, #4776E6 0%, #8E54E9 51%, #4776E6 100%);
+}
+
+#buttonCancel {
+    background-image: linear-gradient(to right, #e53935 0%, #e35d5b 51%, #e53935 100%);
+}
+
+.btn-grad {
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+    border: 0;
+}
+
+.btn-grad:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+
+.hidden {
+    display: none !important;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+#closeButton.popup-button {
+    position: initial;
+    width: auto;
+    height: auto;
+    display: initial;
+    background-image: linear-gradient(to right, #4AC29A 0%, #4AC29A 100%);
+    font-size: 12px;
+}
+
+.popup-cancelate .popup-image {
+    justify-content: center;
+    align-items: center;
+    border-color: #ff7871;
+}
+
+.popup-cancelate img {
+    max-width: 130%;
+}
+
+.body-sourate header {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    background: blueviolet;
+    margin-bottom: 30px;
+}
+
+.lordicon {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+#menuSourate {
+    position: fixed;
+    width: 100%;
+    right: -100%;
+    top: 0;
+    bottom: 0;
+    background: aliceblue;
+    transition: all 0.5s ease-in-out;
+}
+
+#menuSourate.open {
+    right: 0;
+}
+
+#menuCloseButton {
+	position: absolute;
+	height: 50px;
+	width: 50px;
+	right: 0;
+	border: 0;
+	background: 0;
+}
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
     header {
@@ -310,6 +421,11 @@ header h1 span {
 
     .sourate-title {
         font-size: 12px;
+    }
+
+    #buttonCancel,
+    #buttonValidate {
+        width: 100%;
     }
 }
 

@@ -8,12 +8,20 @@
 
     <link href="css/mySourate.css" rel="stylesheet">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body>
     <header>
-        <h1><span>&#128075;</span>Salem, Faouzi</h1>
+        <h1><span class="animate__animated animate__tada">&#128075;</span>Salem, Faouzi</h1>
         <p>Quelle sourate on apprend aujourd'hui?</p>
         <img src="" alt="">
+        <lord-icon
+            class="lordicon"
+            id="menuButton"
+            src="https://cdn.lordicon.com/phtfmmnb.json"
+            trigger="morph"
+            style="width:35px;height:35px">
+        </lord-icon>
     </header>
     <main>
         <div class="main">
@@ -21,7 +29,7 @@
                 <div class="main-menu-card card-1">
                     <p class="main-menu-card-text">
                         <span>Sourates apprises</span>
-                        <span id="counter">0</span>
+                        <span id="progression">0</span>
                         <span>/11</span>
                     </p>
                 </div>
@@ -42,7 +50,8 @@
         </div>
 
     </main>
-
+<div class="sourate-menu" id="menuSourate">
+    <button id="menuCloseButton">X</button>
     <ul id="sourate-list">
         <li class="sourate-link"><a href="Al fatiha.html">Al-Fātiĥah</a></li>
         <li class="sourate-link"><a href="Al-fil.html">Al-fil</a></li>
@@ -56,10 +65,12 @@
         <li class="sourate-link"><a href="Al-falaq.html">Al-falaq</a></li>
         <li class="sourate-link"><a href="Al-naas.html">Al-naas</a></li>
     </ul>
+</div>
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/mySourate.js"></script> <!-- Custom scripts -->
-    <script src="js/btnValidate.js"></script>
+    <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+
 </body>
 </html>

@@ -1,3 +1,14 @@
+let menuButton = $("#menuButton");
+let menuSourate = $("#menuSourate");
+let menuCloseButton = $("#menuCloseButton");
+
+menuButton.on("click", function() {
+    menuSourate.addClass("open");
+})
+menuCloseButton.on("click", function() {
+    menuSourate.removeClass("open");
+})
+
 const audio = document.getElementById("audio-sourate");
 
 // Récupération de tous les éléments contenant l'audio
@@ -34,11 +45,12 @@ audioElements.forEach(audioElement => {
     });
 });
 
-var sourceSourateElement = document.getElementById("sourateTitleText");
-var sourceSourateText = sourceSourateElement.textContent;
-var targetSourateText = document.getElementById("titleSourate");
-console.log(sourceSourateText)
-targetSourateText.textContent = sourceSourateText;
+// Récupération de la valeur de progression dans le stockage local
+var progression = localStorage.getItem('progression');
+
+// Affichage de la valeur de progression dans la balise div avec l'ID "progression"
+document.getElementById('progression').textContent = progression;
+
 
 // Vérification de la présence de localStorage
 if (typeof (Storage) !== "undefined") {
