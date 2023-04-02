@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.cdnfonts.com/css/magnificent-signature');
 
+:root {
+    --vh: 1vh;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #fff;
@@ -267,7 +271,7 @@ header h1 span {
 }
 
 .popup-button {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     width: auto;
     text-align: center;
@@ -410,6 +414,7 @@ ul {
     justify-content: center;
     height: 100px;
     align-items: center;
+    background: #8930e8;
 }
 
 .sourate-menu-header img {
@@ -421,6 +426,7 @@ ul {
 	text-align: center;
 	overflow: auto;
 	height: calc(100vh - 120px);
+    min-height: calc(var(--vh, 1vh) * 100);
 }
 
 .sourate-link {

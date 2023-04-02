@@ -2,10 +2,10 @@ let menuButton = $("#menuButton");
 let menuSourate = $("#menuSourate");
 let menuCloseButton = $("#menuCloseButton");
 
-menuButton.on("click", function() {
+menuButton.on("click", function () {
     menuSourate.addClass("open");
 })
-menuCloseButton.on("click", function() {
+menuCloseButton.on("click", function () {
     menuSourate.removeClass("open");
 })
 
@@ -91,3 +91,10 @@ if (typeof (Storage) !== "undefined") {
 } else {
     console.log("localStorage n'est pas supporté dans ce navigateur.");
 }
+
+const appHeight = () => {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+window.addEventListener('resize', appHeight)
+appHeight()

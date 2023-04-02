@@ -21,40 +21,54 @@ let body = $("body");
 // récupération des boutons de la popup
 let closeButton = popup.find("#closeButton");
 
-var progression = 0;
+// récupération de la valeur de progression depuis le stockage local
+var progression = localStorage.getItem('progression') || 0;
 
-// écouteur d'événements pour le bouton de validation
-buttonValidate.on("click", function() {
-  // Incrémentation de la valeur de progression
-  progression = parseInt(progression) + 1;
-  // stockage du compteur en local storage
-  localStorage.setItem('progression', progression);
-  // affichage de la popup
-  popupValidate.removeAttr("hidden");
-  // ajouter display flex à la box
-  popupValidate.addClass("d-flex");
-  // bloque le scroll de la page
-  body.addClass("no-scroll");
+// affichage de la valeur de progression dans l'élément span
+counterElement.text(progression);
 
-  buttonValidate.toggleClass('hidden');
-  cancelButton.toggleClass('hidden');
-});
+for (var i = 0; i < buttonValidate.length; i++) {
+  // écouteur d'événements pour le bouton de validation
+  buttonValidate.on("click", function() {
+    // Incrémentation de la valeur de progression
+    progression = parseInt(progression) + 1;
+    // stockage du compteur en local storage
+    localStorage.setItem('progression', progression);
+    // affichage de la valeur de progression dans l'élément span
+    counterElement.text(progression);
+    // affichage de la popup
+    popupValidate.removeAttr("hidden");
+    // ajouter display flex à la box
+    popupValidate.addClass("d-flex");
+    // bloque le scroll de la page
+    body.addClass("no-scroll");
 
-// écouteur d'événements pour le bouton d'annulation
-cancelButton.on("click", function() {
-  var progression = localStorage.getItem('progression');
-  // Décrémentation de la valeur de progression
-  progression = parseInt(progression) - 1;
-  // stockage du compteur en local storage
-  localStorage.setItem('progression', progression);
-  // affichage de la popup
-  popupCancelate.removeAttr("hidden");
-  // ajouter display flex à la box
-  popupCancelate.addClass("d-flex");
+    buttonValidate.toggleClass('hidden');
+    cancelButton.toggleClass('hidden');
+  });
+}
 
-  cancelButton.toggleClass('hidden');
-  buttonValidate.toggleClass('hidden');
-});
+for (var i = 0; i < cancelButton.length; i++) {
+  // écouteur d'événements pour le bouton d'annulation
+  cancelButton.on("click", function() {
+    var progression = localStorage.getItem('progression');
+    // Décrémentation de la valeur de progression
+    progression = parseInt(progression) - 1;
+    // stockage du compteur en local storage
+    localStorage.setItem('progression', progression);
+    // affichage de la valeur de progression dans l'élément span
+    counterElement.text(progression);
+    // affichage de la popup
+    popupCancelate.removeAttr("hidden");
+    // ajouter display flex à la box
+    popupCancelate.addClass("d-flex");
+    // bloque le scroll de la page
+    body.addClass("no-scroll");
+
+    cancelButton.toggleClass('hidden');
+    buttonValidate.toggleClass('hidden');
+  });
+}
 
 // écouteur d'événements pour le bouton de fermeture de la popup
 closeButton.on("click", function() {
