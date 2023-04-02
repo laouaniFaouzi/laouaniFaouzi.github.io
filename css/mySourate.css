@@ -9,8 +9,9 @@ body {
 }
 
 body.homepage {
-	height: 100vh;
-	overflow: hidden;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
 }
 
 body.body-sourate {
@@ -33,6 +34,10 @@ header p {
 
 header img {
     position: absolute;
+}
+
+main {
+    padding: 0 20px 20px;
 }
 
 .main-home {
@@ -355,12 +360,14 @@ ul {
     font-size: 12px;
 }
 
+.popup-welcome .popup-image,
 .popup-cancelate .popup-image {
     justify-content: center;
     align-items: center;
     border-color: #ff7871;
 }
 
+.popup-welcome img,
 .popup-cancelate img {
     max-width: 130%;
 }
@@ -376,8 +383,8 @@ ul {
 
 .lordicon {
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 20px;
+    top: 20px;
 }
 
 #menuSourate {
@@ -423,13 +430,13 @@ ul {
 }
 
 #sourate-list {
-	display: grid;
-	text-align: center;
-	overflow: auto;
-	position: absolute;
-	width: 100%;
-	top: 100px;
-	bottom: 0;
+    display: grid;
+    text-align: center;
+    overflow: auto;
+    position: absolute;
+    width: 100%;
+    top: 100px;
+    bottom: 0;
     z-index: -1;
     margin-bottom: 30px;
 }
@@ -439,37 +446,71 @@ ul {
 }
 
 .sourate-link a {
-	width: 100%;
-	display: block;
-	border-bottom: 1px solid #e1e1e1;
-	padding: 20px 0;
-	font-size: 18px;
-	font-weight: 700;
-	color: #000;
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid #e1e1e1;
+    padding: 20px 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #000;
     position: relative;
 }
 
 .sourate-link.last-link a {
-	border: 0;
+    border: 0;
 }
 
 .pre-sourate-link {
-	position: absolute;
-	left: 0;
-	color: #8930e8;
-	font-weight: 200;
+    position: absolute;
+    left: 0;
+    color: #8930e8;
+    font-weight: 200;
     font-family: 'Magnificent Signature', sans-serif;
 }
+
+
+.popup-welcome .popup-text {
+    font-size: 12px;
+}
+
+#popupForm {
+    display: flex;
+    flex-direction: column;
+}
+
+#popupForm input {
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    padding: 0 10px;
+    text-align: center;
+    font-size: 14px;
+    margin: 10px 0 20px;
+}
+
+#popupForm button {
+    background-image: linear-gradient(to right, #834d9b 0%, #d04ed6 51%, #834d9b 100%);
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    border: 0;
+}
+
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
     header {
-        margin-bottom: 25px;
+        padding: 20px;
     }
 
     header h1 {
         font-size: 20px;
-        margin: 30px 0 0;
+        margin: 0;
     }
 
     header p {
@@ -495,10 +536,10 @@ ul {
 
 @supports (-webkit-touch-callout: none) {
     body {
-      /* The hack for Safari */
-      min-height: -webkit-fill-available;
+        /* The hack for Safari */
+        min-height: -webkit-fill-available;
     }
-  }
+}
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) and (max-width: 767.98px) {}

@@ -12,7 +12,7 @@
 </head>
 <body class="homepage">
     <header>
-        <h1><span class="animate__animated animate__tada">&#128075;</span>Salem, Faouzi</h1>
+        <h1><span class="animate__animated animate__tada">&#128075; </span>Salem, <span id="profileName">ma gueule</span></h1>
         <p>Quelle sourate on apprend aujourd'hui?</p>
         <img src="" alt="">
         <lord-icon
@@ -48,39 +48,54 @@
                 </div>
             </div>
         </div>
-
     </main>
-<div class="sourate-menu" id="menuSourate">
-    <button id="menuCloseButton">
-        <lord-icon
-            src="https://cdn.lordicon.com/jfhbogmw.json"
-            trigger="hover"
-            colors="primary:#fff"
-            state="hover-3"
-            style="width:25px;height:25px">
-        </lord-icon>
-    </button>
-    <div class="sourate-menu-header d-flex">
-        <img src="images/quran-1.png" alt="Quran">
+
+    <div class="sourate-menu" id="menuSourate">
+        <button id="menuCloseButton">
+            <lord-icon
+                src="https://cdn.lordicon.com/jfhbogmw.json"
+                trigger="hover"
+                colors="primary:#fff"
+                state="hover-3"
+                style="width:25px;height:25px">
+            </lord-icon>
+        </button>
+        <div class="sourate-menu-header d-flex">
+            <img src="images/quran-1.png" alt="Quran">
+        </div>
+        <ul id="sourate-list">
+            <li class="sourate-link"><a href="Al fatiha.html"><span class="pre-sourate-link">S1</span>Al-Fātiĥah</a></li>
+            <li class="sourate-link"><a href="Al-fil.html"><span class="pre-sourate-link">S105</span>Al-fil</a></li>
+            <li class="sourate-link"><a href="Quraysh.html"><span class="pre-sourate-link">S106</span>Al-quraysh</a></li>
+            <li class="sourate-link"><a href="Al-maun.html"><span class="pre-sourate-link">S107</span>Al-maun</a></li>
+            <li class="sourate-link"><a href="Al-kauthar.html"><span class="pre-sourate-link">S108</span>Al-kauthar</a></li>
+            <li class="sourate-link"><a href="Al-kafirun.html"><span class="pre-sourate-link">S109</span>Al-kafirun</a></li>
+            <li class="sourate-link"><a href="Al-nasr.html"><span class="pre-sourate-link">S110</span>Al-nasr</a></li>
+            <li class="sourate-link"><a href="Al-massad.html"><span class="pre-sourate-link">S111</span>Al-masad</a></li>
+            <li class="sourate-link"><a href="Al-ikhlas.html"><span class="pre-sourate-link">S112</span>Al-ikhlas</a></li>
+            <li class="sourate-link"><a href="Al-falaq.html"><span class="pre-sourate-link">S113</span>Al-falaq</a></li>
+            <li class="sourate-link last-link"><a href="Al-naas.html"><span class="pre-sourate-link">S114</span>Al-naas</a></li>
+        </ul>
     </div>
-    <ul id="sourate-list">
-        <li class="sourate-link"><a href="Al fatiha.html"><span class="pre-sourate-link">S1</span>Al-Fātiĥah</a></li>
-        <li class="sourate-link"><a href="Al-fil.html"><span class="pre-sourate-link">S105</span>Al-fil</a></li>
-        <li class="sourate-link"><a href="Quraysh.html"><span class="pre-sourate-link">S106</span>Al-quraysh</a></li>
-        <li class="sourate-link"><a href="Al-maun.html"><span class="pre-sourate-link">S107</span>Al-maun</a></li>
-        <li class="sourate-link"><a href="Al-kauthar.html"><span class="pre-sourate-link">S108</span>Al-kauthar</a></li>
-        <li class="sourate-link"><a href="Al-kafirun.html"><span class="pre-sourate-link">S109</span>Al-kafirun</a></li>
-        <li class="sourate-link"><a href="Al-nasr.html"><span class="pre-sourate-link">S110</span>Al-nasr</a></li>
-        <li class="sourate-link"><a href="Al-massad.html"><span class="pre-sourate-link">S111</span>Al-masad</a></li>
-        <li class="sourate-link"><a href="Al-ikhlas.html"><span class="pre-sourate-link">S112</span>Al-ikhlas</a></li>
-        <li class="sourate-link"><a href="Al-falaq.html"><span class="pre-sourate-link">S113</span>Al-falaq</a></li>
-        <li class="sourate-link last-link"><a href="Al-naas.html"><span class="pre-sourate-link">S114</span>Al-naas</a></li>
-    </ul>
-</div>
+
+    <div class="popup popup-welcome">
+        <div class="popup-content">
+            <div class="popup-image">
+                <img src="images/cadeau.png" alt="">
+            </div>
+            <h2 class="popup-title">Salem a3leykouuuum </h2>
+            <p class="popup-text">Le challenge de l'apprentissage des sourates durant ce mois bénis du Ramadan peut enfin commencer (dsl pour le retard)... mais avant ça, tu vas me donner ton joli prénom.</p>
+            <form id="popupForm">
+                <input type="text" id="nameInput" placeholder="Alors, comment elle s'appelle?">
+                <button type="submit">Valider</button>
+            </form>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/mySourate.js"></script> <!-- Custom scripts -->
+    <script src="js/profileName.js"></script> 
+    <script src="js/mySourate.js"></script>
     <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
 
 </body>
