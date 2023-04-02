@@ -382,7 +382,7 @@ ul {
     top: 0;
     background: #fff;
     transition: all 0.5s ease-in-out;
-    height: 100vh;
+    height: 100%;
 }
 
 #menuSourate.open {
