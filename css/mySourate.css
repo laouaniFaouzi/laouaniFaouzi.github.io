@@ -380,9 +380,9 @@ ul {
     width: 100%;
     right: -100%;
     top: 0;
-    bottom: 0;
     background: #fff;
     transition: all 0.5s ease-in-out;
+    height: 100vh;
 }
 
 #menuSourate.open {
@@ -421,7 +421,7 @@ ul {
 	display: grid;
 	text-align: center;
 	overflow: scroll;
-	height: calc(100vh - 120px);
+	height: calc(100% - 120px);
 }
 
 .sourate-link {
