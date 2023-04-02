@@ -8,6 +8,11 @@ body {
     position: relative;
 }
 
+body.homepage {
+	height: 100vh;
+	overflow: hidden;
+}
+
 body.body-sourate {
     margin: 0;
 }
@@ -426,7 +431,7 @@ ul {
 	top: 100px;
 	bottom: 0;
     z-index: -1;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 }
 
 .sourate-link {
