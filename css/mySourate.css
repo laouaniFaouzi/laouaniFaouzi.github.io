@@ -10,7 +10,6 @@ body {
 
 body.homepage {
     height: 100vh;
-    overflow: hidden;
     margin: 0;
 }
 
@@ -591,7 +590,7 @@ ul {
 }
 
 .hidden-mobile .container img {
-    width: 50%;
+    max-width: 50%;
 }
 
 .hidden-mobile .container p {
