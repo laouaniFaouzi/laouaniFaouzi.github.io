@@ -10,94 +10,107 @@
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
+
 <body class="homepage">
-    <header>
-        <h1><span class="animate__animated animate__tada">&#128075; </span>Salem, <span id="profileName">ma gueule</span></h1>
-        <p>Quelle sourate on apprend aujourd'hui?</p>
-        <img src="" alt="">
-        <lord-icon
-            class="lordicon"
-            id="menuButton"
-            src="https://cdn.lordicon.com/phtfmmnb.json"
-            trigger="morph"
-            style="width:35px;height:35px">
-        </lord-icon>
-    </header>
-    <main>
-        <div class="main">
-            <div class="main-home">
-                <div class="main-home-card" style="background-image: url(images/femme-coran.png);">
-                    <a id="sourate" href="Al fatiha.html">
-                        <div class="main-home-card-text">
-                            <p id="currentState" class="small-text">On commence ?</p>
-                            <p id="currentSourate">Bismi Allāhi</p>
-                        </div>
-                        <div class="main-home-card-icon">
-                            <i class="fi fi-rs-angle-small-right"></i>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="main-menu">
-                <div class="main-menu-card card-1">
-                    <p class="main-menu-card-text">
-                        <span class="text-top">Sourates mémorisées</span>
-                        <span id="progression">0</span>
-                        <span class="text-bottom"></span>
-                    </p>
-                </div>
-                <div class="main-menu-card card-2">
-                    <p class="main-menu-card-text">
-                        <span class="text-top">Hadith du jour</span>
-                        <span class="text-bottom">
-                            D'après Abou Said Al Khoudrî (qu'Allah l'agrée), le Prophète (que la prière d'Allah et Son salut soient sur lui) a dit : « Celui qui jeûne un jour dans le sentier d'Allah, Allah éloigne son visage de l'enfer d'une distance de 70 ans ».
-                        </span>
-                        <span class="text-raporteur">Rapporté par Mouslim dans son Sahih n°1153</span>
-                    </p>
-                </div>
-            </div>
+    <div class="hidden-mobile">
+        <div class="container">
+            <img src="images/mobile.png" alt="Mobile">
+            <p>
+                Oups !<br>
+                Cette app est disponible que sur mobile.<br>
+                Alors prends ton téléphone, et rejoins-nous!
+            </p>
         </div>
-    </main>
-
-    <div class="sourate-menu" id="menuSourate">
-        <button id="menuCloseButton">
-            <lord-icon
-                src="https://cdn.lordicon.com/jfhbogmw.json"
-                trigger="hover"
-                colors="primary:#fff"
-                state="hover-3"
-                style="width:25px;height:25px">
-            </lord-icon>
-        </button>
-        <div class="sourate-menu-header d-flex">
-            <img src="images/quran-1.png" alt="Quran">
-        </div>
-        <ul id="sourate-list">
-            <li class="sourate-link"><a href="Al fatiha.html"><span class="pre-sourate-link">S1</span>Al-Fātiĥah</a></li>
-            <li class="sourate-link"><a href="Al-fil.html"><span class="pre-sourate-link">S105</span>Al-fil</a></li>
-            <li class="sourate-link"><a href="Quraysh.html"><span class="pre-sourate-link">S106</span>Al-quraysh</a></li>
-            <li class="sourate-link"><a href="Al-maun.html"><span class="pre-sourate-link">S107</span>Al-maun</a></li>
-            <li class="sourate-link"><a href="Al-kauthar.html"><span class="pre-sourate-link">S108</span>Al-kauthar</a></li>
-            <li class="sourate-link"><a href="Al-kafirun.html"><span class="pre-sourate-link">S109</span>Al-kafirun</a></li>
-            <li class="sourate-link"><a href="Al-nasr.html"><span class="pre-sourate-link">S110</span>Al-nasr</a></li>
-            <li class="sourate-link"><a href="Al-massad.html"><span class="pre-sourate-link">S111</span>Al-masad</a></li>
-            <li class="sourate-link"><a href="Al-ikhlas.html"><span class="pre-sourate-link">S112</span>Al-ikhlas</a></li>
-            <li class="sourate-link"><a href="Al-falaq.html"><span class="pre-sourate-link">S113</span>Al-falaq</a></li>
-            <li class="sourate-link last-link"><a href="Al-naas.html"><span class="pre-sourate-link">S114</span>Al-naas</a></li>
-        </ul>
     </div>
-
-    <div class="popup popup-welcome">
-        <div class="popup-content">
-            <div class="popup-image">
-                <img src="images/cadeau.png" alt="">
+    <div class="hidden-desktop">
+        <header>
+            <h1><span class="animate__animated animate__tada">&#128075; </span>Salem, <span id="profileName">ma gueule</span></h1>
+            <p>Quelle sourate on apprend aujourd'hui?</p>
+            <img src="" alt="">
+            <lord-icon
+                class="lordicon"
+                id="menuButton"
+                src="https://cdn.lordicon.com/phtfmmnb.json"
+                trigger="morph"
+                style="width:35px;height:35px">
+            </lord-icon>
+        </header>
+        <main>
+            <div class="main">
+                <div class="main-home">
+                    <div class="main-home-card" style="background-image: url(images/femme-coran.png);">
+                        <a id="sourate" href="Al fatiha.html">
+                            <div class="main-home-card-text">
+                                <p id="currentState" class="small-text">On commence ?</p>
+                                <p id="currentSourate">Bismi Allāhi</p>
+                            </div>
+                            <div class="main-home-card-icon">
+                                <i class="fi fi-rs-angle-small-right"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="main-menu">
+                    <div class="main-menu-card card-1">
+                        <p class="main-menu-card-text">
+                            <span class="text-top">Sourates mémorisées</span>
+                            <span id="progression">0</span>
+                            <span class="text-bottom"></span>
+                        </p>
+                    </div>
+                    <div class="main-menu-card card-2">
+                        <p class="main-menu-card-text">
+                            <span class="text-top">Hadith du jour</span>
+                            <span class="text-bottom">
+                                D'après Abou Said Al Khoudrî (qu'Allah l'agrée), le Prophète (que la prière d'Allah et Son salut soient sur lui) a dit : « Celui qui jeûne un jour dans le sentier d'Allah, Allah éloigne son visage de l'enfer d'une distance de 70 ans ».
+                            </span>
+                            <span class="text-raporteur">Rapporté par Mouslim dans son Sahih n°1153</span>
+                        </p>
+                    </div>
+                </div>
             </div>
-            <h2 class="popup-title">Salem a3leykoum</h2>
-            <p class="popup-text">Le challenge de l'apprentissage des sourates durant ce mois bénis du Ramadan peut enfin commencer (dsl pour le retard)... mais avant ça, tu vas me donner ton joli prénom.</p>
-            <form id="popupForm">
-                <input type="text" id="nameInput" placeholder="Alors, comment elle s'appelle?">
-                <button class="popup-button" type="submit">Valider</button>
-            </form>
+        </main>
+
+        <div class="sourate-menu" id="menuSourate">
+            <button id="menuCloseButton">
+                <lord-icon
+                    src="https://cdn.lordicon.com/jfhbogmw.json"
+                    trigger="hover"
+                    colors="primary:#fff"
+                    state="hover-3"
+                    style="width:25px;height:25px">
+                </lord-icon>
+            </button>
+            <div class="sourate-menu-header d-flex">
+                <img src="images/quran-1.png" alt="Quran">
+            </div>
+            <ul id="sourate-list">
+                <li class="sourate-link"><a href="Al fatiha.html"><span class="pre-sourate-link">S1</span>Al-Fātiĥah</a></li>
+                <li class="sourate-link"><a href="Al-fil.html"><span class="pre-sourate-link">S105</span>Al-fil</a></li>
+                <li class="sourate-link"><a href="Quraysh.html"><span class="pre-sourate-link">S106</span>Al-quraysh</a></li>
+                <li class="sourate-link"><a href="Al-maun.html"><span class="pre-sourate-link">S107</span>Al-maun</a></li>
+                <li class="sourate-link"><a href="Al-kauthar.html"><span class="pre-sourate-link">S108</span>Al-kauthar</a></li>
+                <li class="sourate-link"><a href="Al-kafirun.html"><span class="pre-sourate-link">S109</span>Al-kafirun</a></li>
+                <li class="sourate-link"><a href="Al-nasr.html"><span class="pre-sourate-link">S110</span>Al-nasr</a></li>
+                <li class="sourate-link"><a href="Al-massad.html"><span class="pre-sourate-link">S111</span>Al-masad</a></li>
+                <li class="sourate-link"><a href="Al-ikhlas.html"><span class="pre-sourate-link">S112</span>Al-ikhlas</a></li>
+                <li class="sourate-link"><a href="Al-falaq.html"><span class="pre-sourate-link">S113</span>Al-falaq</a></li>
+                <li class="sourate-link last-link"><a href="Al-naas.html"><span class="pre-sourate-link">S114</span>Al-naas</a></li>
+            </ul>
+        </div>
+
+        <div class="popup popup-welcome">
+            <div class="popup-content">
+                <div class="popup-image">
+                    <img src="images/cadeau.png" alt="">
+                </div>
+                <h2 class="popup-title">Salem a3leykoum</h2>
+                <p class="popup-text">Le challenge de l'apprentissage des sourates durant ce mois bénis du Ramadan peut enfin commencer (dsl pour le retard)... mais avant ça, tu vas me donner ton joli prénom.</p>
+                <form id="popupForm">
+                    <input type="text" id="nameInput" placeholder="Alors, comment elle s'appelle?">
+                    <button class="popup-button" type="submit">Valider</button>
+                </form>
+            </div>
         </div>
     </div>
 

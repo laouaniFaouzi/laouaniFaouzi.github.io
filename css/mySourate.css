@@ -500,39 +500,6 @@ ul {
     border: 0;
 }
 
-
-/* Extra small devices (portrait phones, less than 576px) */
-@media (max-width: 575.98px) {
-    header {
-        padding: 20px;
-    }
-
-    header h1 {
-        font-size: 20px;
-        margin: 0;
-    }
-
-    header p {
-        font-size: 12px;
-
-    }
-
-    header img {
-        right: 10px;
-        top: 50px;
-        max-width: 50px;
-    }
-
-    .sourate-title {
-        font-size: 12px;
-    }
-
-    #buttonCancel,
-    #buttonValidate {
-        width: 100%;
-    }
-}
-
 .popup-welcome {
     display: none;
 }
@@ -568,13 +535,13 @@ ul {
 }
 
 .main-menu-card #progression {
-	color: #fff;
-	font-size: 50px;
-	font-weight: 700;
-	position: absolute;
-	top: -24px;
-	width: 100%;
-	text-align: center;
+    color: #fff;
+    font-size: 50px;
+    font-weight: 700;
+    position: absolute;
+    top: -24px;
+    width: 100%;
+    text-align: center;
 }
 
 .text-top {
@@ -606,19 +573,78 @@ ul {
 }
 
 .card-1 .text-top {
-	bottom: -20px;
-	width: 100%;
-	text-align: center;
+    bottom: -20px;
+    width: 100%;
+    text-align: center;
 }
 
 .card-1 .main-menu-card-text {
-	min-height: 40px;
+    min-height: 40px;
+}
+
+.hidden-mobile .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.hidden-mobile .container img {
+    width: 50%;
+}
+
+.hidden-mobile .container p {
+    font-size: 16px;
+    text-align: center;
+    font-weight: 500;
 }
 
 @supports (-webkit-touch-callout: none) {
     body {
         /* The hack for Safari */
         min-height: -webkit-fill-available;
+    }
+}
+
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .hidden-mobile {
+        display: none;
+    }
+
+    .hidden-desktop {
+        display: initial;
+    }
+
+    header {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 20px;
+        margin: 0;
+    }
+
+    header p {
+        font-size: 12px;
+
+    }
+
+    header img {
+        right: 10px;
+        top: 50px;
+        max-width: 50px;
+    }
+
+    .sourate-title {
+        font-size: 12px;
+    }
+
+    #buttonCancel,
+    #buttonValidate {
+        width: 100%;
     }
 }
 
@@ -633,3 +659,13 @@ ul {
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {}
+
+@media (min-width: 576px) {
+    .hidden-mobile {
+        display: initial !important;
+    }
+
+    .hidden-desktop {
+        display: none !important;
+    }
+}
