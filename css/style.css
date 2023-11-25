@@ -1,4 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+
+:root {
+    --color-dark-blue: #1B3C74;
+    --color-blue: #2AA7FF;
+    --color-red: #FF684C;
+    --color-green: #4CD080;
+    --color-yellow: #FFB200;
+    --color-white: #fff;
+    --color-grey: #A5AFC1;
+
+    --font-dm-serif: 'DM Serif Display', serif;
+}
 
 #body {
     margin: 0;
@@ -6,6 +19,10 @@
 
 body {
     font-family: 'Poppins', sans-serif;
+}
+
+li {
+	list-style: none;
 }
 
 .h-100vh {
@@ -43,59 +60,48 @@ body {
     background: aliceblue;
     font-weight: 500;
     color: #5e5d5d;
+    white-space: nowrap;
 }
 
 .btn-success {
-    color: #fff;
-    background: #000;
+    color: var(--color-white);
+    background: var(--color-blue);
 }
 
-.main-content {
-    flex: 1;
-    padding: 20px 20px 20px 370px;
+#header {
+    justify-content: space-between;
+    padding: 30px;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background: transparent;
+    transition: all ease 0.3s;
 }
 
-#time-of-day {
-    font-size: 35px;
-    font-weight: 200;
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-    text-align: center;
+.header__logo {
+    min-width: 200px;
 }
 
-.section.home-section {
-	background-color: #fbf5ec;
+.header__menu {
+    width: 100%;
 }
 
-.section__left {
-    display: flex;
-    align-items: end;
-    justify-content: center;
+
+.header__menu--list {
+	padding: 0;
+	justify-content: center;
+	gap: 40px;
+
+    a { 
+        color: var(--color-grey);
+        text-decoration: none;
+
+        &:hover,
+        &:focus,
+        &:active {
+            color: var(--color-dark-blue);
+            text-decoration: none;
+        }
+    }
 }
 
-.section__right {
-    flex-direction: column;
-    justify-content: center;
-}
-
-.section__right--btn {
-    padding: 10px 0;
-}
-
-.section__right--title {
-	margin-bottom: 10px;
-	max-width: 535px;
-}
-
-.section__right--title h1 {
-	font-size: 75px;
-	line-height: 100%;
-	font-weight: 600;
-	margin: 0;
-}
-
-.section__right--title p {
-	font-size: 32px;
-	font-weight: 200;
-}
