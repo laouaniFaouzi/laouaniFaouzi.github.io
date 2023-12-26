@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+@font-face {
+    font-family: 'gilroy-medium';
+    src: url('/fonts/gilroy/Gilroy-Medium.ttf') format(‘truetype’)
+}
 
 :root {
     --color-dark-blue: #1B3C74;
@@ -11,14 +15,12 @@
     --color-grey: #A5AFC1;
 
     --font-dm-serif: 'DM Serif Display', serif;
+    --font-gilroy-medium: 'gilroy-medium', sans-serif;
 }
 
 #body {
     margin: 0;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-gilroy-medium);
 }
 
 li {
@@ -41,18 +43,6 @@ li {
     width: 50%;
 }
 
-.d-flex {
-    display: flex;
-}
-
-.d-none {
-    display: none;
-}
-
-.text-center {
-    text-align: center;
-}
-
 .btn {
     text-decoration: none;
     padding: 10px 20px;
@@ -63,16 +53,21 @@ li {
     white-space: nowrap;
 }
 
-.btn-success {
+.btn.btn-success {
     color: var(--color-white);
     background: var(--color-blue);
+    border-color: var(--color-blue);
+}
+
+.btn.btn-success:hover {
+    background: var(--color-dark-blue);
+    border-color: var(--color-dark-blue);
 }
 
 #header {
     justify-content: space-between;
     padding: 30px;
     align-items: center;
-    position: sticky;
     top: 0;
     background: transparent;
     transition: all ease 0.3s;
@@ -91,6 +86,7 @@ li {
 	padding: 0;
 	justify-content: center;
 	gap: 40px;
+    margin: 0;
 
     a { 
         color: var(--color-grey);
@@ -103,5 +99,14 @@ li {
             text-decoration: none;
         }
     }
+}
+
+.home-section {
+    background: rgb(219,254,252);
+    background: linear-gradient(45deg, rgba(219,254,252,0.5018207966780462) 45%, rgba(254,238,205,0.5) 79%); 
+}
+
+.home-section__title {
+    font-family: var(--font-dm-serif);
 }
 
