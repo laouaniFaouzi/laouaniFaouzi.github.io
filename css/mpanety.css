@@ -1,0 +1,215 @@
+/*FONT OUTFIT*/
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+.outfit {
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+.outfit-100 {
+    font-weight: 100;
+}
+.outfit-200 {
+    font-weight: 200;
+}
+.outfit-300 {
+    font-weight: 300;
+}
+.outfit-400 {
+    font-weight: 400;
+}
+.outfit-500 {
+    font-weight: 500;
+}
+.outfit-600 {
+    font-weight: 600;
+}
+.outfit-700 {
+    font-weight: 700;
+}
+.outfit-800 {
+    font-weight: 800;
+}
+.outfit-900 {
+    font-weight: 900;
+}
+
+/*COLOR VARIABLE*/
+:root {
+    --dark-primary: #191a1b;
+    --dark-secondary: #2f2f2f;
+    --dark-title: #434343;
+}
+
+/* -------- WEBSITE -------- */
+/*General*/
+#body {
+	background: var(--dark-primary);
+    color: #fff;
+}
+li {
+    list-style: none;
+}
+li a {
+    text-decoration: none;
+}
+.bg-dark-primary {
+    background-color: var(--dark-primary) !important;
+}
+.bg-dark-secondary {
+    background-color: var(--dark-secondary0) !important;
+}
+
+/*Button*/
+.booking-btn {
+    border: 2px solid #fff;
+    padding: 7px 5px;
+    font-size: 25px;
+}
+.booking-btn:hover,
+.booking-btn:active,
+.booking-btn:focus {
+  color: var(--dark-primary);
+  background: #fff;
+}
+
+/* Header */
+header {
+	height: 86px;
+	box-shadow: rgba(0, 0, 0, 0.53) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+header .container-fluid {
+    --bs-gutter-x: 2.5rem;
+}
+header .navbar-brand span {
+	font-size: 30px;
+}
+header .navbar-brand img {
+    max-width: 60px;
+}
+header ul {
+    margin-bottom: 0;
+    padding-left: 0;
+}
+header ul li a {
+	color: #fff;
+	font-size: 18px;
+	text-transform: uppercase;
+	font-weight: 500;
+    padding: 0 10px;
+    position: relative;
+}
+header ul li a:hover {
+    color: #fff;
+}
+header ul li.header-link a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    border-radius: 4px;
+    background-color: #fff;
+    bottom: -10px;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .3s ease-in-out;
+}
+header ul li.header-link a:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+.menu-btn .fa-solid {
+	font-size: 30px;
+	color: #fff;
+}
+.menu-responsive ul {
+	text-align: center;
+	height: 100%;
+	padding: 20px;
+    justify-content: center;
+}
+header .hide-desktop .btn-close {
+	color: #fff;
+}
+header .offcanvas-header {
+	justify-content: end;
+}
+.menu-responsive .offcanvas ul li a {
+    font-size: 45px;
+    font-weight: 800;
+}
+.menu-responsive .offcanvas ul li {
+    transition: all ease-in-out .3s;
+    padding: 0;
+}
+.menu-responsive .offcanvas.show ul li {
+    padding: 20px 0;
+}
+
+/* Main section */
+#accueil {
+	min-height: calc(100vh - 86px);
+}
+#accueil h1 {
+	font-size: 200px;
+	text-align: center;
+	margin-bottom: 0;
+	margin-top: 30px;
+}
+
+/*Responsive*/
+@media screen and (max-width: 1200px) {
+    #accueil h1 {
+        font-size: 160px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    body .hide-mobile {
+        display: none !important;
+    }
+    body .hide-desktop {
+        display: block !important;
+    }
+    #accueil h1 {
+        font-size: 140px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #accueil h1 {
+        font-size: 120px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    #accueil h1 {
+        font-size: 100px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    #accueil h1 {
+        font-size: 80px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    #accueil h1 {
+        font-size: 60px;
+    }
+    header {
+        height: 70px;
+    }
+    header .navbar-brand img {
+        max-width: 40px;
+    }
+    header .navbar-brand span {
+        font-size: 20px;
+    }
+    #accueil {
+        min-height: calc(100vh - 70px);
+    }
+}
+

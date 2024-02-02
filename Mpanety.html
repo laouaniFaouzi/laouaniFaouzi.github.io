@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Insérez ici une brève description de votre site.">
+    <meta name="keywords" content="Mots-clés, séparés, par, des, virgules">
+    <meta name="author" content="Votre Nom">
+    <title>Titre de votre page</title>
+
+    <!-- Balises Open Graph pour les réseaux sociaux (remplacez par vos propres informations) -->
+    <meta property="og:title" content="Titre de votre page">
+    <meta property="og:description" content="Description de votre page">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="URL de votre page">
+    <meta property="og:image" content="URL de l'image à afficher">
+
+    <!-- Balises Twitter Card pour Twitter (remplacez par vos propres informations) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@VotreCompteTwitter">
+    <meta name="twitter:title" content="Titre de votre page">
+    <meta name="twitter:description" content="Description de votre page">
+    <meta name="twitter:image" content="URL de l'image à afficher">
+
+    <!-- Favicon (remplacez favicon.ico par votre propre fichier) -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Feuilles de style CSS (ajoutez vos propres fichiers CSS) -->
+    <link rel="stylesheet" href="css/mpanety.css ">
+
+    <!-- Bootstrap 5 & Calendly CDN CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body id="body" class="outfit">
+    <header>
+        <nav class="navbar navbar-dark navbar-expand-lg">
+            <div class="container-fluid">
+                <div class="navbar-brand-box">
+                    <a class="navbar-brand d-flex align-items-center gap-3" href="#">
+                        <img src="images/femme-coran.png" alt="Mapenty Logo">
+                        <span class="outfit-900">MPANETY</span>
+                    </a>
+                </div>
+                <!-- Liste de liens à droite -->
+                <ul class="hide-mobile d-flex align-items-center gap-4">
+                    <li class="header-link"><a href="#accueil">Accueil</a></li>
+                    <li class="header-link"><a href="#horaires">Horaires</a></li>
+                    <li class="header-link"><a href="#price">Prix</a></li>
+                    <li class="header-link"><a href="#contact">Contact</a></li>
+                    <li><a class="booking-btn outfit outfit-800" href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/laouanifaouzi/consultation-gratuite?text_color=191a1b&primary_color=191a1b'});return false;">Prendre RDV</a></li>
+                </ul>
+                <div class="menu-responsive hide-desktop d-none">
+                    <a class="menu-btn" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                        <i class="fa-solid fa-bars"></i>
+                    </a>
+                    <div class="offcanvas offcanvas-end bg-dark-primary" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                        <div class="offcanvas-header">
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <ul class="d-flex flex-column">
+                            <li class=""><a href="#accueil">Accueil</a></li>
+                            <li class=""><a href="#horaires">Horaires</a></li>
+                            <li class=""><a href="#price">Prix</a></li>
+                            <li class=""><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="panety-content">
+        <div class="container-fluid">
+            <section id="accueil">
+                <h1 class="main-title outfit outfit-900">MPANETY</h1>
+            </section>
+            <section id="horaires" class="bg-dark-secondary">
+
+            </section>
+            <section id="price"></section>
+            <section id="contact" class="bg-dark-secondary"></section>
+        </div>
+    </div>
+    <footer id="footer">
+        <class class="container-fluid"></class>
+    </footer>
+
+    <!-- Scripts JavaScript (ajoutez vos propres fichiers JavaScript) -->
+    <script src="js/mpanety.js"></script>
+
+    <!-- Bootstrap 5 & Calendly CDN JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+
+</body>
+</html>
