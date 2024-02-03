@@ -35,22 +35,22 @@
 
 </head>
 <body id="body" class="outfit">
-    <header>
+    <header class="sticky-top bg-dark-primary">
         <nav class="navbar navbar-dark navbar-expand-lg">
             <div class="container-fluid">
                 <div class="navbar-brand-box">
                     <a class="navbar-brand d-flex align-items-center gap-3" href="#">
-                        <img src="images/femme-coran.png" alt="Mapenty Logo">
+                        <img src="images/mpanety-logo.png" alt="Mapenty Logo">
                         <span class="outfit-900">MPANETY</span>
                     </a>
                 </div>
                 <!-- Liste de liens à droite -->
                 <ul class="hide-mobile d-flex align-items-center gap-4">
-                    <li class="header-link"><a href="#accueil">Accueil</a></li>
+                    <li class="header-link"><a href="#">Accueil</a></li>
                     <li class="header-link"><a href="#horaires">Horaires</a></li>
                     <li class="header-link"><a href="#price">Prix</a></li>
                     <li class="header-link"><a href="#contact">Contact</a></li>
-                    <li><a class="booking-btn outfit outfit-800" href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/laouanifaouzi/consultation-gratuite?text_color=191a1b&primary_color=191a1b'});return false;">Prendre RDV</a></li>
+                    <li><a class="booking-btn outfit outfit-800" href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/mpanety?text_color=191a1b&primary_color=191a1b'});return false;">Prendre RDV</a></li>
                 </ul>
                 <div class="menu-responsive hide-desktop d-none">
                     <a class="menu-btn" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
@@ -61,10 +61,16 @@
                             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
                         <ul class="d-flex flex-column">
-                            <li class=""><a href="#accueil">Accueil</a></li>
+                            <li>
+                                <div class="offcanvas-logo-box">
+                                    <img src="images/mpanety-logo.png" alt="Mapenty Logo">
+                                </div>
+                            </li>
+                            <li class=""><a href="#home">Accueil</a></li>
                             <li class=""><a href="#horaires">Horaires</a></li>
                             <li class=""><a href="#price">Prix</a></li>
                             <li class=""><a href="#contact">Contact</a></li>
+                            <li><a class="booking-btn booking-btn-mobile outfit outfit-800" href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/laouanifaouzi/consultation-gratuite?text_color=191a1b&primary_color=191a1b'});return false;">Prendre RDV</a></li>
                         </ul>
                     </div>
                 </div>
@@ -73,19 +79,62 @@
     </header>
     <div class="panety-content">
         <div class="container-fluid">
-            <section id="accueil">
+            <section id="home">
                 <h1 class="main-title outfit outfit-900">MPANETY</h1>
-            </section>
-            <section id="horaires" class="bg-dark-secondary">
 
+                <div class="home-carousel">
+                    <div id="homeCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active"  data-bs-interval="10000">
+                                <img src="images/barber_coupe.jpeg" class="d-block" alt="...">
+                            </div>
+                            <div class="carousel-item"  data-bs-interval="10000">
+                                <video src="images/barber-2.mp4" class="d-block" alt="..." autoplay loop muted>
+                            </div>
+                            <div class="carousel-item"  data-bs-interval="10000">
+                                <img src="images/barber-fauteuil.jpeg" class="d-block" alt="...">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
-            <section id="price"></section>
-            <section id="contact" class="bg-dark-secondary"></section>
+            <section id="horaires" class="page-section bg-dark-secondary">
+                <div class="horaires-title section-title outfit-900">
+                    Horaires
+                </div>
+            </section>
+            <section id="price" class="page-section">
+                <div class="price-title section-title outfit-900">
+                    Prix
+                </div>
+            </section>
+            <section id="contact" class="page-section bg-dark-secondary">
+                <div class="contact-title section-title outfit-900">
+                    Contact
+                </div>
+                <div class="contact-box">
+                    <div class="contact-map position-relative">
+                        <div class="contact-link contact-address">
+                            <a href="https://maps.app.goo.gl/ayXQFUYbWNkQvVYt9">1 Rue de Bonsecours, 54000 Nancy</a>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="contact-link contact-tel">
+                                <a href="tel:+33624584196">+33 6 24 58 41 96</a>
+                            </div>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2634.5031389195174!2d6.195645112649984!3d48.67674437118842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47949859a0bf420b%3A0x3fd31b16b1e8e6d6!2s1%20Rue%20de%20Bonsecours%2C%2054000%20Nancy!5e0!3m2!1sfr!2sfr!4v1706912275259!5m2!1sfr!2sfr" width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        <div class="contact-link contact-email">
+                            <a href="mailto:mpanety@myyahoo.com">mpanety@myyahoo.com</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
-    <footer id="footer">
+
+    <!-- <footer id="footer">
         <class class="container-fluid"></class>
-    </footer>
+    </footer> -->
 
     <!-- Scripts JavaScript (ajoutez vos propres fichiers JavaScript) -->
     <script src="js/mpanety.js"></script>

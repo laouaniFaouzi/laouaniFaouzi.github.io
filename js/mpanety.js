@@ -24,6 +24,11 @@ document.addEventListener('DOMContentLoaded', function () {
         link.addEventListener('click', function () {
             // Retire la classe 'show' de l'élément offcanvas
             offcanvas.classList.remove('show');
+
+            body.style.overflow = '';
+            body.style.padding = '';
+            header.style.margin = '';
+            header.style.padding = '';
         });
     });
 });

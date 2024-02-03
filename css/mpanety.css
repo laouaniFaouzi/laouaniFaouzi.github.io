@@ -57,20 +57,26 @@ li a {
     background-color: var(--dark-primary) !important;
 }
 .bg-dark-secondary {
-    background-color: var(--dark-secondary0) !important;
+    background-color: var(--dark-secondary) !important;
 }
 
 /*Button*/
 .booking-btn {
+    color: #fff;
     border: 2px solid #fff;
     padding: 7px 5px;
     font-size: 25px;
+    transition: all ease-in-out .2s;
 }
 .booking-btn:hover,
 .booking-btn:active,
 .booking-btn:focus {
-  color: var(--dark-primary);
-  background: #fff;
+    color: var(--dark-primary);
+    background: #fff;
+}
+.booking-btn.booking-btn-mobile {
+	background-color: #fff;
+	color: var(--dark-primary);
 }
 
 /* Header */
@@ -148,19 +154,96 @@ header .offcanvas-header {
 }
 
 /* Main section */
-#accueil {
+#home {
 	min-height: calc(100vh - 86px);
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
 }
-#accueil h1 {
+#home h1 {
 	font-size: 200px;
 	text-align: center;
 	margin-bottom: 0;
-	margin-top: 30px;
+	padding-top: 30px;
+	position: absolute;
+	width: 100%;
+	top: 0;
+	z-index: 2;
+}
+.home-carousel {
+    max-width: 60%;
+    max-height: 80%;
+}
+.panety-content .container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+.offcanvas-logo-box img {
+	max-width: 100px;
+}
+#homeCarousel .carousel-inner {
+    max-height: 600px;
+}
+#homeCarousel .carousel-inner .carousel-item img,
+#homeCarousel .carousel-inner .carousel-item video {
+    width: 100%;
+    transition: width ease 20s;
+} 
+#homeCarousel .carousel-inner .carousel-item.active img,
+#homeCarousel .carousel-inner .carousel-item.active video {
+    width: 120%;
+}
+
+/*Contact section*/
+.contact-map {
+	width: 70%;
+	margin: auto;
+}
+.contact-map iframe {
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    padding: 20px;
+    border: 2px solid #fff !important;
+}
+.contact-link.contact-tel {
+	position: absolute;
+	left: -55px;
+	transform: rotate(270deg);
+	text-align: center;
+	width: 24px;
+	white-space: nowrap;
+	bottom: 60px;
+}
+.contact-link.contact-address,
+.contact-link.contact-email {
+	text-align: right;
+}
+.page-section {
+    padding: 60px;
+}
+.page-section .section-title {
+    font-size: 160px;
+    text-transform: uppercase;
+    color: var(--dark-title);
+}
+.contact-link {
+    padding: 10px 0;
+}
+.contact-link a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 42px;
+    font-weight: 800;
+}
+.contact-link a:hover {
+	color: var(--dark-title);
 }
 
 /*Responsive*/
 @media screen and (max-width: 1200px) {
-    #accueil h1 {
+    #home h1 {
         font-size: 160px;
     }
 }
@@ -172,31 +255,31 @@ header .offcanvas-header {
     body .hide-desktop {
         display: block !important;
     }
-    #accueil h1 {
+    #home h1 {
         font-size: 140px;
     }
 }
 
 @media screen and (max-width: 767px) {
-    #accueil h1 {
+    #home h1 {
         font-size: 120px;
     }
 }
 
 @media screen and (max-width: 640px) {
-    #accueil h1 {
+    #home h1 {
         font-size: 100px;
     }
 }
 
 @media screen and (max-width: 520px) {
-    #accueil h1 {
+    #home h1 {
         font-size: 80px;
     }
 }
 
 @media screen and (max-width: 420px) {
-    #accueil h1 {
+    #home h1 {
         font-size: 60px;
     }
     header {
@@ -208,8 +291,13 @@ header .offcanvas-header {
     header .navbar-brand span {
         font-size: 20px;
     }
-    #accueil {
+    #home {
         min-height: calc(100vh - 70px);
     }
 }
 
+@media screen and (max-width: 370px) {
+    .menu-responsive .offcanvas .booking-btn.booking-btn-mobile {
+        font-size: 38px;
+    }
+}
