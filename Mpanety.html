@@ -54,7 +54,7 @@
                 </div>
                 <!-- Liste de liens à droite -->
                 <ul class="hide-mobile d-flex align-items-center gap-4">
-                    <li class="header-link"><a href="#">Accueil</a></li>
+                    <li class="header-link"><a href="#home">Accueil</a></li>
                     <li class="header-link"><a href="#horaires">Horaires</a></li>
                     <li class="header-link"><a href="#price">Tarifs</a></li>
                     <li class="header-link"><a href="#contact">Contact</a></li>
@@ -74,7 +74,6 @@
                                     <img src="images/mpanety-logo.png" alt="Mapenty Logo">
                                 </div>
                             </li>
-                            <li class=""><a href="#home">Accueil</a></li>
                             <li class=""><a href="#horaires">Horaires</a></li>
                             <li class=""><a href="#price">Tarifs</a></li>
                             <li class=""><a href="#contact">Contact</a></li>
@@ -113,48 +112,62 @@
                 <div class="horaires-box">
                     <div class="hide-mobile-767">
                         <div id="tabs">
-                            <button onclick="showTab('lundi')">L</button>
-                            <button onclick="showTab('mardi')">M</button>
-                            <button onclick="showTab('mercredi')">M</button>
-                            <button onclick="showTab('jeudi')">J</button>
-                            <button onclick="showTab('vendredi')">V</button>
-                            <button onclick="showTab('samedi')">S</button>
-                            <button onclick="showTab('dimanche')">D</button>
+                            <button class="lundi" onclick="showTab('lundi')"><span></span>L</button>
+                            <button class="mardi" onclick="showTab('mardi')"><span></span>M</button>
+                            <button class="mercredi" onclick="showTab('mercredi')"><span></span>M</button>
+                            <button class="jeudi" onclick="showTab('jeudi')"><span></span>J</button>
+                            <button class="vendredi" onclick="showTab('vendredi')"><span></span>V</button>
+                            <button class="samedi" onclick="showTab('samedi')"><span></span>S</button>
+                            <button class="dimanche" onclick="showTab('dimanche')"><span></span>D</button>
                         </div>
                         
                         <div id="lundi" class="tab-content">
-                            <!-- Contenu pour lundi -->
-                            <p>Contenu de lundi.</p>
+                            <div class="tab-content-text">
+                                <span>Lundi</span>
+                                <p>de 14h00 à 19h00</p>
+                            </div>
                         </div>
                         
                         <div id="mardi" class="tab-content">
-                            <!-- Contenu pour mardi -->
-                            <p>Contenu de mardi.</p>
+                            <div class="tab-content-text">
+                                <span>Mardi</span>
+                                <p>de 09h00 à 18h00</p>
+                            </div>
                         </div>
                         
                         <div id="mercredi" class="tab-content">
-                            <!-- Contenu pour mercredi -->
-                            <p>Contenu de mercredi.</p>
+                            <div class="tab-content-text">
+                                <span>Mercredi</span>
+                                <p>de 09h00 à 18h00</p>
+                            </div>
                         </div>
                         
                         <div id="jeudi" class="tab-content">
-                            <!-- Contenu pour jeudi -->
-                            <p>Contenu de jeudi.</p>
+                            <div class="tab-content-text">
+                                <span>Jeudi</span>
+                                <p>de 09h00 à 18h00</p>
+                            </div>
                         </div>
                         
                         <div id="vendredi" class="tab-content">
-                            <!-- Contenu pour vendredi -->
-                            <p>Contenu de vendredi.</p>
+                            <div class="tab-content-text">
+                                <span>Vendredi</span>
+                                <p>de 09h00 à 18h00</p>
+                            </div>
                         </div>
     
                         <div id="samedi" class="tab-content">
-                            <!-- Contenu pour vendredi -->
-                            <p>Contenu de Samedi.</p>
+                            <div class="tab-content-text">
+                                <span>Samedi</span>
+                                <p>de 09h00 à 18h00</p>
+                            </div>
                         </div>
     
                         <div id="dimanche" class="tab-content">
-                            <!-- Contenu pour vendredi -->
-                            <p>Contenu de Dimanche.</p>
+                            <div class="tab-content-text">
+                                <span>Dimanche</span>
+                                <img src="images/close.png" alt="boutique fermée">
+                            </div>
                         </div>
                     </div>
                     <div class="hide-desktop-767 d-none">
@@ -268,7 +281,7 @@
                             <li>
                                 <p class="prestation-price">
                                     <span class="prestation">Coupe + Barbe</span>
-                                    <span class="price">35€</span>
+                                    <span class="price">30€</span>
                                 </p>
                                 <span class="prestation-time">
                                     Durée de la préstation: 45 min
@@ -288,7 +301,7 @@
                 <div class="contact-box">
                     <div class="contact-map position-relative">
                         <div class="contact-link contact-address">
-                            <a href="https://maps.app.goo.gl/ayXQFUYbWNkQvVYt9">1 Rue de Bonsecours, 54000 Nancy</a>
+                            <a href="https://maps.app.goo.gl/ayXQFUYbWNkQvVYt9" target="_blank">1 Rue de Bonsecours, 54000 Nancy</a>
                         </div>
                         <div class="d-flex align-items-center">
                             <div class="contact-link contact-tel">
