@@ -147,10 +147,11 @@ header .offcanvas-header {
     font-weight: 800;
 }
 .menu-responsive .offcanvas ul li {
-    transition: all ease-in-out .3s;
+    transition: all ease-in-out .7s;
     padding: 0;
 }
-.menu-responsive .offcanvas.show ul li {
+.menu-responsive .offcanvas.show ul li,
+.menu-responsive .offcanvas.showing ul li {
     padding: 20px 0;
 }
 
@@ -186,6 +187,9 @@ header .offcanvas-header {
 #homeCarousel .carousel-inner {
     max-height: 600px;
 }
+.offcanvas-backdrop {
+	display: none !important;
+}
 #homeCarousel .carousel-inner .carousel-item img,
 #homeCarousel .carousel-inner .carousel-item video {
     width: 100%;
@@ -194,6 +198,9 @@ header .offcanvas-header {
 #homeCarousel .carousel-inner .carousel-item.active img,
 #homeCarousel .carousel-inner .carousel-item.active video {
     width: 120%;
+}
+#homeCarousel .carousel-inner .carousel-item {
+	pointer-events: none;
 }
 
 /*Contact section*/
