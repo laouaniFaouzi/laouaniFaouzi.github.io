@@ -6,7 +6,7 @@
     <meta name="description" content="Insérez ici une brève description de votre site.">
     <meta name="keywords" content="Mots-clés, séparés, par, des, virgules">
     <meta name="author" content="Votre Nom">
-    <title>Titre de votre page</title>
+    <title>Mpanety Barber</title>
 
     <!-- Balises Open Graph pour les réseaux sociaux (remplacez par vos propres informations) -->
     <meta property="og:title" content="Titre de votre page">
@@ -23,7 +23,15 @@
     <meta name="twitter:image" content="URL de l'image à afficher">
 
     <!-- Favicon (remplacez favicon.ico par votre propre fichier) -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="images/site.webmanifest">
+    <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    
+    
 
     <!-- Feuilles de style CSS (ajoutez vos propres fichiers CSS) -->
     <link rel="stylesheet" href="css/mpanety.css ">
@@ -50,7 +58,7 @@
                     <li class="header-link"><a href="#horaires">Horaires</a></li>
                     <li class="header-link"><a href="#price">Prix</a></li>
                     <li class="header-link"><a href="#contact">Contact</a></li>
-                    <li><a class="booking-btn outfit outfit-800" href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/mpanety?text_color=191a1b&primary_color=191a1b'});return false;">Prendre RDV</a></li>
+                    <li><a class="booking-btn outfit outfit-800" href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/mpanety?background_color=ffffff&text_color=000000&primary_color=191a1b'});return false;">Prendre RDV</a></li>
                 </ul>
                 <div class="menu-responsive hide-desktop d-none">
                     <a class="menu-btn" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
@@ -60,7 +68,7 @@
                         <div class="offcanvas-header">
                             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
-                        <ul class="d-flex flex-column">
+                        <ul class="d-flex flex-colu minutes">
                             <li>
                                 <div class="offcanvas-logo-box">
                                     <img src="images/mpanety-logo.png" alt="Mapenty Logo">
@@ -70,7 +78,7 @@
                             <li class=""><a href="#horaires">Horaires</a></li>
                             <li class=""><a href="#price">Prix</a></li>
                             <li class=""><a href="#contact">Contact</a></li>
-                            <li><a class="booking-btn booking-btn-mobile outfit outfit-800" href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/laouanifaouzi/consultation-gratuite?text_color=191a1b&primary_color=191a1b'});return false;">Prendre RDV</a></li>
+                            <li><a class="booking-btn booking-btn-mobile outfit outfit-800" href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/mpanety?background_color=ffffff&text_color=000000&primary_color=191a1b'});return false;">Prendre RDV</a></li>
                         </ul>
                     </div>
                 </div>
@@ -99,19 +107,184 @@
                 </div>
             </section>
             <section id="horaires" class="page-section bg-dark-secondary">
-                <div class="horaires-title section-title outfit-900">
+                <h2 class="horaires-title section-title outfit-900">
                     Horaires
+                </h2>
+                <div class="horaires-box">
+                    <div class="hide-mobile-767">
+                        <div id="tabs">
+                            <button onclick="showTab('lundi')">L</button>
+                            <button onclick="showTab('mardi')">M</button>
+                            <button onclick="showTab('mercredi')">M</button>
+                            <button onclick="showTab('jeudi')">J</button>
+                            <button onclick="showTab('vendredi')">V</button>
+                            <button onclick="showTab('samedi')">S</button>
+                            <button onclick="showTab('dimanche')">D</button>
+                        </div>
+                        
+                        <div id="lundi" class="tab-content">
+                            <!-- Contenu pour lundi -->
+                            <p>Contenu de lundi.</p>
+                        </div>
+                        
+                        <div id="mardi" class="tab-content">
+                            <!-- Contenu pour mardi -->
+                            <p>Contenu de mardi.</p>
+                        </div>
+                        
+                        <div id="mercredi" class="tab-content">
+                            <!-- Contenu pour mercredi -->
+                            <p>Contenu de mercredi.</p>
+                        </div>
+                        
+                        <div id="jeudi" class="tab-content">
+                            <!-- Contenu pour jeudi -->
+                            <p>Contenu de jeudi.</p>
+                        </div>
+                        
+                        <div id="vendredi" class="tab-content">
+                            <!-- Contenu pour vendredi -->
+                            <p>Contenu de vendredi.</p>
+                        </div>
+    
+                        <div id="samedi" class="tab-content">
+                            <!-- Contenu pour vendredi -->
+                            <p>Contenu de Samedi.</p>
+                        </div>
+    
+                        <div id="dimanche" class="tab-content">
+                            <!-- Contenu pour vendredi -->
+                            <p>Contenu de Dimanche.</p>
+                        </div>
+                    </div>
+                    <div class="hide-desktop-767 d-none">
+                        <div class="openning-days">
+                            <h3>Lundi</h3>
+                            <p>de 14h00 à 19h00</p>
+                        </div>
+                        <div class="openning-days">
+                            <h3>du Mardi au Samedi</h3>
+                            <p>de 9h00 à 18h00</p>
+                        </div>
+                        <div class="openning-days day-off">
+                            <h3>Dimanche</h3>
+                            <p>Fermé</p>
+                        </div>
+                    </div>
                 </div>
             </section>
             <section id="price" class="page-section">
-                <div class="price-title section-title outfit-900">
+                <h2 class="price-title section-title outfit-900">
                     Prix
+                </h2>
+                <div class="price-box d-flex">
+                    <div class="price-box-content">
+                        <ul>
+                            <li>
+                                <p class="prestation-price">
+                                    <span class="prestation child-prestation">Coupe</span>
+                                    <span class="price">10€</span>
+                                </p>
+                                <span class="prestation-time">
+                                    Durée de la préstation: 15 min
+                                </span>
+                            </li>
+                            <li>
+                                <p class="prestation-price">
+                                    <span class="prestation">Barbe</span>
+                                    <span class="price">15€</span>
+                                </p>
+                                <span class="prestation-time">
+                                    Durée de la préstation: 20 min
+                                </span>
+                            </li>
+                            <li>
+                                <p class="prestation-price">
+                                    <span class="prestation">Coupe uniforme tondeuse</span>
+                                    <span class="price">10€</span>
+                                </p>
+                                <span class="prestation-time">
+                                    Durée de la préstation: 10 min
+                                </span>
+                            </li>
+                            <li>
+                                <p class="prestation-price">
+                                    <span class="prestation">Coupe uniforme + Barbe</span>
+                                    <span class="price">35€</span>
+                                </p>
+                                <span class="prestation-time">
+                                    Durée de la préstation: 30 min
+                                </span>
+                            </li>
+                            <li>
+                                <p class="prestation-price">
+                                    <span class="prestation">Coupe + Shampooing</span>
+                                    <span class="price">22€</span>
+                                </p>
+                                <span class="prestation-time">
+                                    Durée de la préstation: 35 min
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="price-box-content">
+                        <ul>
+                            <li>
+                                <p class="prestation-price">
+                                    <span class="prestation child-prestation">Coupe dégradée à blanc</span>
+                                    <span class="price">15€</span>
+                                </p>
+                                <span class="prestation-time">
+                                    Durée de la préstation: 30 min
+                                </span>
+                            </li>
+                            <li>
+                                <p class="prestation-price">
+                                    <span class="prestation">Traçage complet</span>
+                                    <span class="price">15€</span>
+                                </p>
+                                <span class="prestation-time">
+                                    Durée de la préstation: 15 min
+                                </span>
+                            </li>
+                            <li>
+                                <p class="prestation-price">
+                                    <span class="prestation">Coupe uniforme au rasoir</span>
+                                    <span class="price">15€</span>
+                                </p>
+                                <span class="prestation-time">
+                                    Durée de la préstation: 20 min
+                                </span>
+                            </li>
+                            <li>
+                                <p class="prestation-price">
+                                    <span class="prestation">Coupe</span>
+                                    <span class="price">20€</span>
+                                </p>
+                                <span class="prestation-time">
+                                    Durée de la préstation: 30 min
+                                </span>
+                            </li>
+                            <li>
+                                <p class="prestation-price">
+                                    <span class="prestation">Coupe + Barbe</span>
+                                    <span class="price">35€</span>
+                                </p>
+                                <span class="prestation-time">
+                                    Durée de la préstation: 45 min
+                                </span>
+                            </li>
+                        </ul>
+                        <div class="rdv-banner">
+                            
+                        </div>
+                    </div>
                 </div>
             </section>
             <section id="contact" class="page-section bg-dark-secondary">
-                <div class="contact-title section-title outfit-900">
+                <h2 class="contact-title section-title outfit-900">
                     Contact
-                </div>
+                </h2>
                 <div class="contact-box">
                     <div class="contact-map position-relative">
                         <div class="contact-link contact-address">
@@ -132,9 +305,9 @@
         </div>
     </div>
 
-    <!-- <footer id="footer">
+    <footer id="footer">
         <class class="container-fluid"></class>
-    </footer> -->
+    </footer>
 
     <!-- Scripts JavaScript (ajoutez vos propres fichiers JavaScript) -->
     <script src="js/mpanety.js"></script>

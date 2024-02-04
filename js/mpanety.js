@@ -32,3 +32,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+window.onload = function() {
+    // Calcul de la hauteur de l'écran moins la taille du header
+    const headerHeight = document.querySelector('header').offsetHeight;
+    const home = document.getElementById('home');
+    const newHomeHeight = window.innerHeight - headerHeight;
+    
+    // Appliquer la nouvelle hauteur au contenu
+    home.style.height = `${newHomeHeight}px`;
+};

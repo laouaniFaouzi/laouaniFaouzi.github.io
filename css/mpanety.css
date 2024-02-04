@@ -133,7 +133,7 @@ header ul li.header-link a:hover::before {
 	text-align: center;
 	height: 100%;
 	padding: 20px;
-    justify-content: center;
+    overflow: auto;
 }
 header .hide-desktop .btn-close {
 	color: #fff;
@@ -155,7 +155,6 @@ header .offcanvas-header {
 
 /* Main section */
 #home {
-	min-height: calc(100vh - 86px);
     display: flex;
     position: relative;
     flex-direction: column;
@@ -173,7 +172,8 @@ header .offcanvas-header {
 }
 .home-carousel {
     max-width: 60%;
-    max-height: 80%;
+    height: 100%;
+    padding-top: 160px;
 }
 .panety-content .container-fluid {
     padding-left: 0;
@@ -224,9 +224,11 @@ header .offcanvas-header {
     padding: 60px;
 }
 .page-section .section-title {
-    font-size: 160px;
-    text-transform: uppercase;
-    color: var(--dark-title);
+	font-size: 160px;
+	text-transform: uppercase;
+	color: var(--dark-title);
+	margin: 0 0 30px;
+	line-height: normal;
 }
 .contact-link {
     padding: 10px 0;
@@ -241,10 +243,134 @@ header .offcanvas-header {
 	color: var(--dark-title);
 }
 
+/*Horaires section*/
+.horaires-box #tabs {
+	display: flex;
+	justify-content: space-between;
+}
+.horaires-box button {
+	border: 2px solid var(--dark-title);
+	background: transparent;
+	width: 150px;
+	height: 200px;
+	color: var(--dark-title);
+	font-size: 80px;
+	font-weight: 900;
+	transition: all ease-in-out .3s;
+}
+.horaires-box button:hover {
+	background: var(--dark-primary);
+	border-color: #fff;
+	color: #fff;
+}
+.openning-days {
+    margin-bottom: 50px;
+}
+.openning-days h3 {
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 40px;
+    margin: 0 0 5px;
+}
+.openning-days p {
+    margin: 0;
+    font-size: 42px;
+    font-weight: 100;
+}
+
+/*Price section*/
+.price-box-content {
+    width: 50%;
+    padding: 60px 60px 0;
+}
+.price-box-content ul {
+    padding: 0;
+    margin: 0;
+}
+.price-box-content ul li {
+    margin-bottom: 80px;
+}
+.prestation-price {
+    margin: 0;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+}
+.prestation-price .prestation {
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 800;
+    width: 100%;
+    display: flex;
+    align-items: end;
+    white-space: nowrap;
+    position: relative;
+}
+.prestation-price .price {
+    font-size: 40px;
+    font-weight: 900;
+}
+.prestation-price .prestation::after {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background: #fff;
+    margin: 0 10px;
+}
+.prestation.child-prestation::before {
+    content: "Enfant";
+    position: absolute;
+    top: -25px;
+    font-weight: 100;
+    font-size: 14px;
+}
+.prestation-time {
+    margin-top: 15px;
+    display: block;
+    color: var(--dark-title);
+    font-size: 20px;
+}
+
 /*Responsive*/
 @media screen and (max-width: 1200px) {
     #home h1 {
         font-size: 160px;
+    }
+    .page-section .section-title {
+        font-size: 120px;
+    }
+    .contact-link a {
+        font-size: 35px;
+    }
+    .contact-map {
+        width: 80%;
+    }
+    .home-carousel {
+        max-width: 70%;
+        padding-top: 140px;
+    }
+    .horaires-box button {
+        width: 100px;
+        height: 130px;
+        font-size: 50px;
+    }
+    .price-box {
+        flex-direction: column;
+        margin-top: 60px;
+    }
+    .price-box .price-box-content {
+        width: 100%;
+        padding: 0 20px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #home {
+        justify-content: inherit;
+    }
+    .home-carousel {
+        max-width: 90%;
+        margin: 0 auto;
     }
 }
 
@@ -258,11 +384,52 @@ header .offcanvas-header {
     #home h1 {
         font-size: 140px;
     }
+    .contact-map {
+        width: 90%;
+    }
+    #homeCarousel .carousel-inner {
+        max-height: 500px;
+    }
+    .home-carousel {
+        padding-top: 110px;
+    }
+    .horaires-box button {
+        width: 80px;
+        height: 110px;
+        font-size: 40px;
+    }
 }
 
 @media screen and (max-width: 767px) {
+    body .hide-mobile-767 {
+        display: none !important;
+    }
+    body .hide-desktop-767 {
+        display: block !important;
+    }
     #home h1 {
         font-size: 120px;
+    }
+    .page-section {
+        padding: 60px 30px;
+    }
+    .page-section .section-title {
+        font-size: 100px;
+    }
+    .contact-map iframe {
+        height: 400px;
+    }
+    .contact-link a {
+        font-size: 30px;
+    }
+    .contact-map {
+        width: 85%;
+    }
+    .contact-link.contact-tel {
+        left: -40px;
+    }
+    #homeCarousel .carousel-inner {
+        height: 520px;
     }
 }
 
@@ -270,11 +437,64 @@ header .offcanvas-header {
     #home h1 {
         font-size: 100px;
     }
+    .page-section {
+        padding: 30px;
+    }
+    .page-section .section-title {
+        font-size: 80px;
+    }
+    .contact-link a {
+        font-size: 25px;
+    }
+    .home-carousel {
+        padding-top: 100px;
+    }
 }
 
 @media screen and (max-width: 520px) {
     #home h1 {
         font-size: 80px;
+    }
+    .page-section {
+        padding: 20px;
+    }
+    .page-section .section-title {
+        font-size: 60px;
+    }
+    .home-carousel {
+        padding-top: 90px;
+    }
+    .openning-days {
+        margin-bottom: 30px;
+    }
+    .openning-days h3 {
+        font-size: 30px;
+        margin: 0 0 5px;
+    }
+    .openning-days p {
+        font-size: 32px;
+    }
+    .prestation-price .prestation {
+        font-size: 16px;
+    }
+    .prestation-time {
+        font-size: 14px;
+    }
+    .prestation.child-prestation::before {
+        font-size: 12px;
+    }
+    .prestation-price .price {
+        font-size: 25px;
+    }
+    .price-box-content ul li {
+        margin-bottom: 40px;
+    }
+    .contact-link a {
+        font-size: 18px;
+    }
+    .contact-map iframe {
+        height: 480px;
+        margin: 10px 0;
     }
 }
 
@@ -293,6 +513,18 @@ header .offcanvas-header {
     }
     #home {
         min-height: calc(100vh - 70px);
+    }
+    .page-section .section-title {
+        font-size: 50px;
+    }
+    .home-carousel {
+        padding-top: 70px;
+    }
+    .menu-responsive .offcanvas ul li a {
+        font-size: 30px;
+    }
+    .offcanvas-logo-box img {
+        max-width: 80px;
     }
 }
 
