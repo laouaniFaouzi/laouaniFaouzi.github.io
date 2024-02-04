@@ -134,6 +134,7 @@ header ul li.header-link a:hover::before {
 	height: 100%;
 	padding: 20px;
     overflow: auto;
+    flex-direction: column;
 }
 header .hide-desktop .btn-close {
 	color: #fff;
