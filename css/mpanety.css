@@ -68,14 +68,54 @@ li a {
     animation: swing 2.5s ease-in-out infinite;
 }
 
-@keyframes scroll-reveal {
-    to { background-size: 100% 100%; }
+@keyframes tab-animation {
+    0% { 
+        opacity: 0;
+        bottom: -20px;
+    }
+    100% {
+        opacity: 1; 
+        bottom: 0px;
+    }
 
 }
+.tab-animation {
+    animation: tab-animation 1.5s cubic-bezier(.22,.61,.36,1);
+    position: relative;
+}
 
-.scroll-reveal > * {
-    animation: scroll-reveal duration timing-function delay iteration-count direction linear;
-    background-size: 0% 100%;
+#home h1.main-title {
+    opacity: 0;
+    top: 10px;
+}
+#home h1.main-title.fade-in {
+    opacity: 1;
+    top: 0px;
+    transition: all 1s ease-in-out 1s; 
+}
+
+#mainSubTitle,
+#mainText,
+#mainSocial {
+    opacity: 0;
+    position: relative;
+    top: 10px;
+}
+#mainSubTitle.fade-in,
+#mainText.fade-in,
+#mainSocial.fade-in {
+    opacity: 1;
+    top: 0px;
+    transition: all 1s ease-in-out; 
+}
+#mainSubTitle.fade-in {
+    transition-delay: 1.7s;
+}
+#mainText.fade-in {
+    transition-delay: 2s;
+}
+#mainSocial.fade-in {
+    transition-delay: 2.7s;
 }
 
 /*Button*/
@@ -194,7 +234,6 @@ header .offcanvas-header {
 	padding-top: 30px;
 	position: absolute;
 	width: 100%;
-	top: 0;
 	z-index: 2;
 }
 .home-carousel {
@@ -210,14 +249,12 @@ header .offcanvas-header {
     max-height: 600px;
     height: 600px;
 }
-#homeCarousel .carousel-inner .carousel-item img,
-#homeCarousel .carousel-inner .carousel-item video {
+#homeCarousel .carousel-inner .carousel-item img {
     width: auto;
     height: 140%;
-    transition: height ease 20s;
+    transition: height linear 10s;
 }
-#homeCarousel .carousel-inner .carousel-item.active img,
-#homeCarousel .carousel-inner .carousel-item.active video {
+#homeCarousel .carousel-inner .carousel-item.active img {
     width: auto;
     height: 120%;
 }
@@ -256,6 +293,8 @@ header .offcanvas-header {
 }
 .about-us-social-media {
     padding: 20px 0 0;
+    position: relative;
+    top: 50px;
 }
 .about-us-social-media ul {
     padding: 0;
@@ -514,6 +553,22 @@ header .offcanvas-header {
     font-weight: 700;
 }
 
+/*Reveal animation*/
+.horaires-box .hide-desktop-767,
+.contact-box,
+.price-box {
+	opacity: 0;
+	transition: all linear .5s;
+	bottom: -20px;
+	position: relative;
+}
+.horaires-box .hide-desktop-767.reveal,
+.contact-box.reveal,
+.price-box.reveal {
+    opacity: 1;
+    bottom: 0px;
+}
+
 /*Responsive*/
 @media screen and (max-width: 1280px) {
     #home h1 {
@@ -580,6 +635,9 @@ header .offcanvas-header {
     .horaires-box .tab-content .tab-content-text {
         height: 300px;
     }
+    .about-us-social-media {
+        top: 30px;
+    }
 }
 
 @media screen and (max-width: 1024px) {
@@ -611,6 +669,9 @@ header .offcanvas-header {
     #homeCarousel .carousel-inner .carousel-item {
         height: 600px;
         overflow: hidden;
+    }
+    .about-us-social-media {
+        top: 0;
     }
 }
 

@@ -1,3 +1,11 @@
+window.onload = function() {
+    const headerHeight = document.querySelector('header').offsetHeight;
+    const home = document.getElementById('home');
+    const newHomeHeight = window.innerHeight - headerHeight;
+    
+    home.style.height = `${newHomeHeight}px`;
+};
+
 window.addEventListener('scroll', function () {
     let currentSectionId = '';
     document.querySelectorAll('section').forEach(function (section) {
@@ -17,6 +25,16 @@ window.addEventListener('scroll', function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
+    var mainTitle = document.getElementById('mainTitle');
+    var mainSubTitle = document.getElementById('mainSubTitle');
+    var mainText = document.getElementById('mainText');
+    var mainSocial = document.getElementById('mainSocial');
+
+    mainTitle.classList.add('fade-in');
+    mainSubTitle.classList.add('fade-in');
+    mainText.classList.add('fade-in');
+    mainSocial.classList.add('fade-in');
+
     const navLinks = document.querySelectorAll('.offcanvas ul li a');
     const offcanvas = document.querySelector('.offcanvas');
 
@@ -30,15 +48,29 @@ document.addEventListener('DOMContentLoaded', function () {
             header.style.padding = '';
         });
     });
-});
 
-window.onload = function() {
-    const headerHeight = document.querySelector('header').offsetHeight;
-    const home = document.getElementById('home');
-    const newHomeHeight = window.innerHeight - headerHeight;
-    
-    home.style.height = `${newHomeHeight}px`;
-};
+    let lastScrollTop = 0;
+
+    window.addEventListener('scroll', revealOnScroll);
+
+    function revealOnScroll() {
+        const blocs = document.querySelectorAll('.reveal-animation');
+        const windowHeight = window.innerHeight;
+        const isScrolledDown = window.scrollY > lastScrollTop;
+
+        if (isScrolledDown) {
+            blocs.forEach((bloc, index) => {
+                const blocTop = bloc.getBoundingClientRect().top;
+
+                if (blocTop < windowHeight / 1.7) {
+                    bloc.classList.add('reveal');
+                }
+            });
+        }
+
+        lastScrollTop = window.scrollY;
+    }
+});
 
 document.addEventListener('click', function (e) {
     // Vérifier si l'élément cliqué est une ancre
@@ -77,6 +109,7 @@ function showTodayTab() {
     if (tab) {
         // Ajouter la classe "today" à l'onglet du jour actuel
         tab.classList.add('today');
+        tab.classList.add('active')
     }
 
     if (button) {
@@ -92,6 +125,8 @@ function showTab(jour) {
     var tabs = document.getElementsByClassName('tab-content');
     for (var i = 0; i < tabs.length; i++) {
         tabs[i].style.display = 'none';
+        tabs[i].classList.remove('active');
+        tabs[i].classList.remove('tab-animation');
     }
 
     // Désélectionner tous les boutons
@@ -111,18 +146,11 @@ function showTab(jour) {
     if (button) {
         button.classList.add('active');
         tab.classList.add('active')
+        tab.classList.add('tab-animation')
     }
 }
 
 // Appeler la fonction pour afficher l'onglet et le bouton du jour actuel
 showTodayTab();
-
-// Désactiver les contrôles vidéo après le chargement de la page
-document.addEventListener('DOMContentLoaded', function() {
-    var video = document.querySelector('video');
-    if (video) {
-        video.controls = false;
-    }
-});
 
 document.getElementById('currentYear').textContent = new Date().getFullYear();
