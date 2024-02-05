@@ -9,7 +9,7 @@
     <title>Mpanety Barber</title>
 
     <!-- Balises Open Graph pour les réseaux sociaux (remplacez par vos propres informations) -->
-    <meta property="og:title" content="Mapenty Barbershop">
+    <meta property="og:title" content="Mpanety Barbershop">
     <meta property="og:description" content="Bienvenue chez Mpanety. Venez découvrir l'expérience unique de notre barbershop à Nancy. Des coupes de cheveux tendance, des soins de barbe, et une ambiance chaleureuse vous attendent. Prenez rendez-vous pour une transformation stylée.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="URL de votre page">
@@ -18,7 +18,7 @@
     <!-- Balises Twitter Card pour Twitter (remplacez par vos propres informations) -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@mpanety">
-    <meta name="twitter:title" content="Mapenty Barbershop">
+    <meta name="twitter:title" content="Mpanety Barbershop">
     <meta name="twitter:description" content="Bienvenue chez Mpanety. Venez découvrir l'expérience unique de notre barbershop à Nancy. Des coupes de cheveux tendance, des soins de barbe, et une ambiance chaleureuse vous attendent. Prenez rendez-vous pour une transformation stylée.">
     <meta name="twitter:image" content="https://i.ibb.co/P5syyLZ/og-image-mpanety.png">
 
@@ -54,7 +54,6 @@
                 </div>
                 <!-- Liste de liens à droite -->
                 <ul class="hide-mobile d-flex align-items-center gap-4">
-                    <li class="header-link"><a href="#home">Accueil</a></li>
                     <li class="header-link"><a href="#horaires">Horaires</a></li>
                     <li class="header-link"><a href="#price">Tarifs</a></li>
                     <li class="header-link"><a href="#contact">Contact</a></li>
@@ -68,7 +67,7 @@
                         <div class="offcanvas-header">
                             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
-                        <ul class="d-flex flex-colu minutes">
+                        <ul class="d-flex flex-column">
                             <li>
                                 <div class="offcanvas-logo-box">
                                     <img src="images/mpanety-logo.png" alt="Mapenty Logo">
@@ -92,16 +91,29 @@
                 <div class="home-carousel">
                     <div id="homeCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
                         <div class="carousel-inner">
-                            <div class="carousel-item active"  data-bs-interval="10000">
-                                <img src="images/barber_coupe.jpeg" class="d-block" alt="...">
+                            <div class="carousel-item active"  data-bs-interval="8000">
+                                <div class="carousel-img">
+                                    <img src="images/barber_coupe.jpeg" class="d-block">
+                                </div>
                             </div>
-                            <div class="carousel-item"  data-bs-interval="10000">
-                                <video src="images/barber-2.mp4" class="d-block" alt="..." autoplay loop muted>
+                            <div class="carousel-item"  data-bs-interval="8000">
+                                <div class="carousel-img">
+                                    <video id="video1" src="images/barber-2.mp4" class="d-block" autoplay loop muted>
+                                </div>
                             </div>
-                            <div class="carousel-item"  data-bs-interval="10000">
-                                <img src="images/barber-fauteuil.jpeg" class="d-block" alt="...">
+                            <div class="carousel-item"  data-bs-interval="8000">
+                                <div class="carousel-img">
+                                    <img src="images/barber-fauteuil.jpeg" class="d-block">
+                                </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <div class="about-us">
+                    <h2 class="main-subtitle outfit-900">BARBERSHOP</h2>
+                    <div class="about-us-content">
+                        <p>Bienvenue dans l'univers du barbier chez Mpanety Barbershop. <br>Découvrez des coupes et des soins exceptionnels pour hommes.</p>
                     </div>
                 </div>
             </section>
@@ -166,7 +178,7 @@
                         <div id="dimanche" class="tab-content">
                             <div class="tab-content-text">
                                 <span>Dimanche</span>
-                                <img src="images/close.png" alt="boutique fermée">
+                                <img class="swing" src="images/close.png" alt="boutique fermée">
                             </div>
                         </div>
                     </div>

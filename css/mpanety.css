@@ -59,6 +59,15 @@ li a {
 .bg-dark-secondary {
     background-color: var(--dark-secondary) !important;
 }
+@keyframes swing {
+    0% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+    100% { transform: rotate(-3deg); }
+}
+  
+.swing {
+    animation: swing 2.5s ease-in-out infinite;
+}
 
 /*Button*/
 .booking-btn {
@@ -154,6 +163,12 @@ header .offcanvas-header {
 .menu-responsive .offcanvas.showing ul li {
     padding: 20px 0;
 }
+.offcanvas-logo-box img {
+    max-width: 100px;
+}
+.offcanvas-backdrop {
+    display: none !important;
+}
 
 /* Main section */
 #home {
@@ -181,14 +196,8 @@ header .offcanvas-header {
     padding-left: 0;
     padding-right: 0;
 }
-.offcanvas-logo-box img {
-	max-width: 100px;
-}
 #homeCarousel .carousel-inner {
     max-height: 600px;
-}
-.offcanvas-backdrop {
-	display: none !important;
 }
 #homeCarousel .carousel-inner .carousel-item img,
 #homeCarousel .carousel-inner .carousel-item video {
@@ -200,7 +209,28 @@ header .offcanvas-header {
     width: 120%;
 }
 #homeCarousel .carousel-inner .carousel-item {
-	pointer-events: none;
+    pointer-events: none;
+}
+.about-us {
+    position: absolute;
+    right: 80px;
+    z-index: 1;
+    width: 800px;
+    padding-top: 100px;
+}
+.main-subtitle {
+    font-size: 100px;
+    margin: 0;
+    text-align: right;
+}
+.about-us-content {
+    padding: 20px;
+    background: var(--dark-primary);
+}
+.about-us-content p {
+	font-size: 25px;
+	margin: 0;
+	font-weight: 300;
 }
 
 /*Contact section*/
@@ -272,11 +302,6 @@ header .offcanvas-header {
 	border-color: #fff;
 	color: #fff;
 }
-.horaires-box button.today {
-	background: var(--dark-primary);
-	border-color: #fff;
-	color: #fff;
-}
 .horaires-box .tab-content {
 	display: none;
 }
@@ -284,6 +309,7 @@ header .offcanvas-header {
 	display: block;
 }
 .horaires-box button.today {
+	background: var(--dark-primary);
     border-image-source: linear-gradient(to left, #F9423A, #00843D);
     border-image-slice: 1;
     border-width: 2px;
@@ -320,6 +346,23 @@ header .offcanvas-header {
     font-weight: 900;
     margin: 0;
     letter-spacing: 5px;
+}
+.horaires-box .tab-content .tab-content-text img {
+	width: 160px;
+	margin-top: 30px;
+}
+.horaires-box button span {
+    position: absolute;
+    bottom: 25px;
+    font-size: 12px;
+    font-weight: 100;
+    width: 100%;
+    left: 0;
+    color: transparent;
+}
+.horaires-box button:hover span,
+.horaires-box button.active span {
+    color: #fff;
 }
 .openning-days {
     margin-bottom: 50px;
@@ -420,15 +463,75 @@ header .offcanvas-header {
         width: 100%;
         padding: 0 20px;
     }
+    .main-subtitle {
+        font-size: 70px;
+    }
+    .about-us-content p {
+        font-size: 20px;
+    }
+    .about-us {
+        width: 600px;
+        right: 60px;
+        padding-top: 0;
+    }
+    .horaires-box button::before {
+        top: 15px !important;
+        font-size: 10px !important;
+    }
+    .horaires-box #tabs {
+        margin-top: 60px;
+    }
+    .horaires-box .tab-content .tab-content-text {
+        height: 300px;
+    }
 }
 
 @media screen and (max-width: 1024px) {
     #home {
         justify-content: inherit;
+        height: auto !important;
     }
     .home-carousel {
         max-width: 90%;
         margin: 0 auto;
+        padding: 140px 0;
+    }
+    .about-us {
+        width: 100%;
+        right: 0;
+        padding-top: 0;
+        bottom: 60px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .about-us-content {
+        text-align: center;
+        width: max-content;
+    }
+    .main-subtitle {
+        text-align: center;
+    }
+    #homeCarousel .carousel-inner .carousel-item {
+        height: 600px;
+        overflow: hidden;
+    }
+    #homeCarousel .carousel-inner .carousel-item .carousel-img {
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+    #homeCarousel .carousel-inner .carousel-item img,
+    #homeCarousel .carousel-inner .carousel-item video {
+        width: auto;
+        height: 100%;
+        transition: height ease 20s;
+    }
+    #homeCarousel .carousel-inner .carousel-item.active img, #homeCarousel .carousel-inner .carousel-item.active video {
+        width: auto;
+        height: 120%;
     }
 }
 
@@ -449,7 +552,7 @@ header .offcanvas-header {
         max-height: 500px;
     }
     .home-carousel {
-        padding-top: 110px;
+        padding: 110px 0;
     }
     .horaires-box button {
         width: 80px;
@@ -489,6 +592,9 @@ header .offcanvas-header {
     #homeCarousel .carousel-inner {
         height: 520px;
     }
+    .about-us-content p {
+        font-size: 18px;
+    }
 }
 
 @media screen and (max-width: 640px) {
@@ -506,6 +612,12 @@ header .offcanvas-header {
     }
     .home-carousel {
         padding-top: 100px;
+    }
+    .about-us-content p {
+        font-size: 16px;
+    }
+    .main-subtitle {
+        font-size: 60px;
     }
 }
 
@@ -550,9 +662,34 @@ header .offcanvas-header {
     .contact-link a {
         font-size: 18px;
     }
+    .contact-map {
+        width: 100%;
+    }
     .contact-map iframe {
         height: 480px;
         margin: 10px 0;
+    }
+    .about-us-content {
+        width: 100%;
+    }
+    .contact-map .d-flex {
+        display: initial !important;
+    }
+    .contact-link.contact-tel {
+        position: initial;
+        transform: none;
+        width: 100%;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+    .contact-link.contact-address {
+        text-align: left;
+    }
+}
+
+@media screen and (max-width: 485px) {
+    .about-us-content p br {
+        display: none;
     }
 }
 
@@ -583,6 +720,9 @@ header .offcanvas-header {
     }
     .offcanvas-logo-box img {
         max-width: 80px;
+    }
+    .main-subtitle {
+        font-size: 40px;
     }
 }
 

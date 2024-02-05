@@ -82,6 +82,7 @@ function showTodayTab() {
     if (button) {
         // Ajouter la classe "today" au bouton du jour actuel
         button.classList.add('today');
+        button.classList.add('active');
     }
 }
 
@@ -115,3 +116,11 @@ function showTab(jour) {
 
 // Appeler la fonction pour afficher l'onglet et le bouton du jour actuel
 showTodayTab();
+
+// Désactiver les contrôles vidéo après le chargement de la page
+document.addEventListener('DOMContentLoaded', function() {
+    var video = document.getElementById('video1');
+    if (video) {
+        video.controls = false;
+    }
+});
