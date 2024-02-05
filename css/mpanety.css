@@ -176,6 +176,7 @@ header .offcanvas-header {
     position: relative;
     flex-direction: column;
     justify-content: center;
+    overflow: hidden;
 }
 #home h1 {
 	font-size: 200px;
@@ -198,18 +199,30 @@ header .offcanvas-header {
 }
 #homeCarousel .carousel-inner {
     max-height: 600px;
+    height: 600px;
 }
 #homeCarousel .carousel-inner .carousel-item img,
 #homeCarousel .carousel-inner .carousel-item video {
-    width: 100%;
-    transition: width ease 20s;
-} 
+    width: auto;
+    height: 140%;
+    transition: height ease 20s;
+}
 #homeCarousel .carousel-inner .carousel-item.active img,
 #homeCarousel .carousel-inner .carousel-item.active video {
-    width: 120%;
+    width: auto;
+    height: 120%;
 }
 #homeCarousel .carousel-inner .carousel-item {
     pointer-events: none;
+    height: 100%;
+}
+#homeCarousel .carousel-inner .carousel-item .carousel-img {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: auto;
 }
 .about-us {
     position: absolute;
@@ -294,7 +307,7 @@ header .offcanvas-header {
 	color: var(--dark-title);
 	font-size: 80px;
 	font-weight: 900;
-	transition: all ease-in-out .3s;
+	transition: all ease-in-out .1s;
 }
 .horaires-box button.active,
 .horaires-box button:hover {
@@ -515,23 +528,6 @@ header .offcanvas-header {
     #homeCarousel .carousel-inner .carousel-item {
         height: 600px;
         overflow: hidden;
-    }
-    #homeCarousel .carousel-inner .carousel-item .carousel-img {
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-    }
-    #homeCarousel .carousel-inner .carousel-item img,
-    #homeCarousel .carousel-inner .carousel-item video {
-        width: auto;
-        height: 100%;
-        transition: height ease 20s;
-    }
-    #homeCarousel .carousel-inner .carousel-item.active img, #homeCarousel .carousel-inner .carousel-item.active video {
-        width: auto;
-        height: 120%;
     }
 }
 

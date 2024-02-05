@@ -1,3 +1,24 @@
+document.addEventListener('click', function (e) {
+    // Vérifier si l'élément cliqué est une ancre
+    if (e.target.tagName === 'A' && e.target.getAttribute('href').startsWith('#')) {
+        e.preventDefault(); // Empêcher le comportement par défaut de l'ancre
+
+        // Récupérer l'élément ciblé par l'ancre
+        var targetElement = document.querySelector(e.target.getAttribute('href'));
+
+        if (targetElement) {
+            // Calculer la hauteur du header
+            var headerHeight = document.querySelector('header').offsetHeight;
+
+            // Faire défiler jusqu'à l'élément ciblé en prenant en compte la hauteur du header
+            window.scrollTo({
+                top: targetElement.offsetTop - headerHeight,
+                behavior: 'smooth' // Ajouter une animation de défilement
+            });
+        }
+    }
+});
+
 window.addEventListener('scroll', function () {
     let currentSectionId = '';
     document.querySelectorAll('section').forEach(function (section) {
@@ -39,27 +60,6 @@ window.onload = function() {
     
     home.style.height = `${newHomeHeight}px`;
 };
-
-document.addEventListener('click', function (e) {
-    // Vérifier si l'élément cliqué est une ancre
-    if (e.target.tagName === 'A' && e.target.getAttribute('href').startsWith('#')) {
-        e.preventDefault(); // Empêcher le comportement par défaut de l'ancre
-
-        // Récupérer l'élément ciblé par l'ancre
-        var targetElement = document.querySelector(e.target.getAttribute('href'));
-
-        if (targetElement) {
-            // Calculer la hauteur du header
-            var headerHeight = document.querySelector('header').offsetHeight;
-
-            // Faire défiler jusqu'à l'élément ciblé en prenant en compte la hauteur du header
-            window.scrollTo({
-                top: targetElement.offsetTop - headerHeight,
-                behavior: 'smooth' // Ajouter une animation de défilement
-            });
-        }
-    }
-});
 
 // Fonction pour déterminer le jour actuel
 function getDayOfWeek() {
