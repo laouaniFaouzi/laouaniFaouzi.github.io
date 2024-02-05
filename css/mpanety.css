@@ -64,9 +64,18 @@ li a {
     50% { transform: rotate(3deg); }
     100% { transform: rotate(-3deg); }
 }
-  
 .swing {
     animation: swing 2.5s ease-in-out infinite;
+}
+
+@keyframes scroll-reveal {
+    to { background-size: 100% 100%; }
+
+}
+
+.scroll-reveal > * {
+    animation: scroll-reveal duration timing-function delay iteration-count direction linear;
+    background-size: 0% 100%;
 }
 
 /*Button*/
@@ -244,6 +253,36 @@ header .offcanvas-header {
 	font-size: 25px;
 	margin: 0;
 	font-weight: 300;
+}
+.about-us-social-media {
+    padding: 20px 0 0;
+}
+.about-us-social-media ul {
+    padding: 0;
+    justify-content: end;
+    gap: 50px;
+    margin: 0;
+}
+.about-us-social-media ul li a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+}
+.about-us-social-media ul li .fa-brands {
+    font-size: 40px;
+}
+.about-us-social-media ul li span {
+    margin-top: 10px;
+    font-size: 12px;
+    opacity: 0;
+    transition: all ease 0.3s;
+    position: relative;
+    bottom: 5px;
+}
+.about-us-social-media ul li a:hover span {
+    opacity: 1;
+    bottom: 0;
 }
 
 /*Contact section*/
@@ -445,11 +484,57 @@ header .offcanvas-header {
     font-size: 20px;
 }
 
+/*Footer section*/
+.footer-logo img {
+    max-width: 80px;
+}
+.footer-content {
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.footer-logo h4 {
+    font-size: 30px;
+    padding: 0 10px;
+    margin: 0;
+}
+.footer-content p {
+    font-size: 18px;
+    margin: 0;
+    font-weight: 100;
+}
+.footer-credits p a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 400;
+    transition: font-weight ease 0.2s;
+}
+.footer-credits p a:hover {
+    font-weight: 700;
+}
+
 /*Responsive*/
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1280px) {
     #home h1 {
         font-size: 160px;
     }
+    .main-subtitle {
+        font-size: 90px;
+    }
+    .home-carousel {
+        max-width: 60%;
+        height: 100%;
+        padding-top: 130px;
+    }
+    .about-us {
+        width: 700px;
+    }
+    .about-us-content p {
+        font-size: 20px;
+    }
+}
+@media screen and (max-width: 1200px) {
     .page-section .section-title {
         font-size: 120px;
     }
@@ -479,14 +564,12 @@ header .offcanvas-header {
     .main-subtitle {
         font-size: 70px;
     }
-    .about-us-content p {
-        font-size: 20px;
-    }
     .about-us {
         width: 600px;
         right: 60px;
-        padding-top: 0;
+        padding-top: 40px;
     }
+    .horaires-box button span,
     .horaires-box button::before {
         top: 15px !important;
         font-size: 10px !important;
@@ -513,7 +596,7 @@ header .offcanvas-header {
         width: 100%;
         right: 0;
         padding-top: 0;
-        bottom: 60px;
+        bottom: 20px;
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -554,6 +637,19 @@ header .offcanvas-header {
         width: 80px;
         height: 110px;
         font-size: 40px;
+    }
+    .footer-content {
+        flex-direction: column;
+        padding: 40px;
+    }
+    .footer-credits {
+        padding: 40px 0;
+    }
+    .footer-logo {
+        flex-direction: column;
+    }
+    .footer-logo img {
+        margin-bottom: 15px;
     }
 }
 
@@ -664,6 +760,7 @@ header .offcanvas-header {
     .contact-map iframe {
         height: 480px;
         margin: 10px 0;
+        padding: 10px;
     }
     .about-us-content {
         width: 100%;
@@ -680,6 +777,15 @@ header .offcanvas-header {
     }
     .contact-link.contact-address {
         text-align: left;
+    }
+    .contact-box {
+        margin-bottom: 10px;
+    }
+    .about-us-social-media ul {
+        gap: 40px;
+    }
+    .about-us-social-media ul li .fa-brands {
+        font-size: 30px;
     }
 }
 
@@ -702,9 +808,6 @@ header .offcanvas-header {
     header .navbar-brand span {
         font-size: 20px;
     }
-    #home {
-        min-height: calc(100vh - 70px);
-    }
     .page-section .section-title {
         font-size: 50px;
     }
@@ -719,6 +822,12 @@ header .offcanvas-header {
     }
     .main-subtitle {
         font-size: 40px;
+    }
+    .about-us-content {
+        padding: 10px 20px 20px;
+    }
+    .footer-content p {
+        font-size: 14px;
     }
 }
 
