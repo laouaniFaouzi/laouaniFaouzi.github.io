@@ -401,7 +401,7 @@ header .offcanvas-header {
 }
 .horaires-box button.today {
 	background: var(--dark-primary);
-    border-image-source: linear-gradient(to left, #F9423A, #00843D);
+    /*border-image-source: linear-gradient(to left, #F9423A, #00843D);*/
     border-image-slice: 1;
     border-width: 2px;
     position: relative;
