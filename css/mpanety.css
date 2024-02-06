@@ -323,6 +323,10 @@ header .offcanvas-header {
     opacity: 1;
     bottom: 0;
 }
+#mainSocial ul {
+	position: relative;
+	top: 20px;
+}
 #mainSocial li {
 	width: 65px;
 }
@@ -334,7 +338,7 @@ header .offcanvas-header {
 }
 .contact-map iframe {
     padding: 20px;
-    border: 2px solid #fff !important;
+    border: 4px solid #000 !important;
 }
 .contact-link.contact-tel {
 	position: absolute;
@@ -370,6 +374,10 @@ header .offcanvas-header {
 }
 .contact-link a:hover {
 	color: var(--dark-title);
+}
+.contact-map-iframe {
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
 }
 
 /*Horaires section*/
@@ -682,6 +690,9 @@ header .offcanvas-header {
         overflow: hidden;
     }
     .about-us-social-media {
+        top: 0;
+    }
+    #mainSocial ul {
         top: 0;
     }
 }
