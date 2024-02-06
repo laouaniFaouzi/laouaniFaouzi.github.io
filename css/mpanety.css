@@ -786,6 +786,12 @@ header .offcanvas-header {
 }
 
 @media screen and (max-width: 520px) {
+    body .hidden-mobile-520 {
+        display: none !important;
+    }
+    body .hidden-desktop-520 {
+        display: block !important;
+    }
     #home h1 {
         font-size: 80px;
     }
@@ -859,6 +865,12 @@ header .offcanvas-header {
     .contact-link.contact-address,
     .contact-link.contact-email {
         text-align: left;
+    }
+    .contact-link.contact-tel {
+        margin-bottom: 40px;
+    }
+    .contact-link a {
+        font-weight: 400;
     }
 }
 
