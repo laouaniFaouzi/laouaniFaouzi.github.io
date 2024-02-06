@@ -856,6 +856,10 @@ header .offcanvas-header {
     .about-us-social-media ul li .fa-brands {
         font-size: 30px;
     }
+    .contact-link.contact-address,
+    .contact-link.contact-email {
+        text-align: left;
+    }
 }
 
 @media screen and (max-width: 485px) {
