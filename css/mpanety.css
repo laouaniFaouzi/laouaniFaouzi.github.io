@@ -978,6 +978,9 @@ header .offcanvas-header {
     .footer-content p {
         font-size: 14px;
     }
+    .rdv-banner-title h2 {
+        font-size: 35px;
+    }
 }
 
 @media screen and (max-width: 370px) {
