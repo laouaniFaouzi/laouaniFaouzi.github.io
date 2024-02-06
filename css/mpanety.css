@@ -125,6 +125,7 @@ li a {
     padding: 7px 5px;
     font-size: 25px;
     transition: all ease-in-out .2s;
+    text-decoration: none;
 }
 .booking-btn:hover,
 .booking-btn:active,
@@ -561,6 +562,45 @@ header .offcanvas-header {
     font-weight: 700;
 }
 
+/*BOOKING section*/
+#rdv {
+    background: black;
+    padding: 80px 60px;
+}
+.rdv-banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+    max-width: 1000px;
+}
+.rdv-banner-title h2 {
+    margin: 0;
+    font-size: 60px;
+}
+.rdv-banner-btn {
+    display: flex;
+}
+.rdv-banner-btn,
+.rdv-banner-title {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+.rdv-banner-btn.reveal,
+.rdv-banner-title.reveal {
+    opacity: 1;
+}
+.rdv-banner-btn .booking-btn {
+    color: var(--dark-primary);
+    background: #fff;
+    font-size: 40px;
+    padding: 7px 20px;
+}
+.rdv-banner-btn .booking-btn:hover {
+    background: transparent;
+    color: #fff;
+}
+
 /*Reveal animation*/
 .horaires-box .hide-desktop-767,
 .contact-box,
@@ -770,6 +810,16 @@ header .offcanvas-header {
     .about-us-content p {
         font-size: 18px;
     }
+    .rdv-banner {
+        align-items: center;
+    }
+    .rdv-banner-title h2 {
+        text-align: center;
+        font-size: 40px;
+    }
+    .rdv-banner-btn .booking-btn {
+        font-size: 30px;
+    }
 }
 
 @media screen and (max-width: 640px) {
@@ -882,6 +932,9 @@ header .offcanvas-header {
     }
     .contact-link a {
         font-weight: 400;
+    }
+    #rdv {
+        padding: 80px 20px;
     }
 }
 
