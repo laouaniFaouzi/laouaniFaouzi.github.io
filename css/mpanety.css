@@ -299,7 +299,7 @@ header .offcanvas-header {
 .about-us-social-media ul {
     padding: 0;
     justify-content: end;
-    gap: 50px;
+    gap: 30px;
     margin: 0;
 }
 .about-us-social-media ul li a {
@@ -323,6 +323,9 @@ header .offcanvas-header {
     opacity: 1;
     bottom: 0;
 }
+#mainSocial li {
+	width: 65px;
+}
 
 /*Contact section*/
 .contact-map {
@@ -330,9 +333,6 @@ header .offcanvas-header {
 	margin: auto;
 }
 .contact-map iframe {
-    filter: grayscale(100%);
-    -webkit-filter: grayscale(100%);
-    -moz-filter: grayscale(100%);
     padding: 20px;
     border: 2px solid #fff !important;
 }
@@ -570,7 +570,7 @@ header .offcanvas-header {
 }
 
 /*Responsive*/
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1470px) {
     #home h1 {
         font-size: 160px;
     }
@@ -584,9 +584,20 @@ header .offcanvas-header {
     }
     .about-us {
         width: 700px;
+        padding-top: 200px;
     }
     .about-us-content p {
         font-size: 20px;
+    }
+    .page-section {
+        padding: 20px 60px;
+    }
+    .horaires-box .tab-content .tab-content-text {
+        height: 300px;
+        margin-top: 0;
+    }
+    .about-us-social-media ul {
+        gap: 30px;
     }
 }
 @media screen and (max-width: 1200px) {
@@ -841,9 +852,6 @@ header .offcanvas-header {
     }
     .contact-box {
         margin-bottom: 10px;
-    }
-    .about-us-social-media ul {
-        gap: 40px;
     }
     .about-us-social-media ul li .fa-brands {
         font-size: 30px;
