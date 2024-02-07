@@ -380,6 +380,11 @@ header .offcanvas-header {
 	-webkit-filter: grayscale(100%);
 	filter: grayscale(100%);
 }
+.contact-link .fa-solid {
+    margin-right: 12px;
+    font-size: 20px;
+    color: var(--dark-title);
+}
 
 /*Horaires section*/
 .horaires-box #tabs {
@@ -852,6 +857,9 @@ header .offcanvas-header {
     }
     body .hidden-desktop-520 {
         display: block !important;
+    }
+    body .hidden-desktop-fa  {
+        display: initial !important;
     }
     #home h1 {
         font-size: 80px;
