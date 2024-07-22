@@ -1,7 +1,13 @@
+@import url('https://fonts.cdnfonts.com/css/satoshi');
+@font-face {
+    font-family: 'equateur';
+    src: url('/fonts/equateur/Equateur-Regular.ttf') format(‘truetype’)
+}
+
 html {
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
-    font-family:sans-serif
+    font-family: satoshi, sans-serif;
 }
 
 body {
@@ -2994,21 +3000,24 @@ blockquote {
 }
 
 .button {
-    padding: var(--spacing--16) var(--spacing--32);
-    border: 2px solid var(--color-primary--si-blue);
-    border-radius: var(--spacing--80);
-    background-color: var(--color-primary--si-blue);
-    color: #fff;
-    text-align: center;
-    font-weight: 600;
-    transition: all .4s;
-    display: block;
-    white-space: nowrap;
+	padding: var(--spacing--16) var(--spacing--32);
+	border: 1px solid var(--color-primary--si-yellow);
+	border-radius: var(--spacing--80);
+	background-color: var(--color-primary--si-yellow);
+	color: var(--color-primary--si-blue);
+	text-align: center;
+	font-weight: 600;
+	transition: all .4s;
+	display: block;
+	white-space: nowrap;
+	font-family: equateur;
+	text-transform: uppercase;
+	letter-spacing: 0.07em;
 }
 
 .button:hover {
-    border: 2px solid var(--color-primary--si-blue);
-    background-color:#866dff
+	padding-right: 40px;
+	padding-left: 40px;
 }
 
 .button.is-text {
@@ -3022,15 +3031,11 @@ blockquote {
 }
 
 .button.is-secondary {
-    border: 1px solid var(--color-primary--si-blue);
-    color: var(--color-primary--si-blue);
-    background-color: transparent;
-    text-decoration: none;
-    position:relative
-}
-
-.button.is-secondary:hover {
-    background-color:var(--color-neutral--white)
+	color: var(--color-primary--si-blue);
+	background-color: transparent;
+	text-decoration: none;
+	position: relative;
+	border-color: var(--color-primary--si-blue);
 }
 
 .button.is-large {
@@ -6210,10 +6215,9 @@ blockquote {
 }
 
 .heading_1-span-italic {
-    font-family: var(--font--playfair);
-    white-space: normal;
-    font-style: italic;
-    font-weight:600
+	font-family: equateur;
+	white-space: normal;
+	font-weight: 600;
 }
 
 .h1-hiden {
@@ -6344,23 +6348,29 @@ blockquote {
 }
 
 .bandeau {
-    z-index: 1;
-    padding-top: var(--spacing--8);
-    padding-bottom: var(--spacing--8);
-    background-color: var(--color-primary--si-blue);
-    height: 2.5rem;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    bottom: auto;
-    left: 0%;
-    right:0%
+	z-index: 1;
+	padding-top: var(--spacing--12);
+	padding-bottom: var(--spacing--12);
+	background-color: var(--color-primary--si-blue);
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	bottom: auto;
+	left: 0%;
+	right: 0%;
+	text-transform: uppercase;
 }
 
 .bandeau_wrapper {
     justify-content: center;
     align-items: center;
     display:flex
+}
+
+.bandeau i {
+	font-family: equateur;
+	font-style: normal;
+	color: var(--color-primary--si-yellow);
 }
 
 .text-color-grey {
