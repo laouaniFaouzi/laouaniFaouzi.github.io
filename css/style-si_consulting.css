@@ -2300,7 +2300,6 @@ body {
 }
 
 h1 {
-    font-family: var(--font--manrope);
     color: var(--element--text);
     font-size: var(--spacing--64);
     margin-top: 0;
@@ -2310,7 +2309,6 @@ h1 {
 }
 
 h2 {
-    font-family: var(--font--manrope);
     color: var(--element--text);
     margin-top: 0;
     margin-bottom: 0;
@@ -2321,7 +2319,6 @@ h2 {
 }
 
 h3 {
-    font-family: var(--font--manrope);
     color: var(--element--text);
     font-size: var(--spacing--32);
     letter-spacing: -.75px;
@@ -2332,7 +2329,6 @@ h3 {
 }
 
 p {
-    font-family: var(--font--manrope);
     color: var(--element--text);
     font-size: var(--spacing--16);
     margin-bottom: 0;
@@ -2340,7 +2336,6 @@ p {
 }
 
 a {
-    font-family: var(--font--manrope);
     color: var(--color-primary--si-blue);
     font-size: var(--spacing--16);
     letter-spacing: -.75px;
@@ -2349,7 +2344,6 @@ a {
 }
 
 li {
-    font-family: var(--font--manrope);
     color: var(--element--text);
     font-size: var(--spacing--16);
     letter-spacing: -.75px;
@@ -2358,7 +2352,6 @@ li {
 
 blockquote {
     border-left: 5px solid var(--color-primary--si-blue);
-    font-family: var(--font--manrope);
     color: var(--element--text);
     font-size: var(--spacing--24);
     letter-spacing: -.75px;
@@ -2406,7 +2399,6 @@ blockquote {
 }
 
 .text-size-tiny {
-    font-family: var(--font--manrope);
     color: #a8b0b9;
     font-size: .75rem;
     line-height: var(--spacing--16);
@@ -2677,7 +2669,6 @@ blockquote {
 }
 
 .text-size-regular {
-    font-family: var(--font--manrope);
     color: var(--element--text);
     font-size: var(--spacing--16);
     line-height:1.375rem
@@ -2748,7 +2739,6 @@ blockquote {
 }
 
 .heading-style-h1 {
-    font-family: var(--font--manrope);
     color: #190d3d;
     font-size: var(--spacing--64);
     letter-spacing: -.75px;
@@ -3157,7 +3147,6 @@ blockquote {
 }
 
 .text-size-small {
-    font-family: var(--font--manrope);
     color: var(--color-primary--purple-darker);
     font-size: .875rem;
     line-height:1.25rem
@@ -3177,7 +3166,6 @@ blockquote {
 }
 
 .text-size-large {
-    font-family: var(--font--manrope);
     color: var(--element--background-darker);
     font-size: var(--spacing--24);
     font-weight: 600;
@@ -3391,7 +3379,6 @@ blockquote {
 }
 
 .text-size-medium {
-    font-family: var(--font--manrope);
     color: var(--color-primary--purple-darker);
     font-size: 1.25rem;
     font-style: normal;
@@ -4811,7 +4798,6 @@ blockquote {
     grid-row-gap: .75rem;
     border-radius: var(--spacing--4);
     background-color: var(--color-secondary--teal);
-    font-family: var(--font--manrope);
     color: var(--color-primary--si-blue);
     letter-spacing: -.75px;
     justify-content: center;
@@ -5570,7 +5556,6 @@ blockquote {
 
 .card_places-tag {
     border: 1px solid var(--color-neutral--white);
-    font-family: var(--font--manrope);
     color: var(--element--text-white);
     font-size: var(--spacing--16);
     border-radius: .5rem;
@@ -5742,7 +5727,6 @@ blockquote {
 }
 
 .faq-q-text {
-    font-family: var(--font--manrope);
     font-size: 1.5rem;
     font-weight:700
 }
