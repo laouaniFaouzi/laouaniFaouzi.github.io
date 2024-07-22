@@ -3030,10 +3030,6 @@ blockquote {
     background-color:var(--color-neutral--white)
 }
 
-.button.is-secondary.small {
-    padding:var(--spacing--8)var(--spacing--24)
-}
-
 .button.is-large {
     padding:1rem 2rem
 }
