@@ -3000,7 +3000,8 @@ blockquote {
     text-align: center;
     font-weight: 600;
     transition: all .4s;
-    display:block
+    display: block;
+    white-space: nowrap;
 }
 
 .button:hover {
