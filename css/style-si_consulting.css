@@ -6199,9 +6199,10 @@ blockquote {
 }
 
 .heading_1-span-italic {
-	font-family: equateur;
-	white-space: normal;
+	font-family: 'equateur';
 	font-weight: 600;
+	text-transform: uppercase;
+	white-space: nowrap;
 }
 
 .h1-hiden {
