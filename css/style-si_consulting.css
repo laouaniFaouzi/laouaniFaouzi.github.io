@@ -4797,7 +4797,7 @@ blockquote {
     grid-column-gap: .75rem;
     grid-row-gap: .75rem;
     border-radius: var(--spacing--4);
-    background-color: var(--color-secondary--teal);
+    background-color: var(--color-primary--si-yellow);
     color: var(--color-primary--si-blue);
     letter-spacing: -.75px;
     justify-content: center;
@@ -6353,6 +6353,7 @@ blockquote {
 
 .bandeau i {
 	font-family: equateur;
+    font-size: 18px;
 	font-style: normal;
 	color: var(--color-primary--si-yellow);
 }
