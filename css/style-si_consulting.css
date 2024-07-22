@@ -3000,7 +3000,7 @@ blockquote {
 	transition: all .4s;
 	display: block;
 	white-space: nowrap;
-	font-family: equateur;
+	font-family: 'equateur';
 	text-transform: uppercase;
 	letter-spacing: 0.07em;
 }
@@ -6353,7 +6353,7 @@ blockquote {
 }
 
 .bandeau i {
-	font-family: equateur;
+	font-family: 'equateur';
     font-size: 18px;
 	font-style: normal;
 	color: var(--color-primary--si-yellow);
