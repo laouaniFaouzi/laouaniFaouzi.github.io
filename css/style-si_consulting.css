@@ -4,12 +4,21 @@
     font-family: 'equateur';
     src: url('/fonts/equateur/Equateur-Regular.ttf') format('truetype')
 }
+
+.section_team-image {
+	width: 50%;
+	box-shadow: 6px 6px 24px rgba(46, 54, 178, 0.3);
+	border-radius: 10px;
+	overflow: hidden;
+}
+
 .equateur {
     font-family: 'equateur';
 }
 
 .section_team-wrapper {
     display: flex;
+    align-items: center;
     gap: 60px;
 }
 
@@ -2308,7 +2317,7 @@ body {
 }
 
 h1 {
-    color: var(--element--text);
+    color: var(--color-primary--si-blue);
     font-size: var(--spacing--64);
     margin-top: 0;
     margin-bottom: 0;
@@ -3661,9 +3670,10 @@ blockquote {
 }
 
 .navbar_link {
-    color: var(--color-primary--purple-darker);
-    padding: .5rem 1rem;
-    font-weight:700
+	color: var(--color-primary--si-blue);
+	padding: .5rem 1rem;
+	font-weight: 700;
+	margin: inherit;
 }
 
 .button-2.is-navbar2-button {
@@ -4881,7 +4891,7 @@ blockquote {
 .data_color-gradient {
     z-index: 0;
     mix-blend-mode: screen;
-    background-image: linear-gradient(351deg, #2e0cff 45%, #916aff 54%);
+    background-image: linear-gradient(351deg, #031a67 45%, #0030d3 54%);
     width: 100%;
     position: absolute;
     top: 0%;
