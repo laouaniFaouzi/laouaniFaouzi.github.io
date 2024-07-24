@@ -5236,11 +5236,8 @@ blockquote {
     width:100%
 }
 
-.team_card-bg {
+.team_card-block {
     z-index: 0;
-    background-image: url(https://cdn.prod.website-files.com/6628bba5d310a9f611d3d6da/664487939d02631055f8164d_1.png);
-    background-position: 50%;
-    background-size: cover;
     border-radius: 1.5rem;
     justify-content: center;
     align-items: flex-end;
@@ -5248,30 +5245,6 @@ blockquote {
     height: 20rem;
     display: flex;
     overflow:hidden
-}
-
-.team_card-bg._2 {
-    background-image:url(https://cdn.prod.website-files.com/6628bba5d310a9f611d3d6da/66448791bdb931218a5fe5ba_2.png)
-}
-
-.team_card-bg._3 {
-    background-image:url(https://cdn.prod.website-files.com/6628bba5d310a9f611d3d6da/66448790876f62a0fb529d69_3.png)
-}
-
-.team_card-bg._4 {
-    background-image:url(https://cdn.prod.website-files.com/6628bba5d310a9f611d3d6da/664487913c97179fb97665a6_4.png)
-}
-
-.team_card-bg._5 {
-    background-image:url(https://cdn.prod.website-files.com/6628bba5d310a9f611d3d6da/664487910cb7ab43e6c50e2f_5.png)
-}
-
-.team_card-bg._6 {
-    background-image:url(https://cdn.prod.website-files.com/6628bba5d310a9f611d3d6da/66448790234718c142ac881f_6.png)
-}
-
-.team_card-bg._7 {
-    background-image:url(https://cdn.prod.website-files.com/6628bba5d310a9f611d3d6da/664487910041ea59dfd06bc5_7.png)
 }
 
 .div-block-11 {
@@ -9629,7 +9602,7 @@ blockquote {
         grid-template-columns:1fr 1fr
     }
 
-    .team_card-bg {
+    .team_card-block {
         aspect-ratio: 1;
         min-width: 100%;
         height:auto
