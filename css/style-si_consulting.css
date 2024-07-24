@@ -12,6 +12,20 @@
 	overflow: hidden;
 }
 
+.icon-method {
+    width: 130px;
+    height: 130px;
+    background: var(--color-primary--si-yellow);
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 30px;
+}
+
+.icon-method svg {
+    height: 100%;
+    width: 100%;
+}
+
 .equateur {
     font-family: 'equateur';
 }
@@ -3191,7 +3205,7 @@ blockquote {
 
 .text-size-large.text-color-purple {
     color: var(--color-primary--si-blue);
-    font-size: var(--spacing--24);
+    font-size: var(--spacing--32);
     font-weight:700
 }
 
@@ -4888,16 +4902,20 @@ blockquote {
     position:relative
 }
 
+.section_team h2 {
+	font-size: 44px;
+}
+
 .data_color-gradient {
-    z-index: 0;
-    mix-blend-mode: screen;
-    background-image: linear-gradient(351deg, #031a67 45%, #0030d3 54%);
-    width: 100%;
-    position: absolute;
-    top: 0%;
-    bottom: 0%;
-    left: 0%;
-    right:0%
+	z-index: 0;
+	mix-blend-mode: screen;
+	background-image: linear-gradient(to left top, #031a67, #0d1b66, #394aa0, #4e63be, #647edc);
+	width: 100%;
+	position: absolute;
+	top: 0%;
+	bottom: 0%;
+	left: 0%;
+	right: 0%;
 }
 
 .accordion_text-icon-wrapper {
