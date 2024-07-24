@@ -5222,14 +5222,9 @@ blockquote {
 }
 
 .team_list {
-    grid-column-gap: 1.5rem;
-    grid-row-gap: 1.5rem;
-    grid-template-rows: auto;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-auto-columns: 1fr;
-    align-items: start;
-    justify-items: stretch;
-    display:grid
+	display: flex;
+	justify-content: center;
+	gap: 60px;
 }
 
 .team_component {
@@ -5242,7 +5237,7 @@ blockquote {
     justify-content: center;
     align-items: flex-end;
     min-width: 20rem;
-    height: 20rem;
+    height: 13rem;
     display: flex;
     overflow:hidden
 }
@@ -6200,7 +6195,7 @@ blockquote {
 }
 
 .team_card-component {
-    max-width:18rem
+    max-width:20rem
 }
 
 .who_glass-wrapper {
@@ -8137,7 +8132,8 @@ blockquote {
 .heading-style-h4-2 {
     font-size: 2rem;
     font-weight: 700;
-    line-height:1.3
+    line-height: 1.3;
+    font-family: 'equateur';
 }
 
 @media screen and (max-width: 991px) {
