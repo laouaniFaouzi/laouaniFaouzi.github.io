@@ -8097,11 +8097,14 @@ blockquote {
 }
 
 .layout237_item {
-    text-align: center;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    display:flex
+	text-align: center;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	display: flex;
+	box-shadow: 6px 6px 24px rgba(46, 54, 178, 0.3);
+	border-radius: 20px;
+	padding: 30px;
 }
 
 .layout237_component {
@@ -8126,14 +8129,9 @@ blockquote {
 }
 
 .layout237_list {
-    grid-column-gap: 3rem;
-    grid-row-gap: 4rem;
-    grid-template-rows: auto;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-auto-columns: 1fr;
-    align-items: start;
-    justify-items: center;
-    display:grid
+	justify-content: center;
+	display: flex;
+	gap: 40px;
 }
 
 .heading-style-h4-2 {
