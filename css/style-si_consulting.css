@@ -35,27 +35,28 @@
     background-color: red;
     border-radius: 6px;
     position: absolute;
-    left: max(calc(200px * 8), 100%);
+    left: max(calc(200px * 5), 100%);
     animation-name: scrollLeft;
     animation-duration: 30s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
+    object-fit: contain;
 }
 
 .item1 {
-    animation-delay: calc(30s / 8 * (8 - 1) * -1);
+    animation-delay: calc(30s / 5 * (5 - 1) * -1);
 }
 .item2 {
-    animation-delay: calc(30s / 8 * (8 - 2) * -1);
+    animation-delay: calc(30s / 5 * (5 - 2) * -1);
 }
 .item3 {
-    animation-delay: calc(30s / 8 * (8 - 3) * -1);
+    animation-delay: calc(30s / 5 * (5 - 3) * -1);
 }
 .item4 {
-    animation-delay: calc(30s / 8 * (8 - 4) * -1);
+    animation-delay: calc(30s / 5 * (5 - 4) * -1);
 }
 .item5 {
-    animation-delay: calc(30s / 8 * (8 - 5) * -1);
+    animation-delay: calc(30s / 5 * (5 - 5) * -1);
 }
 
 .section_team-image {
@@ -3981,7 +3982,6 @@ blockquote {
 
 .image_logo-item {
     object-fit: contain;
-    max-height:3.5rem
 }
 
 .section_logo {
@@ -8652,10 +8652,6 @@ blockquote {
 
     .header76_images-layout {
         grid-template-columns:1fr 1fr 1fr 1fr 1fr
-    }
-
-    .image_logo-item {
-        max-height:3.5rem
     }
 
     .logo_list {
