@@ -5,55 +5,57 @@
     src: url('/fonts/equateur/Equateur-Regular.ttf') format('truetype')
 }
 
-@keyframes slide {
-    from {
-        transform: translateX(0);
-    }
+
+@keyframes scrollLeft {
     to {
-        transform: translateX(-100%);
+      left: -200px;
     }
-}
-
-.logo_list {
-    overflow: hidden;
-    padding: 60px 0;
-    background: white;
-    white-space: nowrap;
-    position: relative;
-}
-
-.logo_list::before,
-.logo_list::after {
-    position: absolute;
-    top: 0;
-    width: 250px;
-    height: 100%;
-    content: "";
-    z-index: 2;
-}
-
-.logo_list::before {
-    left: 0;
-    background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
-}
-
-.logo_list::after {
-    right: 0;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
-}
-
-.logo_list:hover .logo_list-slide {
-    animation-play-state: paused;
 }
 
 .logo_wrapper {
-    display: inline-block;
-    animation: 35s slide infinite linear;
+    width: 90%;
+    max-width: 1536px;
+    margin-inline: auto;
+    position: relative;
+    height: 100px;
+    margin-top: 5rem;
+    overflow: hidden;
+    mask-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 1) 20%,
+      rgba(0, 0, 0, 1) 80%,
+      rgba(0, 0, 0, 0)
+    );
 }
   
 .logo_wrapper img {
-    height: 50px;
-    margin: 0 40px;
+    width: 200px;
+    height: 100px;
+    background-color: red;
+    border-radius: 6px;
+    position: absolute;
+    left: max(calc(200px * 8), 100%);
+    animation-name: scrollLeft;
+    animation-duration: 30s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.item1 {
+    animation-delay: calc(30s / 8 * (8 - 1) * -1);
+}
+.item2 {
+    animation-delay: calc(30s / 8 * (8 - 2) * -1);
+}
+.item3 {
+    animation-delay: calc(30s / 8 * (8 - 3) * -1);
+}
+.item4 {
+    animation-delay: calc(30s / 8 * (8 - 4) * -1);
+}
+.item5 {
+    animation-delay: calc(30s / 8 * (8 - 5) * -1);
 }
 
 .section_team-image {
@@ -3991,21 +3993,6 @@ blockquote {
     justify-content: flex-start;
     align-items: stretch;
     display:flex
-}
-
-.logo_list {
-    grid-column-gap: 1.5rem;
-    grid-row-gap: 1rem;
-    white-space: nowrap;
-    flex-flow: row;
-    grid-template-rows: auto;
-    grid-template-columns: 12.5rem 12.5rem 12.5rem 12.5rem 12.5rem 12.5rem 12.5rem 12.5rem 12.5rem 12.5rem 12.5rem;
-    grid-auto-columns: 1fr;
-    justify-content: end;
-    align-items: center;
-    justify-items: start;
-    margin-right: 2rem;
-    display:grid
 }
 
 .logo_wrapper {
