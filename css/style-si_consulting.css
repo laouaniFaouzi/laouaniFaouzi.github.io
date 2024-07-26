@@ -17,7 +17,7 @@
     max-width: 1536px;
     margin-inline: auto;
     height: 100px;
-    margin-top: 5rem;
+    margin-top: 3rem;
     overflow: hidden;
 }
   
@@ -3981,9 +3981,8 @@ blockquote {
 }
 
 .logo_component {
-    justify-content: flex-start;
-    align-items: stretch;
-    display:flex
+    display:flex;
+    mask-image: linear-gradient( to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) );
 }
 
 .logo_wrapper {
