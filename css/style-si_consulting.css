@@ -5,6 +5,30 @@
     src: url('/fonts/equateur/Equateur-Regular.ttf') format('truetype')
 }
 
+#body {
+	overflow-x: hidden;
+}
+
+#testimonial {
+    background: var(--color-neutral--grey-sky);
+}
+
+#testimonial p {
+    font-weight: 500;
+}
+
+#testimonial .text-size-regular {
+    color: var(--color-primary--si-blue);
+}
+
+#testimonial .text-size-regular.text-weight-bold {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.temoignage_info-wrapper {
+    margin-top: auto;
+}
 
 @keyframes scrollLeft {
     to {
@@ -3703,7 +3727,12 @@ blockquote {
 }
 
 .navbar_logo-link {
+    width: 380px;
     padding-left:0
+}
+
+.navbar_logo-link img {
+	max-width: 280px;
 }
 
 .dropdown-chevron {
@@ -3765,7 +3794,9 @@ blockquote {
 .navbar_button-wrapper {
     grid-column-gap: 1rem;
     margin-left: 1rem;
-    display:flex
+    display:flex;
+    width: 380px;
+    justify-content: end;
 }
 
 .navbar2_dropdwn-toggle {
@@ -5572,12 +5603,12 @@ blockquote {
 }
 
 .item {
-    flex: 0 auto;
-    width: 25.5rem;
-    min-width: 25.5rem;
-    padding-left: 1vw;
-    padding-right: 1vw;
-    display:flex
+	flex: 0 auto;
+	padding-left: 0;
+	padding-right: 0;
+	display: flex;
+	width: calc(100% / 3);
+	min-width: calc(100% / 3);
 }
 
 .section {
@@ -5612,11 +5643,12 @@ blockquote {
 }
 
 .list {
-    justify-content: flex-start;
-    align-items: stretch;
-    padding-left: 4vw;
-    padding-right: 4vw;
-    display:flex
+	justify-content: flex-start;
+	align-items: stretch;
+	display: flex;
+	overflow: hidden;
+	padding: 30px 3.75rem;
+	gap: 1vw;
 }
 
 .c-link {
@@ -5670,18 +5702,22 @@ blockquote {
 }
 
 .card_t-moignage {
-    border-style: solid;
-    border-width: .1px .15px .2px .1px;
-    border-color: #f1e3ff var(--color-primary--purple-lighter) var(--color-primary--purple-lighter) #f1e3ff;
-    border-radius: 1.5rem;
-    width: 100%;
-    height: 100%;
-    min-height: 25rem;
-    padding: 1.5rem;
-    display: inline-block;
-    position: relative;
-    overflow:hidden
+	width: 100%;
+	height: 100%;
+	min-height: 25rem;
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 6px 6px 24px rgba(46, 54, 178, 0.3);
+	border-radius: 20px;
+	padding: 40px;
+	background: #fff;
 }
+
+.temoignage_info-wrapper {
+    margin-top: auto;
+  }
 
 .star_wrapper {
     display:inline-flex
