@@ -5670,35 +5670,32 @@ blockquote {
     margin-left:2.6em
 }
 
-.arrow.slider-prev {
-    background-color: var(--color-neutral--grey-sky);
+.arrow.slider-prev, .arrow.slider-next {
+    border: 1px solid var(--color-primary--si-blue);
+    background-color: #fff;
     border-radius: 3rem;
     justify-content: center;
     align-items: center;
     width: 3rem;
     height: 3rem;
     margin-left: 0;
+}
+
+.arrow.slider-prev svg, .arrow.slider-next svg {
+	width: 15px;
+}
+
+.arrow.slider-prev {
     display:inline-flex
 }
 
 .arrow.slider-next {
-    background-color: var(--color-neutral--grey-sky);
-    border-radius: 3rem;
-    justify-content: center;
-    align-items: center;
-    width: 3rem;
-    height: 3rem;
-    margin-left: 0;
     display:flex
 }
 
 .heading {
     line-height: 1;
     position:relative
-}
-
-.arrow_img {
-    width:1.813rem
 }
 
 .card_t-moignage {
