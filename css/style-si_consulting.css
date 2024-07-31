@@ -30,6 +30,18 @@
     margin-top: auto;
 }
 
+.reveal-animation {
+    opacity: 0;
+    top: 10px;
+    position: relative;
+    transition: all 1s ease-in-out;
+}
+
+.reveal-animation.reveal {
+    opacity: 1;
+    top: 0;
+}
+
 @keyframes scrollLeft {
     to {
       left: -200px;
@@ -2890,7 +2902,7 @@ blockquote {
 }
 
 .heading-style-h1 {
-    color: #190d3d;
+    color: var(--color-primary--si-blue);
     font-size: var(--spacing--64);
     letter-spacing: -.75px;
     font-weight: 800;
