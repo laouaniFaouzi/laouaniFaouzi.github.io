@@ -9,6 +9,25 @@
 	overflow-x: hidden;
 }
 
+#testimonial .arrow {
+	cursor: pointer;
+}
+
+.navbar_link::after {
+    content: "";
+    height: 2px;
+    width: 0%;
+    display: block;
+    background: var(--color-primary--si-blue);
+    position: absolute;
+    left: 0;
+    transition: all .3s ease;
+}
+
+.navbar_link:hover::after {
+    width: 100%;
+}
+
 #testimonial {
     background: var(--color-neutral--grey-sky);
 }
