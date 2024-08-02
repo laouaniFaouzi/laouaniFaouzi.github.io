@@ -5762,7 +5762,6 @@ blockquote {
 	justify-content: flex-start;
 	align-items: stretch;
 	display: flex;
-	overflow: hidden;
 	padding: 30px 3.75rem;
 	gap: 2%;
 }
