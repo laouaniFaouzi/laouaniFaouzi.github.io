@@ -19,6 +19,7 @@
 
 .solution_grid-2 {
     display: flex;
+    box-shadow: 6px 6px 24px rgba(46, 54, 178, 0.3);
 }
 
 .solution_grid-2 .solution_grid-item {
@@ -62,6 +63,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    box-shadow: 6px 6px 24px rgba(46, 54, 178, 0.3);
 }
 
 .solution_grid-container {
