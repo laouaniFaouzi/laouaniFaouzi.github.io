@@ -17,6 +17,14 @@
 	background: var(--color-neutral--grey-sky);
 }
 
+.solution_grid-2 {
+    display: flex;
+}
+
+.solution_grid-2 .solution_grid-item {
+    margin: auto;
+}
+
 .solution_grid-item .icon-method {
 	max-width: 100px;
 	max-height: 100px;
