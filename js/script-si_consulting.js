@@ -45,21 +45,20 @@ function revealOnScroll() {
     lastScrollTop = window.scrollY;
 }
 
+
 document.addEventListener('DOMContentLoaded', function() {
     const slider = document.querySelector('#slider-id');
     const items = slider.querySelectorAll('.item');
     const prevButton = document.querySelector('.slider-prev');
     const nextButton = document.querySelector('.slider-next');
     let currentIndex = 0;
-    let autoPlayCount = 0;
-    const maxAutoPlayCount = 2; // Number of times the auto-play should occur
 
     const updateSlider = () => {
         slider.style.transform = `translateX(${-currentIndex * items[0].offsetWidth}px)`;
     };
 
     nextButton.addEventListener('click', () => {
-        if (currentIndex < items.length - 1) {
+        if (currentIndex < items.length - 3) {
             currentIndex++;
         } else {
             currentIndex = 0; // Loop back to the beginning
@@ -71,18 +70,13 @@ document.addEventListener('DOMContentLoaded', function() {
         if (currentIndex > 0) {
             currentIndex--;
         } else {
-            currentIndex = items.length - 1; // Loop back to the end
+            currentIndex = items.length - 3; // Loop back to the end
         }
         updateSlider();
     });
 
-    // Auto-play functionality with limited repetition
+    // Auto-play functionality with continuous looping
     const autoPlayInterval = setInterval(() => {
-        if (autoPlayCount < maxAutoPlayCount) {
-            nextButton.click();
-            autoPlayCount++;
-        } else {
-            clearInterval(autoPlayInterval); // Stop the auto-play after maxAutoPlayCount times
-        }
-    }, 10000); // Change slide every 10 seconds
+        nextButton.click();
+    }, 5000); // Change slide every 5 seconds
 });
