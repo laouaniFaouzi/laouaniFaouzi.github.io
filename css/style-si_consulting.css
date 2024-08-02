@@ -9,6 +9,10 @@
 	overflow-x: hidden;
 }
 
+.temoignage_info-wrapper img {
+    max-width: 40px;
+}
+
 #solution2 {
 	background: var(--color-neutral--grey-sky);
 }
