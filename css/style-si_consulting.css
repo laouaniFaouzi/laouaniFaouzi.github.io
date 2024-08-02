@@ -18,7 +18,7 @@
     opacity: 0;
     position: absolute;
     left: 20px;
-    background-position: contain;
+    background-size: contain;
     background-image: url('data:image/svg+xml,<svg width="64px" height="64px" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(-45)" stroke="%23031a67" stroke-width="1.2"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill-rule="evenodd" clip-rule="evenodd" d="M21.596 13.058a1.495 1.495 0 0 0 0-2.116A39833.83 39833.83 0 0 0 15.963 5.3c-.39-.39-1.03-.39-1.42 0a.996.996 0 0 0 0 1.41l2.716 2.717a9.994 9.994 0 0 0 1.768 1.406l.342.214-.208.207a10 10 0 0 0-2.24-.254H3a1 1 0 1 0 0 2h13.922a10 10 0 0 0 2.24-.254l.207.207-.342.214c-.641.4-1.233.872-1.768 1.406l-2.716 2.717a.996.996 0 0 0 0 1.41c.39.39 1.03.39 1.42 0l5.633-5.642z" fill="%23031a67"></path></g></svg>');
 }
 
