@@ -52,31 +52,57 @@ document.addEventListener('DOMContentLoaded', function() {
     const prevButton = document.querySelector('.slider-prev');
     const nextButton = document.querySelector('.slider-next');
     let currentIndex = 0;
+    const gap = parseFloat(getComputedStyle(slider).gap) || 0; // Get the gap between items
+    const extraMargin = 3.5 * 16; // Convert 3.5rem to pixels (assuming 1rem = 16px)
+    const autoPlayDelay = 5000; // Delay in milliseconds
 
     const updateSlider = () => {
-        slider.style.transform = `translateX(${-currentIndex * items[0].offsetWidth}px)`;
+        const itemWidth = items[0].offsetWidth + gap;
+        let totalWidth = currentIndex * itemWidth;
+        
+        // Add extra margin only if the last item is visible
+        if (currentIndex === items.length - 3) {
+            totalWidth += extraMargin;
+        }
+
+        slider.style.transform = `translateX(${-totalWidth}px)`;
     };
 
-    nextButton.addEventListener('click', () => {
+    const goToNextSlide = () => {
         if (currentIndex < items.length - 3) {
             currentIndex++;
         } else {
             currentIndex = 0; // Loop back to the beginning
         }
         updateSlider();
-    });
+    };
 
-    prevButton.addEventListener('click', () => {
+    const goToPrevSlide = () => {
         if (currentIndex > 0) {
             currentIndex--;
         } else {
             currentIndex = items.length - 3; // Loop back to the end
         }
         updateSlider();
+    };
+
+    // Event listeners for manual navigation
+    nextButton.addEventListener('click', () => {
+        goToNextSlide();
+        resetAutoPlay();
+    });
+
+    prevButton.addEventListener('click', () => {
+        goToPrevSlide();
+        resetAutoPlay();
     });
 
     // Auto-play functionality with continuous looping
-    const autoPlayInterval = setInterval(() => {
-        nextButton.click();
-    }, 5000); // Change slide every 5 seconds
+    let autoPlayInterval = setInterval(goToNextSlide, autoPlayDelay);
+
+    // Reset auto-play interval
+    const resetAutoPlay = () => {
+        clearInterval(autoPlayInterval);
+        autoPlayInterval = setInterval(goToNextSlide, autoPlayDelay);
+    };
 });
