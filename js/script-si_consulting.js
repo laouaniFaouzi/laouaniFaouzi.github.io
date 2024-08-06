@@ -46,6 +46,7 @@ function revealOnScroll() {
 }
 
 
+// Carousel
 document.addEventListener('DOMContentLoaded', function() {
     const slider = document.querySelector('#slider-id');
     const items = slider.querySelectorAll('.item');
