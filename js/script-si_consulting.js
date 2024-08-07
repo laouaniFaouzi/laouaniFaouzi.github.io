@@ -53,14 +53,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const prevButton = document.querySelector('.slider-prev');
     const nextButton = document.querySelector('.slider-next');
     let currentIndex = 0;
-    const gap = parseFloat(getComputedStyle(slider).gap) || 0; // Get the gap between items
     const extraMargin = 3.5 * 16; // Convert 3.5rem to pixels (assuming 1rem = 16px)
     const autoPlayDelay = 5000; // Delay in milliseconds
 
     const updateSlider = () => {
-        const itemWidth = items[0].offsetWidth + gap;
-        let totalWidth = currentIndex * itemWidth;
-        
+        const itemWidth = items[0].offsetWidth;
+        const gap = parseFloat(getComputedStyle(slider).gap) || 0; // Get the gap between items
+        let totalWidth = currentIndex * (itemWidth + gap);
+
         // Add extra margin only if the last item is visible
         if (currentIndex === items.length - 3) {
             totalWidth += extraMargin;
@@ -106,4 +106,11 @@ document.addEventListener('DOMContentLoaded', function() {
         clearInterval(autoPlayInterval);
         autoPlayInterval = setInterval(goToNextSlide, autoPlayDelay);
     };
+
+    // Recalculate item width on window resize
+    window.addEventListener('resize', updateSlider);
+
+    // Initial update
+    updateSlider();
 });
+
