@@ -6601,9 +6601,10 @@ blockquote {
 	left: 0%;
 	right: 0%;
 	text-transform: uppercase;
-    background-image: url(/images/qualiopi.png);
-    background-position: right center;
-    background-repeat: no-repeat;
+	background-image: url(/images/qualiopi.png);
+	background-position: right 50px center;
+	background-repeat: no-repeat;
+	background-size: 150px;
 }
 
 .bandeau_wrapper {
