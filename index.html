@@ -70,7 +70,7 @@
                             <div class="w-layout-grid header_component">
                                 <div class="header_content">
                                     <div class="margin-bottom margin-regular">
-                                        <h1>Accompagnement à la <span class="heading_1-span-italic">certification qualiopi</span></h1>
+                                        <h1>Votre <span class="heading_1-span-italic">certification QUALIOPI</span> 100% GARANTIE</h1>
                                     </div>
                                     <div class="margin-bottom margin-regular">
                                         <div class="header_social-proof">
@@ -82,12 +82,11 @@
                                                 <span>⭐</span>
                                                 <span class="google-note">4.8</span>
                                             </div>
-                                            <div class="text-size-small">+2000 accompagnement d’organisme de formation</div>
+                                            <div class="text-size-small">+2000 Qualiopi obtenu avec 100% de réussite</div>
                                         </div>
                                     </div>
                                     <div class="margin-bottom margin-regular">
                                         <div class="text-size-large">Le leader de l'accompagnement des organismes de formation en France</div>
-                                        <div class="text-size-large">100% de garantie</div>
                                     </div>
                                     <div class="max-width-medium">
                                         <div class="header_tag-wrapper">
@@ -107,10 +106,73 @@
                                                 <span>💯</span>
                                                 Obligation de résultat
                                             </div>
+                                            <div class="tag_component">
+                                                <span>📏</span>
+                                                Accompagnement rapide et sur-mesure
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="hero-form">
+                                    <div class="form_content">
+                                        <form id="form1" action="send_mail.php" method="POST">
+
+                                            <div class="form-group">
+                                                <label for="vous-etes">Vous êtes:</label>
+                                                <select id="vous-etes" name="vous-etes" required>
+                                                    <option value="" disabled selected>Sélectionnez une option</option>
+                                                    <option value="Organisme de formation">Un organisme de formation</option>
+                                                    <option value="Entreprise">Une entreprise</option>
+                                                </select>
+                                            </div><br>
+
+                                            <div class="form-group">
+                                                <label for="demande">Quel est votre demande ?</label>
+                                                <select id="demande" name="demande" required>
+                                                    <option value="" disabled selected>Sélectionnez une option</option>
+                                                    <option value="Certification Qualiopi">Certification Qualiopi</option>
+                                                    <option value="Eligibilité CPF">Eligibilité CPF - Enregistrements RS (Répertoire Spécifique)</option>
+                                                    <option value="Enregistrement RNCP">Enregistrement RNCP (Répertoire National des Certifications Professionnelles)</option>
+                                                    <option value="Certification CFA">Certification CFA</option>
+                                                    <option value="Autres">Autres</option>
+                                                </select>
+                                            </div><br>
+
+                                            <div class="form-line">
+                                                <div class="form-group">
+                                                    <label for="nom">Nom:</label>
+                                                    <input type="text" id="nom" name="nom" placeholder="Entrez votre nom" required>
+                                                </div>
+                                                
+                                                <div class="form-group">
+                                                    <label for="prenom">Prénom:</label>
+                                                    <input type="text" id="prenom" name="prenom" placeholder="Entrez votre prénom" required>
+                                                </div>
+                                            </div><br>
+
+                                            <div class="form-line">
+                                                <div class="form-group">
+                                                    <label for="email">Email:</label>
+                                                    <input type="email" id="email" name="email" placeholder="Entrez votre email" required>
+                                                </div>
+                                        
+                                                <div class="form-group">
+                                                    <label for="telephone">Téléphone:</label>
+                                                    <input type="tel" id="telephone" name="telephone" placeholder="Entrez votre numéro de téléphone" required>
+                                                </div>
+                                            </div><br>
+                                    
+                                            <div class="form-group">
+                                                <label for="message">Message:</label>
+                                                <textarea id="message" name="message" rows="4" placeholder="Entrez votre message" required></textarea>
+                                            </div><br>
+                                            
+                                            <div class="form-button">
+                                                <input class="button w-button" type="submit" value="Envoyer">
+                                            </div>
+
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -149,6 +211,8 @@
                     </div>
                 </div>
             </section>
+
+            
 
             <section id="souffrance">
                 <div class="padding-section-medium">
@@ -235,11 +299,11 @@
                                 <h2>Le <span class="equateur">leader</span> de l'accompagnement des organismes de formation en France</h2>
                             </div>
                             <div class="margin-bottom margin-xlarge text-size-medium">
-                                <p>Avec un champ d’action qui s’étend partout en France et une parfaite connaissance de l’ensemble des secteurs d’activité qui composent le paysage économique des différents territoires, SI CONSULTING vous aide à affronter les évolutions de votre secteur.</p>
+                                <p>SI Consulting, nous sommes leader dans l'accompagnement à la création et au développement des organismes de formation avec plus de <mark>2000 entreprises clients</mark>, nous intervenons sur 3 pôles : <mark>Qualiopi l’obtenir et le conserver, l’éligibilité CPF</mark> avec la meilleur stratégie, dépôt de titre RSCH/RNCP auprès de France compétences ou partenariat privé ou public jusqu’au <mark>CFA/CFA d’entreprise</mark>.</p>
                             </div>
                             <div class="button-group">
                                 <a class="button w-button" href="#">CTA</a>
-                                <a class="button  is-secondary w-button" href="#">CTA</a>
+                                <a class="button is-secondary w-button" href="#">CTA</a>
                             </div>
                         </div>
                     </div>
@@ -300,7 +364,7 @@
                 </div>
             </section>
 
-            <section id="solution1">
+            <!--<section id="solution1">
                 <div class="padding-global-6">
                     <div class="container">
                         <div class="padding-section-medium">
@@ -402,7 +466,7 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section>-->
 
             <section id="solution2">
                 <div class="padding-section-regular">
@@ -411,7 +475,7 @@
                             <div class="slider-title2">
                                 <div class="max-width-medium-2">
                                     <h2>
-                                        Nos <span class="equateur">engagements</span>
+                                        Notre <span class="equateur">solution</span>
                                     </h2>
                                 </div>
                             </div>
@@ -519,6 +583,7 @@
                             </div>
                         </div>
                     </div>
+
 
 
                 </div>
@@ -699,7 +764,7 @@
                 </div>
             </section>
 
-            <section id="sales" class="sales">
+            <!--<section id="sales" class="sales">
                 <div class="padding-global">
                     <div class="container-large">
                         <div class="padding-section-regular">
@@ -773,7 +838,7 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section>-->
 
             <section id="method">
                 <div class="padding-global-6">
@@ -784,9 +849,7 @@
                                     <div class="text-align-center">
                                         <div class="max-width-large">
                                             <div class="margin-bottom margin-medium">
-                                                <h2>
-                                                    Une méthode de navigation qui a fait ses preuves
-                                                </h2>
+                                                <h2>Une méthode de navigation qui a fait ses preuves</h2>
                                             </div>
                                             <p class="text-size-medium-10"><span class="equateur">SI Consulting</span> a mis au point une stratégie en trois étapes afin de définir avec précision vos objectifs et les actions à mener pour les atteindre avec brio.</p>
                                         </div>
@@ -861,6 +924,14 @@
                 </div>
             </section>
 
+            <section id="section_contact">
+                <div class="padding-section-regular">
+                    <div class="padding-global">
+                        
+                    </div>
+                </div>
+            </section>
+
 
 
         </main>
@@ -869,6 +940,7 @@
 
         <!-- Scripts -->
         <script src="js/script-si_consulting.js"></script> <!-- Custom scripts -->
+        <script src="https://smtpjs.com/v3/smtp.js"></script> <!-- Mails -->
 
         <!-- Bootstrap 5.3 -->
     </body>
