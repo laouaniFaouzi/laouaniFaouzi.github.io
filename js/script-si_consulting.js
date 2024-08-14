@@ -1,3 +1,10 @@
+// loading animation
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('form1').classList.add('load');
+    document.getElementById('anim_text_1').classList.add('load');
+    document.getElementById('anim_text_2').classList.add('load');
+});
+
 // nav smooth scrolling
 document.addEventListener('DOMContentLoaded', () => {
     const navbarHeight = document.querySelector('.navbar_component').offsetHeight;

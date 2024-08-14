@@ -9,6 +9,42 @@
 	overflow-x: hidden;
 }
 
+#form1 {
+    bottom: -100px;
+    opacity: 0;
+    position: relative;
+    transition: all 0.7s ease-out 1s;
+}
+
+#form1.load {
+    bottom: 0;
+    opacity: 1;
+}
+
+#anim_text_1 {
+    position: relative;
+    left: -100px;
+    opacity: 0;
+    transition: all 0.7s ease-out 1s;
+}
+
+#anim_text_1.load {
+    opacity: 1;
+    left: 0;
+}
+
+#anim_text_2 {
+	position: relative;
+	opacity: 0;
+	z-index: -1;
+	transition: all 1.2s ease 1s;
+}
+
+#anim_text_2.load {
+    opacity: 1;
+    z-index: 0;
+}
+
 .form-line {
 	display: flex;
 	gap: 20px;
@@ -224,7 +260,7 @@ input, select, textarea {
 }
 
 #testimonial {
-    background: var(--color-neutral--grey-sky);
+    /*background: var(--color-neutral--grey-sky);*/
 }
 
 #testimonial p {
@@ -267,7 +303,7 @@ input, select, textarea {
     max-width: 1536px;
     margin-inline: auto;
     height: 100px;
-    margin-top: 3rem;
+    margin-top: 2rem;
     overflow: hidden;
 }
   
