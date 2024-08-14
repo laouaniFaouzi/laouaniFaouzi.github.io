@@ -369,7 +369,7 @@ input, select, textarea {
 }
 
 .header_content .equateur::after {
-	top: 60px;
+	top: 50px;
 }
 
 .section_team-text .equateur::after {
@@ -6459,8 +6459,6 @@ blockquote {
 }
 
 .heading_1-span-italic {
-	font-family: 'equateur';
-	font-weight: 600;
 	text-transform: uppercase;
 	white-space: nowrap;
 }
