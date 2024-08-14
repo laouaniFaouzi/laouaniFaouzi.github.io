@@ -278,26 +278,26 @@ input, select, textarea {
     position: absolute;
     left: max(calc(200px * 5), 100%);
     animation-name: scrollLeft;
-    animation-duration: 30s;
+    animation-duration: 50s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     object-fit: contain;
 }
 
 .item1 {
-    animation-delay: calc(30s / 5 * (5 - 1) * -1);
+    animation-delay: calc(50s / 5 * (5 - 1) * -1);
 }
 .item2 {
-    animation-delay: calc(30s / 5 * (5 - 2) * -1);
+    animation-delay: calc(50s / 5 * (5 - 2) * -1);
 }
 .item3 {
-    animation-delay: calc(30s / 5 * (5 - 3) * -1);
+    animation-delay: calc(50s / 5 * (5 - 3) * -1);
 }
 .item4 {
-    animation-delay: calc(30s / 5 * (5 - 4) * -1);
+    animation-delay: calc(50s / 5 * (5 - 4) * -1);
 }
 .item5 {
-    animation-delay: calc(30s / 5 * (5 - 5) * -1);
+    animation-delay: calc(50s / 5 * (5 - 5) * -1);
 }
 
 .section_team-image {
@@ -2690,7 +2690,7 @@ h1 {
 	margin-bottom: 0;
 	font-weight: 800;
 	line-height: 4.5vw;
-	font-size: 3.6vw;
+	font-size: 3.4vw;
 }
 
 h2 {
@@ -2765,6 +2765,10 @@ blockquote {
 .max-width-full {
     width: 100%;
     max-width:none
+}
+
+.width-50 {
+    width: 50%;
 }
 
 .fs-styleguide_label {
@@ -4243,7 +4247,6 @@ blockquote {
 }
 
 .logo_component {
-    display:flex;
     mask-image: linear-gradient( to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) );
 }
 
@@ -6591,8 +6594,6 @@ blockquote {
 
 .bandeau {
 	z-index: 1;
-	padding-top: var(--spacing--12);
-	padding-bottom: var(--spacing--12);
 	background-color: var(--color-primary--si-blue);
 	position: -webkit-sticky;
 	position: sticky;
@@ -6601,16 +6602,18 @@ blockquote {
 	left: 0%;
 	right: 0%;
 	text-transform: uppercase;
-	background-image: url(/images/qualiopi.png);
-	background-position: right 50px center;
-	background-repeat: no-repeat;
-	background-size: 150px;
 }
 
 .bandeau_wrapper {
     justify-content: center;
     align-items: center;
-    display:flex
+    display:flex;
+    background-image: url(/images/qualiopi.png);
+	background-position: right center;
+	background-repeat: no-repeat;
+	background-size: 150px;
+    padding-top: var(--spacing--12);
+	padding-bottom: var(--spacing--12);
 }
 
 .bandeau i {
