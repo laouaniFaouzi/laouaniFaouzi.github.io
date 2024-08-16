@@ -9,6 +9,10 @@
 	overflow-x: hidden;
 }
 
+#contact {
+	background: var(--color-primary--si-blue);
+}
+
 .form_content form::before {
     content: "";
     width: 160px;
@@ -17,7 +21,7 @@
     background-image: url(/images/qualiopi.png);
     background-color: var(--color-primary--si-blue);
     position: absolute;
-    top: -35px;
+    top: -40px;
     transform: translate(-50%);
     left: 50%;
     border-radius: 10px;
@@ -9762,7 +9766,7 @@ blockquote {
 
     .header_component {
         grid-column-gap: 3rem;
-        grid-row-gap:3rem
+        grid-row-gap:6rem
     }
 
     .text-size-medium-2 {
