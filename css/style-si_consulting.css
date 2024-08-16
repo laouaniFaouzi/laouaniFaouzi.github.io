@@ -9,6 +9,24 @@
 	overflow-x: hidden;
 }
 
+.form_content form::before {
+    content: "";
+    width: 160px;
+    height: 60px;
+    display: block;
+    background-image: url(/images/qualiopi.png);
+    background-color: var(--color-primary--si-blue);
+    position: absolute;
+    top: -35px;
+    transform: translate(-50%);
+    left: 50%;
+    border-radius: 10px;
+    background-size: 85%;
+    background-position: center;
+    box-shadow: 6px 6px 24px rgba(46, 54, 178, 0.3);
+    background-repeat: no-repeat;
+}
+
 .header_start-wrapper svg {
     width: 14px;
     height: 14px;
@@ -410,7 +428,7 @@ input, select, textarea {
 }
 
 .header_content .equateur::after {
-	top: 40px;
+	top: 45px;
 	z-index: -1;
 }
 
@@ -6649,10 +6667,6 @@ blockquote {
     justify-content: center;
     align-items: center;
     display:flex;
-    background-image: url(/images/qualiopi.png);
-	background-position: right center;
-	background-repeat: no-repeat;
-	background-size: 150px;
     padding-top: var(--spacing--12);
 	padding-bottom: var(--spacing--12);
 }
