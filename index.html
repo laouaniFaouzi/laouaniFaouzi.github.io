@@ -41,7 +41,7 @@
                     <img src="/images/SI-CONSULTING.png" alt="SI Consulting Logo">
                 </a>
                 <nav role="navigation" id="w-node-a6c69933-7cd4-6607-508f-a2109ddc297a-11d3d6e8" class="navbar_menu is-page-height-tablet w-nav-menu">
-                    <a href="#section_team" class="navbar_link w-nav-link">À propos</a>
+                    <a href="#section_team" class="navbar_link w-nav-link">Qui nous sommes?</a>
                     <a href="#solution2" class="navbar_link w-nav-link">Notre solution</a>
                     <a href="#videoQualiopi" class="navbar_link w-nav-link">Qualiopi</a>
                     <a href="#method" class="navbar_link w-nav-link">Notre méthode</a>
@@ -116,30 +116,6 @@
                                 <div class="hero-form">
                                     <div class="form_content">
                                         <form id="form1" action="send_mail.php" method="POST">
-
-                                            <div class="form-line">
-                                                <div class="form-group width-50">
-                                                    <label for="vous-etes">Vous êtes:</label>
-                                                    <select id="vous-etes" name="vous-etes" required>
-                                                        <option value="" disabled selected>Sélectionnez une option</option>
-                                                        <option value="Organisme de formation">Un organisme de formation</option>
-                                                        <option value="Entreprise">Une entreprise</option>
-                                                    </select>
-                                                </div>
-    
-                                                <div class="form-group width-50">
-                                                    <label for="demande">Quel est votre demande ?</label>
-                                                    <select id="demande" name="demande" required>
-                                                        <option value="" disabled selected>Sélectionnez une option</option>
-                                                        <option value="Certification Qualiopi">Certification Qualiopi</option>
-                                                        <option value="Eligibilité CPF">Eligibilité CPF - Enregistrements RS (Répertoire Spécifique)</option>
-                                                        <option value="Enregistrement RNCP">Enregistrement RNCP (Répertoire National des Certifications Professionnelles)</option>
-                                                        <option value="Certification CFA">Certification CFA</option>
-                                                        <option value="Autres">Autres</option>
-                                                    </select>
-                                                </div>
-                                            </div><br>
-
                                             <div class="form-line">
                                                 <div class="form-group width-50">
                                                     <label for="nom">Nom:</label>
@@ -154,13 +130,20 @@
 
                                             <div class="form-line">
                                                 <div class="form-group width-50">
+                                                    <label for="telephone">Téléphone:</label>
+                                                    <input type="tel" id="telephone" name="telephone" placeholder="Entrez votre numéro de téléphone" required>
+                                                </div>
+
+                                                <div class="form-group width-50">
                                                     <label for="email">Email:</label>
                                                     <input type="email" id="email" name="email" placeholder="Entrez votre email" required>
                                                 </div>
-                                        
-                                                <div class="form-group width-50">
-                                                    <label for="telephone">Téléphone:</label>
-                                                    <input type="tel" id="telephone" name="telephone" placeholder="Entrez votre numéro de téléphone" required>
+                                            </div><br>
+
+                                            <div class="form-line">
+                                                <div class="form-group width-100">
+                                                    <label for="company">Nom de l'entreprise:</label>
+                                                    <input type="company" id="company" name="company" placeholder="Entrez le nom de votre entreprise" required>
                                                 </div>
                                             </div><br>
                                     
@@ -169,10 +152,14 @@
                                                 <textarea id="message" name="message" rows="4" placeholder="Entrez votre message" required></textarea>
                                             </div><br>
                                             
+                                            <div class="form-checkbox">
+                                                <input type="checkbox" id="privacyPolicy" name="privacyPolicy" required>
+                                                <label for="privacyPolicy">J'accepte les <a href="#" target="_blank">politiques de confidentialité</a></label>
+                                            </div><br>
+
                                             <div class="form-button">
                                                 <input class="button w-button" type="submit" value="Envoyer">
                                             </div>
-
                                         </form>
                                     </div>
                                 </div>
@@ -503,7 +490,7 @@
                     </div>
                     <div class="margin-top margin-large">
                         <div class="button-group-2 is-center">
-                            <a href="#" class="button is-icon w-inline-block">CTA</a>
+                            <a href="#" class="button is-icon w-inline-block">Besoin d’un conseil ?</a>
                         </div>
                     </div>
 
@@ -537,8 +524,7 @@
                                 <p>SI Consulting, nous sommes leader dans l'accompagnement à la création et au développement des organismes de formation avec plus de <mark>2000 entreprises clients</mark>, nous intervenons sur 3 pôles : <mark>Qualiopi l’obtenir et le conserver, l’éligibilité CPF</mark> avec la meilleur stratégie, dépôt de titre RSCH/RNCP auprès de France compétences ou partenariat privé ou public jusqu’au <mark>CFA/CFA d’entreprise</mark>.</p>
                             </div>
                             <div class="button-group">
-                                <a class="button w-button" href="#">CTA</a>
-                                <a class="button is-secondary w-button" href="#">CTA</a>
+                                <a class="button w-button" href="#">Vous voulez être accompagné ?</a>
                             </div>
                         </div>
                     </div>
@@ -885,7 +871,7 @@
                                             <div class="step_number">4</div>
                                         </div>
                                         <div class="margin-bottom margin-small">
-                                            <h3 class="heading-style-h4-2">Accompagnement</h3>
+                                            <h3 class="heading-style-h4-2">Optention Qualiopi</h3>
                                         </div>
                                         <p>Passage de l’audit avec une présence de votre ingénieur qualité.</p>
                                     </div>
@@ -901,7 +887,7 @@
                                 </div>
                                 <div class="margin-top margin-xlarge">
                                     <div class="button-group-2 is-center">
-                                        <a href="#" class="button is-icon w-inline-block">CTA</a>
+                                        <a href="#" class="button is-icon w-inline-block">Confiez-nous votre dossier</a>
                                     </div>
                                 </div>
                             </div>
@@ -1017,7 +1003,18 @@
 
         </main>
 
-        <footer id="footer"></footer>
+        <footer id="footer">
+            <div class="footer-content">
+                <div class="footer-left">
+                    Réalisé avec ♥︎ par 
+                    <a target="_blank" rel="nofollow noopener" href="https://www.websculpt-clinic.fr"><img decoding="async" src="/images/logo_websculpt_white.png" style="margin-bottom: -2px; margin-left: 2px;"></a>
+                </div>
+                <div class="footer-right">
+                    © SI CONSULTING  |  
+                    <a href="https://www.siconsulting-certification.fr/mentions-legales/" target="_blank">Mentions légales</a>
+                </div>
+            </div>
+        </footer>
 
         <!-- Scripts -->
         <script src="js/script-si_consulting.js"></script> <!-- Custom scripts -->

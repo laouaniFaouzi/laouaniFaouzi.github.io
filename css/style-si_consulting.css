@@ -361,6 +361,7 @@ input, select, textarea {
     font-size: 24px;
     font-weight: 700;
     text-decoration: none;
+    pointer-events: none;
 }
 
 .contact-list ul {
@@ -382,7 +383,7 @@ input, select, textarea {
   
 #form2 {
     padding: 40px;
-    background: var(--lt-color-white);
+    background: #fff;
     border-radius: 20px;
     box-shadow: 6px 6px 24px rgba(46, 54, 178, 0.3);
 }
@@ -481,6 +482,20 @@ input, select, textarea {
 .navbar_link:hover::after {
     width: 100%;
 }*/
+
+input[type="checkbox"], input[type="radio"] {
+    width: inherit;
+    border: 1px solid;
+}
+
+.form-checkbox {
+    display: flex;
+    gap: 10px;
+}
+
+.width-100 {
+	width: 100%;
+}
 
 #testimonial {
     /*background: var(--color-neutral--grey-sky);*/

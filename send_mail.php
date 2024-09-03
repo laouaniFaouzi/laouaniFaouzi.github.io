@@ -1,26 +1,32 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Récupération des données du formulaire
     $nom = htmlspecialchars($_POST['nom']);
     $prenom = htmlspecialchars($_POST['prenom']);
     $email = htmlspecialchars($_POST['email']);
     $telephone = htmlspecialchars($_POST['telephone']);
-    $vous_etes = htmlspecialchars($_POST['vous-etes']);
-    $demande = htmlspecialchars($_POST['demande']);
+    $company = htmlspecialchars($_POST['company']);
     $message = htmlspecialchars($_POST['message']);
 
-    $to = "laouanifaouzi@gmail.com"; // Remplacez par votre adresse e-mail
+    // Vérification de la checkbox
+    if (!isset($_POST['privacyPolicy'])) {
+        echo "Vous devez accepter les politiques de confidentialité.";
+        exit;
+    }
+
+    $to = "votre-adresse-email@domaine.com"; // Remplacez par votre adresse e-mail
     $subject = "Nouveau message de $nom $prenom";
     
     $body = "Nom: $nom\n";
     $body .= "Prénom: $prenom\n";
     $body .= "Email: $email\n";
     $body .= "Numéro de Téléphone: $telephone\n";
-    $body .= "Vous êtes: $vous_etes\n";
-    $body .= "Demande: $demande\n\n";
+    $body .= "Nom de l'entreprise: $company\n\n";
     $body .= "Message:\n$message\n";
 
     $headers = "From: $email";
 
+    // Envoi de l'e-mail
     if (mail($to, $subject, $body, $headers)) {
         echo "Votre message a été envoyé avec succès.";
     } else {
@@ -29,3 +35,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
     echo "Méthode de requête non autorisée.";
 }
+?>
+
