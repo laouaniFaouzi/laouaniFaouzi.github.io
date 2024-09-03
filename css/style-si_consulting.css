@@ -65,6 +65,7 @@
     text-align: center;
 }
 
+#form2::before,
 .form_content form::before {
     content: "";
     width: 160px;
