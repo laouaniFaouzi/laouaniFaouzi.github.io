@@ -13,13 +13,21 @@
 	background: var(--color-primary--si-blue);
 }
 
+.contact-block {
+    display: flex;
+    gap: 5%;
+}
+
+.contact-left, .contact-right {
+    width: 50%;
+}
+
 .form_content form::before {
     content: "";
     width: 160px;
     height: 60px;
     display: block;
     background-image: url(/images/qualiopi.png);
-    background-color: var(--color-primary--si-blue);
     position: absolute;
     top: -40px;
     transform: translate(-50%);
@@ -108,22 +116,35 @@ input, select, textarea {
 }
 
 .souffrance-table {
-    display: flex;
-    box-shadow: 6px 6px 24px rgba(46, 54, 178, 0.3);
-    border-radius: 20px;
-    max-width: 1300px;
-    margin: auto;
+	display: flex;
+	max-width: 1300px;
+	margin: auto;
+	gap: 40px;
 }
 
 .souffrance-table-view {
-    width: 50%;
-    padding: 80px 50px 50px;
-    position: relative;
+	width: 50%;
+	padding: 80px 50px 50px;
+	position: relative;
+	box-shadow: 6px 6px 24px rgba(46, 54, 178, 0.3);
+	border-radius: 20px;
 }
 
 .souffrance-table-view.view-with {
-    background: var(--color-primary--si-yellow);
-    border-radius: 0 20px 20px 0;
+	background: var(--lt-color-background-light);
+}
+
+.surline {
+    position: relative;
+}
+
+.surline::after {
+    content: "";
+    display: block;
+    background: #f0ff1b;
+    position: absolute;
+    width: 100%;
+    height: 10px;
 }
 
 .table-title {
@@ -282,9 +303,122 @@ input, select, textarea {
     transition: all .3s ease;
 }
 
+.contact-list a:not(.button) {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.contact-list ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4%;
+}
+  
+.contact-list ul li {
+    width: 48%;
+}
+  
+#form2 {
+    padding: 40px;
+    background: var(--lt-color-white);
+    border-radius: 20px;
+    box-shadow: 6px 6px 24px rgba(46, 54, 178, 0.3);
+}
+
+.step_number {
+    font-size: 60px;
+    font-family: "equateur";
+    font-weight: 700;
+    color: var(--color-primary--si-blue);
+    font-style: italic;
+}
+
+#method .icon-method {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 110px;
+    height: 110px;
+}
+
+#method .layout237_item:nth-child(2) {
+    transition-delay: 0.1s;
+}
+
+.solution_grid-2.reveal-animation,
+#method .layout237_item:nth-child(3) {
+    transition-delay: 0.2s;
+}
+
+#method .layout237_item:nth-child(4) {
+    transition-delay: 0.3s;
+}
+
+.solution_grid-3.reveal-animation,
+.view-with.reveal-animation,
+#method .layout237_item:nth-child(5) {
+    transition-delay: 0.4s;
+}
+
+#method .heading-style-h4-2 {
+    font-size: 1.7rem;
+}
+
+#method .layout237_item {
+    min-width: 20%;
+}
+
+#contact h2 {
+    color: #fff;
+    text-align: center;
+    padding: 0 40px;
+}
+
+/*.layout237_item::before {
+    content: "";
+    width: 60px;
+    height: 60px;
+    background: #031a67;
+    position: absolute;
+    top: -30px;
+    border-radius: 30px;
+    color: #f0ff1b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-family: "equateur";
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.layout237_item:nth-child(1)::before {
+    content: "1";
+}
+
+.layout237_item:nth-child(2)::before {
+    content: "2";
+}
+
+.layout237_item:nth-child(3)::before {
+    content: "3";
+}
+
+.layout237_item:nth-child(4)::before {
+    content: "4";
+}
+
+.layout237_item:nth-child(5)::before {
+    content: "5";
+}
+
 .navbar_link:hover::after {
     width: 100%;
-}
+}*/
 
 #testimonial {
     /*background: var(--color-neutral--grey-sky);*/
@@ -901,10 +1035,14 @@ figcaption {
     margin-top:5px
 }
 
-ul, ol {
+ol {
     margin-top: 0;
     margin-bottom: 10px;
     padding-left:40px
+}
+
+ul {
+	list-style: none;
 }
 
 .w-list-unstyled {
@@ -8561,7 +8699,6 @@ blockquote {
 .layout237_list {
 	justify-content: center;
 	display: flex;
-	gap: 40px;
 }
 
 .heading-style-h4-2 {
