@@ -11,6 +11,29 @@
 
 #contact {
 	background: var(--color-primary--si-blue);
+    background-image: url(/images/team-siconsulting.jpg);
+    background-blend-mode: soft-light;
+}
+
+.adress-card-content {
+    padding: 40px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 6px 6px 24px rgba(46, 54, 178, 0.3);
+    color: var(--color-primary--si-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    font-size: 25px;
+    line-height: 130%;
+    gap: 20px;
+    font-family: "equateur";
+}
+
+.adress-card-content img {
+    width: 80px;
 }
 
 .contact-block {
@@ -22,10 +45,30 @@
     width: 50%;
 }
 
+.contact-list-button {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding-top: 10px;
+}
+
+.contact-list p {
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
 .form_content form::before {
     content: "";
     width: 160px;
-    height: 60px;
+    height: 70px;
     display: block;
     background-image: url(/images/qualiopi.png);
     position: absolute;
@@ -33,7 +76,7 @@
     transform: translate(-50%);
     left: 50%;
     border-radius: 10px;
-    background-size: 85%;
+    background-size: cover;
     background-position: center;
     box-shadow: 6px 6px 24px rgba(46, 54, 178, 0.3);
     background-repeat: no-repeat;
@@ -311,15 +354,20 @@ input, select, textarea {
 }
 
 .contact-list ul {
-    padding: 0;
+    padding: 20px 0 0;
     margin: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 4%;
+    gap: 50px 4%;
 }
   
-.contact-list ul li {
+.contact-list ul li.adress-card {
     width: 48%;
+}
+
+.contact-list-button .button {
+	font-size: 18px;
+	text-transform: lowercase;
 }
   
 #form2 {
@@ -358,6 +406,7 @@ input, select, textarea {
     transition-delay: 0.3s;
 }
 
+.section_team-text.reveal-animation,
 .solution_grid-3.reveal-animation,
 .view-with.reveal-animation,
 #method .layout237_item:nth-child(5) {
