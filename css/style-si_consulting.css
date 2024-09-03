@@ -406,6 +406,7 @@ input, select, textarea {
     transition-delay: 0.3s;
 }
 
+.contact-right.reveal-animation,
 .section_team-text.reveal-animation,
 .solution_grid-3.reveal-animation,
 .view-with.reveal-animation,
@@ -422,9 +423,11 @@ input, select, textarea {
 }
 
 #contact h2 {
-    color: #fff;
-    text-align: center;
-    padding: 0 40px;
+	color: #fff;
+	text-align: center;
+	padding: 0 40px;
+	width: fit-content;
+	margin: auto;
 }
 
 /*.layout237_item::before {
