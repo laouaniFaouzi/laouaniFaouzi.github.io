@@ -15,9 +15,23 @@
     background-blend-mode: soft-light;
 }
 
+#footer {
+    background: var(--color-neutral--grey-sky);
+}
+ 
+.footer-content {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px 40px;
+	font-size: 14px;
+	font-weight: 500;
+	color: var(--color-primary--si-blue);
+}
+
 .adress-card-content {
 	padding: 40px;
-	background: #fff;
+	background: #f5f8ff;
 	border-radius: 20px;
 	box-shadow: 6px 6px 24px rgba(46, 54, 178, 0.3);
 	color: var(--color-primary--si-blue);
@@ -157,6 +171,13 @@ input, select, textarea {
 	padding: 8px 12px;
 	border-radius: 8px;
 	background: var(--color-neutral--grey-sky);
+}
+
+#souffrance {
+	background-size: auto 110%;
+	background-position: right 10% top -54%;
+	background-image: url(https://www.siconsulting-certification.fr/wp-content/uploads/2022/11/phare-vue-bas.png) !important;
+	background-repeat: no-repeat;
 }
 
 .souffrance-table ul {
@@ -414,7 +435,17 @@ input, select, textarea {
 }
 
 #method .layout237_item:nth-child(4) {
-    transition-delay: 0.3s;
+	transition-delay: 0.3s;
+	border: 5px solid var(--color-primary--si-yellow);
+}
+
+#method .layout237_item:nth-child(4) .icon-method {
+    background: var(--color-primary--si-blue);
+    border-color: var(--color-primary--si-yellow);
+}
+
+#method .layout237_item:nth-child(4) .icon-method .step_number {
+	color: var(--color-primary--si-yellow);
 }
 
 .contact-right.reveal-animation,
@@ -426,7 +457,7 @@ input, select, textarea {
 }
 
 #method .heading-style-h4-2 {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
 }
 
 #method .layout237_item {
@@ -3664,7 +3695,7 @@ blockquote {
 	background-color: var(--color-primary--si-yellow);
 	color: var(--color-primary--si-blue);
 	text-align: center;
-	font-weight: 600;
+	font-weight: 500;
 	transition: all .4s;
 	display: block;
 	white-space: nowrap;
@@ -11612,4 +11643,43 @@ input[type="file"]:focus-visible {
 .padding-vertical {
     padding-right: 0rem !important;
     padding-left: 0rem !important;
+}
+
+.confetti .particle {
+    opacity:0;
+    position: absolute;
+    animation: confetti 3s ease-in infinite;
+}
+
+.confetti .particle.c1 {
+ background-color:rgba(76,175,80,0.5);
+}
+
+.confetti .particle.c2 {
+ background-color:rgba(156,39,176,0.5);
+}
+
+.confetti .icon-method {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+@keyframes confetti {
+    0% {
+       opacity:0;
+       transform:translateY(0%) rotate(0deg);
+    }
+    10% {
+       opacity:1;
+    }
+    35% {
+       transform:translateY(-800%) rotate(270deg);
+    }
+    80% {
+       opacity:1;
+    }
+    100% {
+       opacity:0;
+       transform:translateY(2000%) rotate(1440deg);
+    }
 }

@@ -121,3 +121,35 @@ document.addEventListener('DOMContentLoaded', function() {
     updateSlider();
 });
 
+// congrats animation
+document.addEventListener('DOMContentLoaded', function() {
+    function initParticles() {
+        confetti();
+    }
+
+    function confetti() {
+        const confettiElements = document.querySelectorAll(".confetti");
+        
+        confettiElements.forEach(function(confettiElement) {
+            const confettiCount = (confettiElement.offsetWidth / 50) * 10;
+            for (let i = 0; i <= confettiCount; i++) {
+                const particle = document.createElement('span');
+                particle.classList.add('particle', 'c' + rnd(1, 2));
+
+                particle.style.top = rnd(10, 50) + '%';
+                particle.style.left = rnd(0, 100) + '%';
+                particle.style.width = rnd(6, 8) + 'px';
+                particle.style.height = rnd(3, 4) + 'px';
+                particle.style.animationDelay = (rnd(0, 30) / 10) + 's';
+                
+                confettiElement.appendChild(particle);
+            }
+        });
+    }
+
+    function rnd(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    initParticles();
+});
