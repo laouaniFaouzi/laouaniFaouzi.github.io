@@ -153,3 +153,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     initParticles();
 });
+
+// Menu button
+var menuButton = document.getElementById('menuButton');
+
+var navbarMenu = document.querySelector('.navbar_menu.is-page-height-tablet');
+
+menuButton.addEventListener('click', function() {
+    navbarMenu.classList.toggle('open');
+});
