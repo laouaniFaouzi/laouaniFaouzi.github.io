@@ -15,6 +15,10 @@
     background-blend-mode: soft-light;
 }
 
+.logo-menu.is-mobile {
+	max-width: 200px;
+}
+
 button.menu-button {
 	padding: 0;
 	border: 0;
@@ -11382,7 +11386,7 @@ blockquote {
     .navbar_button-wrapper .button {
         font-size: 12px;
     }
-    
+
     .header_content .equateur::after {
         top: 35px;
     }
