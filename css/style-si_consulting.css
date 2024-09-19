@@ -11378,6 +11378,11 @@ blockquote {
 
 /*SI paysage mobile*/
 @media screen and (max-width: 767px) {
+
+    .navbar_button-wrapper .button {
+        font-size: 12px;
+    }
+    
     .header_content .equateur::after {
         top: 35px;
     }
