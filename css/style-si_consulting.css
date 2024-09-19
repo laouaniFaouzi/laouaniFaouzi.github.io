@@ -11283,6 +11283,10 @@ blockquote {
 /*SI Tablet*/
 @media screen and (max-width: 991px) {
 
+    #hero .surline::after {
+        height: 50px;
+    }
+
     .is-mobile {
         display: flex;
     }
@@ -11386,6 +11390,10 @@ blockquote {
 
 /*SI paysage mobile*/
 @media screen and (max-width: 767px) {
+
+    #hero .surline::after {
+        height: 35px;
+    }
 
     .navbar_button-wrapper .button {
         font-size: 12px;
@@ -11587,6 +11595,9 @@ blockquote {
     .header_content h1 {
         font-size: var(--spacing--32);
         line-height: 3rem;
+    }
+    #hero .surline::after {
+        height: 20px;
     }
 }
 
