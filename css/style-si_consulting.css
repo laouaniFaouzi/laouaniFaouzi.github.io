@@ -6944,6 +6944,14 @@ blockquote {
     color:var(--color-neutral--grey-text)
 }
 
+.display-flex {
+    display: flex;
+}
+
+.justify-space-between {
+    justify-content: space-between;
+}
+
 .session {
     background-color: #775bff;
     border-radius: .5rem;
