@@ -238,7 +238,11 @@ input, select, textarea {
 }
 
 .souffrance-table-view.view-with {
-	background: var(--lt-color-background-light);
+	background: #f8f9fcd9;
+}
+
+.souffrance-table-view.view-without {
+	background: #fefffeed;
 }
 
 .surline {
