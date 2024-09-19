@@ -534,8 +534,14 @@ input[type="checkbox"], input[type="radio"] {
 }
 
 .form-checkbox {
-    display: flex;
-    gap: 10px;
+	display: inline-flex;
+	gap: 10px;
+	align-items: baseline;
+}
+
+#privacyPolicy {
+	top: 2px;
+	position: relative;
 }
 
 .width-100 {
@@ -11346,6 +11352,32 @@ blockquote {
 @media screen and (max-width: 767px) {
     .header_content .equateur::after {
         top: 35px;
+    }
+
+    .contact-block {
+        flex-direction: column;
+        gap: 120px;
+    }
+
+    .contact-left, .contact-right {
+        width: 100%;
+    }
+
+    .contact-list ul {
+        flex-direction: column;
+    }
+
+    .contact-list ul li.adress-card {
+        width: 100%;
+    }
+
+    .adress-card-content {
+        font-size: 18px;
+    }
+
+    .adress-card-content img {
+        width: 60px;
+        margin-bottom: 20px;
     }
 
     h1 {
