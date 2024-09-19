@@ -19,6 +19,15 @@
     background: var(--color-neutral--grey-sky);
 }
  
+.footer-left svg g {
+    fill: var(--color-primary--si-blue);
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+}
+
 .footer-content {
 	display: flex;
 	align-items: center;
