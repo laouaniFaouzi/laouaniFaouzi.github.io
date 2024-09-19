@@ -180,6 +180,11 @@ input, select, textarea {
 	background-repeat: no-repeat;
 }
 
+.souffrance-content li img {
+    max-width: 64px;
+    max-height: 64px;
+}
+
 .souffrance-table ul {
 	list-style: none;
 	padding: 0;
