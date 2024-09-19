@@ -11368,6 +11368,7 @@ blockquote {
         width: 100%;
         box-shadow: 6px 6px 24px rgba(46, 54, 178, 0.3);
         border-radius: 20px;
+        background-color: #ffffffde;
     }
 
     .souffrance-table-view.view-with {
@@ -11379,7 +11380,11 @@ blockquote {
     }
 
     .souffrance-content li {
-        font-size: 18px;
+        font-size: 16px;
+    }
+
+    .souffrance-content li img {
+        max-width: 45px;
     }
 
     .chiffres_component .equateur::after {
