@@ -11354,6 +11354,12 @@ blockquote {
         top: 35px;
     }
 
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+        padding: 40px 20px;
+    }
+
     .contact-block {
         flex-direction: column;
         gap: 120px;
