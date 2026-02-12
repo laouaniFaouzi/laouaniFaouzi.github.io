@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <title>Bluën Nancy - La carte</title>
+	    <meta name="description" content="La carte Bluën Nancy : boissons chaudes, boissons froides, thés, softs, glaces et suppléments.">
+	    <meta name="robots" content="index,follow">
+	    <meta name="theme-color" content="#ffffff">
+	    <link rel="canonical" href="carte.html">
+	    <link rel="icon" href="images/b-logo.png" type="image/png">
+	    <link rel="apple-touch-icon" href="images/b-logo.png">
+	    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+	    <link rel="preconnect" href="https://code.jquery.com" crossorigin>
+	    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+	    <meta property="og:locale" content="fr_FR">
+	    <meta property="og:site_name" content="Bluën Nancy">
+	    <meta property="og:type" content="website">
+	    <meta property="og:title" content="Bluën Nancy - La carte">
+	    <meta property="og:description" content="La carte Bluën Nancy : boissons chaudes, boissons froides, thés, softs, glaces et suppléments.">
+	    <meta property="og:image" content="images/terrasse.jpeg">
+	    <meta property="og:image:alt" content="Bluën Nancy - terrasse">
+	    <meta name="twitter:card" content="summary_large_image">
+	    <meta name="twitter:title" content="Bluën Nancy - La carte">
+	    <meta name="twitter:description" content="La carte Bluën Nancy : boissons chaudes, boissons froides, thés, softs, glaces et suppléments.">
+	    <meta name="twitter:image" content="images/terrasse.jpeg">
+	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+	    <link rel="stylesheet" href="css/style-bluen.css">
+	    <link rel="stylesheet" href="icon.css">
+	    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css"/>
+	    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
+	</head>
+<body>
+    <div class="global-container">
+        <div id="mouse" class="mouse">
+            <div class="mouse__pointer"></div>
+            <div class="mouse__nav"></div>
+            <div class="mouse__cross"></div>
+        </div>
+        <header>
+            <button class="nav-logo js-btn" id="dynamic-logo">
+                <div class="nav-logo__bg d-block d-lg-none"></div>
+                <a class="nav-logo__a js-href" href="index.html" aria-label="Accueil Bluën"></a>
+                <div class="loading-wrapper">
+                    <div class="wrapper">
+                        <div class="xy-plane"></div>
+                        <div class="xz-plane"></div>
+                    </div>
+                </div>
+            </button>
+            <div class="nav-wrapper center" id="nav-wrapper">
+                <button class="nav-close close-btn">
+                    <span class="close-btn__icon icon-close"></span>
+                </button>
+                <div class="nav-content">
+                    <div class="nav-content__top">
+                        <div class="nav">
+                            <a class="nav__item nav__item--main underline-a js-btn" href="index.html" data-id="0" style="opacity: 1;">
+                                <span class="underline-a__lbl">Bluën</span>
+                            </a>
+                            <br>
+                            <a class="nav__item nav__item--main underline-a js-btn" href="nos-univers.html" data-id="1" style="opacity: 1;">
+                                <span class="underline-a__lbl">Nos univers</span>
+                            </a>
+                            <br>
+                            <a class="nav__item nav__item--main underline-a js-btn" href="localisation.html" data-id="2" style="opacity: 1;">
+                                <span class="underline-a__lbl">Localisation</span>
+                            </a>
+                            <br>
+                            <a class="nav__item nav__item--main underline-a js-btn" href="carte.html" data-id="3" style="opacity: 1;">
+                                <span class="underline-a__lbl">La carte</span>
+                            </a>
+                            <br>
+                            <a class="nav__item nav__item--main underline-a js-btn" href="concept.html" data-id="4" style="opacity: 1;">
+                                <span class="underline-a__lbl">Concept</span>
+                            </a>
+                            <br>
+                            <a class="nav__item nav__item--main underline-a js-btn" href="#" aria-disabled="true" data-id="5" style="opacity: 1;">
+                                <span class="underline-a__lbl">Shop</span>
+                            </a>
+                            <br>
+                            <a class="nav__item nav__item--main underline-a js-btn" href="#" aria-disabled="true" data-id="6" style="opacity: 1;">
+                                <span class="underline-a__lbl">Blog</span>
+                            </a>
+                            <br>
+                            <a class="nav__item nav__item--main underline-a js-btn" href="contact.html" data-id="7" style="opacity: 1;">
+                                <span class="underline-a__lbl">Contact</span>
+                            </a>
+                            <br>
+                        </div>
+                    </div>
+
+                    <div class="nav-content__btm">
+                        <div class="lang-crcy">
+                            <a class="lang-crcy__item nav__item js-btn" href="#">
+                                <span>EN</span>
+                            </a>
+                        </div>
+                        <a class="nav-insta nav__item js-btn" href="https://www.instagram.com/bluen_cafe_boutique/" target="_blank" rel="noopener noreferrer">
+                            <span class="icon-ig"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-hover">
+                <div class="nav-hover__img left-col">
+                    <video autoplay="" loop="" muted="" playsinline="" poster="images/bluen-coffee.png" class="nav-hover__img-item page-left__media" data-id="0">
+                        <source src="images/coffee.mp4" type="video/mp4">
+                    </video>
+                    <video autoplay="" loop="" muted="" playsinline="" poster="images/carte.jpeg" class="nav-hover__img-item page-left__media" data-id="1">
+                        <source src="images/carte.mp4" type="video/mp4">
+                    </video>
+                    <video autoplay="" loop="" muted="" playsinline="" poster="images/xxx.jpeg" class="nav-hover__img-item page-left__media" data-id="2">
+                        <source src="images/coffee1.mp4" type="video/mp4">
+                    </video>
+
+                    <div class="nav-hover__img-item page-left__media page-left__media--img" style="background-image:url(images/carte.jpeg)" data-id="3"></div>
+                    <div class="nav-hover__img-item page-left__media page-left__media--img" style="background-image:url(images/concept.jpg)" data-id="4"></div>
+                    <div class="nav-hover__img-item page-left__media page-left__media--img" style="background-image:url(images/shop.jpg)" data-id="5"></div>
+                    <div class="nav-hover__img-item page-left__media page-left__media--img" style="background-image:url(images/terrasse.jpeg)" data-id="6"></div>
+                    <div class="nav-hover__img-item page-left__media page-left__media--img" style="background-image:url(images/contact.jpg)" data-id="7"></div>
+                </div>
+
+                <div class="nav-hover__text right-col">
+                    <p class="nav-hover__text-item" data-id="0">
+                        Quand le café rencontre le style
+                    </p>
+                    <p class="nav-hover__text-item" data-id="1">
+                        Découvrez tous nos univers
+                    </p>
+                    <p class="nav-hover__text-item" data-id="2">
+                        Venez nous rendre visite
+                    </p>
+                    <p class="nav-hover__text-item" data-id="3">
+                        Découvre la carte
+                    </p>
+                    <p class="nav-hover__text-item" data-id="4">
+                        Un concept unique à Nancy
+                    </p>
+                    <p class="nav-hover__text-item" data-id="5">
+                        Restez branché... ça arrive bientôt!
+                    </p>
+                    <p class="nav-hover__text-item" data-id="6">
+                        Suivez notre actualité
+                    </p>
+                    <p class="nav-hover__text-item" data-id="7">
+                        Contactez-nous pour plus d'infos
+                    </p>
+                </div>
+            </div>
+        </header>
+
+	        <div class="page">
+	            <div class="breadcrumb">
+	                <div class="breadcrumb__grad grad-bg"></div>
+	                <h1 class="breadcrumb__item">La carte</h1>
+	            </div>
+
+	            <div class="page-nav d-none d-sm-none d-lg-block">
+	                <div class="page-nav__grad grad-bg"></div>
+	                <div class="page-nav__circle"></div>
+	                <div class="page-nav__no-wrapper">
+	                    <button class="page-nav__no js-btn this-active" data-id="0" data-href="carte.html#chaud" data-headertitle="Bluën Nancy - La carte (Côté chaud)" style="opacity: 1;">01</button>
+	                    <button class="page-nav__no js-btn" data-id="1" data-href="carte.html#froid" data-headertitle="Bluën Nancy - La carte (Côté froid)" style="opacity: 1;">02</button>
+	                </div>
+	                <div class="page-nav__lbl-wrapper">
+	                    <div class="page-nav__lbl this-active" data-id="0" style="opacity: 1;">Côté chaud</div>
+	                    <div class="page-nav__lbl" data-id="1" style="opacity: 0;">Côté froid</div>
+	                </div>
+	            </div>
+
+	            <div class="m-page-nav d-block d-lg-none">
+	                <select class="m-page-nav__select">
+	                    <option value="0">Côté chaud</option>
+	                    <option value="1">Côté froid</option>
+	                </select>
+	            </div>
+
+	            <div class="page-left-right">
+	                <div class="page-left d-none d-lg-block js-page-left">
+	                    <div class="page-left__media page-left__media--img this-active" style="background-image:url(images/carte.jpeg)" data-id="0"></div>
+	                    <div class="page-left__media page-left__media--img" style="background-image:url(images/terrasse.jpeg)" data-id="1"></div>
+	                </div>
+
+	                <div class="page-right js-page-right">
+	                    <section class="page-section js-section this-current this-active" id="chaud" data-id="0" data-href="carte.html#chaud" data-headertitle="Bluën Nancy - La carte (Côté chaud)">
+	                        <div class="section-banner d-block d-lg-none js-reveal">
+	                            <div class="section-banner__media section-banner__media--img" style="background-image:url(images/carte.jpeg)"></div>
+	                        </div>
+	                        <h2 class="section-title js-reveal">Côté chaud</h2>
+	                        <div class="menu-grid js-reveal">
+	                            <div class="row g-4">
+	                                <div class="col-12">
+	                                    <div class="menu-category">
+	                                        <h3 class="menu-category__title">Café</h3>
+	                                        <ul class="menu-list">
+	                                            <li class="menu-item"><span class="menu-item__name">Espresso</span><span class="menu-item__price">2,20€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Double Espresso</span><span class="menu-item__price">3,50€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Lungo</span><span class="menu-item__price">3,00€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Americano</span><span class="menu-item__price">4,00€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Machiato</span><span class="menu-item__price">3,00€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Café Viennois</span><span class="menu-item__price">5,00€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Cappucino</span><span class="menu-item__price">4,50€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Cappucino cannelle</span><span class="menu-item__price">5,00€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Flat White</span><span class="menu-item__price">5,00€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Moccacino</span><span class="menu-item__price">5,50€</span></li>
+	                                            <li class="menu-item">
+	                                                <span class="menu-item__name">Latte / Latte Machiato<span class="menu-item__note">(nature, caramel, cookie, vanille...)</span></span>
+	                                                <span class="menu-item__price">5,00€</span>
+	                                            </li>
+	                                            <li class="menu-item"><span class="menu-item__name">Latte gourmand</span><span class="menu-item__price">7,00€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Latte du moment</span><span class="menu-item__price">6,00€</span></li>
+	                                        </ul>
+	                                    </div>
+	                                </div>
+	                                <div class="col-12">
+	                                    <div class="menu-category">
+	                                        <h3 class="menu-category__title">Boissons chaudes</h3>
+	                                        <ul class="menu-list">
+	                                            <li class="menu-item"><span class="menu-item__name">Chocolat chaud</span><span class="menu-item__price">5,00€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Chocolat Viennois</span><span class="menu-item__price">5,50€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Hojicha Latte</span><span class="menu-item__price">6,00€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Ube Latte</span><span class="menu-item__price">5,00€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Chai Latte</span><span class="menu-item__price">5,00€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Golden Latte</span><span class="menu-item__price">5,50€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Green Matcha Latte</span><span class="menu-item__price">5,00€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Pink Matcha Latte</span><span class="menu-item__price">5,00€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Blue Matcha Latte</span><span class="menu-item__price">5,00€</span></li>
+	                                        </ul>
+	                                    </div>
+
+	                                    <div class="menu-category">
+	                                        <h3 class="menu-category__title">Petite faim</h3>
+	                                        <ul class="menu-list">
+	                                            <li class="menu-item"><span class="menu-item__name">Cake et cookie du moment</span><span class="menu-item__price">3,50€</span></li>
+	                                        </ul>
+	                                    </div>
+	                                </div>
+	                                <div class="col-12">
+	                                    <div class="menu-category">
+	                                        <h3 class="menu-category__title">Thés</h3>
+	                                        <p class="menu-note">Différentes saveurs selon la saison</p>
+	                                        <ul class="menu-list">
+	                                            <li class="menu-item"><span class="menu-item__name">Thé vert</span><span class="menu-item__price">5,00€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Thé noir</span><span class="menu-item__price">5,00€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Thé blanc</span><span class="menu-item__price">5,00€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Infusion</span><span class="menu-item__price">5,00€</span></li>
+	                                        </ul>
+	                                    </div>
+	                                </div>
+	                                <div class="col-12">
+	                                    <div class="menu-category">
+	                                        <h3 class="menu-category__title">Suppléments</h3>
+	                                        <ul class="menu-list">
+	                                            <li class="menu-item">
+	                                                <span class="menu-item__name">Lait végétal<span class="menu-item__note">(amande, avoine ou coco)</span></span>
+	                                                <span class="menu-item__price">0,50€</span>
+	                                            </li>
+	                                            <li class="menu-item">
+	                                                <span class="menu-item__name">Sirop au choix<span class="menu-item__note">(caramel, cookie ou vanille)</span></span>
+	                                                <span class="menu-item__price">0,50€</span>
+	                                            </li>
+	                                            <li class="menu-item"><span class="menu-item__name">1 shot de café supplémentaire</span><span class="menu-item__price">1,00€</span></li>
+	                                        </ul>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </section>
+
+	                    <section class="page-section js-section" id="froid" data-id="1" data-href="carte.html#froid" data-headertitle="Bluën Nancy - La carte (Côté froid)">
+	                        <div class="section-banner d-block d-lg-none js-reveal">
+	                            <div class="section-banner__media section-banner__media--img" style="background-image:url(images/terrasse.jpeg)"></div>
+	                        </div>
+	                        <h2 class="section-title js-reveal">Côté froid</h2>
+	                        <div class="menu-grid js-reveal">
+	                            <div class="row g-4">
+	                                <div class="col-12">
+	                                    <div class="menu-category">
+	                                        <h3 class="menu-category__title">Cafés glacés</h3>
+	                                        <ul class="menu-list">
+	                                            <li class="menu-item"><span class="menu-item__name">Iced Chocolate</span><span class="menu-item__price">5,00€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Iced Moccacino</span><span class="menu-item__price">5,50€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Cappucino</span><span class="menu-item__price">4,50€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Cappucino cannelle</span><span class="menu-item__price">5,00€</span></li>
+	                                            <li class="menu-item">
+	                                                <span class="menu-item__name">Iced Latte<span class="menu-item__note">(nature, caramel, cookie, vanille...)</span></span>
+	                                                <span class="menu-item__price">5,00€</span>
+	                                            </li>
+	                                            <li class="menu-item">
+	                                                <span class="menu-item__name">Iced Latte Machiato<span class="menu-item__note">(nature, caramel, cookie, vanille...)</span></span>
+	                                                <span class="menu-item__price">5,00€</span>
+	                                            </li>
+	                                            <li class="menu-item"><span class="menu-item__name">Iced Americano</span><span class="menu-item__price">4,00€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Iced Latte du moment</span><span class="menu-item__price">7,00€</span></li>
+	                                        </ul>
+	                                    </div>
+
+	                                    <div class="menu-category">
+	                                        <h3 class="menu-category__title">Softs &amp; jus</h3>
+	                                        <ul class="menu-list">
+	                                            <li class="menu-item"><span class="menu-item__name">Limonade Bio</span><span class="menu-item__price">5,00€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Perrier rondelle</span><span class="menu-item__price">4,00€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Sirop</span><span class="menu-item__price">3,50€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Jus Alain Milliat</span><span class="menu-item__price">6,00€</span></li>
+	                                        </ul>
+	                                    </div>
+	                                </div>
+	                                <div class="col-12">
+	                                    <div class="menu-category">
+	                                        <h3 class="menu-category__title">Boissons froides</h3>
+	                                        <ul class="menu-list">
+	                                            <li class="menu-item"><span class="menu-item__name">Iced Matcha Latte</span><span class="menu-item__price">5,00€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Iced Ube Latte</span><span class="menu-item__price">5,00€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Iced Hojicha Latte</span><span class="menu-item__price">6,00€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Iced Chai Latte</span><span class="menu-item__price">5,00€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Iced Golden Latte</span><span class="menu-item__price">5,50€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Iced Latte Mojito</span><span class="menu-item__price">6,00€</span></li>
+	                                        </ul>
+	                                    </div>
+
+	                                    <div class="menu-category">
+	                                        <h3 class="menu-category__title">Glaces</h3>
+	                                        <p class="menu-note">Période estivale</p>
+	                                        <ul class="menu-list">
+	                                            <li class="menu-item"><span class="menu-item__name">Cornet</span><span class="menu-item__price">5,00€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Petit pot</span><span class="menu-item__price">5,00€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Gros pot</span><span class="menu-item__price">7,00€</span></li>
+	                                            <li class="menu-item">
+	                                                <span class="menu-item__name">Affogato<span class="menu-item__note">(café, glace vanille)</span></span>
+	                                                <span class="menu-item__price">7,00€</span>
+	                                            </li>
+	                                        </ul>
+	                                    </div>
+
+	                                    <div class="menu-category">
+	                                        <h3 class="menu-category__title">Petite faim</h3>
+	                                        <ul class="menu-list">
+	                                            <li class="menu-item"><span class="menu-item__name">Cake et cookie du moment</span><span class="menu-item__price">3,50€</span></li>
+	                                        </ul>
+	                                    </div>
+	                                </div>
+	                                <div class="col-12">
+	                                    <div class="menu-category">
+	                                        <h3 class="menu-category__title">Thés glacés</h3>
+	                                        <ul class="menu-list">
+	                                            <li class="menu-item"><span class="menu-item__name">Maté Passion Citron vert</span><span class="menu-item__price">5,00€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Thé blanc Pêche Hibiscus</span><span class="menu-item__price">5,00€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Citronnade mangue</span><span class="menu-item__price">5,00€</span></li>
+	                                            <li class="menu-item"><span class="menu-item__name">Thé noir Maison<span class="menu-item__note">(Saveur du moment)</span></span><span class="menu-item__price">5,00€</span></li>
+	                                        </ul>
+	                                    </div>
+	                                </div>
+	                                <div class="col-12">
+	                                    <div class="menu-category">
+	                                        <h3 class="menu-category__title">Suppléments</h3>
+	                                        <ul class="menu-list">
+	                                            <li class="menu-item">
+	                                                <span class="menu-item__name">Lait végétal<span class="menu-item__note">(amande, avoine ou coco)</span></span>
+	                                                <span class="menu-item__price">0,50€</span>
+	                                            </li>
+	                                            <li class="menu-item">
+	                                                <span class="menu-item__name">Sirop au choix<span class="menu-item__note">(caramel, cookie ou vanille)</span></span>
+	                                                <span class="menu-item__price">0,50€</span>
+	                                            </li>
+	                                            <li class="menu-item"><span class="menu-item__name">1 shot de café supplémentaire</span><span class="menu-item__price">1,00€</span></li>
+	                                        </ul>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </section>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+
+	    <script defer src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+	    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+	    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js"></script>
+	    <script defer type="text/javascript" src="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
+	    <script defer src="js/script-bluen.js"></script>
+</body>
+</html>
