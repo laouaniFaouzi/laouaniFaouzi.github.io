@@ -1,15 +1,3 @@
-/*
-* Below are the styles developed by WEEWUNGWUNG.
-*/
-/* ==========================================================================
-   Mixin
-============================================================================= */
-/* ==========================================================================
-   Variables
-============================================================================= */
-/* ==========================================================================
-   Base styles
-============================================================================= */
 body, html {
   -webkit-font-smoothing: antialiased;
   background-color: #fff;
@@ -1869,7 +1857,7 @@ label {
 }
 
 .nav-logo.this-active .wrapper .xy-plane {
-  background-image: url("images/b-logo.png");
+  background-image: url("../images/b-logo.png");
 }
 
 .nav-logo.this-active .wrapper .xz-plane {
@@ -1984,7 +1972,7 @@ label {
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url("images/b-logo.png");
+  background-image: url("../images/b-logo.png");
   transform-style: preserve-3d;
   -webkit-transition: opacity 1000ms ease-in-out 0ms;
   -moz-transition: opacity 1000ms ease-in-out 0ms;
@@ -1996,7 +1984,7 @@ label {
 
 @media only screen and (min-width: 992px) {
   .nav-logo .wrapper .xy-plane {
-    background-image: url("images/b-logo.png");
+    background-image: url("../images/b-logo.png");
   }
 }
 
@@ -2014,7 +2002,7 @@ label {
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url("images/b-logo.png");
+  background-image: url("../images/b-logo.png");
   transform: translate3d(0px, 0px, 0px) rotateX(-90deg) rotateZ(-90deg);
   transform-style: preserve-3d;
   -webkit-transition: opacity 1000ms ease-in-out 0ms;
@@ -2027,7 +2015,7 @@ label {
 
 @media only screen and (min-width: 992px) {
   .nav-logo .wrapper .xz-plane {
-    background-image: url("images/b-logo.png");
+    background-image: url("../images/b-logo.png");
   }
 }
 
@@ -4429,7 +4417,7 @@ body.hashover .lctn-item__btn:hover {
   display: block;
   width: 16px;
   height: 16px;
-  background-image: url(../images/search.svg);
+  background-image: url(images/search.svg);
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -5129,7 +5117,7 @@ body.hashover .blog-item__title:hover {
 }
 
 .sg-blog__share-item.--fb {
-  background-image: url(../images/fb.svg);
+  background-image: url(images/fb.svg);
   width: 17px;
 }
 
@@ -5140,11 +5128,11 @@ body.hashover .blog-item__title:hover {
 }
 
 .sg-blog__share-item.--tw {
-  background-image: url(../images/tw.svg);
+  background-image: url(images/tw.svg);
 }
 
 .sg-blog__share-item.--pt {
-  background-image: url(../images/pt.svg);
+  background-image: url(images/pt.svg);
 }
 
 .read-next {
