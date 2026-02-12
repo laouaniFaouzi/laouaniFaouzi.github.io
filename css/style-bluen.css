@@ -1861,7 +1861,7 @@ label {
 }
 
 .nav-logo.this-active .wrapper .xz-plane {
-  background-image: url("images/b-logo.png");
+  background-image: url("../images/b-logo.png");
 }
 
 .nav-logo.this-active:before, .nav-logo.this-active:after {
@@ -4417,7 +4417,7 @@ body.hashover .lctn-item__btn:hover {
   display: block;
   width: 16px;
   height: 16px;
-  background-image: url(images/search.svg);
+  background-image: url("../images/search.svg");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
