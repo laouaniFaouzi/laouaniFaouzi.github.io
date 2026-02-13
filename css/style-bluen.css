@@ -1,3 +1,15 @@
+@font-face {
+  font-family: 'heavitas';
+  src: url('../fonts/heavitas.ttf') format('truetype');
+  font-display: swap;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.heavitas { 
+  font-family: 'heavitas', sans-serif; 
+}
+
 body, html {
   -webkit-font-smoothing: antialiased;
   background-color: #fff;

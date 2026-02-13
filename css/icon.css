@@ -6,18 +6,6 @@
   font-style: normal;
 }
 
-@font-face {
-  font-family: 'heavitas';
-  src: url('../fonts/heavitas.ttf') format('truetype');
-  font-display: swap;
-  font-weight: normal;
-  font-style: normal;
-}
-
-.heavitas { 
-  font-family: 'heavitas', sans-serif; 
-}
-
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icons' !important;
