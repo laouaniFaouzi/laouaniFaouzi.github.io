@@ -7,7 +7,7 @@
 }
 
 .heavitas { 
-  font-family: 'heavitas', sans-serif; 
+  font-family: 'heavitas', sans-serif !important; 
 }
 
 body, html {
@@ -74,7 +74,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 
 .section-title {
   font-size: 1.375rem;
-  font-family: 'din-2014', 'source-han-sans-simplified-c', sans-serif;
+  font-family: 'heavitas', sans-serif;
   font-weight: 300;
   letter-spacing: .03rem;
   margin-bottom: 25px;
@@ -672,7 +672,7 @@ body.hashover .btn-dropdown:hover .icon-arrow:before {
   transform: translateY(-50%);
   right: 30px;
   font-size: 0.6875rem;
-  font-family: 'din-2014', 'source-han-sans-simplified-c', sans-serif;
+  font-family: 'heavitas', sans-serif;
   font-weight: 400;
   letter-spacing: .1rem;
   text-transform: uppercase;
@@ -785,7 +785,7 @@ body.hashover .btn-dropdown:hover .icon-arrow:before {
 
 .breadcrumb__item {
   font-size: 0.75rem;
-  font-family: 'din-2014', 'source-han-sans-simplified-c', sans-serif;
+  font-family: 'heavitas', sans-serif;
   font-weight: 400;
   letter-spacing: .1rem;
   text-transform: uppercase;
