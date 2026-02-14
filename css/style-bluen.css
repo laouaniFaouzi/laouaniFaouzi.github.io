@@ -4113,7 +4113,7 @@ body.hashover .lctn-item__btn:hover {
   font-weight: 300;
   letter-spacing: .03rem;
   font-size: 1.375rem;
-  margin: 0 0 8px;
+  margin: 0 0 38px;
   text-align: center;
   color: transparent;
 }
@@ -4137,7 +4137,7 @@ body.hashover .lctn-item__btn:hover {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 10px;
-	margin-top: 38px;
+	margin-top: 28px;
 }
 
 .home-intro__actions .btn {
