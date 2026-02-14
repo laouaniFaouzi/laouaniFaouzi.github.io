@@ -281,7 +281,7 @@ ul, ol {
   border-radius: 100px;
   background-color: #F1F1F1;
   color: #4F4F4D;
-  padding: 7px 22px 10px;
+  padding: 8px 22px;
   position: relative;
   overflow: hidden !important;
   line-height: 1;
@@ -318,7 +318,7 @@ ul, ol {
   position: relative;
   z-index: 20;
   font-size: 0.75rem;
-  font-family: 'din-2014', 'source-han-sans-simplified-c', sans-serif;
+  font-family: 'heavitas', sans-serif;
   font-weight: 400;
   letter-spacing: .1rem;
   text-transform: uppercase;
@@ -4079,51 +4079,61 @@ body.hashover .lctn-item__btn:hover {
   width: 100%;
   min-height: 100%;
   object-fit: cover;
+  filter: drop-shadow;
+  filter: brightness(50%);
+  -webkit-filter: brightness(50%);
 }
 
 .home-intro {
 	position: fixed;
 	inset: 0;
 	z-index: 120;
-	max-width: 560px;
-	padding: 14px 16px;
+	max-width: 100%;
+	padding: 54px 16px 14px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-}
-
-@media only screen and (min-width: 768px) {
-  .home-intro {
-    top: 30px;
-    left: 30px;
-    right: auto;
-    padding: 18px 20px;
-  }
 }
 
 @media only screen and (min-width: 992px) {
   .home-intro {
     top: 40px;
     left: 40px;
+    visibility: hidden;
   }
 }
 
 .home-intro__title {
-  font-family: 'din-2014', 'source-han-sans-simplified-c', sans-serif;
-  font-weight: 300;
-  letter-spacing: .03rem;
-  font-size: 1.375rem;
-  margin: 0 0 38px;
-  text-align: center;
-  color: transparent;
+	font-family: 'heavitas', sans-serif;
+	font-weight: 300;
+	letter-spacing: .03rem;
+	font-size: 2.375rem;
+	margin: 0px 0 28px;
+	text-align: center;
+	color: #f1f1f1;
 }
 
-.home-intro__title svg {
-	width: 70%;
+.home-intro__title span {
+  position: relative;
 }
 
-.home-intro__title svg path {
-	fill: #f1f1f1;
+.home-intro__title span::before, .home-intro__title span::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: #cabda4;
+  border-radius: 50%; 
+  display: block;
+  position: absolute;
+  top: -10px;
+}
+
+.home-intro__title span::before {
+  right: 49%;
+}
+
+.home-intro__title span::after {
+  left: 49%;
 }
 
 .home-intro__text {
