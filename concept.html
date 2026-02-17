@@ -182,6 +182,33 @@
                 </div>
             </div>
         </div>
+        <div class="footer">
+            <div class="footer__desktop d-none d-lg-flex">
+                <div class="left-col"></div>
+                <div class="right-col">
+                <p class="copyright">© <span id="current-year"></span> BLUËN TOUS DROITS RESERVÉS.</p>
+                <button class="top-btn js-btn">
+                    <span class="top-btn__icon icon-arrow"></span>
+                </button>
+                </div>
+            </div>
+            <div class="footer__m d-block d-lg-none">
+                <p class="copyright">© <span id="current-year"></span> BLUËN TOUS DROITS RESERVÉS.</p>
+                <button class="top-btn js-btn">
+                <span class="top-btn__icon icon-arrow"></span>
+                </button>
+            </div>
+            <div class="footer__blog d-none d-lg-block">
+                <p class="copyright">© <span id="current-year"></span> BLUËN TOUS DROITS RESERVÉS.</p>
+                <button class="top-btn js-btn">
+                <span class="top-btn__icon icon-arrow"></span>
+                </button>
+            </div>
+            <script>
+                // Affiche l'année en cours dans le pied de page
+                document.getElementById('current-year').textContent = new Date().getFullYear();
+            </script>
+        </div>
     </div>
 
     <script defer src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
