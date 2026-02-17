@@ -616,11 +616,15 @@ body.hashover .btn-dropdown:hover .icon-arrow:before {
   height: 70%;
 }
 
-.page-right-menu .grad-bg::before {
+.page-carte {
+	margin-bottom: 30px;
+}
+
+.page-carte .grad-bg::before {
   background: #f1ece3;
 }
 
-.page-right-menu .grad-bg::after {
+.page-carte .grad-bg::after {
   background: linear-gradient(#f1ece3, rgba(255, 255, 255, 0));
 }
 
