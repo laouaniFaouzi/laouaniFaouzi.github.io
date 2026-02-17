@@ -616,6 +616,14 @@ body.hashover .btn-dropdown:hover .icon-arrow:before {
   height: 70%;
 }
 
+.page-right-menu .grad-bg::before {
+  background: #f1ece3;
+}
+
+.page-right-menu .grad-bg::after {
+  background: linear-gradient(#f1ece3, rgba(255, 255, 255, 0));
+}
+
 .page-nav {
   position: fixed;
   width: 42.5vw;
@@ -3799,7 +3807,7 @@ body.hashover .shop-item:hover .shop-item__img {
 
 .lctn-item__title {
   font-size: 0.8125rem;
-  font-family: 'din-2014', 'source-han-sans-simplified-c', sans-serif;
+  font-family: 'heavitas', sans-serif;
   font-weight: 400;
   letter-spacing: .125rem;
   text-transform: uppercase;
@@ -3813,24 +3821,25 @@ body.hashover .shop-item:hover .shop-item__img {
 }
 
 .lctn-item__address {
-  margin-bottom: 8px;
+  margin-bottom: 18px;
 }
 
 .lctn-item__opn {
   margin-top: 4px;
   line-height: 1;
+  gap: 15px;
 }
 
 @media only screen and (min-width: 992px) {
   .lctn-item__opn {
-    margin-top: 5px;
+    margin-top: 8px;
   }
 }
 
 .lctn-item__opn-lbl {
   width: 90px;
-  font-size: 0.6875rem;
-  font-family: 'gill-sans-nova', 'source-han-sans-simplified-c', sans-serif;
+  font-size: 0.788rem;
+  font-family: 'heavitas', sans-serif;
   font-weight: 400;
   letter-spacing: .1rem;
   text-transform: uppercase;
@@ -3840,6 +3849,8 @@ body.hashover .shop-item:hover .shop-item__img {
 
 .lctn-item__opn-time {
   width: calc(100% - 90px);
+  font-size: 0.788rem;
+  font-family: 'heavitas', sans-serif;
 }
 
 .lctn-item__btn {
