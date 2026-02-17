@@ -483,6 +483,15 @@ body.hashover .btn-dropdown:hover .icon-arrow:before {
   }
 }
 
+.page-right-menu {
+	background-color: #f1ece3;
+	background-image: url("../images/b-logo.png");
+	background-size: 500px;
+	background-repeat: no-repeat;
+	background-position: 260px -127px;
+	background-blend-mode: overlay;
+}
+
 .page-left-right {
   position: relative;
 }
