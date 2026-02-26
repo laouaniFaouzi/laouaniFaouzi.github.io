@@ -581,7 +581,7 @@ body.hashover .btn-dropdown:hover .icon-arrow:before {
   border: solid 0 #fff;
 }
 
-.js-page-left.unstick {
+/*.js-page-left.unstick {
   position: absolute;
   bottom: 0;
   top: auto;
@@ -592,7 +592,7 @@ body.hashover .btn-dropdown:hover .icon-arrow:before {
   .js-page-left.unstick {
     border-width: 40px;
   }
-}
+}*/
 
 .grad-bg {
   position: absolute;
