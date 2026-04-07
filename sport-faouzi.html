@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programme 12 Semaines — Faouzi</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;1,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg:       oklch(96.5% 0.012 72);
+  --surface:  oklch(92% 0.013 72);
+  --border:   oklch(84% 0.016 72);
+  --text:     oklch(13% 0.015 72);
+  --muted:    oklch(50% 0.02 72);
+  --muted2:   oklch(68% 0.018 72);
+
+  --accent:   oklch(48% 0.17 32);
+  --push:     oklch(50% 0.17 32);
+  --pull:     oklch(38% 0.14 222);
+  --legs:     oklch(38% 0.14 288);
+  --full:     oklch(36% 0.09 58);
+  --foot:     oklch(40% 0.13 148);
+  --home:     oklch(36% 0.12 195);
+
+  --rpe7:     oklch(48% 0.13 148);
+  --rpe8:     oklch(55% 0.16 65);
+  --rpe9:     oklch(50% 0.17 32);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ─── HEADER ─── */
+header {
+  padding: 52px 52px 44px;
+  border-bottom: 2px solid var(--text);
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.header-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.header-title h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(72px, 10vw, 116px);
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 0.88;
+  color: var(--text);
+}
+
+.header-title h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.header-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 44px;
+  padding-top: 6px;
+}
+
+.meta-item {
+  border-left: 2px solid var(--border);
+  padding-left: 14px;
+}
+
+.meta-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 2px;
+}
+
+.meta-value {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* ─── TIMELINE BAR ─── */
+.timeline-bar {
+  display: grid;
+  grid-template-columns: 4fr 4fr 3fr 1fr;
+  gap: 3px;
+  margin-top: 36px;
+  height: 6px;
+}
+
+.tl-seg { border-radius: 2px; }
+.tl-seg.s1 { background: var(--pull); }
+.tl-seg.s2 { background: var(--accent); }
+.tl-seg.s3 { background: var(--legs); }
+.tl-seg.s4 { background: var(--muted2); }
+
+.timeline-labels {
+  display: grid;
+  grid-template-columns: 4fr 4fr 3fr 1fr;
+  gap: 3px;
+  margin-top: 7px;
+}
+
+.tl-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ─── LAYOUT ─── */
+.container { max-width: 1160px; margin: 0 auto; padding: 56px 52px 96px; }
+
+/* ─── SECTION HEADERS ─── */
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin: 56px 0 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-header:first-child { margin-top: 0; }
+
+.section-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--muted2);
+}
+
+.section-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+/* ─── WEEK GRID ─── */
+.week-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+  margin-bottom: 0;
+}
+
+.day-cell {
+  padding: 16px 10px 14px;
+  border: 1px solid var(--border);
+  background: white;
+  position: relative;
+}
+
+.day-cell.gym    { border-top: 3px solid var(--accent); }
+.day-cell.foot-e { border-top: 3px solid var(--foot); }
+.day-cell.foot-m { border-top: 3px solid oklch(33% 0.10 148); }
+
+.day-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.day-type {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  line-height: 1.15;
+  color: var(--text);
+}
+
+.foot-e .day-type { color: var(--foot); }
+.foot-m .day-type { color: oklch(33% 0.10 148); }
+
+.day-sub {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--muted);
+  margin-top: 3px;
+  letter-spacing: 0.5px;
+}
+
+/* ─── BLOCK TIMELINE ─── */
+.block-timeline { margin-bottom: 0; }
+
+.block-strip {
+  display: grid;
+  grid-template-columns: 4fr 4fr 3fr 1fr;
+  gap: 2px;
+  height: 52px;
+}
+
+.block-strip-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.bs1 { background: var(--pull);   color: white; }
+.bs2 { background: var(--accent); color: white; }
+.bs3 { background: var(--legs);   color: white; }
+.bs4 { background: var(--muted2); color: var(--bg); }
+
+.block-meta {
+  display: grid;
+  grid-template-columns: 4fr 4fr 3fr 1fr;
+  gap: 2px;
+  margin-top: 2px;
+}
+
+.bm-cell {
+  padding: 10px 0 0;
+  border-top: 1px solid var(--border);
+}
+
+.bm-weeks {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.bm-focus {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.bm-tag {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 2px 8px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: 1px solid currentColor;
+}
+
+.bm-cell:nth-child(1) .bm-tag { color: var(--pull); }
+.bm-cell:nth-child(2) .bm-tag { color: var(--accent); }
+.bm-cell:nth-child(3) .bm-tag { color: var(--legs); }
+.bm-cell:nth-child(4) .bm-tag { color: var(--muted); }
+
+/* ─── TABS ─── */
+.tabs {
+  display: flex;
+  border-bottom: 2px solid var(--text);
+  margin-bottom: 40px;
+  overflow-x: auto;
+}
+
+.tab {
+  padding: 12px 26px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: color 0.15s;
+  white-space: nowrap;
+}
+
+.tab:hover { color: var(--text); }
+.tab.active { color: var(--text); border-bottom-color: var(--text); }
+.tab[data-day="1"].active { color: var(--push); border-bottom-color: var(--push); }
+.tab[data-day="2"].active { color: var(--pull); border-bottom-color: var(--pull); }
+.tab[data-day="3"].active { color: var(--legs); border-bottom-color: var(--legs); }
+.tab[data-day="4"].active { color: var(--full); border-bottom-color: var(--full); }
+.tab[data-day="6"].active { color: var(--home); border-bottom-color: var(--home); }
+
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fadeUp 0.18s ease-out; }
+
+/* ─── SESSION HEADER ─── */
+.session-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.session-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 800;
+  letter-spacing: 1px;
+  line-height: 0.92;
+}
+
+.session-sub {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 7px;
+}
+
+.badges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-top: 6px;
+}
+
+.badge {
+  padding: 3px 10px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.badge.push { color: var(--push); border-color: var(--push); }
+.badge.pull { color: var(--pull); border-color: var(--pull); }
+.badge.legs { color: var(--legs); border-color: var(--legs); }
+.badge.full { color: var(--full); border-color: var(--full); }
+
+/* ─── CALIBRATION NOTICE ─── */
+.calib-notice {
+  background: oklch(94% 0.03 72);
+  border: 1px solid oklch(82% 0.03 72);
+  border-left: 3px solid var(--accent);
+  padding: 12px 16px;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 24px;
+  line-height: 1.65;
+}
+
+.calib-notice strong { color: var(--text); font-weight: 600; }
+
+/* ─── EXERCISE TABLE ─── */
+.ex-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 28px;
+}
+
+.ex-table thead th {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 2px solid var(--text);
+  background: transparent;
+}
+
+.ex-table tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.1s;
+}
+
+.ex-table tbody tr:hover { background: white; }
+
+.ex-table td {
+  padding: 12px 14px;
+  font-size: 13px;
+  vertical-align: middle;
+}
+
+.ex-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted2);
+  width: 32px;
+}
+
+.ex-name { font-weight: 500; color: var(--text); }
+
+.ex-name small {
+  display: block;
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.ex-sets { font-size: 13px; font-weight: 500; white-space: nowrap; }
+
+.ex-weight {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.ex-weight.calib {
+  color: var(--muted);
+  font-weight: 400;
+  font-style: italic;
+}
+
+.ex-rpe { font-size: 13px; font-weight: 600; }
+.rpe-7 { color: var(--rpe7); }
+.rpe-8 { color: var(--rpe8); }
+.rpe-9 { color: var(--rpe9); }
+
+.ex-rest { font-size: 12px; color: var(--muted); }
+.ex-note { font-size: 11px; color: var(--muted); font-style: italic; }
+
+.section-row td {
+  padding: 18px 14px 5px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: var(--muted2);
+  text-transform: uppercase;
+  border-bottom: none !important;
+  background: transparent !important;
+}
+
+/* ─── PROG BOX ─── */
+.prog-box {
+  background: white;
+  border-left: 3px solid var(--accent);
+  padding: 18px 22px;
+  margin-bottom: 24px;
+}
+
+.prog-box h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.prog-box p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.prog-box p strong { color: var(--text); font-weight: 600; }
+
+/* ─── NOTES GRID ─── */
+.notes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin-top: 20px;
+}
+
+.note-card {
+  background: white;
+  padding: 18px 20px;
+}
+
+.note-card h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 11px;
+}
+
+.note-card ul {
+  list-style: none;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.9;
+}
+
+.note-card ul li::before { content: '— '; color: var(--accent); }
+
+/* ─── PROG TABLES ─── */
+.prog-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.prog-table th {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 2px solid var(--text);
+  background: transparent;
+}
+
+.prog-table td {
+  padding: 12px 14px;
+  font-size: 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+}
+
+.prog-table td:first-child { color: var(--muted); }
+.prog-table .highlight { color: var(--accent); font-weight: 600; }
+
+/* ─── FOOTER ─── */
+footer {
+  border-top: 2px solid var(--text);
+  padding: 20px 52px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+footer span {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 1px;
+}
+
+footer .footer-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  header, footer, .container { padding-left: 24px; padding-right: 24px; }
+  .block-strip, .block-meta { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 640px) {
+  .header-top { flex-direction: column; gap: 20px; }
+  .header-meta { grid-template-columns: 1fr; gap: 16px; }
+  .week-grid { gap: 2px; }
+  .day-cell { padding: 10px 6px; }
+  .day-type { font-size: 14px; }
+  .notes-grid { grid-template-columns: 1fr; }
+  .ex-table { font-size: 12px; }
+  .ex-table td { padding: 9px 8px; }
+  .block-strip, .block-meta { grid-template-columns: 1fr 1fr; }
+}
+
+/* ─── ANIMATION ─── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-top">
+    <div class="header-title">
+      <div class="header-label">Programme personnel · 12 semaines · Recomposition</div>
+      <h1>FAOUZI<br><em>4 JOURS</em></h1>
+    </div>
+    <div class="header-meta">
+      <div class="meta-item">
+        <div class="meta-label">Salle</div>
+        <div class="meta-value">Lun · Mer · Ven · Sam</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Football</div>
+        <div class="meta-value">Mar · Jeu · Dim</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Split</div>
+        <div class="meta-value">Push / Pull / Jambes / Full</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Périodisation</div>
+        <div class="meta-value">3 blocs + décharge</div>
+      </div>
+    </div>
+  </div>
+  <div class="timeline-bar">
+    <div class="tl-seg s1"></div>
+    <div class="tl-seg s2"></div>
+    <div class="tl-seg s3"></div>
+    <div class="tl-seg s4"></div>
+  </div>
+  <div class="timeline-labels">
+    <div class="tl-label">Adaptation — S1 à S4</div>
+    <div class="tl-label">Volume — S5 à S8</div>
+    <div class="tl-label">Intensité — S9 à S11</div>
+    <div class="tl-label">Décharge</div>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- WEEKLY RHYTHM -->
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <span class="section-name">Rythme hebdomadaire</span>
+  </div>
+
+  <div class="week-grid">
+    <div class="day-cell gym">
+      <div class="day-label">LUN</div>
+      <div class="day-type">PUSH</div>
+      <div class="day-sub">Salle</div>
+    </div>
+    <div class="day-cell foot-e">
+      <div class="day-label">MAR</div>
+      <div class="day-type">FOOT</div>
+      <div class="day-sub">Entraîn.</div>
+    </div>
+    <div class="day-cell gym">
+      <div class="day-label">MER</div>
+      <div class="day-type">PULL</div>
+      <div class="day-sub">Salle</div>
+    </div>
+    <div class="day-cell foot-e">
+      <div class="day-label">JEU</div>
+      <div class="day-type">FOOT</div>
+      <div class="day-sub">Entraîn.</div>
+    </div>
+    <div class="day-cell gym">
+      <div class="day-label">VEN</div>
+      <div class="day-type">JAMBES</div>
+      <div class="day-sub">Salle</div>
+    </div>
+    <div class="day-cell gym">
+      <div class="day-label">SAM</div>
+      <div class="day-type">FULL</div>
+      <div class="day-sub">Salle</div>
+    </div>
+    <div class="day-cell foot-m">
+      <div class="day-label">DIM</div>
+      <div class="day-type">MATCH</div>
+      <div class="day-sub">Football</div>
+    </div>
+  </div>
+
+  <!-- BLOCK STRUCTURE -->
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <span class="section-name">Structure en blocs</span>
+  </div>
+
+  <div class="block-timeline">
+    <div class="block-strip">
+      <div class="block-strip-cell bs1">Adaptation</div>
+      <div class="block-strip-cell bs2">Volume</div>
+      <div class="block-strip-cell bs3">Intensité</div>
+      <div class="block-strip-cell bs4">D.</div>
+    </div>
+    <div class="block-meta">
+      <div class="bm-cell">
+        <div class="bm-weeks">Semaines 1 – 4</div>
+        <div class="bm-focus">Réapprendre les patterns. Volume modéré, technique prioritaire. Recalibration des charges.</div>
+        <div class="bm-tag">RPE 7</div>
+      </div>
+      <div class="bm-cell">
+        <div class="bm-weeks">Semaines 5 – 8</div>
+        <div class="bm-focus">Augmentation progressive du volume. Charges montantes. Stimulus hypertrophique maximum.</div>
+        <div class="bm-tag">RPE 8</div>
+      </div>
+      <div class="bm-cell">
+        <div class="bm-weeks">Semaines 9 – 11</div>
+        <div class="bm-focus">Charges lourdes, volume réduit. Consolidation des gains. Force et densité musculaire.</div>
+        <div class="bm-tag">RPE 8–9</div>
+      </div>
+      <div class="bm-cell">
+        <div class="bm-weeks">Semaine 12</div>
+        <div class="bm-focus">Volume et intensité coupés de 40–50%. Récupération active.</div>
+        <div class="bm-tag">RPE 5–6</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SESSIONS -->
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <span class="section-name">Sessions détaillées</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" data-day="1" onclick="switchTab(1)">J1 — Push</button>
+    <button class="tab" data-day="2" onclick="switchTab(2)">J2 — Pull</button>
+    <button class="tab" data-day="3" onclick="switchTab(3)">J3 — Jambes</button>
+    <button class="tab" data-day="4" onclick="switchTab(4)">J4 — Full Body</button>
+    <button class="tab" data-day="5" onclick="switchTab(5)">Progression</button>
+    <button class="tab" data-day="6" onclick="switchTab(6)">🏠 Home Gym</button>
+  </div>
+
+  <!-- ════ DAY 1 — PUSH ════ -->
+  <div id="tab-1" class="tab-content active">
+    <div class="session-header">
+      <div>
+        <div class="session-title" style="color:var(--push)">PUSH — LUNDI</div>
+        <div class="session-sub">Poitrine · Épaules · Triceps</div>
+      </div>
+      <div class="badges">
+        <span class="badge push">Push</span>
+        <span class="badge">~60–75 min</span>
+        <span class="badge">Bloc 1 · Semaine 1</span>
+      </div>
+    </div>
+
+    <div class="calib-notice">
+      <strong>Semaine de calibration</strong> — Les charges indiquées sont des points de départ estimés basés sur ton profil. Ajuste à la hausse ou à la baisse selon RPE ressenti. Log ta session et je recalibre pour S2.
+    </div>
+
+    <table class="ex-table">
+      <thead>
+        <tr>
+          <th>#</th><th>Exercice</th><th>Séries × Reps</th><th>Charge (kg)</th><th>RPE</th><th>Repos</th><th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="section-row"><td colspan="7">— COMPOSÉS PRINCIPAUX</td></tr>
+        <tr>
+          <td class="ex-num">01</td>
+          <td class="ex-name">Développé couché haltères<small>Plat · Contrôle en excentrique</small></td>
+          <td class="ex-sets">4 × 8</td>
+          <td class="ex-weight calib">2 × 22 kg *</td>
+          <td class="ex-rpe rpe-7">7</td>
+          <td class="ex-rest">2'30</td>
+          <td class="ex-note">Coudes à 60–70°, tempo 3-1-1</td>
+        </tr>
+        <tr>
+          <td class="ex-num">02</td>
+          <td class="ex-name">Développé incliné haltères<small>30–45° · Accent haut pec</small></td>
+          <td class="ex-sets">3 × 10</td>
+          <td class="ex-weight calib">2 × 18 kg *</td>
+          <td class="ex-rpe rpe-7">7</td>
+          <td class="ex-rest">2'00</td>
+          <td class="ex-note">Focus contraction haut de poitrine</td>
+        </tr>
+        <tr class="section-row"><td colspan="7">— ÉPAULES</td></tr>
+        <tr>
+          <td class="ex-num">03</td>
+          <td class="ex-name">OHP haltères assis<small>Prise neutre ou pronée</small></td>
+          <td class="ex-sets">3 × 10</td>
+          <td class="ex-weight calib">2 × 16 kg *</td>
+          <td class="ex-rpe rpe-7">7</td>
+          <td class="ex-rest">2'00</td>
+          <td class="ex-note">Ne pas verrouiller les coudes en haut</td>
+        </tr>
+        <tr>
+          <td class="ex-num">04</td>
+          <td class="ex-name">Élévations latérales haltères<small>Deltoïde médial</small></td>
+          <td class="ex-sets">3 × 15</td>
+          <td class="ex-weight calib">2 × 8 kg *</td>
+          <td class="ex-rpe rpe-7">7</td>
+          <td class="ex-rest">1'30</td>
+          <td class="ex-note">Légère inclinaison avant, pouce vers bas</td>
+        </tr>
+        <tr class="section-row"><td colspan="7">— TRICEPS</td></tr>
+        <tr>
+          <td class="ex-num">05</td>
+          <td class="ex-name">Tricep pushdown câble<small>Corde ou barre droite</small></td>
+          <td class="ex-sets">3 × 12</td>
+          <td class="ex-weight calib">25 kg *</td>
+          <td class="ex-rpe rpe-7">7</td>
+          <td class="ex-rest">1'30</td>
+          <td class="ex-note">Extension complète, coudes fixes</td>
+        </tr>
+        <tr>
+          <td class="ex-num">06</td>
+          <td class="ex-name">Extension triceps câble overhead<small>Longue portion</small></td>
+          <td class="ex-sets">3 × 12</td>
+          <td class="ex-weight calib">15 kg *</td>
+          <td class="ex-rpe rpe-7">7</td>
+          <td class="ex-rest">1'30</td>
+          <td class="ex-note">Coudes serrés, amplitude complète</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="prog-box">
+      <h4>Logique de cette session</h4>
+      <p>
+        <strong>Développé haltères vs barre :</strong> Plus de liberté articulaire pour une reprise — réduit le risque de tension sur les épaules rouillées.<br>
+        <strong>Volume total Bloc 1 :</strong> 19 séries poitrine/épaules/triceps — dans la fourchette MEV pour relancer l'hypertrophie sans exploser la récupération avec le foot.<br>
+        <strong>Tempo 3-1-1 sur les composés :</strong> Excentrique lent = plus de tension musculaire à charge modérée. Idéal en phase de recalibration.
+      </p>
+    </div>
+
+    <div class="notes-grid">
+      <div class="note-card">
+        <h4>Échauffement (10 min)</h4>
+        <ul>
+          <li>5 min vélo/rameur léger</li>
+          <li>Rotations épaules + bras</li>
+          <li>2 séries légères bench press (50% charge)</li>
+          <li>Band pull-aparts × 15</li>
+        </ul>
+      </div>
+      <div class="note-card">
+        <h4>Progression Bloc 1→2</h4>
+        <ul>
+          <li>2 sessions consécutives RPE ≤ 7 → +2.5 kg composés</li>
+          <li>Accessoires : +reps avant +poids</li>
+          <li>Si RPE > 8 → maintenir charge, travailler la technique</li>
+          <li>Check-in à S4 avant passage Bloc 2</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ DAY 2 — PULL ════ -->
+  <div id="tab-2" class="tab-content">
+    <div class="session-header">
+      <div>
+        <div class="session-title" style="color:var(--pull)">PULL — MERCREDI</div>
+        <div class="session-sub">Dos · Biceps · Arrière épaule</div>
+      </div>
+      <div class="badges">
+        <span class="badge pull">Pull</span>
+        <span class="badge">~60–70 min</span>
+      </div>
+    </div>
+
+    <table class="ex-table">
+      <thead>
+        <tr>
+          <th>#</th><th>Exercice</th><th>Séries × Reps</th><th>Charge (kg)</th><th>RPE</th><th>Repos</th><th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="section-row"><td colspan="7">— TRACTION VERTICALE</td></tr>
+        <tr>
+          <td class="ex-num">01</td>
+          <td class="ex-name">Traction lestée (ou assistée)<small>Prise pronée, largeur épaules+</small></td>
+          <td class="ex-sets">4 × 6–8</td>
+          <td class="ex-weight calib">PdC / Assist *</td>
+          <td class="ex-rpe rpe-8">8</td>
+          <td class="ex-rest">3'00</td>
+          <td class="ex-note">Début à poids de corps. Lester si 8 reps faciles</td>
+        </tr>
+        <tr>
+          <td class="ex-num">02</td>
+          <td class="ex-name">Tirage vertical prise neutre<small>Poignées parallèles · Lat pulldown</small></td>
+          <td class="ex-sets">3 × 10</td>
+          <td class="ex-weight calib">50 kg *</td>
+          <td class="ex-rpe rpe-7">7</td>
+          <td class="ex-rest">2'00</td>
+          <td class="ex-note">Coudes vers les hanches, omoplates serrées</td>
+        </tr>
+        <tr class="section-row"><td colspan="7">— TRACTION HORIZONTALE</td></tr>
+        <tr>
+          <td class="ex-num">03</td>
+          <td class="ex-name">Rowing haltères unilatéral<small>Appui genou sur banc</small></td>
+          <td class="ex-sets">4 × 10</td>
+          <td class="ex-weight calib">28 kg *</td>
+          <td class="ex-rpe rpe-7">7–8</td>
+          <td class="ex-rest">2'00</td>
+          <td class="ex-note">Tirer le coude vers la hanche, pas vers le plafond</td>
+        </tr>
+        <tr>
+          <td class="ex-num">04</td>
+          <td class="ex-name">Rowing câble assis<small>Prise serrée ou large</small></td>
+          <td class="ex-sets">3 × 12</td>
+          <td class="ex-weight calib">45 kg *</td>
+          <td class="ex-rpe rpe-7">7</td>
+          <td class="ex-rest">1'45</td>
+          <td class="ex-note">Ne pas ballotter le tronc en fin de rep</td>
+        </tr>
+        <tr class="section-row"><td colspan="7">— ARRIÈRE ÉPAULE + BICEPS</td></tr>
+        <tr>
+          <td class="ex-num">05</td>
+          <td class="ex-name">Face pull câble<small>Corde · Niveau des yeux</small></td>
+          <td class="ex-sets">3 × 15</td>
+          <td class="ex-weight calib">20 kg *</td>
+          <td class="ex-rpe rpe-7">7</td>
+          <td class="ex-rest">1'30</td>
+          <td class="ex-note">Rotation externe en fin de mouvement</td>
+        </tr>
+        <tr>
+          <td class="ex-num">06</td>
+          <td class="ex-name">Curl haltères incliné<small>Assis à 45–60° · Longue portion biceps</small></td>
+          <td class="ex-sets">3 × 12</td>
+          <td class="ex-weight calib">2 × 12 kg *</td>
+          <td class="ex-rpe rpe-7">7</td>
+          <td class="ex-rest">1'30</td>
+          <td class="ex-note">Amplitude complète, supination en haut</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="prog-box">
+      <h4>Logique de cette session</h4>
+      <p>
+        <strong>Traction en premier :</strong> Exercice le plus technique — à faire frais. Commence à poids de corps, leste quand 8 reps deviennent RPE &lt; 7 deux sessions de suite.<br>
+        <strong>Face pull systématique :</strong> Santé des épaules + équilibre avec le volume push. Ne saute jamais cette série.<br>
+        <strong>Curl incliné vs debout :</strong> Position inclinée = étirement maximal du biceps = meilleur signal hypertrophique à charge modérée.
+      </p>
+    </div>
+
+    <div class="notes-grid">
+      <div class="note-card">
+        <h4>Échauffement (8 min)</h4>
+        <ul>
+          <li>Rameur 4 min intensité légère</li>
+          <li>Rotations thoraciques + cat-cow</li>
+          <li>2 séries légères lat pulldown</li>
+          <li>Dead hangs × 3 × 20 sec</li>
+        </ul>
+      </div>
+      <div class="note-card">
+        <h4>Points d'attention</h4>
+        <ul>
+          <li>Mercredi = 1 jour après foot Mardi</li>
+          <li>Si fatigue élevée → couper 1 série sur chaque accessoire</li>
+          <li>Jamais sacrifier la technique sur le rowing</li>
+          <li>Face pull peut se faire avec élastique si câble occupé</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ DAY 3 — LEGS ════ -->
+  <div id="tab-3" class="tab-content">
+    <div class="session-header">
+      <div>
+        <div class="session-title" style="color:var(--legs)">JAMBES — VENDREDI</div>
+        <div class="session-sub">Quadriceps · Ischios · Fessiers</div>
+      </div>
+      <div class="badges">
+        <span class="badge legs">Legs</span>
+        <span class="badge">~65–75 min</span>
+      </div>
+    </div>
+
+    <div class="calib-notice" style="border-left-color:var(--legs)">
+      <strong>Contexte foot :</strong> Cette session est le vendredi. Le match est le dimanche. Garde un RPE 7 max — pas de défaillance musculaire. Objectif : stimulus, pas destruction.
+    </div>
+
+    <table class="ex-table">
+      <thead>
+        <tr>
+          <th>#</th><th>Exercice</th><th>Séries × Reps</th><th>Charge (kg)</th><th>RPE</th><th>Repos</th><th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="section-row"><td colspan="7">— QUAD DOMINANT</td></tr>
+        <tr>
+          <td class="ex-num">01</td>
+          <td class="ex-name">Squat haltères goblet<small>Bloc 1 : Technique · Bloc 2+ : Barbell back squat</small></td>
+          <td class="ex-sets">4 × 8</td>
+          <td class="ex-weight calib">1 × 24 kg *</td>
+          <td class="ex-rpe rpe-7">7</td>
+          <td class="ex-rest">2'30</td>
+          <td class="ex-note">Bloc 1 uniquement — passer au back squat S5</td>
+        </tr>
+        <tr>
+          <td class="ex-num">02</td>
+          <td class="ex-name">Bulgarian split squat haltères<small>Pied arrière surélevé · Accent fessier</small></td>
+          <td class="ex-sets">3 × 10/côté</td>
+          <td class="ex-weight calib">2 × 14 kg *</td>
+          <td class="ex-rpe rpe-7">7</td>
+          <td class="ex-rest">2'00</td>
+          <td class="ex-note">Genou avant dans l'axe du pied</td>
+        </tr>
+        <tr>
+          <td class="ex-num">03</td>
+          <td class="ex-name">Extension cuisses machine<small>Isolation quadriceps</small></td>
+          <td class="ex-sets">3 × 15</td>
+          <td class="ex-weight calib">35 kg *</td>
+          <td class="ex-rpe rpe-7">7</td>
+          <td class="ex-rest">1'30</td>
+          <td class="ex-note">Contraction en haut 1 sec</td>
+        </tr>
+        <tr class="section-row"><td colspan="7">— CHAÎNE POSTÉRIEURE</td></tr>
+        <tr>
+          <td class="ex-num">04</td>
+          <td class="ex-name">Romanian Deadlift haltères<small>Ischios + fessiers</small></td>
+          <td class="ex-sets">4 × 10</td>
+          <td class="ex-weight calib">2 × 26 kg *</td>
+          <td class="ex-rpe rpe-7">7</td>
+          <td class="ex-rest">2'30</td>
+          <td class="ex-note">Descente jusqu'à tension ischios, dos plat</td>
+        </tr>
+        <tr>
+          <td class="ex-num">05</td>
+          <td class="ex-name">Leg curl allongé machine<small>Flexion genou isolée</small></td>
+          <td class="ex-sets">3 × 12</td>
+          <td class="ex-weight calib">30 kg *</td>
+          <td class="ex-rpe rpe-7">7</td>
+          <td class="ex-rest">1'45</td>
+          <td class="ex-note">Flex complète, descente contrôlée</td>
+        </tr>
+        <tr class="section-row"><td colspan="7">— MOLLETS</td></tr>
+        <tr>
+          <td class="ex-num">06</td>
+          <td class="ex-name">Élévation mollets debout<small>Machine ou barre</small></td>
+          <td class="ex-sets">3 × 15</td>
+          <td class="ex-weight calib">PdC / 40 kg *</td>
+          <td class="ex-rpe rpe-7">7</td>
+          <td class="ex-rest">1'30</td>
+          <td class="ex-note">Amplitude complète, pause en bas 1 sec</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="prog-box">
+      <h4>Plan de transition Bloc 1 → Bloc 2</h4>
+      <p>
+        <strong>Goblet Squat → Back Squat à S5 :</strong> Le Bloc 1 sert à réapprendre le pattern de squat avec une charge guidée. À partir de S5, tu passes au barbell back squat avec une charge conservatrice (calibration semaine 5).<br>
+        <strong>Romanian Deadlift :</strong> Reste à haltères tout le programme — meilleure liberté articulaire et charge suffisante pour l'objectif hypertrophie.<br>
+        <strong>Volume total jambes :</strong> Intentionnellement modéré — tu as 3 séances foot/semaine qui sollicitent déjà quadriceps et ischios.
+      </p>
+    </div>
+
+    <div class="notes-grid">
+      <div class="note-card">
+        <h4>Échauffement (10 min)</h4>
+        <ul>
+          <li>5 min vélo stationnaire</li>
+          <li>Hip circles + leg swings</li>
+          <li>Squat goblet léger × 10</li>
+          <li>Fentes courtes × 10/côté</li>
+        </ul>
+      </div>
+      <div class="note-card">
+        <h4>Gestion avec le foot</h4>
+        <ul>
+          <li>Vendredi = 2 jours avant match Dimanche</li>
+          <li>RPE 7 strict — aucune série à l'échec</li>
+          <li>Si courbatures importantes Jeu → reporter à Sam matin</li>
+          <li>Hydratation 3L+ vendredi + samedi</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ DAY 4 — FULL BODY ════ -->
+  <div id="tab-4" class="tab-content">
+    <div class="session-header">
+      <div>
+        <div class="session-title" style="color:var(--full)">FULL BODY — SAMEDI</div>
+        <div class="session-sub">Corps complet · Qualité · Récupération active</div>
+      </div>
+      <div class="badges">
+        <span class="badge full">Full</span>
+        <span class="badge">~55–65 min</span>
+      </div>
+    </div>
+
+    <div class="calib-notice">
+      <strong>Session samedi :</strong> Lendemain de la session jambes (vendredi). Conçue pour être intense en haut du corps et légère en bas. Pas de volume jambes ici — laisse les quadriceps récupérer avant le match du dimanche.
+    </div>
+
+    <table class="ex-table">
+      <thead>
+        <tr>
+          <th>#</th><th>Exercice</th><th>Séries × Reps</th><th>Charge (kg)</th><th>RPE</th><th>Repos</th><th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="section-row"><td colspan="7">— HAUT DU CORPS — PUSH</td></tr>
+        <tr>
+          <td class="ex-num">01</td>
+          <td class="ex-name">Développé couché haltères<small>Variante de lundi avec moins de volume</small></td>
+          <td class="ex-sets">3 × 8</td>
+          <td class="ex-weight calib">2 × 22 kg *</td>
+          <td class="ex-rpe rpe-8">8</td>
+          <td class="ex-rest">2'30</td>
+          <td class="ex-note">Mêmes charges que lundi — cherche RPE 8</td>
+        </tr>
+        <tr>
+          <td class="ex-num">02</td>
+          <td class="ex-name">OHP haltères debout<small>Travail de stabilisation</small></td>
+          <td class="ex-sets">3 × 10</td>
+          <td class="ex-weight calib">2 × 16 kg *</td>
+          <td class="ex-rpe rpe-7">7–8</td>
+          <td class="ex-rest">2'00</td>
+          <td class="ex-note">Gainage abdominal activé pendant l'effort</td>
+        </tr>
+        <tr class="section-row"><td colspan="7">— HAUT DU CORPS — PULL</td></tr>
+        <tr>
+          <td class="ex-num">03</td>
+          <td class="ex-name">Traction prise large<small>Corps propre — barre de traction</small></td>
+          <td class="ex-sets">4 × max (plafonné à 8)</td>
+          <td class="ex-weight calib">PdC</td>
+          <td class="ex-rpe rpe-8">8</td>
+          <td class="ex-rest">2'30</td>
+          <td class="ex-note">Stop avant l'échec. Lester dès S3 si 8 reps faciles</td>
+        </tr>
+        <tr>
+          <td class="ex-num">04</td>
+          <td class="ex-name">Rowing haltère unilatéral<small>Rappel du dos de mercredi</small></td>
+          <td class="ex-sets">3 × 12</td>
+          <td class="ex-weight calib">28 kg *</td>
+          <td class="ex-rpe rpe-7">7</td>
+          <td class="ex-rest">1'45</td>
+          <td class="ex-note">Focus contraction, pas de charge excessive</td>
+        </tr>
+        <tr class="section-row"><td colspan="7">— BAS DU CORPS — LÉGER</td></tr>
+        <tr>
+          <td class="ex-num">05</td>
+          <td class="ex-name">Hip thrust haltères<small>Fessiers uniquement · Pas de charge axiale</small></td>
+          <td class="ex-sets">3 × 15</td>
+          <td class="ex-weight calib">2 × 20 kg *</td>
+          <td class="ex-rpe rpe-7">7</td>
+          <td class="ex-rest">1'30</td>
+          <td class="ex-note">Mouvement hip-dominant, ischios au repos</td>
+        </tr>
+        <tr class="section-row"><td colspan="7">— CORE</td></tr>
+        <tr>
+          <td class="ex-num">06</td>
+          <td class="ex-name">Planche + variation<small>Planche frontale + latérale</small></td>
+          <td class="ex-sets">3 × 40 sec</td>
+          <td class="ex-weight calib">PdC</td>
+          <td class="ex-rpe rpe-7">—</td>
+          <td class="ex-rest">1'00</td>
+          <td class="ex-note">Alterner : frontale → latérale D → latérale G</td>
+        </tr>
+        <tr>
+          <td class="ex-num">07</td>
+          <td class="ex-name">Relevé de jambes suspendu<small>Barre de traction · Core bas</small></td>
+          <td class="ex-sets">3 × 12</td>
+          <td class="ex-weight calib">PdC</td>
+          <td class="ex-rpe rpe-7">—</td>
+          <td class="ex-rest">1'00</td>
+          <td class="ex-note">Genoux fléchis si difficile. Montée lente</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="prog-box">
+      <h4>Logique du Full Body samedi</h4>
+      <p>
+        <strong>Rôle de cette session :</strong> 4ème séance de la semaine pour maximiser la fréquence musculaire. Haut du corps travaillé deux fois sur des angles différents. Bas du corps intentionnellement léger (hip thrust = fessiers uniquement, pas de charge axiale sur les quads/ischios).<br>
+        <strong>Transition vers le match :</strong> Séance terminée le samedi → 24h+ de récupération avant le match du dimanche. Ne pas rajouter de volume spontané.
+      </p>
+    </div>
+
+    <div class="notes-grid">
+      <div class="note-card">
+        <h4>Échauffement (8 min)</h4>
+        <ul>
+          <li>5 min cardio léger de ton choix</li>
+          <li>Mobilité épaules + hanches</li>
+          <li>2 séries légères traction assistée</li>
+        </ul>
+      </div>
+      <div class="note-card">
+        <h4>Post-session</h4>
+        <ul>
+          <li>Shake protéiné post-workout (whey)</li>
+          <li>Repas riche en glucides : veille de match</li>
+          <li>3.5L eau minimum samedi + dimanche</li>
+          <li>Dormir 8h si possible avant le match</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ PROGRESSION ════ -->
+  <div id="tab-5" class="tab-content">
+    <div class="session-header">
+      <div>
+        <div class="session-title">PROGRESSION</div>
+        <div class="session-sub">Règles · Blocs · Décharge</div>
+      </div>
+    </div>
+
+    <div class="section-header" style="margin-top:0">
+      <span class="section-num">—</span>
+      <span class="section-name">Règles de surcharge progressive</span>
+    </div>
+    <table class="prog-table" style="margin-bottom:40px">
+      <thead>
+        <tr><th>Situation</th><th>Action</th><th>Détail</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Composé haut du corps · RPE ≤ 7 × 2 sessions</td>
+          <td class="highlight">+2.5 kg</td>
+          <td style="color:var(--muted)">Bench, OHP, Row</td>
+        </tr>
+        <tr>
+          <td>Composé bas du corps · RPE ≤ 7 × 2 sessions</td>
+          <td class="highlight">+5 kg</td>
+          <td style="color:var(--muted)">Squat, RDL</td>
+        </tr>
+        <tr>
+          <td>Accessoire · Top de fourchette × 2 sessions</td>
+          <td class="highlight">+reps d'abord</td>
+          <td style="color:var(--muted)">Puis +poids quand limite atteinte</td>
+        </tr>
+        <tr>
+          <td>RPE > 8 sur composé</td>
+          <td style="color:var(--rpe9)">Maintenir charge</td>
+          <td style="color:var(--muted)">Travailler technique avant d'augmenter</td>
+        </tr>
+        <tr>
+          <td>Stagnation 3 semaines</td>
+          <td style="color:var(--rpe9)">Décharge 1 sem.</td>
+          <td style="color:var(--muted)">−40% volume, même RPE</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="section-header">
+      <span class="section-num">—</span>
+      <span class="section-name">Évolution par bloc</span>
+    </div>
+    <table class="prog-table" style="margin-bottom:40px">
+      <thead>
+        <tr><th>Bloc</th><th>Semaines</th><th>Volume (séries/groupe/sem)</th><th>RPE cible</th><th>Fourchette reps</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="color:var(--pull)">Adaptation</td>
+          <td>1 – 4</td><td>12 – 16 séries</td>
+          <td class="rpe-7">7</td><td>8 – 12 reps</td>
+        </tr>
+        <tr>
+          <td style="color:var(--accent)">Volume</td>
+          <td>5 – 8</td><td>16 – 20 séries</td>
+          <td class="rpe-8">8</td><td>8 – 12 reps</td>
+        </tr>
+        <tr>
+          <td style="color:var(--legs)">Intensité</td>
+          <td>9 – 11</td><td>12 – 16 séries</td>
+          <td class="rpe-9">8 – 9</td><td>5 – 8 reps</td>
+        </tr>
+        <tr>
+          <td style="color:var(--muted)">Décharge</td>
+          <td>12</td><td>8 – 10 séries</td>
+          <td style="color:var(--muted)">5 – 6</td><td>10 – 15 reps</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="section-header">
+      <span class="section-num">—</span>
+      <span class="section-name">Check-ins et ajustements</span>
+    </div>
+    <div class="notes-grid" style="grid-template-columns: 1fr 1fr 1fr">
+      <div class="note-card">
+        <h4>S4 — Fin Bloc 1</h4>
+        <ul>
+          <li>Log toutes les sessions S1–S4</li>
+          <li>Évaluer récupération + fatigue</li>
+          <li>Valider les charges de travail</li>
+          <li>Confirmer passage au Bloc 2</li>
+        </ul>
+      </div>
+      <div class="note-card">
+        <h4>S8 — Fin Bloc 2</h4>
+        <ul>
+          <li>Comparer charges S1 vs S8</li>
+          <li>Évaluer poitrine (volume à ajuster ?)</li>
+          <li>Planifier transition vers Bloc 3</li>
+          <li>Bilan physique + ressentis</li>
+        </ul>
+      </div>
+      <div class="note-card">
+        <h4>S12 — Fin de cycle</h4>
+        <ul>
+          <li>Photo / mesures comparatives</li>
+          <li>Récap charges début vs fin</li>
+          <li>Décider cycle suivant</li>
+          <li>Décharge complète 1 semaine</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="prog-box" style="margin-top:20px; border-left-color:var(--legs)">
+      <h4 style="color:var(--legs)">Nutrition — rappel clé</h4>
+      <p>
+        <strong>Jours salle (Lun/Mer/Ven/Sam) :</strong> Glucides hauts (~230g) · 2 300 kcal · Whey post-workout.<br>
+        <strong>Jours foot entraînement (Mar/Jeu) :</strong> Glucides hauts identiques · Repas pré-séance 90 min avant.<br>
+        <strong>Jour match (Dim) :</strong> Glucides très hauts (veille et jour-J) · 3.5L eau · Créatine maintenue.<br>
+        <strong>Suppléments :</strong> Créatine 5g/j (tous les jours, timing libre) · Whey post-workout · Magnésium le soir.
+      </p>
+    </div>
+  </div>
+
+  <!-- ════ HOME GYM ════ -->
+  <div id="tab-6" class="tab-content">
+    <div class="session-header">
+      <div>
+        <div class="session-title" style="color:var(--home)">HOME GYM</div>
+        <div class="session-sub">Haltères · Élastiques · Barre de traction · Médecine ball · Tapis</div>
+      </div>
+      <div class="badges">
+        <span class="badge" style="color:var(--home);border-color:var(--home)">Corps complet</span>
+        <span class="badge">~50–60 min</span>
+        <span class="badge">Sans salle</span>
+      </div>
+    </div>
+
+    <div class="calib-notice">
+      <strong>Quand utiliser cette session ?</strong> — À sortir dès que tu ne peux pas te rendre à la salle (météo, déplacement, emploi du temps chargé). Elle remplace n'importe quel jour de salle du programme. Elle couvre tout le corps pour ne rater aucun groupe musculaire sur la semaine. RPE 7–8 selon la fatigue du jour.
+    </div>
+
+    <div class="section-header" style="margin-top:0">
+      <span class="section-num">A</span>
+      <span class="section-name">Version standard — corps complet</span>
+    </div>
+
+    <table class="ex-table">
+      <thead>
+        <tr>
+          <th>#</th><th>Exercice</th><th>Matériel</th><th>Séries × Reps</th><th>RPE</th><th>Repos</th><th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="section-row"><td colspan="7">— PUSH — POITRINE / ÉPAULES / TRICEPS</td></tr>
+        <tr>
+          <td class="ex-num">01</td>
+          <td class="ex-name">Développé couché haltères<small>Sol ou banc improvisé (chaise, canapé)</small></td>
+          <td class="ex-rest">Haltères</td>
+          <td class="ex-sets">4 × 8–10</td>
+          <td class="ex-rpe rpe-8">8</td>
+          <td class="ex-rest">2'30</td>
+          <td class="ex-note">Tempo 3-1-1, coudes à 70°</td>
+        </tr>
+        <tr>
+          <td class="ex-num">02</td>
+          <td class="ex-name">Pompes lestées ou pieds surélevés<small>Tapis · Accent haut pec si pieds surélevés</small></td>
+          <td class="ex-rest">PdC / médecine ball</td>
+          <td class="ex-sets">3 × max (≤ 15)</td>
+          <td class="ex-rpe rpe-8">8</td>
+          <td class="ex-rest">2'00</td>
+          <td class="ex-note">Pieds sur chaise = incliné. Stop à 2 reps de l'échec</td>
+        </tr>
+        <tr>
+          <td class="ex-num">03</td>
+          <td class="ex-name">OHP haltères debout<small>Épaules · Debout pour stabilisation</small></td>
+          <td class="ex-rest">Haltères</td>
+          <td class="ex-sets">3 × 10–12</td>
+          <td class="ex-rpe rpe-7">7–8</td>
+          <td class="ex-rest">2'00</td>
+          <td class="ex-note">Gainage actif, ne pas cambrer</td>
+        </tr>
+        <tr>
+          <td class="ex-num">04</td>
+          <td class="ex-name">Élévations latérales élastique<small>Debout, élastique sous le pied</small></td>
+          <td class="ex-rest">Élastique long</td>
+          <td class="ex-sets">3 × 15</td>
+          <td class="ex-rpe rpe-7">7</td>
+          <td class="ex-rest">1'30</td>
+          <td class="ex-note">Tension constante, léger penché avant</td>
+        </tr>
+
+        <tr class="section-row"><td colspan="7">— PULL — DOS / BICEPS / ARRIÈRE ÉPAULE</td></tr>
+        <tr>
+          <td class="ex-num">05</td>
+          <td class="ex-name">Traction prise large<small>Pronée · Amplitude complète</small></td>
+          <td class="ex-rest">Barre de traction</td>
+          <td class="ex-sets">4 × max (≤ 8)</td>
+          <td class="ex-rpe rpe-8">8</td>
+          <td class="ex-rest">3'00</td>
+          <td class="ex-note">Stop 2 reps avant l'échec. Lester si 8 reps faciles</td>
+        </tr>
+        <tr>
+          <td class="ex-num">06</td>
+          <td class="ex-name">Rowing haltère unilatéral<small>Appui sur chaise ou genou</small></td>
+          <td class="ex-rest">Haltères</td>
+          <td class="ex-sets">3 × 12 / côté</td>
+          <td class="ex-rpe rpe-7">7–8</td>
+          <td class="ex-rest">2'00</td>
+          <td class="ex-note">Coude vers la hanche, pas vers le plafond</td>
+        </tr>
+        <tr>
+          <td class="ex-num">07</td>
+          <td class="ex-name">Face pull élastique<small>Fixé à hauteur des yeux (poignée de porte, barre)</small></td>
+          <td class="ex-rest">Élastique court</td>
+          <td class="ex-sets">3 × 15</td>
+          <td class="ex-rpe rpe-7">7</td>
+          <td class="ex-rest">1'30</td>
+          <td class="ex-note">Rotation externe en fin de mouvement. Indispensable — ne pas sauter</td>
+        </tr>
+        <tr>
+          <td class="ex-num">08</td>
+          <td class="ex-name">Curl haltères incliné<small>Assis à 45° sur chaise inclinée</small></td>
+          <td class="ex-rest">Haltères</td>
+          <td class="ex-sets">3 × 12</td>
+          <td class="ex-rpe rpe-7">7</td>
+          <td class="ex-rest">1'30</td>
+          <td class="ex-note">Amplitude complète, supination en haut</td>
+        </tr>
+
+        <tr class="section-row"><td colspan="7">— BAS DU CORPS</td></tr>
+        <tr>
+          <td class="ex-num">09</td>
+          <td class="ex-name">Goblet squat haltères<small>Haltère tenu à deux mains en goblet</small></td>
+          <td class="ex-rest">Haltères</td>
+          <td class="ex-sets">4 × 10–12</td>
+          <td class="ex-rpe rpe-7">7–8</td>
+          <td class="ex-rest">2'30</td>
+          <td class="ex-note">Descente contrôlée, genoux dans l'axe</td>
+        </tr>
+        <tr>
+          <td class="ex-num">10</td>
+          <td class="ex-name">Romanian Deadlift haltères<small>Dos plat · Tension ischios</small></td>
+          <td class="ex-rest">Haltères</td>
+          <td class="ex-sets">3 × 12</td>
+          <td class="ex-rpe rpe-7">7</td>
+          <td class="ex-rest">2'00</td>
+          <td class="ex-note">Hanches en arrière, descendre jusqu'à tension</td>
+        </tr>
+        <tr>
+          <td class="ex-num">11</td>
+          <td class="ex-name">Hip thrust au sol<small>Épaules sur canapé/chaise · Haltères sur hanches</small></td>
+          <td class="ex-rest">Haltères</td>
+          <td class="ex-sets">3 × 15</td>
+          <td class="ex-rpe rpe-7">7</td>
+          <td class="ex-rest">1'30</td>
+          <td class="ex-note">Contraction fessier en haut, 1 sec de pause</td>
+        </tr>
+
+        <tr class="section-row"><td colspan="7">— CORE</td></tr>
+        <tr>
+          <td class="ex-num">12</td>
+          <td class="ex-name">Relevé de jambes suspendu<small>Barre de traction</small></td>
+          <td class="ex-rest">Barre de traction</td>
+          <td class="ex-sets">3 × 12</td>
+          <td class="ex-rpe rpe-7">—</td>
+          <td class="ex-rest">1'00</td>
+          <td class="ex-note">Genoux fléchis si trop difficile. Montée lente</td>
+        </tr>
+        <tr>
+          <td class="ex-num">13</td>
+          <td class="ex-name">Lancer médecine ball au sol<small>Slam ou rotation debout</small></td>
+          <td class="ex-rest">Médecine ball 5 kg</td>
+          <td class="ex-sets">3 × 10</td>
+          <td class="ex-rpe rpe-7">—</td>
+          <td class="ex-rest">1'00</td>
+          <td class="ex-note">Effort explosif · Finisher mental avant tout</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="prog-box">
+      <h4>Logique de la session home gym</h4>
+      <p>
+        <strong>Corps complet en priorité :</strong> Quand tu remplaces une session salle, tu perds un stimulus spécifique (push, pull, ou jambes). Cette session compense en couvrant tout le corps à volume réduit — aucun groupe ne reste sans stimulus sur la semaine.<br>
+        <strong>Traction en ancre :</strong> Tu as une barre de traction — c'est l'exercice le plus proche d'un tirage vertical en salle. Priorité absolue dans chaque session home gym.<br>
+        <strong>Face pull élastique obligatoire :</strong> La santé de tes épaules à long terme dépend de cet exercice. Ne le saute jamais, même en home gym.
+      </p>
+    </div>
+
+    <div class="section-header">
+      <span class="section-num">B</span>
+      <span class="section-name">Version courte — 30 min (si journée chargée)</span>
+    </div>
+
+    <table class="ex-table">
+      <thead>
+        <tr>
+          <th>#</th><th>Exercice</th><th>Matériel</th><th>Séries × Reps</th><th>RPE</th><th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ex-num">01</td>
+          <td class="ex-name">Traction prise large</td>
+          <td class="ex-rest">Barre</td>
+          <td class="ex-sets">4 × max</td>
+          <td class="ex-rpe rpe-8">8</td>
+          <td class="ex-note">L'essentiel</td>
+        </tr>
+        <tr>
+          <td class="ex-num">02</td>
+          <td class="ex-name">Pompes pieds surélevés</td>
+          <td class="ex-rest">PdC</td>
+          <td class="ex-sets">4 × max</td>
+          <td class="ex-rpe rpe-8">8</td>
+          <td class="ex-note">Pieds sur chaise</td>
+        </tr>
+        <tr>
+          <td class="ex-num">03</td>
+          <td class="ex-name">Goblet squat haltères</td>
+          <td class="ex-rest">Haltères</td>
+          <td class="ex-sets">3 × 15</td>
+          <td class="ex-rpe rpe-7">7</td>
+          <td class="ex-note">Charge modérée, focus technique</td>
+        </tr>
+        <tr>
+          <td class="ex-num">04</td>
+          <td class="ex-name">Romanian Deadlift haltères</td>
+          <td class="ex-rest">Haltères</td>
+          <td class="ex-sets">3 × 12</td>
+          <td class="ex-rpe rpe-7">7</td>
+          <td class="ex-note">Ischios + fessiers</td>
+        </tr>
+        <tr>
+          <td class="ex-num">05</td>
+          <td class="ex-name">Face pull élastique</td>
+          <td class="ex-rest">Élastique</td>
+          <td class="ex-sets">3 × 15</td>
+          <td class="ex-rpe rpe-7">7</td>
+          <td class="ex-note">Toujours présent</td>
+        </tr>
+        <tr>
+          <td class="ex-num">06</td>
+          <td class="ex-name">Planche frontale</td>
+          <td class="ex-rest">Tapis</td>
+          <td class="ex-sets">3 × 45 sec</td>
+          <td class="ex-rpe rpe-7">—</td>
+          <td class="ex-note">Finir par le core</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="notes-grid">
+      <div class="note-card">
+        <h4>Équipement utilisé</h4>
+        <ul>
+          <li>Haltères (paires disponibles)</li>
+          <li>Élastiques long + court</li>
+          <li>Barre de traction (ancre dos)</li>
+          <li>Médecine ball 5 kg (core + finisher)</li>
+          <li>Tapis de sport</li>
+        </ul>
+      </div>
+      <div class="note-card">
+        <h4>Règles home gym</h4>
+        <ul>
+          <li>Remplace n'importe quel jour salle</li>
+          <li>Si remplace jambes → ajouter Bulgarian split squat × 3 × 10</li>
+          <li>Version courte si &lt; 45 min dispo</li>
+          <li>Loguer comme n'importe quelle session</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <span class="footer-title">Faouzi — Programme 12 Semaines</span>
+  <span>Push · Pull · Jambes · Full Body · Home Gym</span>
+  <span>Généré avec Claude PT</span>
+</footer>
+
+<script>
+  function switchTab(day) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    document.querySelector(`.tab[data-day="${day}"]`).classList.add('active');
+    document.getElementById(`tab-${day}`).classList.add('active');
+  }
+</script>
+
+</body>
+</html>
