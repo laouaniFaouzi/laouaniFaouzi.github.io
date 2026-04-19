@@ -1,0 +1,2093 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ça Part En Live Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --grad: linear-gradient(134deg, #54327A 0%, #F41D5C 100%);
+      --purple: #54327A;
+      --pink: #F41D5C;
+      --dark: #09000E;
+      --dark-alt: #0D0212;
+      --dark-card: #120318;
+      --gray: #8888A0;
+      --gray-border: rgba(255,255,255,0.07);
+      --white: #F8F5FF;
+      --font-heading: 'Manrope', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    body {
+      font-family: var(--font-heading);
+      background: var(--dark);
+      color: var(--white);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ============================================================
+       UTILITIES
+    ============================================================ */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
+
+    .label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 1rem;
+    }
+    .label::before {
+      content: '';
+      display: inline-block;
+      width: 18px;
+      height: 2px;
+      background: var(--pink);
+      border-radius: 1px;
+      flex-shrink: 0;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--white);
+      color: #060010;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 15px;
+      padding: 15px 32px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      white-space: nowrap;
+    }
+    .btn-primary:hover { background: #fff; transform: translateY(-2px); }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--white);
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 15px;
+      padding: 14px 30px;
+      border-radius: 10px;
+      border: 1.5px solid rgba(255,255,255,0.18);
+      cursor: pointer;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--pink); transform: translateY(-2px); }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .fade-in-delay-1 { transition-delay: 0.1s; }
+    .fade-in-delay-2 { transition-delay: 0.2s; }
+    .fade-in-delay-3 { transition-delay: 0.3s; }
+    .fade-in-delay-4 { transition-delay: 0.4s; }
+
+    /* ============================================================
+       BROADCAST BAR
+    ============================================================ */
+    .broadcast-bar {
+      background: var(--pink);
+      height: 38px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      position: relative;
+      z-index: 1001;
+      flex-shrink: 0;
+    }
+    .broadcast-track {
+      display: flex;
+      gap: 0;
+      animation: broadcastScroll 35s linear infinite;
+      white-space: nowrap;
+    }
+    .broadcast-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      flex-shrink: 0;
+      padding: 0 40px;
+    }
+    .broadcast-sep {
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      margin: 0 -20px;
+      flex-shrink: 0;
+    }
+    @keyframes broadcastScroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    nav {
+      position: fixed;
+      top: 38px; left: 0; right: 0;
+      z-index: 999;
+      padding: 22px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.35s, padding 0.35s, top 0.35s, border-color 0.35s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled {
+      top: 0;
+      background: rgba(9, 0, 14, 0.96);
+      padding: 15px 5%;
+      border-bottom-color: var(--gray-border);
+    }
+    .nav-logo {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 16px;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--white);
+    }
+    .logo-badge {
+      background: var(--white);
+      color: #060010;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 5px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gray);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { display: flex; align-items: center; gap: 12px; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 170px 5% 120px;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 55% 60% at 65% 45%, rgba(84,50,122,0.32) 0%, transparent 65%),
+        radial-gradient(ellipse 30% 35% at 80% 75%, rgba(244,29,92,0.16) 0%, transparent 65%);
+    }
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(ellipse 75% 75% at 50% 50%, black 15%, transparent 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 640px;
+    }
+
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(244,29,92,0.1);
+      border: 1px solid rgba(244,29,92,0.28);
+      border-radius: 6px;
+      padding: 7px 14px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 36px;
+    }
+    .live-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--pink);
+      animation: livePulse 1.4s ease-in-out infinite;
+    }
+    @keyframes livePulse {
+      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(244,29,92,0.5); }
+      60% { opacity: 0.75; box-shadow: 0 0 0 5px rgba(244,29,92,0); }
+    }
+
+    .hero h1 {
+      font-size: clamp(52px, 7.5vw, 86px);
+      font-weight: 800;
+      line-height: 1.01;
+      letter-spacing: -2.5px;
+      margin-bottom: 14px;
+      color: var(--white);
+    }
+    .hero-rotator-wrap {
+      display: block;
+      height: clamp(60px, 8.5vw, 98px);
+      overflow: hidden;
+      margin-bottom: 34px;
+    }
+    .hero-rotator {
+      display: flex;
+      flex-direction: column;
+      animation: rotateText 9s infinite;
+    }
+    .hero-rotator span {
+      display: block;
+      height: clamp(60px, 8.5vw, 98px);
+      font-size: clamp(52px, 7.5vw, 86px);
+      font-weight: 800;
+      line-height: clamp(60px, 8.5vw, 98px);
+      letter-spacing: -2.5px;
+      color: var(--pink);
+    }
+    @keyframes rotateText {
+      0%, 28%  { transform: translateY(0); }
+      33%, 61% { transform: translateY(-33.33%); }
+      66%, 95% { transform: translateY(-66.66%); }
+      100%     { transform: translateY(0); }
+    }
+
+    .hero p {
+      font-family: var(--font-body);
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--gray);
+      line-height: 1.85;
+      max-width: 500px;
+      margin-bottom: 44px;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 44px;
+      left: 5%;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 10px;
+      color: var(--gray);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+    .hero-scroll-line {
+      width: 36px; height: 1px;
+      background: linear-gradient(to right, var(--pink), transparent);
+    }
+
+    /* ---- Phone mockup ---- */
+    .hero-phone-wrap {
+      position: absolute;
+      right: 7%;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+    }
+    .hero-phone {
+      width: 234px;
+      height: 468px;
+      background: #120318;
+      border-radius: 36px;
+      border: 1.5px solid rgba(255,255,255,0.1);
+      overflow: hidden;
+      position: relative;
+      box-shadow:
+        0 0 0 8px rgba(84,50,122,0.08),
+        0 40px 80px rgba(0,0,0,0.65),
+        0 0 80px rgba(84,50,122,0.2);
+    }
+    /* Notch */
+    .hero-phone::before {
+      content: '';
+      position: absolute;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70px; height: 6px;
+      background: rgba(0,0,0,0.7);
+      border-radius: 3px;
+      z-index: 10;
+    }
+    .phone-screen {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(165deg, rgba(84,50,122,0.75) 0%, rgba(244,29,92,0.4) 45%, rgba(9,0,14,0.92) 100%);
+      display: flex;
+      flex-direction: column;
+      padding: 32px 14px 16px;
+    }
+    .phone-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .phone-live-tag {
+      background: var(--pink);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-family: var(--font-body);
+    }
+    .phone-viewers {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      color: rgba(255,255,255,0.85);
+      font-weight: 600;
+      font-family: var(--font-body);
+    }
+    .phone-eye { font-size: 10px; }
+    .phone-counter {
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .phone-handle {
+      font-size: 12px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 6px;
+    }
+    .phone-product-block {
+      margin-top: 4px;
+    }
+    .phone-product-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2px;
+      font-family: var(--font-body);
+    }
+    .phone-product-price {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--pink);
+      line-height: 1;
+    }
+
+    .phone-waveform {
+      display: flex;
+      align-items: flex-end;
+      gap: 3px;
+      height: 28px;
+      margin-top: 16px;
+    }
+    .phone-waveform span {
+      width: 3px;
+      background: rgba(255,255,255,0.3);
+      border-radius: 2px;
+      animation: waveBar 1.2s ease-in-out infinite;
+    }
+    .phone-waveform span:nth-child(1) { animation-delay: 0s; height: 40%; }
+    .phone-waveform span:nth-child(2) { animation-delay: 0.1s; height: 70%; }
+    .phone-waveform span:nth-child(3) { animation-delay: 0.05s; height: 55%; }
+    .phone-waveform span:nth-child(4) { animation-delay: 0.15s; height: 85%; }
+    .phone-waveform span:nth-child(5) { animation-delay: 0.08s; height: 45%; }
+    .phone-waveform span:nth-child(6) { animation-delay: 0.2s; height: 65%; }
+    .phone-waveform span:nth-child(7) { animation-delay: 0.12s; height: 75%; }
+    .phone-waveform span:nth-child(8) { animation-delay: 0.03s; height: 50%; }
+    .phone-waveform span:nth-child(9) { animation-delay: 0.18s; height: 90%; }
+    .phone-waveform span:nth-child(10) { animation-delay: 0.07s; height: 40%; }
+    @keyframes waveBar {
+      0%, 100% { opacity: 0.3; transform: scaleY(0.6); }
+      50% { opacity: 0.9; transform: scaleY(1.2); }
+    }
+
+    .phone-comments {
+      position: absolute;
+      bottom: 68px;
+      left: 10px;
+      right: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .phone-comment {
+      background: rgba(0,0,0,0.6);
+      border-radius: 10px;
+      padding: 5px 10px;
+      font-size: 10px;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.45;
+      font-family: var(--font-body);
+    }
+    .phone-comment strong { color: var(--pink); font-weight: 700; }
+    .phone-comment.c1 { animation: commentFade 6s ease-in-out infinite; }
+    .phone-comment.c2 { animation: commentFade 6s ease-in-out infinite 2s; }
+    .phone-comment.c3 { animation: commentFade 6s ease-in-out infinite 4s; }
+    @keyframes commentFade {
+      0%, 10% { opacity: 0; transform: translateY(4px); }
+      20%, 75% { opacity: 1; transform: translateY(0); }
+      85%, 100% { opacity: 0; transform: translateY(-4px); }
+    }
+
+    .phone-buy-notif {
+      position: absolute;
+      bottom: 14px;
+      left: 10px;
+      right: 10px;
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 10px;
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      animation: notifPop 4s ease-in-out infinite;
+    }
+    .notif-left { display: flex; flex-direction: column; gap: 1px; }
+    .notif-label { font-size: 9px; color: rgba(255,255,255,0.55); font-family: var(--font-body); letter-spacing: 1px; text-transform: uppercase; }
+    .notif-text { font-size: 10px; color: #fff; font-weight: 600; font-family: var(--font-body); }
+    .notif-amount { font-size: 14px; color: var(--pink); font-weight: 800; }
+    @keyframes notifPop {
+      0%, 8% { opacity: 0; transform: translateY(6px); }
+      18%, 78% { opacity: 1; transform: translateY(0); }
+      90%, 100% { opacity: 0; transform: translateY(-4px); }
+    }
+
+    /* ============================================================
+       ABOUT
+    ============================================================ */
+    .section-about {
+      padding: 120px 5%;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-left h2 {
+      font-size: clamp(38px, 5vw, 60px);
+      font-weight: 800;
+      line-height: 1.06;
+      letter-spacing: -1.5px;
+      margin-bottom: 8px;
+      color: var(--white);
+    }
+    .about-left h2 em {
+      font-style: normal;
+      color: var(--pink);
+    }
+    .about-subtitle {
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      color: rgba(248,245,255,0.35);
+      margin-bottom: 28px;
+      line-height: 1.1;
+    }
+    .about-left p {
+      font-family: var(--font-body);
+      font-size: 16px;
+      color: var(--gray);
+      line-height: 1.9;
+      margin-bottom: 16px;
+    }
+    .about-left .cta-group { margin-top: 36px; }
+
+    .about-ticker {
+      overflow: hidden;
+      padding: 18px 0;
+      border-top: 1px solid var(--gray-border);
+      border-bottom: 1px solid var(--gray-border);
+      margin: 36px 0;
+    }
+    .ticker-track {
+      display: flex;
+      gap: 40px;
+      animation: ticker 22s linear infinite;
+      white-space: nowrap;
+    }
+    .ticker-track span {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--gray);
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* Numbered features */
+    .about-features { display: flex; flex-direction: column; }
+    .about-feature {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 20px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--gray-border);
+      transition: border-bottom-color 0.3s;
+    }
+    .about-feature:first-child { border-top: 1px solid var(--gray-border); }
+    .about-feature:hover { border-bottom-color: rgba(244,29,92,0.22); }
+    .feature-num {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--pink);
+      font-family: var(--font-body);
+      letter-spacing: 1px;
+      padding-top: 3px;
+      opacity: 0.8;
+    }
+    .feature-body h4 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 5px;
+      color: var(--white);
+    }
+    .feature-body p {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* ============================================================
+       FORMATIONS
+    ============================================================ */
+    .section-formations {
+      padding: 120px 5%;
+      background: var(--dark-alt);
+    }
+    .section-header { margin-bottom: 60px; }
+    .section-header.centered { text-align: center; }
+    .section-header h2 {
+      font-size: clamp(38px, 5.5vw, 66px);
+      font-weight: 800;
+      letter-spacing: -2px;
+      line-height: 1.02;
+      margin-bottom: 18px;
+      color: var(--white);
+    }
+    .section-header p {
+      font-family: var(--font-body);
+      font-size: 16px;
+      color: var(--gray);
+      max-width: 460px;
+      line-height: 1.8;
+    }
+    .section-header.centered p { margin: 0 auto; }
+
+    .formations-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+    .formation-card {
+      background: var(--dark-card);
+      border: 1px solid var(--gray-border);
+      border-radius: 18px;
+      padding: 36px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+      cursor: pointer;
+    }
+    .formation-card:hover {
+      border-color: rgba(244,29,92,0.28);
+      transform: translateY(-4px);
+    }
+    .formation-card.featured {
+      border-color: rgba(244,29,92,0.22);
+      background: linear-gradient(140deg, rgba(84,50,122,0.28) 0%, rgba(244,29,92,0.07) 100%);
+    }
+    .card-num {
+      position: absolute;
+      top: 16px;
+      right: 24px;
+      font-size: 88px;
+      font-weight: 800;
+      color: rgba(255,255,255,0.03);
+      line-height: 1;
+      letter-spacing: -4px;
+      pointer-events: none;
+      user-select: none;
+    }
+    .card-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(244,29,92,0.1);
+      border: 1px solid rgba(244,29,92,0.22);
+      color: var(--pink);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+    .formation-card h3 {
+      font-size: 21px;
+      font-weight: 800;
+      letter-spacing: -0.4px;
+      margin-bottom: 12px;
+      color: var(--white);
+    }
+    .formation-card p {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+    .formation-meta {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+    .meta-tag {
+      font-family: var(--font-body);
+      font-size: 12px;
+      color: var(--gray);
+      background: rgba(255,255,255,0.04);
+      padding: 5px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--gray-border);
+    }
+    .btn-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white);
+      opacity: 0.9;
+      transition: gap 0.2s, color 0.2s, opacity 0.2s;
+    }
+    .btn-link:hover { gap: 10px; color: var(--pink); opacity: 1; }
+
+    /* ============================================================
+       STATS — typographic, no boxes
+    ============================================================ */
+    .section-stats {
+      padding: 100px 5%;
+      border-top: 1px solid var(--gray-border);
+      border-bottom: 1px solid var(--gray-border);
+    }
+    .stats-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 0;
+      align-items: center;
+    }
+    .stat-hero {
+      padding: 48px 60px 48px 0;
+      border-right: 1px solid var(--gray-border);
+    }
+    .stat-hero-number {
+      font-size: clamp(80px, 12vw, 140px);
+      font-weight: 800;
+      letter-spacing: -5px;
+      line-height: 0.9;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .stat-hero-label {
+      font-family: var(--font-body);
+      font-size: 16px;
+      color: var(--gray);
+      line-height: 1.6;
+      max-width: 280px;
+    }
+    .stat-hero-label strong {
+      color: var(--white);
+      font-weight: 600;
+    }
+    .stat-sub-grid {
+      display: flex;
+      flex-direction: column;
+    }
+    .stat-sub {
+      padding: 36px 0 36px 60px;
+      border-bottom: 1px solid var(--gray-border);
+    }
+    .stat-sub:last-child { border-bottom: none; }
+    .stat-sub-number {
+      font-size: clamp(36px, 4.5vw, 54px);
+      font-weight: 800;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .stat-sub-label {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+
+    /* ============================================================
+       POUR QUI
+    ============================================================ */
+    .section-pourqui {
+      padding: 120px 5%;
+      background: var(--dark-alt);
+    }
+    .pourqui-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .pourqui-left h2 {
+      font-size: clamp(36px, 4.5vw, 56px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.07;
+      margin-bottom: 8px;
+      color: var(--white);
+    }
+    .pourqui-subtitle {
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      color: rgba(248,245,255,0.3);
+      margin-bottom: 36px;
+      line-height: 1.2;
+    }
+    .profile-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .profile-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--gray-border);
+      transition: border-bottom-color 0.3s;
+    }
+    .profile-item:first-child { border-top: 1px solid var(--gray-border); }
+    .profile-item:hover { border-bottom-color: rgba(244,29,92,0.2); }
+    .profile-arrow {
+      color: var(--pink);
+      font-size: 14px;
+      font-weight: 800;
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    .profile-item:hover .profile-arrow { transform: translateX(4px); }
+    .profile-item span {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .pourqui-right {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .pourqui-quote {
+      border-left: 3px solid var(--pink);
+      padding: 28px 0 28px 32px;
+      margin-bottom: 0;
+    }
+    .pourqui-quote-num {
+      font-size: clamp(60px, 8vw, 96px);
+      font-weight: 800;
+      letter-spacing: -4px;
+      line-height: 0.9;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .pourqui-quote-text {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--gray);
+      line-height: 1.75;
+    }
+    .pourqui-quote-text strong { color: var(--white); font-weight: 600; }
+    .pourqui-divider {
+      height: 1px;
+      background: var(--gray-border);
+      margin: 0;
+    }
+    .pourqui-support {
+      padding: 28px 0 28px 0;
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.75;
+    }
+
+    /* ============================================================
+       TÉMOIGNAGES
+    ============================================================ */
+    .section-temoignages {
+      padding: 120px 5%;
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .testimonial-card {
+      background: var(--dark-card);
+      border: 1px solid var(--gray-border);
+      border-radius: 18px;
+      padding: 32px;
+      transition: border-color 0.3s, transform 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+    .testimonial-card:hover {
+      border-color: rgba(84,50,122,0.45);
+      transform: translateY(-4px);
+    }
+    .testimonial-stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 20px;
+    }
+    .star { color: var(--pink); font-size: 13px; }
+    .testimonial-card blockquote {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: rgba(248,245,255,0.65);
+      line-height: 1.8;
+      margin-bottom: 20px;
+      font-style: italic;
+      flex: 1;
+    }
+    .result-highlight {
+      display: block;
+      font-size: 20px;
+      font-weight: 800;
+      font-style: normal;
+      color: var(--white);
+      letter-spacing: -0.5px;
+      margin: 10px 0;
+      font-family: var(--font-heading);
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-top: 20px;
+      border-top: 1px solid var(--gray-border);
+    }
+    .author-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: rgba(84,50,122,0.4);
+      border: 1px solid rgba(84,50,122,0.6);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800;
+      font-size: 15px;
+      flex-shrink: 0;
+      color: var(--white);
+    }
+    .author-info strong { display: block; font-size: 13px; font-weight: 700; color: var(--white); }
+    .author-info span {
+      font-family: var(--font-body);
+      font-size: 12px;
+      color: var(--gray);
+    }
+
+    /* ============================================================
+       VIDEO
+    ============================================================ */
+    .section-video {
+      padding: 80px 5%;
+      background: var(--dark-alt);
+    }
+    .video-wrapper {
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 16/9;
+      background: var(--dark-card);
+      border: 1px solid var(--gray-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .video-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(9,0,14,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .play-btn {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: var(--pink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.25s, background 0.25s;
+    }
+    .play-btn:hover { transform: scale(1.08); background: #ff2d68; }
+    .play-btn svg { margin-left: 4px; }
+    .video-title {
+      font-size: 22px;
+      font-weight: 800;
+      text-align: center;
+      letter-spacing: -0.5px;
+      color: var(--white);
+    }
+
+    /* ============================================================
+       FORMATEURS
+    ============================================================ */
+    .section-formateurs {
+      padding: 120px 5%;
+    }
+    .formateurs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .formateur-card {
+      background: var(--dark-card);
+      border: 1px solid var(--gray-border);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .formateur-card:hover {
+      border-color: rgba(84,50,122,0.45);
+      transform: translateY(-4px);
+    }
+    .formateur-photo {
+      width: 100%;
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 52px;
+      font-weight: 800;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .formateur-photo.c1 { background: linear-gradient(135deg, #54327A 0%, #2A1440 100%); }
+    .formateur-photo.c2 { background: linear-gradient(135deg, #7A1535 0%, #54327A 100%); }
+    .formateur-photo.c3 { background: linear-gradient(135deg, #2A1440 0%, #7A1535 100%); }
+    .formateur-photo .initials {
+      font-size: 56px;
+      font-weight: 800;
+      opacity: 0.6;
+      letter-spacing: -2px;
+    }
+    .formateur-info { padding: 24px; }
+    .formateur-info h4 { font-size: 17px; font-weight: 800; margin-bottom: 3px; color: var(--white); }
+    .formateur-role {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 14px;
+      display: block;
+    }
+    .formateur-info p {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .formateur-stats {
+      display: flex;
+      gap: 20px;
+    }
+    .fstat {
+      font-size: 12px;
+      color: var(--gray);
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      font-family: var(--font-body);
+    }
+    .fstat strong {
+      color: var(--white);
+      font-size: 15px;
+      font-weight: 700;
+      font-family: var(--font-heading);
+    }
+
+    /* ============================================================
+       AGENDA
+    ============================================================ */
+    .section-agenda {
+      padding: 120px 5%;
+      background: var(--dark-alt);
+    }
+    .agenda-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+    .agenda-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto auto;
+      align-items: center;
+      gap: 28px;
+      padding: 24px 32px;
+      background: var(--dark-card);
+      border: 1px solid var(--gray-border);
+      border-radius: 14px;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .agenda-item:hover {
+      border-color: rgba(244,29,92,0.28);
+      transform: translateX(6px);
+    }
+    .agenda-type {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-family: var(--font-body);
+      white-space: nowrap;
+    }
+    .type-masterclass { background: rgba(84,50,122,0.3); color: #c89de8; }
+    .type-atelier { background: rgba(244,29,92,0.12); color: var(--pink); }
+    .type-live { background: rgba(255,255,255,0.06); color: var(--gray); }
+    .agenda-info h4 { font-size: 15px; font-weight: 700; margin-bottom: 3px; color: var(--white); }
+    .agenda-info p {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--gray);
+    }
+    .agenda-date {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--gray);
+      white-space: nowrap;
+    }
+    .agenda-places {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--pink);
+      white-space: nowrap;
+      background: rgba(244,29,92,0.08);
+      border: 1px solid rgba(244,29,92,0.18);
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-family: var(--font-body);
+      letter-spacing: 1px;
+    }
+
+    /* ============================================================
+       CTA — gradient full bleed
+    ============================================================ */
+    .section-cta {
+      padding: 140px 5%;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--grad);
+    }
+    .section-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(255,255,255,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .section-cta .container { position: relative; z-index: 2; }
+    .section-cta .label {
+      color: rgba(255,255,255,0.75);
+    }
+    .section-cta .label::before {
+      background: rgba(255,255,255,0.75);
+    }
+    .section-cta h2 {
+      font-size: clamp(40px, 6vw, 76px);
+      font-weight: 800;
+      letter-spacing: -2.5px;
+      line-height: 1.0;
+      margin-bottom: 24px;
+      color: #fff;
+    }
+    .section-cta p {
+      font-family: var(--font-body);
+      font-size: 17px;
+      color: rgba(255,255,255,0.72);
+      margin-bottom: 48px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.8;
+    }
+    .cta-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-cta-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      color: #060010;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 16px;
+      padding: 18px 40px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      border: none;
+      white-space: nowrap;
+    }
+    .btn-cta-primary:hover { background: #f5f0ff; transform: translateY(-2px); }
+    .btn-cta-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: #fff;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 16px;
+      padding: 17px 36px;
+      border-radius: 12px;
+      border: 1.5px solid rgba(255,255,255,0.35);
+      cursor: pointer;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .btn-cta-outline:hover { border-color: rgba(255,255,255,0.7); transform: translateY(-2px); }
+    .cta-urgency {
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+    }
+    .urgency-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.8);
+      animation: livePulse 1.4s ease-in-out infinite;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      padding: 60px 5% 40px;
+      border-top: 1px solid var(--gray-border);
+      background: var(--dark);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 56px;
+    }
+    .footer-brand .nav-logo { margin-bottom: 16px; font-size: 17px; }
+    .footer-brand p {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.8;
+      max-width: 250px;
+    }
+    .footer-social {
+      display: flex;
+      gap: 10px;
+      margin-top: 24px;
+    }
+    .social-btn {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--gray-border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px;
+      transition: background 0.2s, border-color 0.2s;
+      cursor: pointer;
+    }
+    .social-btn:hover { background: rgba(244,29,92,0.12); border-color: rgba(244,29,92,0.35); }
+    .footer-col h5 {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--gray);
+      margin-bottom: 20px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .footer-col ul li a {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--gray);
+      transition: color 0.2s;
+    }
+    .footer-col ul li a:hover { color: var(--white); }
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 28px;
+      border-top: 1px solid var(--gray-border);
+    }
+    .footer-bottom p {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--gray);
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+    .footer-links a {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--gray);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--white); }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1024px) {
+      .hero-phone-wrap { display: none; }
+      .hero-content { max-width: 100%; }
+      .stats-layout { grid-template-columns: 1fr; }
+      .stat-hero { padding: 40px 0; border-right: none; border-bottom: 1px solid var(--gray-border); }
+      .stat-sub-grid { flex-direction: row; flex-wrap: wrap; }
+      .stat-sub { padding: 28px 32px; border-right: 1px solid var(--gray-border); border-bottom: none; flex: 1; min-width: 160px; }
+      .stat-sub:last-child { border-right: none; }
+      .formations-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+    @media (max-width: 768px) {
+      .broadcast-bar { height: 32px; }
+      nav { top: 32px; }
+      nav.scrolled { top: 0; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .about-grid, .pourqui-grid { grid-template-columns: 1fr; gap: 52px; }
+      .formateurs-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .agenda-item { grid-template-columns: 1fr 1fr; gap: 14px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+      .hero { padding: 130px 5% 100px; }
+      .stat-sub-grid { flex-direction: column; }
+      .stat-sub { border-right: none; border-bottom: 1px solid var(--gray-border); }
+      .stat-sub:last-child { border-bottom: none; }
+    }
+    @media (max-width: 480px) {
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+      .agenda-item { grid-template-columns: 1fr; }
+      .cta-actions { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     BROADCAST BAR
+============================================================ -->
+<div class="broadcast-bar">
+  <div class="broadcast-track">
+    <span class="broadcast-item">🔴 En direct</span>
+    <span class="broadcast-sep"></span>
+    <span class="broadcast-item">Sessions ouvertes</span>
+    <span class="broadcast-sep"></span>
+    <span class="broadcast-item">Places limitées</span>
+    <span class="broadcast-sep"></span>
+    <span class="broadcast-item">+500 entrepreneurs formés</span>
+    <span class="broadcast-sep"></span>
+    <span class="broadcast-item">Prochaine session — Tomblaine (54)</span>
+    <span class="broadcast-sep"></span>
+    <span class="broadcast-item">98% de satisfaction</span>
+    <span class="broadcast-sep"></span>
+    <span class="broadcast-item">🔴 En direct</span>
+    <span class="broadcast-sep"></span>
+    <span class="broadcast-item">Sessions ouvertes</span>
+    <span class="broadcast-sep"></span>
+    <span class="broadcast-item">Places limitées</span>
+    <span class="broadcast-sep"></span>
+    <span class="broadcast-item">+500 entrepreneurs formés</span>
+    <span class="broadcast-sep"></span>
+    <span class="broadcast-item">Prochaine session — Tomblaine (54)</span>
+    <span class="broadcast-sep"></span>
+    <span class="broadcast-item">98% de satisfaction</span>
+    <span class="broadcast-sep"></span>
+  </div>
+</div>
+
+<!-- ============================================================
+     NAVIGATION
+============================================================ -->
+<nav id="navbar">
+  <div class="nav-logo">
+    <span class="logo-badge">Academy</span>
+    Ça Part En Live
+  </div>
+  <ul class="nav-links">
+    <li><a href="#formations">Formations</a></li>
+    <li><a href="#pourqui">Pour qui</a></li>
+    <li><a href="#temoignages">Témoignages</a></li>
+    <li><a href="#formateurs">Formateurs</a></li>
+    <li><a href="#agenda">Agenda</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="#cta" class="btn-primary">Je m'inscris →</a>
+  </div>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+
+  <div class="hero-content">
+    <div class="live-badge fade-in">
+      <div class="live-dot"></div>
+      Live Academy — 3 ans d'expertise
+    </div>
+
+    <h1 class="fade-in fade-in-delay-1">La formation qui fait</h1>
+    <div class="hero-rotator-wrap fade-in fade-in-delay-1">
+      <div class="hero-rotator">
+        <span>vraiment vendre.</span>
+        <span>le Live Shopping.</span>
+        <span>TikTok Shop.</span>
+      </div>
+    </div>
+
+    <p class="fade-in fade-in-delay-2">
+      La première académie de formation au live commerce, animée par des praticiens qui vendent en live chaque semaine.
+      Génère tes premières ventes dès ta première session.
+    </p>
+
+    <div class="hero-actions fade-in fade-in-delay-3">
+      <a href="#formations" class="btn-primary">Voir les formations →</a>
+      <a href="#temoignages" class="btn-outline">Voir les résultats</a>
+    </div>
+  </div>
+
+  <!-- Phone mockup -->
+  <div class="hero-phone-wrap fade-in fade-in-delay-2">
+    <div class="hero-phone">
+      <div class="phone-screen">
+        <div class="phone-top-bar">
+          <span class="phone-live-tag">LIVE</span>
+          <div class="phone-viewers">
+            <span class="phone-eye">👁</span>
+            <span class="phone-counter">1 284</span>
+          </div>
+        </div>
+
+        <div class="phone-handle">@cpel_academy</div>
+        <div class="phone-product-block">
+          <div class="phone-product-name">Formation Live Shopping</div>
+          <div class="phone-product-price">297 €</div>
+        </div>
+
+        <div class="phone-waveform">
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+
+      <div class="phone-comments">
+        <div class="phone-comment c1"><strong>Sarah_M</strong> je veux m'inscrire ! 🔥</div>
+        <div class="phone-comment c2"><strong>kevin_t</strong> incroyable la méthode 💯</div>
+        <div class="phone-comment c3"><strong>lauram_shop</strong> +40% CA en 3 mois ✅</div>
+      </div>
+
+      <div class="phone-buy-notif">
+        <div class="notif-left">
+          <span class="notif-label">Achat</span>
+          <span class="notif-text">Formation Starter</span>
+        </div>
+        <span class="notif-amount">297 €</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- ============================================================
+     ABOUT
+============================================================ -->
+<section class="section-about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-left">
+        <span class="label fade-in">À PROPOS</span>
+        <h2 class="fade-in fade-in-delay-1">
+          Ça Part En Live <em>Academy</em>
+        </h2>
+        <div class="about-subtitle fade-in fade-in-delay-1">C'est quoi ?</div>
+
+        <div class="about-ticker fade-in fade-in-delay-2">
+          <div class="ticker-track">
+            <span>Live Shopping</span><span>·</span>
+            <span>TikTok Shop</span><span>·</span>
+            <span>Stratégie de contenu</span><span>·</span>
+            <span>Vente en direct</span><span>·</span>
+            <span>Personal branding</span><span>·</span>
+            <span>Monétisation</span><span>·</span>
+            <span>Live Shopping</span><span>·</span>
+            <span>TikTok Shop</span><span>·</span>
+            <span>Stratégie de contenu</span><span>·</span>
+            <span>Vente en direct</span><span>·</span>
+            <span>Personal branding</span><span>·</span>
+            <span>Monétisation</span><span>·</span>
+          </div>
+        </div>
+
+        <p class="fade-in fade-in-delay-2">
+          Marques, entrepreneurs, créateurs de contenu : on forme ceux qui veulent vendre en live
+          et générer des revenus réels — pas des slides théoriques.
+        </p>
+        <p class="fade-in fade-in-delay-2">
+          Nos formateurs vendent en live chaque semaine. Ils transmettent ce qui marche
+          maintenant, pas ce qui marchait il y a trois ans.
+        </p>
+
+        <div class="cta-group fade-in fade-in-delay-3">
+          <a href="#formations" class="btn-primary">Voir les formations →</a>
+        </div>
+      </div>
+
+      <div class="about-right">
+        <div class="about-features">
+          <div class="about-feature fade-in fade-in-delay-1">
+            <span class="feature-num">01</span>
+            <div class="feature-body">
+              <h4>Formation 100% terrain</h4>
+              <p>Des formateurs qui vendent en live au quotidien. Pas de théorie, que des méthodes qui fonctionnent réellement.</p>
+            </div>
+          </div>
+          <div class="about-feature fade-in fade-in-delay-2">
+            <span class="feature-num">02</span>
+            <div class="feature-body">
+              <h4>Résultats dès le 1er live</h4>
+              <p>Nos participants génèrent leurs premières ventes en live dès la fin de la formation. Garanti.</p>
+            </div>
+          </div>
+          <div class="about-feature fade-in fade-in-delay-3">
+            <span class="feature-num">03</span>
+            <div class="feature-body">
+              <h4>TikTok Shop & Live Shopping</h4>
+              <p>Les deux formats les plus puissants du commerce en ligne en 2026, maîtrisés de A à Z.</p>
+            </div>
+          </div>
+          <div class="about-feature fade-in fade-in-delay-4">
+            <span class="feature-num">04</span>
+            <div class="feature-body">
+              <h4>Accompagnement continu</h4>
+              <p>Accès à la communauté privée, sessions de suivi et ressources exclusives après la formation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FORMATIONS
+============================================================ -->
+<section class="section-formations" id="formations">
+  <div class="container">
+    <div class="section-header">
+      <span class="label fade-in">NOS FORMATIONS</span>
+      <h2 class="fade-in fade-in-delay-1">Des programmes taillés<br>pour performer en live</h2>
+      <p class="fade-in fade-in-delay-2">Du starter au pro — une formation pour chaque niveau et chaque objectif.</p>
+    </div>
+
+    <div class="formations-grid">
+      <div class="formation-card featured fade-in">
+        <span class="card-num">01</span>
+        <div class="card-badge">⚡ Plus populaire</div>
+        <h3>Live Shopping Starter</h3>
+        <p>
+          Tout ce qu'il faut pour lancer et structurer ses premiers lives de vente.
+          De la préparation du script à l'animation en direct, on couvre tout le process.
+        </p>
+        <div class="formation-meta">
+          <span class="meta-tag">1 jour intensif</span>
+          <span class="meta-tag">Présentiel & Distanciel</span>
+          <span class="meta-tag">Débutants</span>
+        </div>
+        <a href="#cta" class="btn-link">En savoir plus →</a>
+      </div>
+
+      <div class="formation-card fade-in fade-in-delay-1">
+        <span class="card-num">02</span>
+        <h3>TikTok Shop Masterclass</h3>
+        <p>
+          Vendre sur TikTok Shop de A à Z : création de compte vendeur, stratégie de contenu,
+          affiliation et optimisation des lives pour maximiser les conversions.
+        </p>
+        <div class="formation-meta">
+          <span class="meta-tag">1 jour intensif</span>
+          <span class="meta-tag">Présentiel</span>
+          <span class="meta-tag">Intermédiaires</span>
+        </div>
+        <a href="#cta" class="btn-link">En savoir plus →</a>
+      </div>
+
+      <div class="formation-card fade-in fade-in-delay-2">
+        <span class="card-num">03</span>
+        <h3>Formation Animateur Live</h3>
+        <p>
+          Techniques de présentation, posture caméra, gestion du stress et interaction avec l'audience.
+          Deviens un animateur qui captive et qui convertit.
+        </p>
+        <div class="formation-meta">
+          <span class="meta-tag">½ journée</span>
+          <span class="meta-tag">Présentiel</span>
+          <span class="meta-tag">Tous niveaux</span>
+        </div>
+        <a href="#cta" class="btn-link">En savoir plus →</a>
+      </div>
+
+      <div class="formation-card fade-in fade-in-delay-3">
+        <span class="card-num">04</span>
+        <div class="card-badge">✦ Sur mesure</div>
+        <h3>Accompagnement Intensif</h3>
+        <p>
+          Coaching personnalisé 1:1 ou en petit groupe. On analyse ta situation, on définit ta stratégie
+          et on t'accompagne live par live jusqu'à tes objectifs.
+        </p>
+        <div class="formation-meta">
+          <span class="meta-tag">Sur mesure</span>
+          <span class="meta-tag">Hybride</span>
+          <span class="meta-tag">Avancés</span>
+        </div>
+        <a href="#cta" class="btn-link">Demander un devis →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     STATS — typographic
+============================================================ -->
+<section class="section-stats" id="stats">
+  <div class="container">
+    <div class="stats-layout">
+      <div class="stat-hero fade-in">
+        <div class="stat-hero-number">+500</div>
+        <div class="stat-hero-label">
+          <strong>entrepreneurs, marques et créateurs</strong> ont déjà suivi nos formations
+          et vendent en live avec régularité.
+        </div>
+      </div>
+      <div class="stat-sub-grid">
+        <div class="stat-sub fade-in fade-in-delay-1">
+          <div class="stat-sub-number">98%</div>
+          <div class="stat-sub-label">Taux de satisfaction</div>
+        </div>
+        <div class="stat-sub fade-in fade-in-delay-2">
+          <div class="stat-sub-number">+50</div>
+          <div class="stat-sub-label">Lives accompagnés</div>
+        </div>
+        <div class="stat-sub fade-in fade-in-delay-3">
+          <div class="stat-sub-number">3 ans</div>
+          <div class="stat-sub-label">D'expertise live commerce</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     POUR QUI
+============================================================ -->
+<section class="section-pourqui" id="pourqui">
+  <div class="container">
+    <div class="pourqui-grid">
+      <div class="pourqui-left">
+        <span class="label fade-in">POUR QUI ?</span>
+        <h2 class="fade-in fade-in-delay-1">Nos formations s'adressent à</h2>
+        <div class="pourqui-subtitle fade-in fade-in-delay-1">tous ceux qui veulent vendre en ligne</div>
+
+        <div class="profile-list">
+          <div class="profile-item fade-in fade-in-delay-1">
+            <span class="profile-arrow">→</span>
+            <span>Les marques e-commerce</span>
+          </div>
+          <div class="profile-item fade-in fade-in-delay-2">
+            <span class="profile-arrow">→</span>
+            <span>Les entrepreneurs & solopreneurs</span>
+          </div>
+          <div class="profile-item fade-in fade-in-delay-3">
+            <span class="profile-arrow">→</span>
+            <span>Les créateurs de contenu</span>
+          </div>
+          <div class="profile-item fade-in fade-in-delay-4">
+            <span class="profile-arrow">→</span>
+            <span>Les responsables marketing & communication</span>
+          </div>
+          <div class="profile-item fade-in fade-in-delay-4">
+            <span class="profile-arrow">→</span>
+            <span>Les vendeurs Amazon, Shopify & réseaux sociaux</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pourqui-right fade-in fade-in-delay-2">
+        <div class="pourqui-quote">
+          <div class="pourqui-quote-num">J+1</div>
+          <div class="pourqui-quote-text">
+            <strong>Premier live de vente organisé après formation.</strong><br>
+            Nos participants n'attendent pas — ils vendent dès le lendemain.
+          </div>
+        </div>
+        <div class="pourqui-divider"></div>
+        <div class="pourqui-support">
+          Peu importe ton niveau de départ ou ton secteur, nos programmes s'adaptent
+          à ta réalité terrain pour des résultats concrets et rapides.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TÉMOIGNAGES
+============================================================ -->
+<section class="section-temoignages" id="temoignages">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="label fade-in">TÉMOIGNAGES</span>
+      <h2 class="fade-in fade-in-delay-1">Ils ont suivi la formation.<br>Voici ce qui s'est passé.</h2>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card fade-in">
+        <div class="testimonial-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <blockquote>
+          "Après 2 jours de formation, j'ai lancé mon premier live et généré
+          <span class="result-highlight">3 400 € en une session.</span>
+          Je ne pensais pas que c'était possible aussi vite."
+        </blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar">S</div>
+          <div class="author-info">
+            <strong>Sarah M.</strong>
+            <span>Créatrice de marque beauté</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-in fade-in-delay-1">
+        <div class="testimonial-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <blockquote>
+          "J'avais peur de la caméra. Après la formation animateur live,
+          <span class="result-highlight">0 → 800 viewers</span>
+          sur mon deuxième live TikTok Shop. La méthode est béton."
+        </blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar">K</div>
+          <div class="author-info">
+            <strong>Kevin T.</strong>
+            <span>Entrepreneur — mode streetwear</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-in fade-in-delay-2">
+        <div class="testimonial-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <blockquote>
+          "Nous avons intégré le live shopping dans notre stratégie marketing.
+          <span class="result-highlight">+40% de CA en 3 mois</span>
+          sur nos ventes en ligne. L'accompagnement était au top."
+        </blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar">L</div>
+          <div class="author-info">
+            <strong>Laura D.</strong>
+            <span>Responsable marketing — e-commerce mode</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     VIDEO
+============================================================ -->
+<section class="section-video">
+  <div class="container">
+    <div class="section-header centered" style="margin-bottom: 40px;">
+      <span class="label fade-in">EN ACTION</span>
+      <h2 class="fade-in fade-in-delay-1">Vois ce qu'on enseigne<br>avant de t'inscrire</h2>
+    </div>
+    <div class="video-wrapper fade-in">
+      <div class="video-overlay">
+        <div class="play-btn">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </div>
+        <div class="video-title">Découvre l'Academy en 2 minutes</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FORMATEURS
+============================================================ -->
+<section class="section-formateurs" id="formateurs">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="label fade-in">L'ÉQUIPE PÉDAGOGIQUE</span>
+      <h2 class="fade-in fade-in-delay-1">Des formateurs qui le font<br>au quotidien</h2>
+      <p class="fade-in fade-in-delay-2">Pas des consultants. Des praticiens qui vendent en live chaque semaine et transmettent ce qui marche vraiment.</p>
+    </div>
+
+    <div class="formateurs-grid">
+      <div class="formateur-card fade-in">
+        <div class="formateur-photo c1">
+          <span class="initials">PN</span>
+        </div>
+        <div class="formateur-info">
+          <h4>Prénom Nom</h4>
+          <span class="formateur-role">Expert Live Shopping · Fondateur</span>
+          <p>XX ans d'expérience en vente en direct et e-commerce. A accompagné plus de XXX marques dans leur transition vers le live commerce.</p>
+          <div class="formateur-stats">
+            <div class="fstat"><strong>+XXX</strong>&nbsp;lives animés</div>
+            <div class="fstat"><strong>XX ans</strong>&nbsp;d'expérience</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formateur-card fade-in fade-in-delay-1">
+        <div class="formateur-photo c2">
+          <span class="initials">PN</span>
+        </div>
+        <div class="formateur-info">
+          <h4>Prénom Nom</h4>
+          <span class="formateur-role">Spécialiste TikTok Shop</span>
+          <p>Créatrice de contenu et experte TikTok Shop avec un portfolio de XX marques accompagnées sur la plateforme. Formatrice certifiée.</p>
+          <div class="formateur-stats">
+            <div class="fstat"><strong>XXK</strong>&nbsp;abonnés TikTok</div>
+            <div class="fstat"><strong>+XX</strong>&nbsp;marques</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formateur-card fade-in fade-in-delay-2">
+        <div class="formateur-photo c3">
+          <span class="initials">PN</span>
+        </div>
+        <div class="formateur-info">
+          <h4>Prénom Nom</h4>
+          <span class="formateur-role">Coach Prise de Parole Live</span>
+          <p>Coach spécialisé en présence caméra et techniques de vente en direct. A formé plus de XXX animateurs live en France.</p>
+          <div class="formateur-stats">
+            <div class="fstat"><strong>+XXX</strong>&nbsp;formés</div>
+            <div class="fstat"><strong>XX ans</strong>&nbsp;coaching</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     AGENDA
+============================================================ -->
+<section class="section-agenda" id="agenda">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="label fade-in">AGENDA</span>
+      <h2 class="fade-in fade-in-delay-1">Les prochaines<br>sessions de formation</h2>
+    </div>
+
+    <div class="agenda-list">
+      <div class="agenda-item fade-in">
+        <span class="agenda-type type-masterclass">Masterclass</span>
+        <div class="agenda-info">
+          <h4>TikTok Shop — Lancer son premier live de vente</h4>
+          <p>Tomblaine (54) · Présentiel + accès replay</p>
+        </div>
+        <span class="agenda-date">📅 À venir</span>
+        <span class="agenda-places">Places limitées</span>
+      </div>
+
+      <div class="agenda-item fade-in fade-in-delay-1">
+        <span class="agenda-type type-atelier">Atelier</span>
+        <div class="agenda-info">
+          <h4>Live Shopping Starter — Formation 1 journée</h4>
+          <p>Tomblaine (54) · Présentiel · Max 8 participants</p>
+        </div>
+        <span class="agenda-date">📅 À venir</span>
+        <span class="agenda-places">Places limitées</span>
+      </div>
+
+      <div class="agenda-item fade-in fade-in-delay-2">
+        <span class="agenda-type type-live">Session Live</span>
+        <div class="agenda-info">
+          <h4>Formation Animateur — Prise de parole caméra</h4>
+          <p>En ligne · Distanciel · ½ journée</p>
+        </div>
+        <span class="agenda-date">📅 À venir</span>
+        <span class="agenda-places">Places limitées</span>
+      </div>
+    </div>
+
+    <div style="text-align:center;" class="fade-in">
+      <p style="font-family: var(--font-body); color: var(--gray); margin-bottom: 24px; font-size: 15px;">
+        Tu ne trouves pas la date qui te convient ? Contacte-nous pour une session privée ou sur mesure.
+      </p>
+      <a href="#cta" class="btn-primary">Voir toutes les sessions →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA FINALE — gradient full bleed
+============================================================ -->
+<section class="section-cta" id="cta">
+  <div class="container">
+    <span class="label fade-in">PRÊT ?</span>
+    <h2 class="fade-in fade-in-delay-1">Prêt à vendre en live<br>avec les bons outils ?</h2>
+    <p class="fade-in fade-in-delay-2">Les places partent vite. Rejoins la prochaine session et commence à générer des revenus en live dès cette semaine.</p>
+
+    <div class="cta-actions fade-in fade-in-delay-3">
+      <a href="#formations" class="btn-cta-primary">Je m'inscris →</a>
+      <a href="#" class="btn-cta-outline">Nous contacter</a>
+    </div>
+
+    <div class="cta-urgency fade-in fade-in-delay-4">
+      <div class="urgency-dot"></div>
+      Sessions à places limitées — les créneaux partent vite
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <span class="logo-badge">Academy</span>
+          Ça Part En Live
+        </div>
+        <p>La première académie de formation au live commerce et TikTok Shop pour les marques et entrepreneurs qui veulent vendre en ligne avec efficacité.</p>
+        <div class="footer-social">
+          <div class="social-btn">🎵</div>
+          <div class="social-btn">📷</div>
+          <div class="social-btn">▶️</div>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Formations</h5>
+        <ul>
+          <li><a href="#">Live Shopping Starter</a></li>
+          <li><a href="#">TikTok Shop Masterclass</a></li>
+          <li><a href="#">Formation Animateur Live</a></li>
+          <li><a href="#">Accompagnement Intensif</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>L'Academy</h5>
+        <ul>
+          <li><a href="#">À propos</a></li>
+          <li><a href="#">Les formateurs</a></li>
+          <li><a href="#">Témoignages</a></li>
+          <li><a href="#">Agenda</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="#">Nous contacter</a></li>
+          <li><a href="#">Demander un devis</a></li>
+          <li><a href="#">Partenariats</a></li>
+          <li><a href="#">Presse</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Ça Part En Live Academy. Tous droits réservés.</p>
+      <div class="footer-links">
+        <a href="#">Mentions légales</a>
+        <a href="#">CGV</a>
+        <a href="#">Politique de confidentialité</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     JS
+============================================================ -->
+<script>
+  // Navbar scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Fade-in on scroll
+  const fadeEls = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  fadeEls.forEach(el => observer.observe(el));
+
+  // Mobile menu
+  function toggleMenu() {
+    const links = document.querySelector('.nav-links');
+    const cta = document.querySelector('.nav-cta');
+    const isOpen = links.style.display === 'flex';
+    links.style.display = isOpen ? 'none' : 'flex';
+    if (!isOpen) {
+      links.style.flexDirection = 'column';
+      links.style.position = 'absolute';
+      links.style.top = '70px';
+      links.style.left = '0';
+      links.style.right = '0';
+      links.style.background = 'rgba(9,0,14,0.98)';
+      links.style.padding = '24px 5%';
+      links.style.gap = '20px';
+      links.style.borderBottom = '1px solid rgba(255,255,255,0.07)';
+    }
+    cta.style.display = 'none';
+  }
+
+  // Animated viewer counter in phone
+  const counter = document.querySelector('.phone-counter');
+  if (counter) {
+    setInterval(() => {
+      const current = parseInt(counter.textContent.replace(/\s/g, '').replace(',', ''));
+      const delta = Math.floor(Math.random() * 11) - 4;
+      const next = Math.max(1100, current + delta);
+      counter.textContent = next.toLocaleString('fr-FR');
+    }, 2800);
+  }
+</script>
+</body>
+</html>
