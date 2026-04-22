@@ -52,15 +52,6 @@
       color: var(--pink);
       margin-bottom: 1rem;
     }
-    .label::before {
-      content: '';
-      display: inline-block;
-      width: 18px;
-      height: 2px;
-      background: var(--pink);
-      border-radius: 1px;
-      flex-shrink: 0;
-    }
 
     .btn-primary {
       display: inline-flex;
@@ -183,6 +174,7 @@
       align-items: center;
       gap: 10px;
       color: var(--white);
+      max-width: 110px;
     }
     .logo-badge {
       background: var(--white);
@@ -242,7 +234,7 @@
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 640px;
+      max-width: 800px;
     }
 
     .live-badge {
@@ -281,7 +273,7 @@
     }
     .hero-rotator-wrap {
       display: block;
-      height: clamp(60px, 8.5vw, 98px);
+      height: clamp(60px, 8.5vw, 115px);
       overflow: hidden;
       margin-bottom: 34px;
     }
@@ -292,7 +284,7 @@
     }
     .hero-rotator span {
       display: block;
-      height: clamp(60px, 8.5vw, 98px);
+      height: clamp(60px, 8.5vw, 105px);
       font-size: clamp(52px, 7.5vw, 86px);
       font-weight: 800;
       line-height: clamp(60px, 8.5vw, 98px);
@@ -344,7 +336,6 @@
     .hero-phone-wrap {
       position: absolute;
       right: 7%;
-      top: 50%;
       transform: translateY(-50%);
       z-index: 2;
     }
@@ -522,10 +513,14 @@
       padding: 120px 5%;
     }
     .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: flex;
       gap: 80px;
       align-items: center;
+    }
+    .about-left,
+    .about-right {
+        width: 50%;
+
     }
     .about-left h2 {
       font-size: clamp(38px, 5vw, 60px);
@@ -1273,7 +1268,11 @@
       gap: 60px;
       margin-bottom: 56px;
     }
-    .footer-brand .nav-logo { margin-bottom: 16px; font-size: 17px; }
+    .footer-brand .nav-logo { 
+      margin-bottom: 16px; 
+      font-size: 17px;
+      max-width: 120px;
+    }
     .footer-brand p {
       font-family: var(--font-body);
       font-size: 13px;
@@ -1415,8 +1414,7 @@
 ============================================================ -->
 <nav id="navbar">
   <div class="nav-logo">
-    <span class="logo-badge">Academy</span>
-    Ça Part En Live
+    <img src="https://capartenliveacademy.fr/wp-content/uploads/2025/07/Design-sans-titre-6-1-e1753819971412.png" alt="logo">
   </div>
   <ul class="nav-links">
     <li><a href="#formations">Formations</a></li>
@@ -1426,7 +1424,7 @@
     <li><a href="#agenda">Agenda</a></li>
   </ul>
   <div class="nav-cta">
-    <a href="#cta" class="btn-primary">Je m'inscris →</a>
+    <a href="#cta" class="btn-primary">Je m'inscris</a>
   </div>
   <div class="hamburger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
@@ -1461,7 +1459,7 @@
     </p>
 
     <div class="hero-actions fade-in fade-in-delay-3">
-      <a href="#formations" class="btn-primary">Voir les formations →</a>
+      <a href="#formations" class="btn-primary">Voir les formations</a>
       <a href="#temoignages" class="btn-outline">Voir les résultats</a>
     </div>
   </div>
@@ -1552,7 +1550,7 @@
         </p>
 
         <div class="cta-group fade-in fade-in-delay-3">
-          <a href="#formations" class="btn-primary">Voir les formations →</a>
+          <a href="#formations" class="btn-primary">Voir les formations</a>
         </div>
       </div>
 
@@ -1617,7 +1615,7 @@
           <span class="meta-tag">Présentiel & Distanciel</span>
           <span class="meta-tag">Débutants</span>
         </div>
-        <a href="#cta" class="btn-link">En savoir plus →</a>
+        <a href="#cta" class="btn-link">En savoir plus</a>
       </div>
 
       <div class="formation-card fade-in fade-in-delay-1">
@@ -1632,7 +1630,7 @@
           <span class="meta-tag">Présentiel</span>
           <span class="meta-tag">Intermédiaires</span>
         </div>
-        <a href="#cta" class="btn-link">En savoir plus →</a>
+        <a href="#cta" class="btn-link">En savoir plus</a>
       </div>
 
       <div class="formation-card fade-in fade-in-delay-2">
@@ -1647,7 +1645,7 @@
           <span class="meta-tag">Présentiel</span>
           <span class="meta-tag">Tous niveaux</span>
         </div>
-        <a href="#cta" class="btn-link">En savoir plus →</a>
+        <a href="#cta" class="btn-link">En savoir plus</a>
       </div>
 
       <div class="formation-card fade-in fade-in-delay-3">
@@ -1663,7 +1661,7 @@
           <span class="meta-tag">Hybride</span>
           <span class="meta-tag">Avancés</span>
         </div>
-        <a href="#cta" class="btn-link">Demander un devis →</a>
+        <a href="#cta" class="btn-link">Demander un devis</a>
       </div>
     </div>
   </div>
@@ -1713,23 +1711,23 @@
 
         <div class="profile-list">
           <div class="profile-item fade-in fade-in-delay-1">
-            <span class="profile-arrow">→</span>
+            <span class="profile-arrow"</span>
             <span>Les marques e-commerce</span>
           </div>
           <div class="profile-item fade-in fade-in-delay-2">
-            <span class="profile-arrow">→</span>
+            <span class="profile-arrow"</span>
             <span>Les entrepreneurs & solopreneurs</span>
           </div>
           <div class="profile-item fade-in fade-in-delay-3">
-            <span class="profile-arrow">→</span>
+            <span class="profile-arrow"</span>
             <span>Les créateurs de contenu</span>
           </div>
           <div class="profile-item fade-in fade-in-delay-4">
-            <span class="profile-arrow">→</span>
+            <span class="profile-arrow"</span>
             <span>Les responsables marketing & communication</span>
           </div>
           <div class="profile-item fade-in fade-in-delay-4">
-            <span class="profile-arrow">→</span>
+            <span class="profile-arrow"</span>
             <span>Les vendeurs Amazon, Shopify & réseaux sociaux</span>
           </div>
         </div>
@@ -1788,7 +1786,7 @@
         </div>
         <blockquote>
           "J'avais peur de la caméra. Après la formation animateur live,
-          <span class="result-highlight">0 → 800 viewers</span>
+          <span class="result-highlight">0 800 viewers</span>
           sur mon deuxième live TikTok Shop. La méthode est béton."
         </blockquote>
         <div class="testimonial-author">
@@ -1831,7 +1829,7 @@
       <h2 class="fade-in fade-in-delay-1">Vois ce qu'on enseigne<br>avant de t'inscrire</h2>
     </div>
     <div class="video-wrapper fade-in">
-      <div class="video-overlay">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/tRLT1DkjqcM?si=bY54ZLvMvOpQSexr&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>      <div class="video-overlay">
         <div class="play-btn">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
             <path d="M8 5v14l11-7z"/>
@@ -1949,7 +1947,7 @@
       <p style="font-family: var(--font-body); color: var(--gray); margin-bottom: 24px; font-size: 15px;">
         Tu ne trouves pas la date qui te convient ? Contacte-nous pour une session privée ou sur mesure.
       </p>
-      <a href="#cta" class="btn-primary">Voir toutes les sessions →</a>
+      <a href="#cta" class="btn-primary">Voir toutes les sessions</a>
     </div>
   </div>
 </section>
@@ -1964,7 +1962,7 @@
     <p class="fade-in fade-in-delay-2">Les places partent vite. Rejoins la prochaine session et commence à générer des revenus en live dès cette semaine.</p>
 
     <div class="cta-actions fade-in fade-in-delay-3">
-      <a href="#formations" class="btn-cta-primary">Je m'inscris →</a>
+      <a href="#formations" class="btn-cta-primary">Je m'inscris</a>
       <a href="#" class="btn-cta-outline">Nous contacter</a>
     </div>
 
@@ -1983,8 +1981,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="nav-logo">
-          <span class="logo-badge">Academy</span>
-          Ça Part En Live
+              <img src="https://capartenliveacademy.fr/wp-content/uploads/2025/07/Design-sans-titre-6-1-e1753819971412.png" alt="logo">
         </div>
         <p>La première académie de formation au live commerce et TikTok Shop pour les marques et entrepreneurs qui veulent vendre en ligne avec efficacité.</p>
         <div class="footer-social">
