@@ -117,6 +117,7 @@
       gap: 0;
       animation: broadcastScroll 35s linear infinite;
       white-space: nowrap;
+      place-items: center;
     }
     .broadcast-item {
       display: inline-flex;
@@ -331,6 +332,7 @@
       width: 36px; height: 1px;
       background: linear-gradient(to right, var(--pink), transparent);
     }
+    .hero-scroll { display: none; }
 
     /* ---- Phone mockup ---- */
     .hero-phone-wrap {
@@ -563,14 +565,18 @@
       gap: 40px;
       animation: ticker 22s linear infinite;
       white-space: nowrap;
+      place-items: center;
     }
     .ticker-track span {
       font-size: 11px;
-      font-weight: 600;
-      color: var(--gray);
+      font-weight: 700;
+      color: var(--font-heading);
       letter-spacing: 2.5px;
       text-transform: uppercase;
       flex-shrink: 0;
+    }
+    .ticker-track-logo {
+      max-width: 55px;
     }
     @keyframes ticker {
       from { transform: translateX(0); }
@@ -1340,7 +1346,8 @@
        RESPONSIVE
     ============================================================ */
     @media (max-width: 1024px) {
-      .hero-phone-wrap { display: none; }
+      #hero { flex-direction: column; gap: 70px; }
+      .hero-phone-wrap { position: inherit; right: inherit; }
       .hero-content { max-width: 100%; }
       .stats-layout { grid-template-columns: 1fr; }
       .stat-hero { padding: 40px 0; border-right: none; border-bottom: 1px solid var(--gray-border); }
@@ -1367,9 +1374,23 @@
       .stat-sub-grid { flex-direction: column; }
       .stat-sub { border-right: none; border-bottom: 1px solid var(--gray-border); }
       .stat-sub:last-child { border-bottom: none; }
+      .nav-logo { max-width: 80px; }
+    }
+    @media (max-width: 520px) {
+      .hero-content h1,
+      .hero-rotator span { font-size: clamp(40px, 7.5vw, 86px); }
+      .live-badge { font-size: 8px; }
+      .hero p { font-size: 14px; }
+      .btn-primary, .btn-outline { font-size: 12px; }
+      .about-left, .about-right { width: 100%; }
+      .about-grid { flex-direction: column; }
+      .about-grid h2 { margin-bottom: 20px; }
+      .footer-brand { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+      .footer-col { text-align: center; margin-bottom: 20px; }
+      .footer-col:last-child { margin-bottom: 0; }
     }
     @media (max-width: 480px) {
-      .hero-actions { flex-direction: column; align-items: flex-start; }
+      .hero-actions { align-items: flex-start; }
       .agenda-item { grid-template-columns: 1fr; }
       .cta-actions { flex-direction: column; align-items: center; }
     }
@@ -1525,18 +1546,30 @@
 
         <div class="about-ticker fade-in fade-in-delay-2">
           <div class="ticker-track">
-            <span>Live Shopping</span><span>·</span>
-            <span>TikTok Shop</span><span>·</span>
-            <span>Stratégie de contenu</span><span>·</span>
-            <span>Vente en direct</span><span>·</span>
-            <span>Personal branding</span><span>·</span>
-            <span>Monétisation</span><span>·</span>
-            <span>Live Shopping</span><span>·</span>
-            <span>TikTok Shop</span><span>·</span>
-            <span>Stratégie de contenu</span><span>·</span>
-            <span>Vente en direct</span><span>·</span>
-            <span>Personal branding</span><span>·</span>
-            <span>Monétisation</span><span>·</span>
+            <span>Live Shopping</span>
+            <span class="ticker-track-logo"><img src="https://capartenliveacademy.fr/wp-content/uploads/2025/07/Design-sans-titre-6-1-e1753819971412.png" alt="logo"></span>
+            <span>TikTok Shop</span>
+            <span class="ticker-track-logo"><img src="https://capartenliveacademy.fr/wp-content/uploads/2025/07/Design-sans-titre-6-1-e1753819971412.png" alt="logo"></span>
+            <span>Stratégie de contenu</span>
+            <span class="ticker-track-logo"><img src="https://capartenliveacademy.fr/wp-content/uploads/2025/07/Design-sans-titre-6-1-e1753819971412.png" alt="logo"></span>
+            <span>Vente en direct</span>
+            <span class="ticker-track-logo"><img src="https://capartenliveacademy.fr/wp-content/uploads/2025/07/Design-sans-titre-6-1-e1753819971412.png" alt="logo"></span>
+            <span>Personal branding</span>
+            <span class="ticker-track-logo"><img src="https://capartenliveacademy.fr/wp-content/uploads/2025/07/Design-sans-titre-6-1-e1753819971412.png" alt="logo"></span>
+            <span>Monétisation</span>
+            <span class="ticker-track-logo"><img src="https://capartenliveacademy.fr/wp-content/uploads/2025/07/Design-sans-titre-6-1-e1753819971412.png" alt="logo"></span>
+            <span>Live Shopping</span>
+            <span class="ticker-track-logo"><img src="https://capartenliveacademy.fr/wp-content/uploads/2025/07/Design-sans-titre-6-1-e1753819971412.png" alt="logo"></span>
+            <span>TikTok Shop</span>
+            <span class="ticker-track-logo"><img src="https://capartenliveacademy.fr/wp-content/uploads/2025/07/Design-sans-titre-6-1-e1753819971412.png" alt="logo"></span>
+            <span>Stratégie de contenu</span>
+            <span class="ticker-track-logo"><img src="https://capartenliveacademy.fr/wp-content/uploads/2025/07/Design-sans-titre-6-1-e1753819971412.png" alt="logo"></span>
+            <span>Vente en direct</span>
+            <span class="ticker-track-logo"><img src="https://capartenliveacademy.fr/wp-content/uploads/2025/07/Design-sans-titre-6-1-e1753819971412.png" alt="logo"></span>
+            <span>Personal branding</span>
+            <span class="ticker-track-logo"><img src="https://capartenliveacademy.fr/wp-content/uploads/2025/07/Design-sans-titre-6-1-e1753819971412.png" alt="logo"></span>
+            <span>Monétisation</span>
+            <span class="ticker-track-logo"><img src="https://capartenliveacademy.fr/wp-content/uploads/2025/07/Design-sans-titre-6-1-e1753819971412.png" alt="logo"></span>
           </div>
         </div>
 
