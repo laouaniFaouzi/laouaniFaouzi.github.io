@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roqia – Guide étape par étape</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --gold: #C9A84C; --gold-light: #E8C97A; --gold-pale: #F7EDCC;
+  --deep: #1A1209; --ink: #2D2010; --muted: #7A6840;
+  --surface: #FBF6EC; --card: #FFFDF5; --border: #E8D9A8;
+  --green: #2D6A4F; --green-light: #E8F5EF; --radius: 16px;
+}
+body { font-family:'DM Sans',sans-serif; background:var(--surface); color:var(--ink); min-height:100vh; display:flex; flex-direction:column; align-items:center; padding:0 0 80px; }
+
+/* Header */
+.header { width:100%; background:var(--deep); padding:40px 24px 32px; text-align:center; position:relative; overflow:hidden; }
+.header::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 0%,rgba(201,168,76,.18) 0%,transparent 70%); }
+.header-arabic { font-family:'Amiri',serif; font-size:28px; color:var(--gold-light); letter-spacing:2px; margin-bottom:6px; position:relative; }
+.header-title { font-family:'Playfair Display',serif; font-size:42px; font-weight:700; color:#fff; letter-spacing:-.5px; position:relative; }
+.header-title span { color:var(--gold); }
+.header-sub { margin-top:8px; font-size:13px; font-weight:300; color:rgba(255,255,255,.5); letter-spacing:3px; text-transform:uppercase; position:relative; }
+
+/* Progress */
+.progress-wrap { width:100%; max-width:580px; padding:28px 24px 0; }
+.progress-label { display:flex; justify-content:space-between; font-size:12px; font-weight:500; color:var(--muted); margin-bottom:8px; letter-spacing:1px; text-transform:uppercase; }
+.progress-bar-track { height:4px; background:var(--border); border-radius:99px; overflow:hidden; }
+.progress-bar-fill { height:100%; background:linear-gradient(90deg,var(--gold),var(--gold-light)); border-radius:99px; transition:width .5s cubic-bezier(.4,0,.2,1); }
+.steps-dots { display:flex; justify-content:space-between; margin-top:10px; }
+.dot { width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:500; border:1.5px solid var(--border); color:var(--muted); background:var(--card); transition:all .3s; cursor:pointer; }
+.dot.active { background:var(--gold); border-color:var(--gold); color:var(--deep); font-weight:700; transform:scale(1.15); }
+.dot.done { background:var(--deep); border-color:var(--deep); color:var(--gold); }
+
+/* Card */
+.card-wrap { width:100%; max-width:580px; padding:20px 24px 0; }
+.step-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:32px 28px; animation:fadeSlide .4s cubic-bezier(.4,0,.2,1); }
+@keyframes fadeSlide { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+.step-number { font-family:'Playfair Display',serif; font-size:56px; font-weight:700; color:var(--gold-pale); line-height:1; margin-bottom:-8px; }
+.step-title { font-family:'Playfair Display',serif; font-size:26px; font-weight:700; color:var(--deep); margin-bottom:6px; }
+.step-desc { font-size:15px; font-weight:300; color:var(--muted); line-height:1.7; }
+.step-icon { font-size:40px; margin-bottom:16px; }
+.divider { height:1px; background:var(--border); margin:20px 0; }
+
+/* Sourate list */
+.sourate-list { display:flex; flex-direction:column; gap:10px; margin-top:8px; }
+.sourate-item { border:1px solid var(--border); border-radius:12px; background:var(--surface); overflow:hidden; transition:border-color .25s,box-shadow .25s; }
+.sourate-item.s-open { border-color:var(--gold); box-shadow:0 0 0 3px rgba(201,168,76,.1); }
+.sourate-header { display:flex; align-items:center; gap:12px; padding:13px 16px; cursor:pointer; user-select:none; }
+.sourate-num { min-width:28px; height:28px; background:var(--deep); color:var(--gold); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; flex-shrink:0; }
+.sourate-item.s-open .sourate-num { background:var(--gold); color:var(--deep); }
+.sourate-names { flex:1; min-width:0; }
+.sourate-name-ar { font-family:'Amiri',serif; font-size:18px; color:var(--deep); line-height:1.3; }
+.sourate-name-fr { font-size:12px; color:var(--muted); font-weight:500; }
+.s-chev { font-size:11px; color:var(--muted); transition:transform .25s; flex-shrink:0; }
+.sourate-item.s-open .s-chev { transform:rotate(180deg); }
+
+.sourate-body { display:none; border-top:1px solid var(--border); }
+.sourate-body.open { display:block; }
+
+/* Playbar */
+.playbar { display:flex; align-items:center; gap:8px; padding:10px 14px; background:var(--deep); border-bottom:1px solid rgba(255,255,255,.06); }
+.pb-btn { width:32px; height:32px; border-radius:50%; border:1.5px solid rgba(201,168,76,.45); background:transparent; color:var(--gold); font-size:12px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .2s; flex-shrink:0; }
+.pb-btn:hover,.pb-btn.on { background:var(--gold); color:var(--deep); border-color:var(--gold); }
+.v-counter { font-size:11px; color:rgba(255,255,255,.4); white-space:nowrap; margin-left:4px; }
+.pb-mode { display:flex; align-items:center; gap:6px; margin-left:auto; }
+.pb-mode-lbl { font-size:11px; color:rgba(255,255,255,.45); white-space:nowrap; }
+.tog-wrap { position:relative; width:34px; height:18px; flex-shrink:0; }
+.tog-wrap input { opacity:0; width:0; height:0; position:absolute; }
+.tog-sl { position:absolute; inset:0; background:rgba(255,255,255,.15); border-radius:9px; cursor:pointer; transition:background .25s; }
+.tog-sl::before { content:''; position:absolute; width:12px; height:12px; left:3px; top:3px; background:rgba(255,255,255,.55); border-radius:50%; transition:transform .25s,background .25s; }
+.tog-wrap input:checked + .tog-sl { background:var(--gold); }
+.tog-wrap input:checked + .tog-sl::before { transform:translateX(16px); background:var(--deep); }
+
+/* Verses */
+.verses-wrap { padding:14px; display:flex; flex-direction:column; gap:12px; }
+.vrow { border:1px solid var(--border); border-radius:10px; background:var(--card); overflow:hidden; cursor:pointer; transition:border-color .2s,box-shadow .2s; }
+.vrow:hover { border-color:rgba(201,168,76,.5); }
+.vrow.v-active { border-color:var(--gold); box-shadow:0 0 0 2px rgba(201,168,76,.12); }
+.vrow.v-done { opacity:.5; }
+
+/* timer stripe */
+.vtimer { height:3px; background:var(--border); }
+.vrow.v-active .vtimer { background:var(--border); }
+.vtimer-fill { height:100%; background:var(--gold); width:0%; transition:width .1s linear; }
+
+.vinner { padding:12px 14px 14px; }
+.vbadge { display:inline-flex; align-items:center; justify-content:center; width:20px; height:20px; border-radius:50%; background:var(--gold-pale); color:var(--muted); font-size:10px; font-weight:700; margin-bottom:8px; }
+.vrow.v-active .vbadge { background:var(--gold); color:var(--deep); }
+
+/* Arabic with sweep animation — secondary, compact */
+.var { font-family:'Amiri',serif; font-size:15px; line-height:1.7; text-align:right; direction:rtl; margin-bottom:10px; color:var(--muted); opacity:.75; }
+.vrow.v-active .var {
+  background-image: linear-gradient(to right, var(--gold) 0%, var(--gold) var(--sw,0%), var(--muted) var(--sw,0%), var(--muted) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  opacity: 1;
+}
+.vrow.v-done .var { color:var(--gold); opacity:.6; }
+
+/* Phonetic — hero text */
+.vph { font-size:16px; font-style:normal; font-weight:500; color:var(--ink); line-height:1.9; padding:10px 12px; background:#f5edd6; border-radius:6px; border-left:3px solid var(--gold); margin-bottom:8px; }
+.vrow.v-active .vph { color:var(--deep); }
+.vfr { font-size:12px; color:var(--muted); line-height:1.7; padding-top:8px; border-top:1px dashed var(--border); }
+
+.blow-reminder { margin:0 14px 14px; background:var(--green-light); border:1px solid #b7dfc9; border-radius:10px; padding:10px 14px; font-size:13px; color:var(--green); display:flex; gap:8px; align-items:flex-start; }
+
+.spin { display:inline-block; width:16px; height:16px; border:2px solid var(--border); border-top-color:var(--gold); border-radius:50%; animation:spin .7s linear infinite; }
+@keyframes spin { to{transform:rotate(360deg)} }
+.load-msg { display:flex; align-items:center; gap:8px; color:var(--muted); font-size:13px; padding:20px 16px; }
+
+/* Final */
+.final-card { text-align:center; padding:40px 28px; }
+.final-arabic { font-family:'Amiri',serif; font-size:48px; color:var(--deep); margin-bottom:4px; line-height:1.3; }
+.final-amin { font-family:'Playfair Display',serif; font-size:22px; color:var(--gold); letter-spacing:4px; text-transform:uppercase; }
+.final-dua { margin-top:20px; font-size:14px; color:var(--muted); line-height:1.8; font-weight:300; }
+
+/* Buttons */
+.btn-row { display:flex; gap:12px; max-width:580px; width:100%; padding:20px 24px 0; }
+.btn { flex:1; padding:14px 20px; border-radius:12px; font-family:'DM Sans',sans-serif; font-size:14px; font-weight:500; cursor:pointer; border:none; transition:all .2s; }
+.btn-prev { background:transparent; border:1.5px solid var(--border); color:var(--muted); }
+.btn-prev:hover { border-color:var(--gold); color:var(--gold); }
+.btn-next { background:var(--deep); color:var(--gold); flex:2; }
+.btn-next:hover { background:#2e1f08; }
+.btn-restart { background:var(--gold); color:var(--deep); font-weight:700; width:100%; }
+.btn-restart:hover { background:var(--gold-light); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-arabic">الرقية الشرعية</div>
+  <div class="header-title">R<span>o</span>qia</div>
+  <div class="header-sub">Guide étape par étape</div>
+</div>
+
+<div class="progress-wrap">
+  <div class="progress-label"><span id="step-label">Étape 1 / 5</span><span id="step-pct">20%</span></div>
+  <div class="progress-bar-track"><div class="progress-bar-fill" id="prog-fill" style="width:20%"></div></div>
+  <div class="steps-dots" id="dots-row"></div>
+</div>
+
+<div class="card-wrap"><div class="step-card" id="step-card"></div></div>
+<div class="btn-row" id="btn-row"></div>
+<audio id="qa"></audio>
+
+<script>
+/* ── DATA ── */
+const STEPS = [
+  {icon:'🤲',title:"L'intention",        desc:"Avant de commencer, formule clairement ton intention dans ton cœur : tu réalises ce Roqia pour te soigner et te protéger du mauvais œil, des maladies et de tout mal, en demandant la guérison uniquement à Allah."},
+  {icon:'💧',title:"La bouteille d'eau", desc:"Prends une bouteille d'eau propre et ouvre-la. Tiens-la entre tes mains, bouche orientée vers toi. Cette eau va recevoir la bénédiction des versets coraniques."},
+  {icon:'📖',title:"La récitation",      desc:"Ouvre chaque sourate ci-dessous. Lis verset par verset et écoute la récitation de Mishary Al-Afasy. Le verset en cours se colore en doré au fil de la lecture.", isSourates:true},
+  {icon:'💨',title:"Le souffle",         desc:"Après chaque sourate, souffle doucement 3 fois à l'intérieur de la bouteille. Le souffle doit venir du fond de la gorge, avec la présence totale du cœur."},
+  {icon:'☁️',title:"Le Duaa",           desc:"Lève les mains et demande à Allah la guérison complète, la protection et la miséricorde pour toi et tes proches.", isFinal:true}
+];
+
+const SOURATES = [
+  {num:1,  ar:'الفاتحة',    fr:"Al-Fatiha – L'Ouverture",           isAyah:false},
+  {num:112,ar:'الإخلاص',   fr:"Al-Ikhlas – La Sincérité",          isAyah:false},
+  {num:113,ar:'الفلق',     fr:"Al-Falaq – L'Aube",                 isAyah:false},
+  {num:114,ar:'الناس',     fr:"An-Nas – Les Hommes",               isAyah:false},
+  {num:2,  ar:'آية الكرسي', fr:"Ayat Al-Kursi – Verset du Trône",  isAyah:true }
+];
+
+const PH = {
+  1:  ["Bismillāhi r-raḥmāni r-raḥīm","Al-ḥamdu lillāhi rabbi l-ʿālamīn","Ar-raḥmāni r-raḥīm","Māliki yawmi d-dīn","Iyyāka naʿbudu wa-iyyāka nastaʿīn","Ihdinā ṣ-ṣirāṭa l-mustaqīm","Ṣirāṭa lladhīna anʿamta ʿalayhim ġayri l-maġḍūbi ʿalayhim wa-lā ḍ-ḍāllīn"],
+  112:["Bismillāhi r-raḥmāni r-raḥīm","Qul huwa llāhu aḥad","Allāhu ṣ-ṣamad","Lam yalid wa-lam yūlad","Wa-lam yakun lahū kufuwan aḥad"],
+  113:["Bismillāhi r-raḥmāni r-raḥīm","Qul aʿūdhu bi-rabbi l-falaq","Min sharri mā khalaq","Wa-min sharri ġāsiqin idhā waqab","Wa-min sharri n-naffāthāti fī l-ʿuqad","Wa-min sharri ḥāsidin idhā ḥasad"],
+  114:["Bismillāhi r-raḥmāni r-raḥīm","Qul aʿūdhu bi-rabbi n-nās","Maliki n-nās","Ilāhi n-nās","Min sharri l-waswāsi l-khannās","Alladhī yuwaswisu fī ṣudūri n-nās","Mina l-jinnati wa-n-nās"],
+  '2_255':["Allāhu lā ilāha illā huwa l-ḥayyu l-qayyūm. Lā taʾkhudhuhu sinatun wa-lā nawm. Lahū mā fī s-samāwāti wa-mā fī l-arḍ. Man dhā lladhī yashfaʿu ʿindahū illā bi-idhnih. Yaʿlamu mā bayna aydīhim wa-mā khalfahum. Wa-lā yuḥīṭūna bi-shayʾin min ʿilmihī illā bi-mā shāʾ. Wasiʿa kursiyyuhu s-samāwāti wa-l-arḍ. Wa-lā yaʾūduhū ḥifẓuhumā. Wa-huwa l-ʿaliyyu l-ʿaẓīm."]
+};
+
+/* ── STATE ── */
+let step = 0;
+let cache = {};   // key -> {ayahs, ph}
+let pb = {};      // si -> {vi, playing, auto, sweepTimer}
+const QA = document.getElementById('qa');
+
+function sKey(si){ return SOURATES[si].isAyah?'2_255':SOURATES[si].num; }
+
+/* ── API ── */
+async function loadSourate(si){
+  const k = sKey(si);
+  if(cache[k]) return cache[k];
+  const s = SOURATES[si];
+  const [arR,frR] = await Promise.all([
+    fetch(`https://api.alquran.cloud/v1/surah/${s.num}/ar.alafasy`),
+    fetch(`https://api.alquran.cloud/v1/surah/${s.num}/fr.hamidullah`)
+  ]);
+  const [arJ,frJ] = await Promise.all([arR.json(),frR.json()]);
+  let ar = arJ.data.ayahs, fr = frJ.data.ayahs;
+  if(s.isAyah){ ar=ar.filter(a=>a.numberInSurah===255); fr=fr.filter(a=>a.numberInSurah===255); }
+  cache[k]={ ayahs: ar.map((a,i)=>({arabic:a.text, french:fr[i]?fr[i].text:'', audio:a.audio, num:a.numberInSurah})), ph: PH[k]||PH[s.num]||[] };
+  return cache[k];
+}
+
+/* ── RENDER SHELL ── */
+function renderProgress(){
+  const pct=Math.round(((step+1)/STEPS.length)*100);
+  document.getElementById('prog-fill').style.width=pct+'%';
+  document.getElementById('step-label').textContent=`Étape ${step+1} / ${STEPS.length}`;
+  document.getElementById('step-pct').textContent=pct+'%';
+}
+function renderDots(){
+  const r=document.getElementById('dots-row'); r.innerHTML='';
+  STEPS.forEach((_,i)=>{
+    const d=document.createElement('div');
+    d.className='dot'+(i===step?' active':i<step?' done':'');
+    d.textContent=i<step?'✓':(i+1);
+    d.onclick=()=>{ if(i<=step) goTo(i); };
+    r.appendChild(d);
+  });
+}
+function renderButtons(){
+  const r=document.getElementById('btn-row'), s=STEPS[step];
+  if(s.isFinal){ r.innerHTML=`<button class="btn btn-restart" onclick="restart()">↺ Recommencer depuis le début</button>`; return; }
+  r.innerHTML=`
+    ${step>0?`<button class="btn btn-prev" onclick="goTo(${step-1})">← Précédent</button>`:''}
+    <button class="btn btn-next" onclick="goTo(${step+1})">${step===STEPS.length-2?'Terminer ✦':'Étape suivante →'}</button>`;
+}
+function renderCard(){
+  const s=STEPS[step], c=document.getElementById('step-card');
+  c.className='step-card'+(s.isFinal?' final-card':'');
+  if(s.isFinal){
+    c.innerHTML=`<div class="final-arabic">اللهم اشفِه</div><div class="final-arabic" style="font-size:36px">وعافِه</div><div class="final-amin">Āmīn</div><div class="final-dua">Lève les mains et demande à Allah avec tout ton cœur :<br>guérison, protection, miséricorde pour toi et tes proches.<br><br><em style="color:var(--gold)">Allah y chafik — Allah guérit.</em></div>`;
+    return;
+  }
+  c.innerHTML=`
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px;">
+      <div class="step-number">0${step+1}</div>
+      <div class="step-icon">${s.icon}</div>
+    </div>
+    <div class="step-title">${s.title}</div>
+    <div class="step-desc">${s.desc}</div>
+    ${s.isSourates?`<div class="divider"></div><div class="sourate-list">${SOURATES.map((_,i)=>sourateShell(i)).join('')}</div>`:''}`;
+}
+function sourateShell(i){
+  const s=SOURATES[i];
+  return `<div class="sourate-item" id="si-${i}">
+    <div class="sourate-header" onclick="toggleSourate(${i})">
+      <div class="sourate-num">${i+1}</div>
+      <div class="sourate-names"><div class="sourate-name-ar">${s.ar}</div><div class="sourate-name-fr">${s.fr}</div></div>
+      <span class="s-chev" id="sc-${i}">▼</span>
+    </div>
+    <div class="sourate-body" id="sb-${i}"></div>
+  </div>`;
+}
+
+/* ── TOGGLE ── */
+async function toggleSourate(i){
+  const body=document.getElementById(`sb-${i}`);
+  const item=document.getElementById(`si-${i}`);
+  const isOpen=body.classList.contains('open');
+  // close all
+  SOURATES.forEach((_,j)=>{ document.getElementById(`sb-${j}`).classList.remove('open'); document.getElementById(`si-${j}`).classList.remove('s-open'); document.getElementById(`sc-${j}`).style.transform=''; });
+  if(isOpen){ stopPb(i); return; }
+  body.classList.add('open'); item.classList.add('s-open'); document.getElementById(`sc-${i}`).style.transform='rotate(180deg)';
+  if(!body.dataset.loaded){ body.innerHTML=`<div class="load-msg"><div class="spin"></div> Chargement…</div>`; await buildBody(i); }
+}
+
+/* ── BUILD BODY ── */
+async function buildBody(si){
+  const body=document.getElementById(`sb-${si}`);
+  let data;
+  try{ data=await loadSourate(si); } catch(e){ body.innerHTML=`<div class="load-msg" style="color:#c0392b">Erreur réseau. Vérifiez votre connexion.</div>`; return; }
+  if(!pb[si]) pb[si]={vi:-1,playing:false,auto:true,sweepTimer:null};
+  const p=pb[si];
+  body.innerHTML=`
+    <div class="playbar">
+      <button class="pb-btn" id="pb-prev-${si}" onclick="event.stopPropagation();pbPrev(${si})" title="Précédent">◀</button>
+      <button class="pb-btn" id="pb-play-${si}" onclick="event.stopPropagation();pbToggle(${si})" title="Lecture/Pause">▶</button>
+      <button class="pb-btn" id="pb-next-${si}" onclick="event.stopPropagation();pbNext(${si})" title="Suivant">▶▶</button>
+      <span class="v-counter" id="vc-${si}">— / ${data.ayahs.length}</span>
+      <div class="pb-mode">
+        <span class="pb-mode-lbl">Auto</span>
+        <div class="tog-wrap"><input type="checkbox" id="tog-${si}" ${p.auto?'checked':''} onchange="pbAuto(${si},this.checked)"><div class="tog-sl"></div></div>
+      </div>
+    </div>
+    <div class="verses-wrap" id="vw-${si}">
+      ${data.ayahs.map((a,vi)=>`
+        <div class="vrow" id="vr-${si}-${vi}" onclick="pbClickVerse(${si},${vi})">
+          <div class="vtimer"><div class="vtimer-fill" id="vtf-${si}-${vi}"></div></div>
+          <div class="vinner">
+            <div class="vbadge">${a.num}</div>
+            <div class="var" id="va-${si}-${vi}">${a.arabic}</div>
+            <div class="vph">${data.ph[vi]||''}</div>
+            <div class="vfr">${a.french}</div>
+          </div>
+        </div>`).join('')}
+    </div>
+    <div class="blow-reminder">💨 <span>Souffle 3 fois dans la bouteille après avoir récité toute cette sourate.</span></div>`;
+  body.dataset.loaded='1';
+}
+
+/* ── PLAYBACK ── */
+function stopPb(si){
+  const p=pb[si]; if(!p) return;
+  QA.pause(); p.playing=false;
+  clearInterval(p.sweepTimer); p.sweepTimer=null;
+  setBtnPlay(si,false);
+}
+function stopAllBut(si){ Object.keys(pb).forEach(k=>{ if(+k!==si && pb[k].playing) stopPb(+k); }); }
+
+function setBtnPlay(si,on){
+  const b=document.getElementById(`pb-play-${si}`);
+  if(b){ b.textContent=on?'⏸':'▶'; if(on) b.classList.add('on'); else b.classList.remove('on'); }
+}
+function setCounter(si){
+  const p=pb[si], data=cache[sKey(si)]; if(!data) return;
+  const el=document.getElementById(`vc-${si}`);
+  if(el) el.textContent=(p.vi>=0?p.vi+1:'—')+' / '+data.ayahs.length;
+}
+function refreshClasses(si){
+  const p=pb[si], data=cache[sKey(si)]; if(!data||!p) return;
+  data.ayahs.forEach((_,vi)=>{
+    const el=document.getElementById(`vr-${si}-${vi}`); if(!el) return;
+    el.classList.remove('v-active','v-done');
+    if(vi===p.vi && p.playing) el.classList.add('v-active');
+    else if(vi<p.vi || (vi===p.vi && !p.playing && vi<data.ayahs.length)) {
+      if(vi < p.vi || (p.vi===data.ayahs.length)) el.classList.add('v-done');
+    }
+  });
+}
+
+async function playVerse(si,vi){
+  const data=cache[sKey(si)]; if(!data) return;
+  const p=pb[si]; if(!p) return;
+  const ayah=data.ayahs[vi];
+
+  QA.pause();
+  clearInterval(p.sweepTimer); p.sweepTimer=null;
+
+  // reset previous active sweep
+  if(p.vi>=0 && p.vi!==vi){
+    const oldFill=document.getElementById(`vtf-${si}-${p.vi}`);
+    const oldAr=document.getElementById(`va-${si}-${p.vi}`);
+    if(oldFill) oldFill.style.width='0%';
+    if(oldAr) oldAr.style.removeProperty('--sw');
+  }
+
+  p.vi=vi; p.playing=true;
+  setBtnPlay(si,true); setCounter(si); refreshClasses(si);
+
+  const vrow=document.getElementById(`vr-${si}-${vi}`);
+  if(vrow) vrow.scrollIntoView({behavior:'smooth',block:'nearest'});
+
+  QA.src=ayah.audio; QA.load();
+  try{ await QA.play(); } catch(e){ p.playing=false; setBtnPlay(si,false); return; }
+
+  const fill=document.getElementById(`vtf-${si}-${vi}`);
+  const arEl=document.getElementById(`va-${si}-${vi}`);
+  // reset sweep
+  if(arEl) arEl.style.setProperty('--sw','0%');
+
+  p.sweepTimer=setInterval(()=>{
+    if(!QA.duration) return;
+    const pct=((QA.currentTime/QA.duration)*100).toFixed(1)+'%';
+    if(fill) fill.style.width=pct;
+    if(arEl) arEl.style.setProperty('--sw',pct);
+  },80);
+
+  QA.onended=async()=>{
+    clearInterval(p.sweepTimer); p.sweepTimer=null;
+    if(fill) fill.style.width='100%';
+    if(arEl){ arEl.style.setProperty('--sw','100%'); }
+    p.playing=false; setBtnPlay(si,false);
+    // mark done
+    const doneRow=document.getElementById(`vr-${si}-${vi}`);
+    if(doneRow){ doneRow.classList.remove('v-active'); doneRow.classList.add('v-done'); }
+
+    if(p.auto){
+      const next=vi+1;
+      if(next<data.ayahs.length){ await delay(550); await playVerse(si,next); }
+      else { p.vi=data.ayahs.length; setCounter(si); }
+    }
+  };
+}
+
+function delay(ms){ return new Promise(r=>setTimeout(r,ms)); }
+
+async function pbToggle(si){
+  stopAllBut(si);
+  if(!pb[si]) pb[si]={vi:-1,playing:false,auto:true,sweepTimer:null};
+  const p=pb[si];
+  if(p.playing){ stopPb(si); }
+  else { await playVerse(si, p.vi<0?0:p.vi); }
+}
+async function pbClickVerse(si,vi){
+  stopAllBut(si);
+  if(!pb[si]) pb[si]={vi:-1,playing:false,auto:true,sweepTimer:null};
+  await playVerse(si,vi);
+}
+async function pbPrev(si){
+  if(!pb[si]) return; stopAllBut(si);
+  await playVerse(si,Math.max(0,pb[si].vi<=0?0:pb[si].vi-1));
+}
+async function pbNext(si){
+  if(!pb[si]) return; stopAllBut(si);
+  const data=cache[sKey(si)]; if(!data) return;
+  await playVerse(si,Math.min(data.ayahs.length-1,pb[si].vi+1));
+}
+function pbAuto(si,val){ if(!pb[si]) pb[si]={vi:-1,playing:false,auto:true,sweepTimer:null}; pb[si].auto=val; }
+
+/* ── NAV ── */
+function goTo(i){
+  QA.pause();
+  Object.keys(pb).forEach(k=>{ clearInterval(pb[k].sweepTimer); pb[k].playing=false; });
+  step=i; render(); window.scrollTo({top:0,behavior:'smooth'});
+}
+function restart(){ pb={}; cache={}; step=0; render(); }
+
+function render(){ renderProgress(); renderDots(); renderCard(); renderButtons(); }
+render();
+</script>
+</body>
+</html>
