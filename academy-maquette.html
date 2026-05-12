@@ -8,6 +8,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+    .pacifico {
+	    font-family: "Pacifico", cursive;
+      color: var(--pink);
+    }
+    
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
 
@@ -213,7 +219,7 @@
       align-items: center;
       position: relative;
       overflow: hidden;
-      padding: 170px 5% 120px;
+      padding: 150px 5% 120px;
     }
     .hero-bg {
       position: absolute;
@@ -274,21 +280,23 @@
     }
     .hero-rotator-wrap {
       display: block;
-      height: clamp(60px, 8.5vw, 115px);
+      height: clamp(80px, 11vw, 140px);
       overflow: hidden;
-      margin-bottom: 34px;
+      margin-bottom: 14px;
     }
     .hero-rotator {
       display: flex;
       flex-direction: column;
+      font-family: "Pacifico", cursive;
       animation: rotateText 9s infinite;
     }
     .hero-rotator span {
-      display: block;
-      height: clamp(60px, 8.5vw, 105px);
+      display: flex;
+      align-items: flex-start;
+      height: clamp(80px, 11vw, 140px);
+      padding-bottom: clamp(16px, 2.5vw, 30px);
       font-size: clamp(52px, 7.5vw, 86px);
-      font-weight: 800;
-      line-height: clamp(60px, 8.5vw, 98px);
+      line-height: 1.15;
       letter-spacing: -2.5px;
       color: var(--pink);
     }
@@ -305,7 +313,7 @@
       font-weight: 400;
       color: var(--gray);
       line-height: 1.85;
-      max-width: 500px;
+      max-width: 650px;
       margin-bottom: 44px;
     }
     .hero-actions {
@@ -458,7 +466,7 @@
 
     .phone-comments {
       position: absolute;
-      bottom: 68px;
+      bottom: 20px;
       left: 10px;
       right: 10px;
       display: flex;
@@ -708,6 +716,16 @@
       line-height: 1.75;
       margin-bottom: 24px;
     }
+    .formation-card p.coming-soon {
+      font-family: var(--font-heading);
+      font-size: 50px;
+      font-weight: 800;
+      text-align: center;
+      color: #210d29;
+      text-transform: uppercase;
+      margin-top: auto;
+      margin-bottom: 0;
+    }
     .formation-meta {
       display: flex;
       gap: 8px;
@@ -752,6 +770,11 @@
     .stat-hero {
       padding: 48px 60px 48px 0;
       border-right: 1px solid var(--gray-border);
+    }
+    .stat-hero-logo img {
+      max-width: 200px;
+      margin-bottom: 20px;
+      filter: brightness(100);
     }
     .stat-hero-number {
       font-size: clamp(80px, 12vw, 140px);
@@ -1359,6 +1382,7 @@
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
     }
     @media (max-width: 768px) {
+      .formation-card p.coming-soon { font-size: 30px; }
       .broadcast-bar { height: 32px; }
       nav { top: 32px; }
       nav.scrolled { top: 0; }
@@ -1435,17 +1459,17 @@
 ============================================================ -->
 <nav id="navbar">
   <div class="nav-logo">
-    <img src="https://capartenliveacademy.fr/wp-content/uploads/2025/07/Design-sans-titre-6-1-e1753819971412.png" alt="logo">
+    <img src="images/logo-academy.png" alt="logo">
   </div>
   <ul class="nav-links">
-    <li><a href="#formations">Formations</a></li>
+    <li><a href="#about">Qui sommes nous</a></li>
     <li><a href="#pourqui">Pour qui</a></li>
+    <li><a href="#formations">Formation</a></li>
+    <li><a href="#formateurs">L'équipe CPL</a></li>
     <li><a href="#temoignages">Témoignages</a></li>
-    <li><a href="#formateurs">Formateurs</a></li>
-    <li><a href="#agenda">Agenda</a></li>
   </ul>
   <div class="nav-cta">
-    <a href="#cta" class="btn-primary">Je m'inscris</a>
+    <a href="#cta" class="btn-primary">Demande ton appel</a>
   </div>
   <div class="hamburger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
@@ -1462,7 +1486,7 @@
   <div class="hero-content">
     <div class="live-badge fade-in">
       <div class="live-dot"></div>
-      Live Academy — 3 ans d'expertise
+      Live Academy
     </div>
 
     <h1 class="fade-in fade-in-delay-1">La formation qui fait</h1>
@@ -1475,8 +1499,8 @@
     </div>
 
     <p class="fade-in fade-in-delay-2">
-      La première académie de formation au live commerce, animée par des praticiens qui vendent en live chaque semaine.
-      Génère tes premières ventes dès ta première session.
+      Le premier centre de formation au Live Shopping TikTok, animé par des experts qui vendent en Live chaque semaine. 
+      Partner officiel TikTok Shop, une expertise reconnue pour t'accompagner à vendre efficacement sur la plateforme.
     </p>
 
     <div class="hero-actions fade-in fade-in-delay-3">
@@ -1497,10 +1521,9 @@
           </div>
         </div>
 
-        <div class="phone-handle">@cpel_academy</div>
+        <div class="phone-handle">@capartenlive.academy</div>
         <div class="phone-product-block">
           <div class="phone-product-name">Formation Live Shopping</div>
-          <div class="phone-product-price">297 €</div>
         </div>
 
         <div class="phone-waveform">
@@ -1515,13 +1538,6 @@
         <div class="phone-comment c3"><strong>lauram_shop</strong> +40% CA en 3 mois ✅</div>
       </div>
 
-      <div class="phone-buy-notif">
-        <div class="notif-left">
-          <span class="notif-label">Achat</span>
-          <span class="notif-text">Formation Starter</span>
-        </div>
-        <span class="notif-amount">297 €</span>
-      </div>
     </div>
   </div>
 
@@ -1547,29 +1563,29 @@
         <div class="about-ticker fade-in fade-in-delay-2">
           <div class="ticker-track">
             <span>Live Shopping</span>
-            <span class="ticker-track-logo"><img src="https://capartenliveacademy.fr/wp-content/uploads/2025/07/Design-sans-titre-6-1-e1753819971412.png" alt="logo"></span>
+            <span class="ticker-track-logo"><img src="images/logo-academy.png" alt="logo"></span>
             <span>TikTok Shop</span>
-            <span class="ticker-track-logo"><img src="https://capartenliveacademy.fr/wp-content/uploads/2025/07/Design-sans-titre-6-1-e1753819971412.png" alt="logo"></span>
+            <span class="ticker-track-logo"><img src="images/logo-academy.png" alt="logo"></span>
             <span>Stratégie de contenu</span>
-            <span class="ticker-track-logo"><img src="https://capartenliveacademy.fr/wp-content/uploads/2025/07/Design-sans-titre-6-1-e1753819971412.png" alt="logo"></span>
+            <span class="ticker-track-logo"><img src="images/logo-academy.png" alt="logo"></span>
             <span>Vente en direct</span>
-            <span class="ticker-track-logo"><img src="https://capartenliveacademy.fr/wp-content/uploads/2025/07/Design-sans-titre-6-1-e1753819971412.png" alt="logo"></span>
+            <span class="ticker-track-logo"><img src="images/logo-academy.png" alt="logo"></span>
             <span>Personal branding</span>
-            <span class="ticker-track-logo"><img src="https://capartenliveacademy.fr/wp-content/uploads/2025/07/Design-sans-titre-6-1-e1753819971412.png" alt="logo"></span>
+            <span class="ticker-track-logo"><img src="images/logo-academy.png" alt="logo"></span>
             <span>Monétisation</span>
-            <span class="ticker-track-logo"><img src="https://capartenliveacademy.fr/wp-content/uploads/2025/07/Design-sans-titre-6-1-e1753819971412.png" alt="logo"></span>
+            <span class="ticker-track-logo"><img src="images/logo-academy.png" alt="logo"></span>
             <span>Live Shopping</span>
-            <span class="ticker-track-logo"><img src="https://capartenliveacademy.fr/wp-content/uploads/2025/07/Design-sans-titre-6-1-e1753819971412.png" alt="logo"></span>
+            <span class="ticker-track-logo"><img src="images/logo-academy.png" alt="logo"></span>
             <span>TikTok Shop</span>
-            <span class="ticker-track-logo"><img src="https://capartenliveacademy.fr/wp-content/uploads/2025/07/Design-sans-titre-6-1-e1753819971412.png" alt="logo"></span>
+            <span class="ticker-track-logo"><img src="images/logo-academy.png" alt="logo"></span>
             <span>Stratégie de contenu</span>
-            <span class="ticker-track-logo"><img src="https://capartenliveacademy.fr/wp-content/uploads/2025/07/Design-sans-titre-6-1-e1753819971412.png" alt="logo"></span>
+            <span class="ticker-track-logo"><img src="images/logo-academy.png" alt="logo"></span>
             <span>Vente en direct</span>
-            <span class="ticker-track-logo"><img src="https://capartenliveacademy.fr/wp-content/uploads/2025/07/Design-sans-titre-6-1-e1753819971412.png" alt="logo"></span>
+            <span class="ticker-track-logo"><img src="images/logo-academy.png" alt="logo"></span>
             <span>Personal branding</span>
-            <span class="ticker-track-logo"><img src="https://capartenliveacademy.fr/wp-content/uploads/2025/07/Design-sans-titre-6-1-e1753819971412.png" alt="logo"></span>
+            <span class="ticker-track-logo"><img src="images/logo-academy.png" alt="logo"></span>
             <span>Monétisation</span>
-            <span class="ticker-track-logo"><img src="https://capartenliveacademy.fr/wp-content/uploads/2025/07/Design-sans-titre-6-1-e1753819971412.png" alt="logo"></span>
+            <span class="ticker-track-logo"><img src="images/logo-academy.png" alt="logo"></span>
           </div>
         </div>
 
@@ -1629,19 +1645,19 @@
 <section class="section-formations" id="formations">
   <div class="container">
     <div class="section-header">
-      <span class="label fade-in">NOS FORMATIONS</span>
+      <span class="label fade-in">NOTRE FORMATION</span>
       <h2 class="fade-in fade-in-delay-1">Des programmes taillés<br>pour performer en live</h2>
-      <p class="fade-in fade-in-delay-2">Du starter au pro — une formation pour chaque niveau et chaque objectif.</p>
+      <p class="fade-in fade-in-delay-2">Du commerçant traditionnel au commerçant 2.0 - La formation pour chaque niveau et chaque objectif.</p>
     </div>
 
     <div class="formations-grid">
       <div class="formation-card featured fade-in">
         <span class="card-num">01</span>
         <div class="card-badge">⚡ Plus populaire</div>
-        <h3>Live Shopping Starter</h3>
+        <h3>Accompagnement personnalisé</h3>
         <p>
-          Tout ce qu'il faut pour lancer et structurer ses premiers lives de vente.
-          De la préparation du script à l'animation en direct, on couvre tout le process.
+          La formation complète sur 3 Mois répartie sur 5 RDV's pour faire de toi un expert de l'ECOSYSTEM Tiktok. 
+          Un coaching dédié, des conseils personnalisés et un seul objectif <span class="pacifico">Performer!</span> 
         </p>
         <div class="formation-meta">
           <span class="meta-tag">1 jour intensif</span>
@@ -1653,49 +1669,11 @@
 
       <div class="formation-card fade-in fade-in-delay-1">
         <span class="card-num">02</span>
-        <h3>TikTok Shop Masterclass</h3>
-        <p>
-          Vendre sur TikTok Shop de A à Z : création de compte vendeur, stratégie de contenu,
-          affiliation et optimisation des lives pour maximiser les conversions.
-        </p>
-        <div class="formation-meta">
-          <span class="meta-tag">1 jour intensif</span>
-          <span class="meta-tag">Présentiel</span>
-          <span class="meta-tag">Intermédiaires</span>
-        </div>
-        <a href="#cta" class="btn-link">En savoir plus</a>
+        <h3>Formation TikTok Shop autonome</h3>
+        <p>Une formation en ligne pour maîtriser TikTok Shop à ton rythme.</p>
+        <p class="coming-soon">Coming soon</p>
       </div>
 
-      <div class="formation-card fade-in fade-in-delay-2">
-        <span class="card-num">03</span>
-        <h3>Formation Animateur Live</h3>
-        <p>
-          Techniques de présentation, posture caméra, gestion du stress et interaction avec l'audience.
-          Deviens un animateur qui captive et qui convertit.
-        </p>
-        <div class="formation-meta">
-          <span class="meta-tag">½ journée</span>
-          <span class="meta-tag">Présentiel</span>
-          <span class="meta-tag">Tous niveaux</span>
-        </div>
-        <a href="#cta" class="btn-link">En savoir plus</a>
-      </div>
-
-      <div class="formation-card fade-in fade-in-delay-3">
-        <span class="card-num">04</span>
-        <div class="card-badge">✦ Sur mesure</div>
-        <h3>Accompagnement Intensif</h3>
-        <p>
-          Coaching personnalisé 1:1 ou en petit groupe. On analyse ta situation, on définit ta stratégie
-          et on t'accompagne live par live jusqu'à tes objectifs.
-        </p>
-        <div class="formation-meta">
-          <span class="meta-tag">Sur mesure</span>
-          <span class="meta-tag">Hybride</span>
-          <span class="meta-tag">Avancés</span>
-        </div>
-        <a href="#cta" class="btn-link">Demander un devis</a>
-      </div>
     </div>
   </div>
 </section>
@@ -1707,10 +1685,10 @@
   <div class="container">
     <div class="stats-layout">
       <div class="stat-hero fade-in">
-        <div class="stat-hero-number">+500</div>
+        <div class="stat-hero-logo"><img src="images/tiktok-partner.png" alt="logo tiktok"></div>
+        <div class="stat-hero-number">+30k</div>
         <div class="stat-hero-label">
-          <strong>entrepreneurs, marques et créateurs</strong> ont déjà suivi nos formations
-          et vendent en live avec régularité.
+          <strong>entrepreneurs</strong> vendent actuellement sur TikTok Shop.
         </div>
       </div>
       <div class="stat-sub-grid">
@@ -1721,10 +1699,6 @@
         <div class="stat-sub fade-in fade-in-delay-2">
           <div class="stat-sub-number">+50</div>
           <div class="stat-sub-label">Lives accompagnés</div>
-        </div>
-        <div class="stat-sub fade-in fade-in-delay-3">
-          <div class="stat-sub-number">3 ans</div>
-          <div class="stat-sub-label">D'expertise live commerce</div>
         </div>
       </div>
     </div>
@@ -1861,8 +1835,9 @@
       <span class="label fade-in">EN ACTION</span>
       <h2 class="fade-in fade-in-delay-1">Vois ce qu'on enseigne<br>avant de t'inscrire</h2>
     </div>
-    <div class="video-wrapper fade-in">
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/tRLT1DkjqcM?si=bY54ZLvMvOpQSexr&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>      <div class="video-overlay">
+    <div class="video-wrapper fade-in" id="videoWrapper">
+        <iframe id="videoIframe" width="100%" height="100%" src="https://www.youtube.com/embed/tRLT1DkjqcM?si=bY54ZLvMvOpQSexr&amp;enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;inset:0;z-index:1;"></iframe>
+        <div class="video-overlay" id="videoOverlay" onclick="playVideo()">
         <div class="play-btn">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
             <path d="M8 5v14l11-7z"/>
@@ -2014,7 +1989,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="nav-logo">
-              <img src="https://capartenliveacademy.fr/wp-content/uploads/2025/07/Design-sans-titre-6-1-e1753819971412.png" alt="logo">
+            <img src="images/logo-academy.png" alt="logo">
         </div>
         <p>La première académie de formation au live commerce et TikTok Shop pour les marques et entrepreneurs qui veulent vendre en ligne avec efficacité.</p>
         <div class="footer-social">
@@ -2106,6 +2081,18 @@
       links.style.borderBottom = '1px solid rgba(255,255,255,0.07)';
     }
     cta.style.display = 'none';
+  }
+
+  // Play video on overlay click
+  function playVideo() {
+    const overlay = document.getElementById('videoOverlay');
+    const iframe = document.getElementById('videoIframe');
+    overlay.style.opacity = '0';
+    overlay.style.pointerEvents = 'none';
+    overlay.style.transition = 'opacity 0.4s ease';
+    // Reload iframe with autoplay
+    const src = iframe.src;
+    iframe.src = src + (src.includes('?') ? '&' : '?') + 'autoplay=1';
   }
 
   // Animated viewer counter in phone
